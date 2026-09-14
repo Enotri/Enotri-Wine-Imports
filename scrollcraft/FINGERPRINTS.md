@@ -28,6 +28,7 @@ changes only grammar and world will fail it.
 
 | Build | Grammar | Nav treatment | Hero device | Act-sequence shape | Close pattern | Signature move | World | Port |
 |---|---|---|---|---|---|---|---|---|
+| Enotri | Chaptered editorial | Fixed wordmark + vertical folio | Title page, then reveal | Flow / reveal / parallax / flow / reveal / flow | Colophon-style running invitation | Terroir contour trace that stamps each chapter | Warm paper, cellar charcoal, estate umber | 4500 |
 
 *(empty: your first build has nothing to clear, so build whatever the interview
 points at. From the second onwards, this table is the constraint.)*
@@ -41,7 +42,7 @@ reusing: a grammar, a nav treatment, a close pattern, a signature move, an
 act-count-and-length band. The shared columns are what the next build inherits
 as a constraint, so writing them down is the whole point.
 
-Nothing is taken yet.
+- Chaptered editorial with a fixed terroir trace and colophon close is now taken.
 
 ---
 
