@@ -70,3 +70,13 @@ The **terroir trace** is a fixed, narrow contour line at the bottom of the viewp
 ## Authored silence
 
 The land and invitation chapters intentionally contain pauses with very little copy. These are authored moments, not dead scroll.
+
+## Homepage rebuild direction
+
+The homepage was reskinned around the supplied Fora reference while keeping Enotri-specific content throughout:
+
+- Dark charcoal foundation with terracotta, burnt umber, muted gold, and dusty rose atmosphere.
+- Warm serif display type paired with a neutral sans-serif body face.
+- Navigation, hero, portfolio browser, intro, four-tab core features, three alternating feature blocks, three-step workflow, FAQ, journal, grower spotlight, and footer.
+- Interactive portfolio tabs and native FAQ accordions.
+- Rolling vineyard silhouettes replace the reference site's mountain silhouettes.

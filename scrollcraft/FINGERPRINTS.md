@@ -29,6 +29,7 @@ changes only grammar and world will fail it.
 | Build | Grammar | Nav treatment | Hero device | Act-sequence shape | Close pattern | Signature move | World | Port |
 |---|---|---|---|---|---|---|---|---|
 | Enotri | Chaptered editorial | Fixed wordmark + vertical folio | Title page, then reveal | Flow / reveal / parallax / flow / reveal / flow | Colophon-style running invitation | Terroir contour trace that stamps each chapter | Warm paper, cellar charcoal, estate umber | 4500 |
+| Enotri homepage rebuild | Editorial product surface | Logo, center nav, single price-list CTA | Dark atmospheric hero with portfolio browser | Hero / browser / intro / tabs / features / steps / FAQ / journal / spotlight | Grower spotlight and contact close | Interactive portfolio tabs with native FAQ accordions | Charcoal, terracotta, muted gold, dusty rose | 4500 |
 
 *(empty: your first build has nothing to clear, so build whatever the interview
 points at. From the second onwards, this table is the constraint.)*
@@ -43,6 +44,7 @@ act-count-and-length band. The shared columns are what the next build inherits
 as a constraint, so writing them down is the whole point.
 
 - Chaptered editorial with a fixed terroir trace and colophon close is now taken.
+- Dark Fora-inspired homepage surface with portfolio tabs and grower spotlight close is now taken.
 
 ---
 
