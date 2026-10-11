@@ -131,6 +131,16 @@ export const producers: Producer[] = [
         alt: "The Ferrero family among their vineyards in the Langhe hills",
         caption: "Four generations of the Ferrero family in the vineyards of Mango",
       },
+      {
+        src: "/images/producers/ferrero-federico/1.webp",
+        alt: "A grassy track between vine rows leading to a small chapel with a bell tower",
+        caption: "Between the rows, looking up to the chapel",
+      },
+      {
+        src: "/images/producers/ferrero-federico/2.webp",
+        alt: "A brick farmhouse with a tiled roof behind a flowering garden",
+        caption: "At the estate in Mango",
+      },
     ],
     region: "Mango, Piedmont",
     country: "Italy",
@@ -229,6 +239,24 @@ export const producers: Producer[] = [
   },
   {
     name: "Stellenrust Family Vineyards",
+    logo: "/images/producers/stellenrust-family-vineyards/1.webp",
+    tileFullBleed: true,
+    heroImage: {
+      src: "/images/producers/stellenrust-family-vineyards/1.webp",
+      alt: "Aerial view of a tractor and pickers working between long rows of vines at harvest",
+    },
+    gallery: [
+      {
+        src: "/images/producers/stellenrust-family-vineyards/2.webp",
+        alt: "Two men holding glasses of white wine, standing waist-deep in the vines",
+        caption: "Tasting in the vineyard",
+      },
+      {
+        src: "/images/producers/stellenrust-family-vineyards/3.webp",
+        alt: "A bunch of pale green grapes hanging among sunlit vine leaves",
+        caption: "White grapes ripening on the vine",
+      },
+    ],
     region: "Stellenbosch",
     country: "South Africa",
     farming: "WIETA & IPW certified",
@@ -347,11 +375,25 @@ export const producers: Producer[] = [
     name: "Viticultores de Lapuebla",
     logo: viticultoresBarrelsImg.url,
     tileFullBleed: true,
+    heroImage: {
+      src: "/images/producers/viticultores-de-lapuebla/1.webp",
+      alt: "Rows of low bush vines across a valley, with a long mountain ridge in the distance",
+    },
     gallery: [
       {
         src: viticultoresVineyardImg.url,
         alt: "A viticultor standing among old vines in Lapuebla de Labarca",
         caption: "Old vines in the clay-limestone soils of Lapuebla de Labarca",
+      },
+      {
+        src: "/images/producers/viticultores-de-lapuebla/2.webp",
+        alt: "Bush vines on a dry, rolling hillside dotted with trees",
+        caption: "Old bush vines in Rioja Alavesa",
+      },
+      {
+        src: "/images/producers/viticultores-de-lapuebla/3.webp",
+        alt: "Gnarled bush vines in spring leaf beneath a mountain ridge",
+        caption: "Fresh growth on the old vines",
       },
     ],
     region: "Rioja Alavesa",
@@ -417,6 +459,18 @@ export const producers: Producer[] = [
   },
   {
     name: "Weingut Brand",
+    gallery: [
+      {
+        src: "/images/producers/weingut-brand/1.webp",
+        alt: "Two cupped hands holding dark, crumbly soil with a small root trailing below",
+        caption: "A handful of vineyard soil",
+      },
+      {
+        src: "/images/producers/weingut-brand/2.webp",
+        alt: "Two men spraying sparkling wine in front of a wall painted with the words Pet Nat Party Wagon",
+        caption: "Daniel and Jonas Brand. Photo: Peter Bender",
+      },
+    ],
     region: "Pfalz",
     country: "Germany",
     farming: "Organic, native yeasts",
@@ -430,6 +484,19 @@ export const producers: Producer[] = [
   },
   {
     name: "Domaine Rougeot",
+    logo: "/images/producers/domaine-rougeot/1.webp",
+    tileFullBleed: true,
+    heroImage: {
+      src: "/images/producers/domaine-rougeot/1.webp",
+      alt: "A grassy farm track running between dry-stone walls through Burgundy vineyards",
+    },
+    gallery: [
+      {
+        src: "/images/producers/domaine-rougeot/2.webp",
+        alt: "Rows of staked vines on stony soil under a heavy, clouded sky",
+        caption: "Vines under a heavy sky",
+      },
+    ],
     region: "Bourgogne",
     country: "France",
     farming: "Organic conversion",
