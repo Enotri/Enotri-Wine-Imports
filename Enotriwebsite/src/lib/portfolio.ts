@@ -1,41 +1,40 @@
-import roncatheImg from "@/assets/roncathe_soave.jpg.asset.json";
-import granettoImg from "@/assets/granetto-pinot-grigio.png.asset.json";
-import carmenereImg from "@/assets/carmenere.jpg.asset.json";
-import roncatheSheet from "@/assets/roncathe-soave-tech-sheet.pdf.asset.json";
-import granettoSheet from "@/assets/granetto.pdf.asset.json";
-import calcareoSheet from "@/assets/calcareo.pdf.asset.json";
-import calcareo3Sheet from "@/assets/calcareo-3.pdf.asset.json";
-import corteMoschinaLogo from "@/assets/image002.jpg.asset.json";
-import ferreroImg from "@/assets/federico-ferrero.jpg.asset.json";
-import ferreroPortraitImg from "@/assets/federico-ferrero-2.jpg.asset.json";
-import ferreroFamilyImg from "@/assets/federico-ferrero-family.jpg.asset.json";
-import ferreroBottleImg from "@/assets/langhe-nebbiolo-nvie-wines.jpg.asset.json";
-import pasettiTeamImg from "@/assets/pasetti-team.jpg.asset.json";
-import pasettiFamilyImg from "@/assets/pasetti-family.jpg.asset.json";
-import pasettiHeroImg from "@/assets/pasetti-hero.jpg.asset.json";
-import zaccagniniVineyardImg from "@/assets/zaccagnini-vineyard.jpg.asset.json";
-import zaccagniniTeamImg from "@/assets/zaccagnini-team.jpg.asset.json";
-import argonautaImg from "@/assets/argonauta-verdicchio.png.asset.json";
-import passerinaImg from "@/assets/zaccagnini-passerina.png.asset.json";
-import verdicchioClassicoImg from "@/assets/zaccagnini-verdicchio-classico.png.asset.json";
-import herasCordonReservaImg from "@/assets/heras-cordon-reserva.webp.asset.json";
-import herasCordonVendimiaImg from "@/assets/heras-cordon-vendimia-seleccionada.webp.asset.json";
-import herasCordonTrioImg from "@/assets/heras-cordon-trio.webp.asset.json";
-import elPropositoImg from "@/assets/el-proposito.avif.asset.json";
-import lapueblaGalacticoImg from "@/assets/lapuebla-galactico.avif.asset.json";
-import viticultoresBarrelsImg from "@/assets/viticultores-barrels.webp.asset.json";
-import viticultoresVineyardImg from "@/assets/viticultores-vineyard.jpg.asset.json";
-import chateauCaractereImg from "@/assets/chateau-caractere.png.asset.json";
-import chateauGrainsFinsImg from "@/assets/chateau-grains-fins.png.asset.json";
-import chateauLesChosesALEnversImg from "@/assets/chateau-les-choses-a-lenvers.png.asset.json";
-import chateauLesChosesEnRoseImg from "@/assets/chateau-les-choses-en-rose.png.asset.json";
-import chateauLesChosesQuOnAimeImg from "@/assets/chateau-les-choses-quon-aime.png.asset.json";
-import chateauNectarImg from "@/assets/chateau-nectar.png.asset.json";
-import chateauVineyardImg from "@/assets/chateau-de-la-grave-vineyard.jpg.asset.json";
-import chateauCaractereSheet from "@/assets/chateau-caractere.pdf.asset.json";
-import chateauGrainsFinsSheet from "@/assets/chateau-grains-fins.pdf.asset.json";
-import chateauLesChosesALEnversSheet from "@/assets/chateau-les-choses-a-lenvers.pdf.asset.json";
-
+const roncatheImg = { url: "/images/site/roncathe_soave.webp" };
+const granettoImg = { url: "/images/site/granetto-pinot-grigio.webp" };
+const carmenereImg = { url: "/images/site/carmenere.webp" };
+const roncatheSheet = { url: "/docs/roncathe-soave-tech-sheet.pdf" };
+const granettoSheet = { url: "/docs/granetto.pdf" };
+const calcareoSheet = { url: "/docs/calcareo.pdf" };
+const calcareo3Sheet = { url: "/docs/calcareo-3.pdf" };
+const corteMoschinaLogo = { url: "/images/site/image002.webp" };
+const ferreroImg = { url: "/images/site/federico-ferrero.webp" };
+const ferreroPortraitImg = { url: "/images/site/federico-ferrero-2.webp" };
+const ferreroFamilyImg = { url: "/images/site/federico-ferrero-family.webp" };
+const ferreroBottleImg = { url: "/images/site/langhe-nebbiolo-nvie-wines.webp" };
+const pasettiTeamImg = { url: "/images/site/pasetti-team.webp" };
+const pasettiFamilyImg = { url: "/images/site/pasetti-family.webp" };
+const pasettiHeroImg = { url: "/images/site/pasetti-hero.webp" };
+const zaccagniniVineyardImg = { url: "/images/site/zaccagnini-vineyard.webp" };
+const zaccagniniTeamImg = { url: "/images/site/zaccagnini-team.webp" };
+const argonautaImg = { url: "/images/site/argonauta-verdicchio.webp" };
+const passerinaImg = { url: "/images/site/zaccagnini-passerina.webp" };
+const verdicchioClassicoImg = { url: "/images/site/zaccagnini-verdicchio-classico.webp" };
+const herasCordonReservaImg = { url: "/images/site/heras-cordon-reserva.webp" };
+const herasCordonVendimiaImg = { url: "/images/site/heras-cordon-vendimia-seleccionada.webp" };
+const herasCordonTrioImg = { url: "/images/site/heras-cordon-trio.webp" };
+const elPropositoImg = { url: "/images/site/el-proposito.webp" };
+const lapueblaGalacticoImg = { url: "/images/site/lapuebla-galactico.webp" };
+const viticultoresBarrelsImg = { url: "/images/site/viticultores-barrels.webp" };
+const viticultoresVineyardImg = { url: "/images/site/viticultores-vineyard.webp" };
+const chateauCaractereImg = { url: "/images/site/chateau-caractere.webp" };
+const chateauGrainsFinsImg = { url: "/images/site/chateau-grains-fins.webp" };
+const chateauLesChosesALEnversImg = { url: "/images/site/chateau-les-choses-a-lenvers.webp" };
+const chateauLesChosesEnRoseImg = { url: "/images/site/chateau-les-choses-en-rose.webp" };
+const chateauLesChosesQuOnAimeImg = { url: "/images/site/chateau-les-choses-quon-aime.webp" };
+const chateauNectarImg = { url: "/images/site/chateau-nectar.webp" };
+const chateauVineyardImg = { url: "/images/site/chateau-de-la-grave-vineyard.webp" };
+const chateauCaractereSheet = { url: "/docs/chateau-caractere.pdf" };
+const chateauGrainsFinsSheet = { url: "/docs/chateau-grains-fins.pdf" };
+const chateauLesChosesALEnversSheet = { url: "/docs/chateau-les-choses-a-lenvers.pdf" };
 
 export type Wine = {
   name: string;
@@ -50,7 +49,6 @@ export type Wine = {
   techSheet?: string;
 };
 
-
 export type Producer = {
   name: string;
   logo?: string;
@@ -58,7 +56,7 @@ export type Producer = {
   logoContainsName?: boolean;
   tileFullBleed?: boolean;
   heroImage?: { src: string; alt: string; caption?: string };
-  gallery?: { src: string; alt: string; caption: string }[];
+  gallery?: { src: string; alt: string; caption: string; group?: string }[];
   region: string;
   country: string;
   farming: string;
@@ -84,6 +82,11 @@ export const producers: Producer[] = [
     name: "Corte Moschina",
     logo: corteMoschinaLogo.url,
     logoContainsName: true,
+    heroImage: {
+      src: "/images/site/corte-moschina-family.webp",
+      alt: "The Corte Moschina family standing among the vines in Roncà",
+      caption: "The Corte Moschina family in their Roncà vineyards",
+    },
     region: "Roncà, Veneto",
     country: "Italy",
     farming: "Organic",
@@ -135,8 +138,18 @@ export const producers: Producer[] = [
     gallery: [
       {
         src: pasettiFamilyImg.url,
-        alt: "The Pasetti family in front of a mural of the Abruzzo landscape",
-        caption: "The Pasetti family — custodians of the Gran Sasso vineyards",
+        alt: "Barrels in the Pasetti cellar",
+        caption: "The Pasetti barrel cellar",
+      },
+      {
+        src: "/images/site/pasetti-estate.webp",
+        alt: "The stone Pasetti estate building and its brick staircase",
+        caption: "The Pasetti estate in Pescosansonesco",
+      },
+      {
+        src: "/images/site/pasetti-vineyard.webp",
+        alt: "Pasetti vineyards at sunset beneath a hilltop village",
+        caption: "Vineyards at dusk in the Abruzzo hills",
       },
     ],
     region: "Pescosansonesco, Abruzzo",
@@ -349,6 +362,229 @@ export const producers: Producer[] = [
     name: "Château de la Grave",
     logo: chateauVineyardImg.url,
     tileFullBleed: true,
+    heroImage: {
+      src: "/images/grave/estate-bordeaux.webp",
+      alt: "Château de la Grave beneath a dramatic sky, vineyard in the foreground",
+      caption: "Château de la Grave, Côtes de Bourg",
+    },
+    gallery: [
+      {
+        src: "/images/grave/estate-bordeaux.webp",
+        group: "The estate",
+        alt: "Château de la Grave under a dramatic sky beside a vineyard track",
+        caption: "The château on its Côtes de Bourg slope",
+      },
+      {
+        src: "/images/grave/estate-dji202608022204300058d.webp",
+        group: "The estate",
+        alt: "Château de la Grave seen from above at dusk",
+        caption: "Evening light over the estate",
+      },
+      {
+        src: "/images/grave/estate-017.webp",
+        group: "The estate",
+        alt: "Turreted façade of Château de la Grave against blue sky",
+        caption: "The turreted façade",
+      },
+      {
+        src: "/images/grave/estate-chateau.webp",
+        group: "The estate",
+        alt: "Château de la Grave framed by trees on its drive",
+        caption: "The drive to the château",
+      },
+      {
+        src: "/images/grave/estate-chateaux.webp",
+        group: "The estate",
+        alt: "Château de la Grave beside a gravel road through the vines",
+        caption: "The road through the vines",
+      },
+      {
+        src: "/images/grave/estate-welcomechateaux.webp",
+        group: "The estate",
+        alt: "Open iron gates leading toward the vineyards",
+        caption: "The gates to the vines",
+      },
+      {
+        src: "/images/grave/estate-img-20230712-wa0005.webp",
+        group: "The estate",
+        alt: "Stone wing of the château with climbing vines",
+        caption: "The stone wing in autumn",
+      },
+      {
+        src: "/images/grave/estate-poz0245.webp",
+        group: "The estate",
+        alt: "Château rising over green vine rows",
+        caption: "Summer vines below the château",
+      },
+      {
+        src: "/images/grave/vineyard-img9867-2.webp",
+        group: "Vineyards",
+        alt: "Château de la Grave behind a tree-lined hillside",
+        caption: "Gravel and clay-limestone slopes",
+      },
+      {
+        src: "/images/grave/vineyard-img-20260903-wa0056.webp",
+        group: "Vineyards",
+        alt: "Château skyline behind a bank of vines",
+        caption: "Merlot and Malbec parcels",
+      },
+      {
+        src: "/images/grave/vineyard-20260411111828.webp",
+        group: "Vineyards",
+        alt: "Sheep grazing a green Bordeaux hillside in spring",
+        caption: "Grazing between the rows",
+      },
+      {
+        src: "/images/grave/vineyard-20260625072404.webp",
+        group: "Vineyards",
+        alt: "A horse grazing in the dry grass of the vineyard",
+        caption: "A horse at work on the estate",
+      },
+      {
+        src: "/images/grave/vineyard-20260903074413.webp",
+        group: "Vineyards",
+        alt: "Wildflowers in front of the vines at sunrise",
+        caption: "Wildflowers at first light",
+      },
+      {
+        src: "/images/grave/vineyard-europe-2017-0841ps.webp",
+        group: "Vineyards",
+        alt: "A cluster of ripe blue grapes among green leaves",
+        caption: "Ripe red grapes",
+      },
+      {
+        src: "/images/grave/vineyard-img-20260718-wa0000.webp",
+        group: "Vineyards",
+        alt: "Grapes colouring at véraison",
+        caption: "Véraison in July",
+      },
+      {
+        src: "/images/grave/vineyard-img-20220528-wa0024.webp",
+        group: "Vineyards",
+        alt: "Sheep resting beneath the château walls",
+        caption: "Sheep beneath the walls",
+      },
+      {
+        src: "/images/grave/harvest-harvestwhitegrapes.webp",
+        group: "Harvest",
+        alt: "Crates of white grapes on a trailer with pickers behind",
+        caption: "White grapes arriving from the vines",
+      },
+      {
+        src: "/images/grave/harvest-2025harvest.webp",
+        group: "Harvest",
+        alt: "Two pickers carrying a red crate through the vines",
+        caption: "Picking by hand",
+      },
+      {
+        src: "/images/grave/harvest-beautifulphoto.webp",
+        group: "Harvest",
+        alt: "Hand holding a bunch of dark grapes",
+        caption: "The first bunches",
+      },
+      {
+        src: "/images/grave/harvest-image00015.webp",
+        group: "Harvest",
+        alt: "A picker emptying a crate of grapes",
+        caption: "Emptying the crate",
+      },
+      {
+        src: "/images/grave/harvest-image00025.webp",
+        group: "Harvest",
+        alt: "Grapes tipped into a tub at sunset",
+        caption: "Tipping into the bin",
+      },
+      {
+        src: "/images/grave/harvest-20210930084336.webp",
+        group: "Harvest",
+        alt: "Grapes pouring from a harvester under a blue sky",
+        caption: "Machine harvest",
+      },
+      {
+        src: "/images/grave/harvest-img-20260828-wa0001.webp",
+        group: "Harvest",
+        alt: "A hand offering a bunch of white grapes",
+        caption: "White grapes at ripeness",
+      },
+      {
+        src: "/images/grave/harvest-img-20260828-wa0005.webp",
+        group: "Harvest",
+        alt: "Winemaker standing among the vines at harvest",
+        caption: "Walking the rows",
+      },
+      {
+        src: "/images/grave/people-famille-bassereau.webp",
+        group: "The family",
+        alt: "Three members of the Bassereau family smiling together",
+        caption: "The Bassereau family",
+      },
+      {
+        src: "/images/grave/people-lou-bassereau-3.webp",
+        group: "The family",
+        alt: "Lou Bassereau standing among the vine rows",
+        caption: "Lou in the vines",
+      },
+      {
+        src: "/images/grave/people-lou-bassereau-4.webp",
+        group: "The family",
+        alt: "Lou Bassereau pruning a vine",
+        caption: "Pruning in winter",
+      },
+      {
+        src: "/images/grave/people-20250721174902.webp",
+        group: "The family",
+        alt: "A father and child picking grapes together",
+        caption: "Picking together",
+      },
+      {
+        src: "/images/grave/people-family.webp",
+        group: "The family",
+        alt: "A winemaker sitting in the grass with a white guard dog",
+        caption: "With the estate dog",
+      },
+      {
+        src: "/images/grave/people-20220727214346.webp",
+        group: "The family",
+        alt: "A relaxed moment on a bench with the dog",
+        caption: "A moment of rest",
+      },
+      {
+        src: "/images/grave/cellar-2.webp",
+        group: "The cellar",
+        alt: "Terracotta amphorae glowing in warm light",
+        caption: "Terracotta jars for Dolia",
+      },
+      {
+        src: "/images/grave/cellar-img-20260903-wa0036.webp",
+        group: "The cellar",
+        alt: "Terracotta jars in the dim cellar",
+        caption: "Amphorae in the cellar",
+      },
+      {
+        src: "/images/grave/cellar-20260907160119.webp",
+        group: "The cellar",
+        alt: "Rows of oak barrels beneath wooden beams",
+        caption: "The barrel hall",
+      },
+      {
+        src: "/images/grave/cellar-img-20260903-wa0011.webp",
+        group: "The cellar",
+        alt: "Stacked barrels in warm light",
+        caption: "Barrels in warm light",
+      },
+      {
+        src: "/images/grave/cellar-img-20260903-wa0030.webp",
+        group: "The cellar",
+        alt: "Large oak foudres lining the cellar",
+        caption: "Large foudres",
+      },
+      {
+        src: "/images/grave/cellar-img-20260903-wa0052.webp",
+        group: "The cellar",
+        alt: "Barrel stacks and a ladder in the cellar",
+        caption: "Cellar racks",
+      },
+    ],
     region: "Côtes de Bourg",
     country: "France",
     farming: "Certified organic (Ecocert) & in conversion",
@@ -361,7 +597,6 @@ export const producers: Producer[] = [
     ],
   },
 ];
-
 
 export const wines: Wine[] = [
   {
@@ -795,12 +1030,6 @@ export const wines: Wine[] = [
   },
 ];
 
-
 export const legendary = wines.filter((w) =>
-  [
-    "I Tarai",
-    "Le Fole Aglianico",
-    "Meursault 'Les Durots'",
-    
-  ].includes(w.name),
+  ["I Tarai", "Le Fole Aglianico", "Meursault 'Les Durots'"].includes(w.name),
 );

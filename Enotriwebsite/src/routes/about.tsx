@@ -1,8 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
-import cellarAsset from "@/assets/cellar_photo.webp.asset.json";
-import founderAsset from "@/assets/rawlings-munemo.jpg.asset.json";
-import soilHandsAsset from "@/assets/sustainability-soil-hands.jpg.asset.json";
-import { CtaBand, Section } from "@/components/page-parts";
+const cellarAsset = { url: "/images/site/cellar_photo.webp" };
+const founderAsset = { url: "/images/site/rawlings-munemo.webp" };
+const soilHandsAsset = { url: "/images/site/sustainability-soil-hands.webp" };
+import {
+  CtaBand,
+  Section,
+  PhotoGallery,
+  eventPhotos,
+  peoplePhotos,
+  landPhotos,
+} from "@/components/page-parts";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -119,6 +126,42 @@ function About() {
         </div>
       </Section>
 
+      <Section>
+        <h2 className="text-3xl md:text-4xl">In the cellars and on the floor</h2>
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+          Tasting at the estates, working the harvest and pouring for Alberta's sommeliers.
+        </p>
+        <div className="mt-10 grid gap-4 md:grid-cols-3">
+          {[
+            {
+              src: "/images/site/tasting-nitida.webp",
+              alt: "Tasting wines in a barrel hall at a South African estate",
+              pos: "object-[center_30%]",
+            },
+            {
+              src: "/images/site/harvest-crush.webp",
+              alt: "A cellar hand punching down red grape must in a fermentation vat during harvest",
+              pos: "object-[center_60%]",
+            },
+            {
+              src: "/images/site/trade-tasting-team.webp",
+              alt: "A wine service team standing at a bar in front of a wall of bottles",
+              pos: "object-center",
+            },
+          ].map((p) => (
+            <img
+              key={p.src}
+              src={p.src}
+              alt={p.alt}
+              loading="lazy"
+              className={`aspect-[4/5] w-full rounded-md object-cover ${p.pos}`}
+            />
+          ))}
+        </div>
+      </Section>
+
+      <PhotoGallery title="The people" photos={peoplePhotos} />
+      <PhotoGallery title="Trade tastings and events" photos={eventPhotos} />
       <CtaBand />
     </>
   );

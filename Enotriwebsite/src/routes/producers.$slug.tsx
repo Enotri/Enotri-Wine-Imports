@@ -37,45 +37,55 @@ function ProducerDetail() {
 
   return (
     <>
-      <section className="border-b border-border bg-secondary/40">
-        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-          <p className="eyebrow">
-            <Link to="/producers" className="transition-colors hover:text-primary">
-              Producers
-            </Link>
-            <span className="mx-3 text-muted-foreground">/</span>
-            {producer.region}, {producer.country}
-          </p>
-          {producer.logo && (
-            <img
-              src={producer.logo}
-              alt={`${producer.name} logo`}
-              className="mt-8 h-20 w-auto rounded-sm object-contain"
-            />
-          )}
-          <h1 className="mt-4 max-w-3xl text-4xl leading-[1.05] md:text-6xl">{producer.name}</h1>
-
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            {producer.summary}
-          </p>
-
-          {producer.heroImage && (
-            <figure className="mt-10">
+      {producer.heroImage && (
+        <section className="relative isolate flex min-h-[80vh] items-end overflow-hidden border-b border-border">
+          <img
+            src={producer.heroImage.src}
+            alt={producer.heroImage.alt}
+            loading="eager"
+            className="absolute inset-0 -z-10 h-full w-full object-cover object-[center_30%]"
+          />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
+          <div className="mx-auto w-full max-w-6xl px-6 pb-12 text-white md:pb-16">
+            <p className="text-sm text-white/80">
+              <Link to="/producers" className="hover:underline">
+                Producers
+              </Link>
+              <span className="mx-3">/</span>
+              {producer.region}, {producer.country}
+            </p>
+            <h1 className="mt-3 max-w-3xl text-5xl leading-[1.05] md:text-7xl">{producer.name}</h1>
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/90">
+              {producer.summary}
+            </p>
+          </div>
+        </section>
+      )}
+      {!producer.heroImage && (
+        <section className="border-b border-border bg-secondary/40">
+          <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+            <p className="eyebrow">
+              <Link to="/producers" className="transition-colors hover:text-primary">
+                Producers
+              </Link>
+              <span className="mx-3 text-muted-foreground">/</span>
+              {producer.region}, {producer.country}
+            </p>
+            {producer.logo && (
               <img
-                src={producer.heroImage.src}
-                alt={producer.heroImage.alt}
-                loading="eager"
-                className="aspect-[21/9] w-full rounded-md object-cover shadow-soft"
+                src={producer.logo}
+                alt={`${producer.name} logo`}
+                className="mt-8 h-20 w-auto rounded-sm object-contain"
               />
-              {producer.heroImage.caption && (
-                <figcaption className="mt-3 text-sm text-muted-foreground">
-                  {producer.heroImage.caption}
-                </figcaption>
-              )}
-            </figure>
-          )}
-        </div>
-      </section>
+            )}
+            <h1 className="mt-4 max-w-3xl text-4xl leading-[1.05] md:text-6xl">{producer.name}</h1>
+
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+              {producer.summary}
+            </p>
+          </div>
+        </section>
+      )}
 
       <Section>
         <div className="grid gap-12 lg:grid-cols-[1fr_18rem]">
@@ -102,12 +112,14 @@ function ProducerDetail() {
                 </dt>
                 <dd className="mt-1">{producer.farming}</dd>
               </div>
-              <div>
-                <dt className="text-[0.65rem] uppercase tracking-[0.16em] text-muted-foreground">
-                  Wines in portfolio
-                </dt>
-                <dd className="mt-1">{theirWines.length}</dd>
-              </div>
+              {theirWines.length > 0 && (
+                <div>
+                  <dt className="text-[0.65rem] uppercase tracking-[0.16em] text-muted-foreground">
+                    Wines in portfolio
+                  </dt>
+                  <dd className="mt-1">{theirWines.length}</dd>
+                </div>
+              )}
             </dl>
           </aside>
         </div>
@@ -117,21 +129,37 @@ function ProducerDetail() {
         <Section>
           <p className="eyebrow">At the estate</p>
           <h2 className="mt-4 text-3xl md:text-4xl">{producer.name} in pictures</h2>
-          <div className="mt-10 grid gap-8 md:grid-cols-2">
-            {producer.gallery.map((photo) => (
-              <figure key={photo.src}>
-                <img
-                  src={photo.src}
-                  alt={photo.alt}
-                  loading="lazy"
-                  className="aspect-[3/2] w-full rounded-md object-cover shadow-soft"
-                />
-                <figcaption className="mt-3 text-sm text-muted-foreground">
-                  {photo.caption}
-                </figcaption>
-              </figure>
-            ))}
-          </div>
+          {(() => {
+            const groups: {
+              name?: string | undefined;
+              photos: NonNullable<typeof producer.gallery>;
+            }[] = [];
+            for (const photo of producer.gallery) {
+              const last = groups[groups.length - 1];
+              if (last && last.name === photo.group) last.photos.push(photo);
+              else groups.push({ name: photo.group, photos: [photo] });
+            }
+            return groups.map((g) => (
+              <div key={g.name ?? "all"} className="mt-12">
+                {g.name && <h3 className="text-xl md:text-2xl">{g.name}</h3>}
+                <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {g.photos.map((photo) => (
+                    <figure key={photo.src}>
+                      <img
+                        src={photo.src}
+                        alt={photo.alt}
+                        loading="lazy"
+                        className="aspect-[3/2] w-full rounded-md object-cover shadow-soft"
+                      />
+                      <figcaption className="mt-2 text-sm text-muted-foreground">
+                        {photo.caption}
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            ));
+          })()}
         </Section>
       )}
 

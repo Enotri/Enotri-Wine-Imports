@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import estateAsset from "@/assets/160.1.jpg.asset.json";
+const estateAsset = { url: "/images/grave/people-famille-bassereau.webp" };
 import { PageHero, Section } from "@/components/page-parts";
 
 const EMAIL = "rallings@enotri.ca";

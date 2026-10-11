@@ -2,8 +2,15 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { useMemo, useState } from "react";
 import { producerSlug, producers } from "@/lib/portfolio";
-import { CtaBand, Section } from "@/components/page-parts";
-import producerHeroAsset from "@/assets/producer-first-page.jpg.asset.json";
+import {
+  CtaBand,
+  Section,
+  PhotoGallery,
+  eventPhotos,
+  peoplePhotos,
+  landPhotos,
+} from "@/components/page-parts";
+const producerHeroAsset = { url: "/images/site/producer-first-page.webp" };
 
 export const Route = createFileRoute("/producers/")({
   head: () => ({
@@ -170,6 +177,7 @@ function Producers() {
         )}
       </Section>
 
+      <PhotoGallery title="Trade tastings and events" photos={eventPhotos} />
       <CtaBand />
     </>
   );

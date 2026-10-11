@@ -21,6 +21,27 @@ npm i
 npm run dev
 ```
 
+## Screenshots
+
+Playwright can capture the public pages at desktop and mobile sizes:
+
+```sh
+bunx playwright install chromium
+bun run screenshots
+```
+
+Screenshots are written to `screenshots/desktop/` and `screenshots/mobile/`.
+
+To capture the same routes with Puppeteer instead:
+
+```sh
+bun run screenshots:puppeteer
+```
+
+Puppeteer starts the local dev server when one is not already running. Set
+`SCREENSHOT_BASE_URL` to capture from a different running instance. Its images
+are written to `screenshots/puppeteer/desktop/` and `screenshots/puppeteer/mobile/`.
+
 ## Built with
 
 - TanStack Start

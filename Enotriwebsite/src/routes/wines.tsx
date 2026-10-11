@@ -1,11 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { producerByName, producerSlug, wines } from "@/lib/portfolio";
-import { CtaBand, Section } from "@/components/page-parts";
-import testarossa from "@/assets/testarossa_montepulciano_2019.jpg.asset.json";
-import madonnella from "@/assets/madonnella.jpg.asset.json";
-import collecivetta from "@/assets/collecivetta.jpg.asset.json";
-import winesHero from "@/assets/HOME_SCREEN.webp.asset.json";
+import {
+  CtaBand,
+  Section,
+  PhotoGallery,
+  eventPhotos,
+  peoplePhotos,
+  landPhotos,
+} from "@/components/page-parts";
+const testarossa = { url: "/images/site/testarossa_montepulciano_2019.webp" };
+const madonnella = { url: "/images/site/madonnella.webp" };
+const collecivetta = { url: "/images/site/collecivetta.webp" };
+const winesHero = { url: "/images/site/vineyard-prosecco.webp" };
 
 const featuredBottles = [
   { src: collecivetta.url, name: "Collecivetta Pecorino", producer: "Pasetti" },
@@ -249,6 +256,7 @@ function Wines() {
         )}
       </Section>
 
+      <PhotoGallery title="Bottles and landscapes" photos={landPhotos} />
       <CtaBand />
     </>
   );

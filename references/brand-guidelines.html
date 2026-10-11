@@ -1,0 +1,594 @@
+<title>Enotri Brand Guidelines</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+  :root{
+    /* Enotri's own tokens, carried over from the live build (enotri.css). */
+    --cellar:#0d0d0c;
+    --panel:#191917;
+    --panel-2:#20201d;
+    --paper:#f0e8dc;
+    --taupe:#a49b8f;
+    --line: rgba(232,220,204,.16);
+    --line-strong: rgba(232,220,204,.3);
+    --gold:#d2a16d;
+    --umber:#a85c43;
+    --cream:#eee2d1;
+    --serif:"Fraunces", Georgia, serif;
+    --sans:"DM Sans", -apple-system, sans-serif;
+    --gutter: clamp(1.25rem, 5vw, 4.5rem);
+    --rail-w: 15rem;
+  }
+
+  /* Enotri's digital surfaces commit to one warm-dark register — no light
+     variant. That is the brand's own choice (see enotri.css), carried here
+     deliberately rather than omitted. */
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; background:var(--cellar); }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+  body{
+    margin:0; background:var(--cellar); color:var(--paper);
+    font-family:var(--sans); font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{ display:block; max-width:100%; }
+  a{ color:inherit; }
+  h1,h2,h3,h4{ font-family:var(--serif); font-weight:400; margin:0; letter-spacing:-.02em; }
+  p{ margin:0; color:var(--taupe); }
+  ::selection{ background:var(--gold); color:var(--cellar); }
+  :focus-visible{ outline:1.5px solid var(--gold); outline-offset:3px; }
+
+  .eyebrow{
+    display:block; font-family:var(--sans); font-weight:600; font-size:.68rem;
+    letter-spacing:.17em; text-transform:uppercase; color:var(--gold); margin-bottom:.9rem;
+  }
+  .rule{ height:1px; background:var(--line); border:0; margin:0; }
+
+  /* ---------------------------------------------------------------- rail -- */
+  .rail{
+    position:fixed; top:0; left:0; bottom:0; width:var(--rail-w);
+    padding:2.4rem 1.6rem; border-right:1px solid var(--line);
+    display:flex; flex-direction:column; justify-content:space-between;
+    z-index:20;
+  }
+  .rail-top a{
+    display:block; font-family:var(--serif); font-size:1.05rem; color:var(--paper);
+    text-decoration:none; margin-bottom:2.6rem;
+  }
+  .rail-top a span{ display:block; font-family:var(--sans); font-size:.62rem; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--taupe); margin-top:.35rem; }
+  .rail-nav{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.15rem; }
+  .rail-nav a{
+    display:flex; gap:.7rem; align-items:baseline; padding:.5rem 0; text-decoration:none;
+    font-size:.78rem; color:var(--taupe); border-left:2px solid transparent; padding-left:.8rem;
+    margin-left:-.8rem; transition:color .2s, border-color .2s;
+  }
+  .rail-nav a .idx{ font-family:var(--sans); color:var(--taupe); opacity:.6; font-size:.68rem; }
+  .rail-nav a.active{ color:var(--paper); border-left-color:var(--gold); }
+  .rail-nav a.active .idx{ color:var(--gold); opacity:1; }
+  .rail-foot{ font-size:.65rem; color:var(--taupe); opacity:.7; line-height:1.6; }
+
+  main{ margin-left:var(--rail-w); }
+  @media (max-width: 920px){
+    .rail{ position:static; width:auto; height:auto; flex-direction:row; align-items:center;
+      overflow-x:auto; padding:1rem var(--gutter); border-right:0; border-bottom:1px solid var(--line); gap:2rem; }
+    .rail-top a{ margin-bottom:0; white-space:nowrap; }
+    .rail-nav{ flex-direction:row; gap:1.1rem; }
+    .rail-nav a{ padding:.2rem 0; white-space:nowrap; border-left:0; margin-left:0; border-bottom:2px solid transparent; }
+    .rail-nav a.active{ border-left-color:transparent; border-bottom-color:var(--gold); }
+    .rail-foot{ display:none; }
+    main{ margin-left:0; }
+  }
+
+  /* ------------------------------------------------------------- sections -- */
+  section{ padding:clamp(3.5rem,8vw,6.5rem) 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:0; }
+  .wrap{ width:min(64rem, calc(100% - 2 * var(--gutter))); margin:0 auto; }
+  .kicker{ display:flex; align-items:baseline; gap:1rem; margin-bottom:2.6rem; }
+  .kicker .num{ font-family:var(--serif); font-size:1rem; color:var(--gold); }
+  .kicker h2{ font-size:clamp(1.7rem, 3vw, 2.5rem); }
+
+  /* ----------------------------------------------------------------- hero -- */
+  .cover{ padding-top:clamp(4rem,10vw,6rem); border-bottom:1px solid var(--line);
+    background:
+      radial-gradient(ellipse at 76% 18%, rgba(173,103,77,.34), transparent 40%),
+      radial-gradient(ellipse at 20% 70%, rgba(112,57,41,.28), transparent 45%),
+      var(--cellar);
+  }
+  .cover .eyebrow{ margin-bottom:1.6rem; }
+  .cover .wordmark{ width:min(26rem, 70vw); filter:brightness(0) invert(1); opacity:.94; }
+  .cover .tagline{ font-family:var(--serif); font-size:clamp(1.1rem,2vw,1.4rem); color:var(--gold);
+    margin-top:1.6rem; letter-spacing:.02em; }
+  .cover .meta-row{ display:flex; flex-wrap:wrap; gap:.5rem 1.6rem; margin-top:2.6rem;
+    padding-top:1.6rem; border-top:1px solid var(--line); font-size:.72rem; color:var(--taupe);
+    letter-spacing:.04em; text-transform:uppercase; }
+  .cover .position{ max-width:38rem; margin-top:2.2rem; font-size:1.1rem; line-height:1.7; color:var(--paper); }
+  .cover .position em{ font-style:normal; color:var(--gold); }
+  .cover-foot{ padding-bottom:3rem; }
+
+  /* --------------------------------------------------------------- essence -- */
+  .pull{ font-family:var(--serif); font-size:clamp(1.5rem,3vw,2.2rem); line-height:1.28; max-width:34rem;
+    color:var(--paper); letter-spacing:-.01em; }
+  .tags{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top:2.2rem; }
+  .tag{ padding:.4rem .85rem; border:1px solid var(--line-strong); border-radius:999px; font-size:.72rem;
+    color:var(--paper); letter-spacing:.03em; }
+  .refs{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); margin-top:3rem; }
+  .ref{ background:var(--cellar); padding:1.6rem; }
+  .ref .eyebrow{ margin-bottom:.7rem; }
+  .ref h3{ font-size:1.15rem; margin-bottom:.5rem; }
+  .ref p{ font-size:.85rem; }
+  blockquote{ margin:3rem 0 0; padding-left:1.4rem; border-left:2px solid var(--gold);
+    font-family:var(--serif); font-size:clamp(1.2rem,2.4vw,1.6rem); line-height:1.4; color:var(--paper);
+    max-width:36rem; }
+  blockquote cite{ display:block; margin-top:.9rem; font-family:var(--sans); font-style:normal;
+    font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:var(--taupe); }
+
+  /* ----------------------------------------------------------------- voice -- */
+  .voice-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); margin-top:2.6rem; }
+  .voice-col{ background:var(--cellar); padding:2rem; }
+  .voice-col h4{ font-family:var(--sans); font-weight:600; font-size:.72rem; letter-spacing:.12em;
+    text-transform:uppercase; margin-bottom:1.3rem; }
+  .voice-col.do h4{ color:var(--gold); }
+  .voice-col.dont h4{ color:var(--taupe); }
+  .voice-line{ font-family:var(--serif); font-size:1.1rem; color:var(--paper); padding:.9rem 0;
+    border-top:1px solid var(--line); }
+  .voice-line:first-of-type{ border-top:0; }
+  .voice-col.dont .voice-line{ color:var(--taupe); text-decoration:line-through; text-decoration-color:rgba(164,155,143,.45); }
+
+  /* ------------------------------------------------------------------ logo -- */
+  .logo-stage{ position:relative; padding:clamp(3.5rem,10vw,6rem) 2rem; border:1px solid var(--line);
+    border-radius:.4rem; display:flex; align-items:center; justify-content:center;
+    background:
+      radial-gradient(ellipse at 70% 20%, rgba(173,103,77,.22), transparent 45%),
+      #0a0a09; margin-top:2.6rem; }
+  .logo-stage img{ width:min(28rem, 80%); filter:brightness(0) invert(1); }
+  .logo-rules{ display:grid; grid-template-columns:repeat(3,1fr); gap:2.4rem; margin-top:2.6rem; }
+  .logo-rules h4{ font-family:var(--sans); font-weight:600; font-size:.7rem; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--gold); margin-bottom:.6rem; }
+  .logo-rules p{ font-size:.87rem; line-height:1.65; }
+  .dont-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); margin-top:1.6rem; }
+  .dont{ background:var(--panel); padding:1.3rem; text-align:center; }
+  .dont .mark{ width:2.6rem; height:2.6rem; margin:0 auto .9rem; border-radius:50%; border:1px solid rgba(168,92,67,.6);
+    display:flex; align-items:center; justify-content:center; color:var(--umber); font-size:1.1rem; }
+  .dont p{ font-size:.72rem; line-height:1.5; }
+
+  /* ----------------------------------------------------------------- color -- */
+  .swatch-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); margin-top:2.6rem; }
+  .swatch{ background:var(--cellar); }
+  .chip{ height:6.5rem; }
+  .swatch-body{ padding:1.1rem 1.2rem 1.4rem; }
+  .swatch-body .name{ font-family:var(--serif); font-size:1.05rem; color:var(--paper); }
+  .swatch-body .hex{ font-family:ui-monospace, "SF Mono", Menlo, monospace; font-size:.72rem; color:var(--gold);
+    letter-spacing:.03em; margin-top:.25rem; text-transform:uppercase; }
+  .swatch-body .use{ font-size:.78rem; margin-top:.6rem; line-height:1.55; }
+  .accent-note{ margin-top:2rem; max-width:40rem; font-size:.9rem; line-height:1.7; }
+
+  /* ------------------------------------------------------------------ type -- */
+  .specimen{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); margin-top:2.6rem; }
+  .spec-block{ background:var(--cellar); padding:2.2rem; }
+  .spec-block .big{ font-family:var(--serif); font-size:clamp(3.2rem,7vw,5rem); line-height:.95; color:var(--paper); }
+  .spec-block.sans .big{ font-family:var(--sans); font-weight:500; }
+  .spec-block .role{ margin-top:1rem; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); }
+  .spec-block .sample{ margin-top:.4rem; font-size:.85rem; color:var(--taupe); }
+  table.scale{ width:100%; border-collapse:collapse; margin-top:2.6rem; font-size:.85rem; }
+  table.scale th, table.scale td{ text-align:left; padding:.85rem .6rem; border-bottom:1px solid var(--line); }
+  table.scale th{ font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); font-weight:600; }
+  table.scale td{ color:var(--paper); }
+  table.scale td.mono{ font-family:ui-monospace, Menlo, monospace; color:var(--taupe); font-size:.78rem; }
+  table.scale tr:last-child td{ border-bottom:0; }
+
+  /* --------------------------------------------------------------- imagery -- */
+  .photo-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--line); margin-top:2.6rem; }
+  .photo{ margin:0; position:relative; aspect-ratio:3/4; overflow:hidden; background:var(--panel); }
+  .photo img{ width:100%; height:100%; object-fit:cover; filter:saturate(.94) contrast(1.02); }
+  .photo figcaption{ position:absolute; left:0; right:0; bottom:0; padding:.8rem .7rem; font-size:.63rem;
+    letter-spacing:.07em; text-transform:uppercase; color:var(--paper);
+    background:linear-gradient(0deg, rgba(13,13,12,.88), transparent); }
+  .imagery-notes{ display:grid; grid-template-columns:repeat(3,1fr); gap:2.4rem; margin-top:2.6rem; }
+  .imagery-notes h4{ font-family:var(--sans); font-weight:600; font-size:.7rem; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--gold); margin-bottom:.6rem; }
+  .imagery-notes p{ font-size:.85rem; line-height:1.65; }
+
+  /* ---------------------------------------------------------------- motifs -- */
+  .motif{ display:grid; grid-template-columns:.85fr 1.15fr; gap:3rem; align-items:center; margin-top:2.8rem; }
+  .motif:first-of-type{ margin-top:2.6rem; }
+  .motif h4{ font-family:var(--serif); font-size:1.4rem; color:var(--paper); margin-bottom:.7rem; }
+  .motif p{ font-size:.9rem; line-height:1.7; max-width:30rem; }
+  .hills-demo{ height:6.5rem; position:relative; overflow:hidden; border:1px solid var(--line); border-radius:.3rem;
+    background:linear-gradient(180deg,#1a1614,#0d0d0c); }
+  .hills-demo::after{ content:""; position:absolute; left:-5%; bottom:-1px; width:110%; height:60%;
+    background:#0a0a09; clip-path:polygon(0 68%,9% 53%,20% 63%,31% 40%,42% 58%,55% 35%,69% 62%,82% 47%,100% 64%,100% 100%,0 100%); }
+  .trace-demo{ height:6.5rem; border:1px solid var(--line); border-radius:.3rem; background:#0a0a09;
+    display:flex; align-items:center; padding:0 1.4rem; gap:0; position:relative; }
+  .trace-demo .stamp{ font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; color:var(--taupe);
+    white-space:nowrap; padding:0 .9rem; position:relative; }
+  .trace-demo .stamp::before{ content:""; position:absolute; left:0; right:0; top:50%; height:1px; background:var(--line-strong); z-index:0; }
+  .trace-demo .stamp.on{ color:var(--gold); }
+  .trace-demo .stamp span{ position:relative; background:#0a0a09; padding:0 .5rem; z-index:1; }
+  .browser-demo{ border:1px solid var(--line); border-radius:.5rem; background:var(--panel); padding:.6rem; }
+  .browser-demo .bar{ display:flex; gap:.3rem; padding:.2rem .3rem .55rem; }
+  .browser-demo .bar i{ width:.4rem; height:.4rem; border-radius:50%; background:var(--umber); display:block; }
+  .browser-demo .body{ display:grid; grid-template-columns:5rem 1fr; min-height:8.5rem; border:1px solid var(--line); border-radius:.3rem; overflow:hidden; }
+  .browser-demo .side{ background:#121211; border-right:1px solid var(--line); padding:.8rem .6rem; }
+  .browser-demo .side .ln{ height:.4rem; border-radius:2px; background:var(--line-strong); margin-bottom:.55rem; width:80%; }
+  .browser-demo .bottles{ display:grid; grid-template-columns:repeat(3,1fr); gap:.4rem; padding:.7rem; background:#171715; }
+  .browser-demo .bottle{ border:1px solid var(--line); border-radius:.2rem; min-height:5.4rem; background:var(--panel); }
+
+  /* ------------------------------------------------------------- interface -- */
+  .ui-row{ display:grid; grid-template-columns:1fr 1fr; gap:3rem; margin-top:2.6rem; }
+  .ui-demo{ border:1px solid var(--line); border-radius:.4rem; padding:2rem; background:#0a0a09;
+    display:flex; flex-direction:column; align-items:flex-start; gap:1rem; }
+  .btn{ display:inline-flex; align-items:center; gap:.6rem; padding:.75rem 1.15rem; border-radius:999px;
+    background:var(--cream); color:#171310; font-size:.76rem; font-weight:600; text-decoration:none; }
+  .text-link{ color:var(--paper); border-bottom:1px solid var(--gold); padding-bottom:.2rem; font-size:.8rem; text-decoration:none; }
+  .ui-specs{ margin-top:0; }
+  .ui-specs dl{ display:grid; grid-template-columns:auto 1fr; gap:.5rem 1.4rem; font-size:.82rem; margin:0; }
+  .ui-specs dt{ color:var(--gold); font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; padding-top:.15rem; }
+  .ui-specs dd{ margin:0; color:var(--paper); }
+
+  /* ------------------------------------------------------------------- dos -- */
+  .final-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); margin-top:2.6rem; }
+  .final-col{ background:var(--cellar); padding:1.8rem 2rem; }
+  .final-col h4{ font-family:var(--sans); font-weight:600; font-size:.72rem; letter-spacing:.1em;
+    text-transform:uppercase; margin-bottom:1.1rem; }
+  .final-col.do h4{ color:var(--gold); }
+  .final-col.dont h4{ color:var(--umber); }
+  .final-col ul{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:.85rem; }
+  .final-col li{ font-size:.87rem; line-height:1.55; padding-left:1.2rem; position:relative; color:var(--paper); }
+  .final-col.do li::before{ content:"—"; position:absolute; left:0; color:var(--gold); }
+  .final-col.dont li::before{ content:"—"; position:absolute; left:0; color:var(--umber); }
+
+  /* ---------------------------------------------------------------- footer -- */
+  footer{ padding:3.5rem 0 2.5rem; }
+  .foot-hills{ height:4rem; margin:0 calc(-1 * var(--gutter)) 2.2rem; background:#171512;
+    clip-path:polygon(0 72%,15% 40%,31% 72%,47% 32%,63% 70%,79% 44%,100% 68%,100% 100%,0 100%); }
+  .foot-row{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; font-size:.72rem; color:var(--taupe); }
+  .foot-row a{ text-decoration:none; color:var(--taupe); }
+
+  @media (max-width:920px){
+    .refs, .voice-grid, .logo-rules, .dont-grid, .swatch-grid, .specimen, .photo-grid,
+    .imagery-notes, .motif, .ui-row, .final-grid{ grid-template-columns:1fr; }
+    .photo{ aspect-ratio:16/10; }
+  }
+</style>
+
+<nav class="rail">
+  <div class="rail-top">
+    <a href="#cover">Enotri <span>Brand Guidelines</span></a>
+    <ul class="rail-nav">
+      <li><a href="#essence" data-r><span class="idx">01</span> Essence</a></li>
+      <li><a href="#voice" data-r><span class="idx">02</span> Voice &amp; tone</a></li>
+      <li><a href="#logo" data-r><span class="idx">03</span> Wordmark</a></li>
+      <li><a href="#color" data-r><span class="idx">04</span> Color</a></li>
+      <li><a href="#type" data-r><span class="idx">05</span> Typography</a></li>
+      <li><a href="#imagery" data-r><span class="idx">06</span> Imagery</a></li>
+      <li><a href="#motifs" data-r><span class="idx">07</span> Signature motifs</a></li>
+      <li><a href="#interface" data-r><span class="idx">08</span> Interface</a></li>
+      <li><a href="#summary" data-r><span class="idx">09</span> Do &amp; don't</a></li>
+    </ul>
+  </div>
+  <div class="rail-foot">Edition 01 — 2026<br>Compiled from the live scroll-craft build.</div>
+</nav>
+
+<main>
+
+  <header class="cover" id="cover">
+    <div class="wrap cover-foot">
+      <span class="eyebrow">Enotri Wine Imports Inc — Edmonton, Alberta</span>
+      <img class="wordmark" src="media/enotri-logo.png" alt="Enotri wordmark, with the tagline Roots Matter">
+      <p class="position">Boutique, terroir-driven wine, imported into Alberta and put in front of
+        <em>restaurants, wine shops, and hotels</em> — one grower relationship at a time. This is the
+        working reference for how Enotri looks, sounds, and holds itself across the website, price
+        lists, and event material.</p>
+      <div class="meta-row">
+        <span>AGLC &amp; Liquor Connect</span>
+        <span>Founder: Rawlings Munemo</span>
+        <span>Reference · Edition 01, 2026</span>
+      </div>
+    </div>
+  </header>
+
+  <section id="essence">
+    <div class="wrap">
+      <div class="kicker"><span class="num">01</span><h2>Brand essence</h2></div>
+      <p class="pull">Enotri is the ground before the label — the grower, the soil, and the hands
+        that made the wine, told before the tasting note. The site and every piece that extends it
+        should feel walked-through, not scrolled past.</p>
+      <div class="tags">
+        <span class="tag">Sun-warmed</span>
+        <span class="tag">Grounded</span>
+        <span class="tag">Unhurried</span>
+        <span class="tag">Earned</span>
+      </div>
+      <div class="refs">
+        <div class="ref">
+          <span class="eyebrow">Reference</span>
+          <h3>Kermit Lynch Wine Merchant</h3>
+          <p>Trade authority worn lightly — the grower's name carries the page, not a logo mark.</p>
+        </div>
+        <div class="ref">
+          <span class="eyebrow">Reference</span>
+          <h3>A Good Year <span style="color:var(--taupe); font-family:var(--sans); font-size:.75em;">(Ridley Scott)</span></h3>
+          <p>Sun, stone, and unhurried light — the estate as the emotional center of the story.</p>
+        </div>
+        <div class="ref">
+          <span class="eyebrow">Reference</span>
+          <h3>Cereal Magazine</h3>
+          <p>Editorial restraint: generous margins, factual captions, never a crowded page.</p>
+        </div>
+      </div>
+      <blockquote>
+        “It's the site where you walk from the soil to the estate, then discover the person who
+        brought those growers to Alberta.”
+        <cite>The tell-someone sentence — what a visitor should say about the site afterward</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section id="voice">
+    <div class="wrap">
+      <div class="kicker"><span class="num">02</span><h2>Voice &amp; tone</h2></div>
+      <p style="max-width:38rem; font-size:.95rem; line-height:1.75;">Enotri writes like a museum
+        label, not a wine-list blurb: a fact, a place, a name — and then it stops. Confidence comes
+        from specificity, never from adjectives stacked on top of each other.</p>
+      <div class="voice-grid">
+        <div class="voice-col do">
+          <h4>Write like this</h4>
+          <p class="voice-line">Nebbiolo, Langhe. Hand-harvested, October.</p>
+          <p class="voice-line">Fourth generation on the same hillside.</p>
+          <p class="voice-line">Chosen for the ground it came from.</p>
+        </div>
+        <div class="voice-col dont">
+          <h4>Not like this</h4>
+          <p class="voice-line">Indulge in this exquisite, show-stopping red!</p>
+          <p class="voice-line">A luxurious explosion of bold flavor.</p>
+          <p class="voice-line">The perfect wine for every occasion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="logo">
+    <div class="wrap">
+      <div class="kicker"><span class="num">03</span><h2>Wordmark</h2></div>
+      <div class="logo-stage">
+        <img src="media/enotri-logo.png" alt="Enotri wordmark on a dark cellar ground">
+      </div>
+      <div class="logo-rules">
+        <div>
+          <h4>Clear space</h4>
+          <p>Keep clear space equal to the height of the wordmark's cap-height on every side. Nothing
+            else — copy, photography, chrome — enters that margin.</p>
+        </div>
+        <div>
+          <h4>Minimum size</h4>
+          <p>96px wide on screen, 1&nbsp;inch in print. Below that, the "ROOTS MATTER" line stops
+            reading and should be dropped, wordmark only.</p>
+        </div>
+        <div>
+          <h4>Ground</h4>
+          <p>The mark is warm paper on cellar charcoal by default. It only ever appears on dark,
+            low-contrast grounds — never on white, never on a busy photograph without a scrim.</p>
+        </div>
+      </div>
+      <div class="dont-grid">
+        <div class="dont"><div class="mark">✕</div><p>Recolor to gold, umber, or brand color outside warm paper / white</p></div>
+        <div class="dont"><div class="mark">✕</div><p>Stretch, skew, or reset the type to a different serif</p></div>
+        <div class="dont"><div class="mark">✕</div><p>Add a drop shadow, outline, or glow effect</p></div>
+        <div class="dont"><div class="mark">✕</div><p>Place directly on unmasked photography</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="color">
+    <div class="wrap">
+      <div class="kicker"><span class="num">04</span><h2>Color</h2></div>
+      <div class="swatch-grid">
+        <div class="swatch"><div class="chip" style="background:#0d0d0c;"></div>
+          <div class="swatch-body"><div class="name">Cellar Charcoal</div><div class="hex">#0D0D0C</div>
+            <p class="use">Primary ground for every surface. Near-black, never flat — warmed by the
+              gradients that sit on top of it.</p></div></div>
+        <div class="swatch"><div class="chip" style="background:#191917;"></div>
+          <div class="swatch-body"><div class="name">Panel</div><div class="hex">#191917</div>
+            <p class="use">Raised surfaces: cards, form fields, the browser-mockup chrome.</p></div></div>
+        <div class="swatch"><div class="chip" style="background:#20201d;"></div>
+          <div class="swatch-body"><div class="name">Panel Deep</div><div class="hex">#20201D</div>
+            <p class="use">A second step up for nested panels, sparingly.</p></div></div>
+        <div class="swatch"><div class="chip" style="background:#f0e8dc;"></div>
+          <div class="swatch-body"><div class="name">Warm Paper</div><div class="hex">#F0E8DC</div>
+            <p class="use">Primary ink. Headlines, the wordmark, and anything that needs to read
+              first.</p></div></div>
+        <div class="swatch"><div class="chip" style="background:#a49b8f;"></div>
+          <div class="swatch-body"><div class="name">Muted Taupe</div><div class="hex">#A49B8F</div>
+            <p class="use">Body copy and captions. Quieter than Warm Paper on purpose — it should
+              never compete with a headline.</p></div></div>
+        <div class="swatch"><div class="chip" style="background:#d2a16d;"></div>
+          <div class="swatch-body"><div class="name">Harvest Gold</div><div class="hex">#D2A16D</div>
+            <p class="use">The one accent. Eyebrows, active states, the terroir trace, underlines on
+              links — never a fill, never a large area.</p></div></div>
+        <div class="swatch"><div class="chip" style="background:#a85c43;"></div>
+          <div class="swatch-body"><div class="name">Estate Umber</div><div class="hex">#A85C43</div>
+            <p class="use">Atmosphere — hero gradients, glow, the browser chrome dots. Warmth in the
+              background, rarely in text.</p></div></div>
+        <div class="swatch"><div class="chip" style="background:#eee2d1;"></div>
+          <div class="swatch-body"><div class="name">Cream</div><div class="hex">#EEE2D1</div>
+            <p class="use">The one filled surface: the primary button. Reserve it for the single most
+              important action on a page.</p></div></div>
+        <div class="swatch"><div class="chip" style="background:rgba(232,220,204,.16); border:1px solid var(--line-strong);"></div>
+          <div class="swatch-body"><div class="name">Hairline</div><div class="hex">rgba(232,220,204,.16)</div>
+            <p class="use">Every border and divider. Structure, not decoration — it should be felt
+              before it's noticed.</p></div></div>
+      </div>
+      <p class="accent-note">Gold owns a region, not the page. If a layout starts to feel busy, the
+        fix is almost always fewer gold elements, not a second accent colour.</p>
+    </div>
+  </section>
+
+  <section id="type">
+    <div class="wrap">
+      <div class="kicker"><span class="num">05</span><h2>Typography</h2></div>
+      <div class="specimen">
+        <div class="spec-block">
+          <div class="big">Aa Rr</div>
+          <div class="role">Fraunces — display</div>
+          <p class="sample">Weight 400, optical size tuned to scale. Carries every headline, chapter
+            title, and pull-quote. Tight tracking, tighter leading.</p>
+        </div>
+        <div class="spec-block sans">
+          <div class="big">Aa Rr</div>
+          <div class="role">DM Sans — text &amp; interface</div>
+          <p class="sample">Weights 400–600. Body copy, labels, navigation, buttons. Never carries a
+            headline on its own.</p>
+        </div>
+      </div>
+      <table class="scale">
+        <thead><tr><th>Role</th><th>Face / weight</th><th>Size</th><th>Tracking</th><th>Case</th></tr></thead>
+        <tbody>
+          <tr><td>Chapter heading</td><td>Fraunces 400</td><td class="mono">clamp(2.4rem, 5vw, 4.7rem)</td><td class="mono">-0.04em</td><td>Sentence</td></tr>
+          <tr><td>Section heading</td><td>Fraunces 400</td><td class="mono">clamp(1.7rem, 3vw, 2.6rem)</td><td class="mono">-0.02em</td><td>Sentence</td></tr>
+          <tr><td>Body copy</td><td>DM Sans 400</td><td class="mono">1rem / 1.55</td><td class="mono">normal</td><td>Sentence</td></tr>
+          <tr><td>Eyebrow / label</td><td>DM Sans 600</td><td class="mono">0.67rem</td><td class="mono">0.16em</td><td>Upper</td></tr>
+          <tr><td>Button</td><td>DM Sans 600</td><td class="mono">0.78rem</td><td class="mono">normal</td><td>Sentence</td></tr>
+          <tr><td>Caption / meta</td><td>DM Sans 500</td><td class="mono">0.65–0.72rem</td><td class="mono">0.05–0.07em</td><td>Upper</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="imagery">
+    <div class="wrap">
+      <div class="kicker"><span class="num">06</span><h2>Imagery</h2></div>
+      <div class="photo-grid" style="margin:2.6rem 0 0;">
+        <figure class="photo"><img src="media/land.jpg" alt="Vineyard rows in warm afternoon light"><figcaption>Land</figcaption></figure>
+        <figure class="photo"><img src="media/growers.jpg" alt="Growers at work among the vines"><figcaption>Growers</figcaption></figure>
+        <figure class="photo"><img src="media/cellar-tasting.jpg" alt="A tasting inside the cellar"><figcaption>Cellar</figcaption></figure>
+        <figure class="photo"><img src="media/estate.jpg" alt="Stone estate architecture"><figcaption>Estate</figcaption></figure>
+        <figure class="photo"><img src="media/invitation.jpg" alt="A table set for a wine dinner"><figcaption>Invitation</figcaption></figure>
+      </div>
+      <div class="imagery-notes">
+        <div><h4>What it is</h4><p>Documentary, natural light, human-scaled. A hand in soil, a
+          working cellar, a real table — never a styled flat-lay.</p></div>
+        <div><h4>Grade</h4><p>Sun-warmed and slightly desaturated — never a glossy, oversaturated
+          "wine marketing" grade. Skin tones and stone stay true.</p></div>
+        <div><h4>Sequence</h4><p>Land → growers → fruit &amp; process → estate → invitation. The
+          camera moves like a visitor would, on foot, chapter by chapter.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="motifs">
+    <div class="wrap">
+      <div class="kicker"><span class="num">07</span><h2>Signature motifs</h2></div>
+
+      <div class="motif">
+        <div class="hills-demo" aria-hidden="true"></div>
+        <div><h4>Rolling hills silhouette</h4>
+          <p>A low horizon line closes the hero and the footer — vineyard topography standing in for
+            a generic wave or gradient fade. It is the one recurring shape in the system; it does not
+            appear anywhere else.</p></div>
+      </div>
+
+      <div class="motif">
+        <div class="trace-demo" aria-hidden="true">
+          <span class="stamp on"><span>Langhe</span></span>
+          <span class="stamp on"><span>Bordeaux</span></span>
+          <span class="stamp"><span>Rioja</span></span>
+          <span class="stamp"><span>Estate</span></span>
+        </div>
+        <div><h4>The terroir trace</h4>
+          <p>A fixed contour line runs along the bottom of the viewport. As a visitor passes each
+            chapter, the line draws that section and stamps the region name into the ledger — part
+            progress indicator, part index of the growers' places. Reserve it for the chaptered,
+            long-form site; it is not a generic UI element to drop into shorter pages.</p></div>
+      </div>
+
+      <div class="motif">
+        <div><h4>Portfolio browser</h4>
+          <p>The wine list appears as a mock desktop window — chrome dots, a sidebar of filters, a
+            grid of bottles — instead of a plain product grid. It signals "this is the whole
+            portfolio, browsable," inside an otherwise editorial page.</p></div>
+        <div class="browser-demo" aria-hidden="true">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="body">
+            <div class="side"><div class="ln"></div><div class="ln" style="width:55%;"></div><div class="ln" style="width:65%;"></div></div>
+            <div class="bottles"><div class="bottle"></div><div class="bottle"></div><div class="bottle"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="interface">
+    <div class="wrap">
+      <div class="kicker"><span class="num">08</span><h2>Interface</h2></div>
+      <div class="ui-row">
+        <div class="ui-demo">
+          <a class="btn" href="#">Request the price list →</a>
+          <a class="text-link" href="#">Read the full story</a>
+        </div>
+        <div class="ui-specs">
+          <dl>
+            <dt>Primary button</dt><dd>Pill radius, Cream fill, DM Sans 600, lifts 2px on hover.</dd>
+            <dt>Text link</dt><dd>Warm Paper text, Harvest Gold underline — never a colour change on
+              hover, only the lift.</dd>
+            <dt>Gutter</dt><dd>clamp(1.25rem, 5vw, 5.5rem) — the page margin at every width.</dd>
+            <dt>Borders</dt><dd>1px Hairline only. No card ever gets a shadow and a border together.</dd>
+            <dt>Motion</dt><dd>Reveals and gentle parallax only. `prefers-reduced-motion` drops
+              every transform and keeps opacity — content stays reachable, never hidden.</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="summary">
+    <div class="wrap">
+      <div class="kicker"><span class="num">09</span><h2>Do &amp; don't</h2></div>
+      <div class="final-grid">
+        <div class="final-col do">
+          <h4>Do</h4>
+          <ul>
+            <li>Name the place and the person before the tasting note.</li>
+            <li>Let a photograph run full-bleed and quiet — one caption, not three.</li>
+            <li>Use gold for one thing per screen: a label, a link, a stamp on the trace.</li>
+            <li>Cut hard between chapters. A seam is allowed to show.</li>
+          </ul>
+        </div>
+        <div class="final-col dont">
+          <h4>Don't</h4>
+          <ul>
+            <li>Stack adjectives where a fact would do more work.</li>
+            <li>Introduce a second accent colour to "add energy."</li>
+            <li>Round every corner and shadow every card — spend those by role.</li>
+            <li>Blend chapters into one continuous parallax world; that effect belongs to a
+              different kind of page.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-hills" aria-hidden="true"></div>
+      <div class="foot-row">
+        <span>Enotri Wine Imports Inc — Edmonton, Alberta</span>
+        <a href="#cover">Back to top ↑</a>
+        <span>references/brand-guidelines.html — living reference, extend in place</span>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  const links = document.querySelectorAll('.rail-nav a[data-r]');
+  const targets = [...links].map(a => document.querySelector(a.getAttribute('href')));
+  const setActive = (id) => links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+    targets.forEach(t => t && io.observe(t));
+  }
+</script>

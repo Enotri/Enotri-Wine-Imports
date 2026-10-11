@@ -1,69 +1,76 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import logo from "@/assets/enotri-logo.png.asset.json";
 
 const nav = [
-  { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/wines", label: "Our Wines" },
+  { to: "/wines", label: "Wines" },
   { to: "/producers", label: "Producers" },
   { to: "/sustainability", label: "Sustainability" },
-  { to: "/contact", label: "Contact" },
 ] as const;
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/70 shadow-soft backdrop-blur-xl">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+    <header className="relative z-50 border-b border-border bg-background">
+      <div className="mx-auto flex min-h-[88px] max-w-[1440px] items-center justify-between gap-6 px-6 sm:px-10 md:min-h-[100px] md:px-14 lg:px-20">
         <Link
           to="/"
           onClick={() => setOpen(false)}
-          className="flex shrink-0 items-center gap-2.5"
-          aria-label="Enotri Wine Imports — home"
+          className="flex shrink-0 items-center"
+          aria-label="Enotri Wine Imports, Roots Matter — home"
         >
           <img
-            src={logo.url}
+            src="/enotri-logo-master.svg"
             alt="Enotri Wine Imports — Roots Matter"
-            className="h-16 w-auto rounded-sm"
+            className="h-14 w-auto md:h-[66px]"
           />
-          <span className="mark-dot" aria-hidden="true" />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
-          {nav.slice(1).map((item) => (
+        <nav aria-label="Main navigation" className="hidden items-center gap-7 md:flex lg:gap-9">
+          {nav.map((item) => (
             <Link
               key={item.to}
               to={item.to}
-              className="text-[0.7rem] uppercase tracking-[0.22em] text-foreground transition-colors hover:text-primary"
+              className="py-2 text-sm text-foreground transition-colors hover:text-primary"
               activeProps={{ className: "text-primary" }}
             >
               {item.label}
             </Link>
           ))}
+          <Link
+            to="/contact"
+            className="inline-flex min-h-11 items-center justify-center bg-primary px-5 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+          >
+            Trade enquiries
+          </Link>
         </nav>
 
         <button
           type="button"
-          aria-label="Toggle menu"
+          aria-label={open ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={open}
+          aria-controls="mobile-navigation"
           onClick={() => setOpen((v) => !v)}
-          className="flex h-9 w-9 flex-col items-center justify-center gap-1.5 md:hidden"
+          className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 border border-border text-foreground hover:border-primary md:hidden"
         >
-          <span className="block h-px w-5 bg-foreground" />
-          <span className="block h-px w-5 bg-foreground" />
+          <span className="block h-px w-5 bg-current" aria-hidden="true" />
+          <span className="block h-px w-5 bg-current" aria-hidden="true" />
         </button>
       </div>
 
       {open && (
-        <nav className="border-t border-border bg-background px-6 py-4 md:hidden">
-          {nav.map((item) => (
+        <nav
+          id="mobile-navigation"
+          aria-label="Main navigation"
+          className="border-t border-border bg-background px-6 py-4 md:hidden"
+        >
+          {[...nav, { to: "/contact", label: "Trade enquiries" }].map((item) => (
             <Link
               key={item.to}
               to={item.to}
               onClick={() => setOpen(false)}
-              className="block py-2.5 text-sm uppercase tracking-[0.16em] text-foreground"
+              className="block border-b border-border py-3 text-sm text-foreground last:border-0 hover:text-primary"
               activeProps={{ className: "text-primary" }}
             >
               {item.label}
@@ -77,22 +84,23 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <footer className="mt-32 border-t border-border bg-secondary/60">
-      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-3 md:py-28">
+    <footer className="border-t border-border bg-white">
+      <div className="mx-auto grid max-w-[1280px] gap-10 px-6 py-14 sm:px-10 md:grid-cols-[1.2fr_0.8fr_1fr] md:gap-14 md:px-14 md:py-20 lg:px-20">
         <div>
-          <div className="flex items-center gap-2.5">
-            <img src={logo.url} alt="Enotri Wine Imports" className="h-9 w-auto rounded-sm" />
-            <span className="mark-dot" aria-hidden="true" />
-          </div>
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
+          <img
+            src="/enotri-logo-master.svg"
+            alt="Enotri Wine Imports — Roots Matter"
+            className="h-12 w-auto"
+          />
+          <p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">
             A boutique wine agency in Edmonton, Alberta, representing grower-led estates from South
             Africa and Europe.
           </p>
         </div>
         <div>
-          <p className="eyebrow">Explore</p>
-          <ul className="mt-4 space-y-2">
-            {nav.slice(1).map((item) => (
+          <p className="text-sm font-semibold text-foreground">Explore</p>
+          <ul className="mt-4 space-y-2.5">
+            {nav.map((item) => (
               <li key={item.to}>
                 <Link
                   to={item.to}
@@ -105,19 +113,27 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <p className="eyebrow">Contact</p>
-          <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+          <p className="text-sm font-semibold text-foreground">Contact</p>
+          <p className="mt-4 text-sm leading-6 text-muted-foreground">
             Edmonton, Alberta, Canada
             <br />
-            rallings@enotri.ca
+            <a className="hover:text-primary" href="mailto:rallings@enotri.ca">
+              rallings@enotri.ca
+            </a>
           </p>
-          <p className="mt-6 text-xs text-muted-foreground">
+          <Link
+            to="/contact"
+            className="mt-4 inline-flex min-h-10 items-center text-sm font-medium text-primary hover:underline"
+          >
+            Get in touch
+          </Link>
+          <p className="mt-5 text-xs leading-5 text-muted-foreground">
             Please enjoy responsibly. Trade enquiries welcome.
           </p>
         </div>
       </div>
-      <div className="border-t border-border py-8 text-center text-xs tracking-[0.18em] text-muted-foreground uppercase">
-        © {new Date().getFullYear()} Enotri Wine Imports — Roots Matter
+      <div className="border-t border-border px-6 py-5 text-center text-xs text-muted-foreground">
+        © {new Date().getFullYear()} Enotri Wine Imports
       </div>
     </footer>
   );

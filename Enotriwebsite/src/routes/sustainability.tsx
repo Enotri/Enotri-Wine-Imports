@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import sustainabilityAsset from "@/assets/vineyard_photo_2.jpg.asset.json";
-import soilHandsAsset from "@/assets/sustainabilty.jpg.asset.json";
-import certAbAsset from "@/assets/cert-ab.png.asset.json";
-import certHveAsset from "@/assets/cert-hve.png.asset.json";
-import certWietaAsset from "@/assets/cert-wieta.png.asset.json";
-import certSwsaAsset from "@/assets/cert-swsa.png.asset.json";
-import certEuOrganicAsset from "@/assets/cert-eu-organic.png.asset.json";
+const sustainabilityAsset = { url: "/images/site/vineyard_photo_2.webp" };
+const soilHandsAsset = { url: "/images/site/sustainabilty.webp" };
+const certAbAsset = { url: "/images/site/cert-ab.webp" };
+const certHveAsset = { url: "/images/site/cert-hve.webp" };
+const certWietaAsset = { url: "/images/site/cert-wieta.webp" };
+const certSwsaAsset = { url: "/images/site/cert-swsa.webp" };
+const certEuOrganicAsset = { url: "/images/site/cert-eu-organic.webp" };
 import { CtaBand, Section } from "@/components/page-parts";
 
 export const Route = createFileRoute("/sustainability")({
@@ -242,6 +242,21 @@ function Sustainability() {
           />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/60 to-transparent" />
         </figure>
+
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
+          <img
+            src="/images/site/vineyard-rioja.webp"
+            alt="Young vines under a mountain ridge in Rioja"
+            loading="lazy"
+            className="aspect-[16/10] w-full object-cover"
+          />
+          <img
+            src="/images/site/winery-aerial.webp"
+            alt="Aerial view of a winery surrounded by its own vineyards"
+            loading="lazy"
+            className="aspect-[16/10] w-full object-cover"
+          />
+        </div>
 
         <div className="mt-20 grid gap-px overflow-hidden border border-border bg-border md:grid-cols-2">
           {programs.map((p) => (
