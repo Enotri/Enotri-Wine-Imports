@@ -2,7 +2,6 @@
 
 | Producer | File | Image source | Page source |
 | --- | --- | --- | --- |
-| Corte Moschina | `public/images/producers/corte-moschina/1.webp` | https://www.cortemoschina.it/assets/images/loghi-fondi-eu.jpg | https://www.cortemoschina.it/ |
 | Corte Moschina | `public/images/producers/corte-moschina/2.webp` | https://www.cortemoschina.it/assets/images/home/cap1-cover.jpg | https://www.cortemoschina.it/ |
 | Corte Moschina | `public/images/producers/corte-moschina/3.webp` | https://www.cortemoschina.it/assets/images/home/cap2-cover.jpg | https://www.cortemoschina.it/ |
 | Corte Moschina | `public/images/producers/corte-moschina/4.webp` | https://www.cortemoschina.it/assets/images/home/cap3-cover.jpg | https://www.cortemoschina.it/ |

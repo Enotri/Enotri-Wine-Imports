@@ -87,6 +87,23 @@ export const producers: Producer[] = [
       alt: "The Corte Moschina family standing among the vines in Roncà",
       caption: "The Corte Moschina family in their Roncà vineyards",
     },
+    gallery: [
+      {
+        src: "/images/producers/corte-moschina/2.webp",
+        alt: "Rolling hills of vineyards and woodland under a hazy sky",
+        caption: "The vineyard hills around Corte Moschina",
+      },
+      {
+        src: "/images/producers/corte-moschina/4.webp",
+        alt: "Vines turning gold in autumn, with terraced hills behind",
+        caption: "Autumn colour in the vineyards",
+      },
+      {
+        src: "/images/producers/corte-moschina/3.webp",
+        alt: "Close-up of dark volcanic rock flecked with yellow lichen",
+        caption: "Volcanic basalt, the rock beneath the estate's soils",
+      },
+    ],
     region: "Roncà, Veneto",
     country: "Italy",
     farming: "Organic",
@@ -151,6 +168,26 @@ export const producers: Producer[] = [
         alt: "Pasetti vineyards at sunset beneath a hilltop village",
         caption: "Vineyards at dusk in the Abruzzo hills",
       },
+      {
+        src: "/images/producers/pasetti/1.webp",
+        alt: "Vineyard blocks on a green hillside below rocky mountain peaks",
+        caption: "Pasetti vineyards at Capestrano",
+      },
+      {
+        src: "/images/producers/pasetti/2.webp",
+        alt: "Rows of oak barrels stamped Pasetti in a vaulted cellar",
+        caption: "Barrels ageing in the Pasetti cellar",
+      },
+      {
+        src: "/images/producers/pasetti/3.webp",
+        alt: "A gloved hand holding a bunch of dark red grapes on the vine",
+        caption: "Picking red grapes at harvest",
+      },
+      {
+        src: "/images/producers/pasetti/4.webp",
+        alt: "Bunches of pale green grapes hanging among vine leaves",
+        caption: "White grapes on the vine at harvest time",
+      },
     ],
     region: "Pescosansonesco, Abruzzo",
     country: "Italy",
@@ -205,6 +242,24 @@ export const producers: Producer[] = [
   },
   {
     name: "Bosman Family",
+    logo: "/images/producers/bosman-family/2.webp",
+    tileFullBleed: true,
+    heroImage: {
+      src: "/images/producers/bosman-family/2.webp",
+      alt: "Curving rows of young vines on a hillside at sunset, with mountains in the distance",
+    },
+    gallery: [
+      {
+        src: "/images/producers/bosman-family/1.webp",
+        alt: "A grower in leather boots checking bunches of black grapes on a bush vine",
+        caption: "Checking the grapes on bush vines",
+      },
+      {
+        src: "/images/producers/bosman-family/3.webp",
+        alt: "A person standing on a fynbos-covered hillside as the sun sets behind the mountains",
+        caption: "Fynbos and mountains at sunset",
+      },
+    ],
     region: "Wellington",
     country: "South Africa",
     farming: "Fairtrade, employee-owned",
@@ -218,6 +273,13 @@ export const producers: Producer[] = [
   },
   {
     name: "Reyneke",
+    gallery: [
+      {
+        src: "/images/producers/reyneke/1.webp",
+        alt: "Hands sorting freshly picked black grapes on a sorting table",
+        caption: "Sorting the harvest by hand",
+      },
+    ],
     region: "Polkadraai Hills",
     country: "South Africa",
     farming: "Biodynamic (Demeter)",
@@ -307,6 +369,27 @@ export const producers: Producer[] = [
     name: "Bodegas Heras Cordón",
     logo: herasCordonTrioImg.url,
     tileFullBleed: true,
+    heroImage: {
+      src: "/images/producers/bodegas-heras-cordon/2.webp",
+      alt: "A man reading a bottle label among stacked Heras Cordón barrels",
+    },
+    gallery: [
+      {
+        src: "/images/producers/bodegas-heras-cordon/4.webp",
+        alt: "A lone holm oak above rows of vines, with a mountain ridge behind",
+        caption: "The holm oak among the Heras Cordón vines",
+      },
+      {
+        src: "/images/producers/bodegas-heras-cordon/1.webp",
+        alt: "A bottle of Heras Cordón Vendimia Seleccionada Rioja standing on a barrel in the cellar",
+        caption: "Vendimia Seleccionada in the cellar",
+      },
+      {
+        src: "/images/producers/bodegas-heras-cordon/3.webp",
+        alt: "A man in a scarf studying a glass of red wine in the cellar",
+        caption: "Tasting in the cellar",
+      },
+    ],
     region: "Fuenmayor, Rioja Alta",
     country: "Spain",
     farming: "Traditional, family-owned",
@@ -314,7 +397,7 @@ export const producers: Producer[] = [
       "A family-owned Rioja Alta estate in Fuenmayor, crafting classic Reserva and Vendimia Seleccionada from Tempranillo and traditional Rioja varieties.",
     story: [
       "Bodegas Heras Cordón is rooted in Fuenmayor, in the heart of Rioja Alta, where the Cordón family has been linked to wine for generations. The estate takes its name from the family itself — a statement that what goes into each bottle is personal, and that the label is a promise rather than a brand.",
-      "The vineyards sit on the characteristic clay-limestone and alluvial soils of the upper Ebro valley, where Atlantic influence tempors the warmth and Tempranillo reaches its fullest expression. The family farms traditionally, with careful canopy work, low yields and hand-harvesting to preserve the freshness that defines the best Rioja Alta wines.",
+      "The vineyards sit on the characteristic clay-limestone and alluvial soils of the upper Ebro valley, where Atlantic influence tempers the warmth and Tempranillo reaches its fullest expression. The family farms traditionally, with careful canopy work, low yields and hand-harvesting to preserve the freshness that defines the best Rioja Alta wines.",
       "In the cellar the approach is classic Rioja: long macerations, ageing in American and French oak, and the patience to release Reservas only when the wine has settled into itself. The result is a range of structured, food-friendly reds — polished, honest and unmistakably Rioja.",
     ],
   },
