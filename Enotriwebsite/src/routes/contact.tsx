@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-const estateAsset = { url: "/images/grave/people-famille-bassereau.webp" };
+const tastingTeamAsset = { url: "/images/site/trade-tasting-team.webp" };
 import { PageHero, Section } from "@/components/page-parts";
 
 const EMAIL = "rallings@enotri.ca";
@@ -128,7 +128,7 @@ function Contact() {
         eyebrow="Contact"
         title="Request a tasting"
         intro="Tell us what you pour and what you need. We reply within two business days with a proposed line-up and dates — no account or minimum order required to start."
-        image={estateAsset.url}
+        image={tastingTeamAsset.url}
       />
 
       <Section>

@@ -513,9 +513,9 @@ export const producers: Producer[] = [
     logo: chateauVineyardImg.url,
     tileFullBleed: true,
     heroImage: {
-      src: "/images/grave/estate-bordeaux.webp",
-      alt: "Château de la Grave beneath a dramatic sky, vineyard in the foreground",
-      caption: "Château de la Grave, Côtes de Bourg",
+      src: "/images/grave/people-famille-bassereau.webp",
+      alt: "The Château de la Grave family in their vineyard",
+      caption: "The Bassereau family, Château de la Grave — farming the Côtes de Bourg since 1906",
     },
     gallery: [
       {
