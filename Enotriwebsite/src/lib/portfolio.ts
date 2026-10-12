@@ -431,6 +431,16 @@ export const producers: Producer[] = [
         alt: "A man in a scarf studying a glass of red wine in the cellar",
         caption: "Tasting in the cellar",
       },
+      {
+        src: "/images/site/vineyard-rioja.webp",
+        alt: "Vineyard rows beneath the mountains of Rioja Alta",
+        caption: "Vineyards in Rioja Alta",
+      },
+      {
+        src: "/images/site/winery-aerial.webp",
+        alt: "Aerial view of the Heras Cordón winery surrounded by vineyards",
+        caption: "The Heras Cordón winery among its vineyards, Fuenmayor",
+      },
     ],
     region: "Fuenmayor, Rioja Alta",
     country: "Spain",

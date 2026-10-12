@@ -164,16 +164,16 @@ function Sustainability() {
 
         <div className="mt-20 grid gap-4 md:grid-cols-2">
           <img
-            src="/images/site/vineyard-rioja.webp"
-            alt="Young vines under a mountain ridge in Rioja"
+            src="/images/sustainability/sustainability-1.jpg"
+            alt="Sheep grazing below a turreted stone château"
             loading="lazy"
-            className="aspect-[16/10] w-full object-cover"
+            className="aspect-[16/10] w-full object-cover object-[center_45%]"
           />
           <img
-            src="/images/site/winery-aerial.webp"
-            alt="Aerial view of a winery surrounded by its own vineyards"
+            src="/images/sustainability/sustainability-2.jpg"
+            alt="A horse in a sunlit meadow above vineyard rows"
             loading="lazy"
-            className="aspect-[16/10] w-full object-cover"
+            className="aspect-[16/10] w-full object-cover object-[center_80%]"
           />
         </div>
       </Section>
