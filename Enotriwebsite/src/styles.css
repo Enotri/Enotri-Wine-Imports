@@ -437,3 +437,165 @@
     transform: none;
   }
 }
+
+/* ------------------------------------------------------------------ *
+ * Card fan carousel (bottle shots, plum band above the footer)
+ *
+ * Sizes come from the 21st.dev component; the fan maths in
+ * card-fan-carousel.tsx assumes these breakpoint heights. The cards carry no
+ * chrome of their own: the bottles are transparent cut-outs standing directly
+ * on the plum band, so each .fan-card is just a positioned box.
+ * ------------------------------------------------------------------ */
+
+/* The bottles stand directly on the band: no card chrome, and overflow stays
+   visible so each bottle's drop-shadow isn't clipped at the card bounds. */
+.fan-card {
+  will-change: transform;
+  backface-visibility: hidden;
+  width: min(20rem, 36.84vh);
+  height: min(35rem, 64.47vh);
+  position: absolute;
+  overflow: visible;
+}
+
+/* Bottle cut-outs sit on a shared baseline, so they read as a lineup. */
+.fan-bottle {
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 22px 22px rgb(0 0 0 / 0.5));
+  transition:
+    opacity 300ms var(--ease-out),
+    filter 300ms var(--ease-out);
+}
+
+/* Everything but the centre bottle steps back, so the eye lands on the
+   centre bottle and the caption that describes it. */
+.fan-bottle--dim {
+  opacity: 0.78;
+  filter: brightness(0.82) drop-shadow(0 22px 22px rgb(0 0 0 / 0.5));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fan-bottle {
+    transition: none;
+  }
+}
+
+/* Keeps the pointer "inside" the fan in the gap below the cards, so moving
+   between neighbours doesn't flicker the hover layout. */
+.fan-card::after {
+  content: "";
+  z-index: 100;
+  pointer-events: auto;
+  height: 4rem;
+  position: absolute;
+  bottom: -4rem;
+  left: 0;
+  right: 0;
+}
+
+.fan-layout {
+  height: min(38rem, 70vh);
+}
+
+@media (max-width: 1024px) {
+  .fan-layout {
+    height: min(34rem, 70vh);
+  }
+  .fan-card {
+    width: min(16rem, 32.94vh);
+    height: min(28rem, 57.65vh);
+  }
+}
+
+@media (max-width: 768px) {
+  .fan-layout {
+    height: min(28rem, 70vh);
+  }
+  .fan-card {
+    width: min(12rem, 30vh);
+    height: min(21rem, 52.5vh);
+  }
+}
+
+@media (max-width: 640px) {
+  .fan-layout {
+    height: min(26rem, 70vh);
+  }
+  .fan-card {
+    width: min(9rem, 24.23vh);
+    height: min(15.75rem, 42.4vh);
+  }
+}
+
+@media (max-width: 480px) {
+  .fan-layout {
+    height: min(22rem, 70vh);
+  }
+  .fan-card {
+    width: min(7rem, 22.27vh);
+    height: min(12.25rem, 38.98vh);
+  }
+}
+
+/* ── Fan caption: details for whichever wine is currently centred ──────────
+   min-height is reserved so the arrows and dots below don't jump as notes of
+   different lengths cycle through. */
+.fan-caption {
+  min-height: 16rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.6rem;
+  text-align: center;
+}
+
+.fan-caption__eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  line-height: 1.5;
+  /* The site's warm gold. Deliberately NOT var(--gold): that token currently
+     resolves to #501d3c, the same plum as this band's background, which would
+     render the eyebrow invisible. Swap this for var(--gold) once the token is
+     restored to a gold value. */
+  color: #c3ac83;
+}
+
+.fan-caption__title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.15;
+  color: var(--sand);
+  text-wrap: balance;
+}
+
+.fan-caption__details {
+  font-size: 14px;
+  line-height: 1.5;
+  color: color-mix(in oklab, var(--sand) 75%, transparent);
+}
+
+.fan-caption__note {
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 34rem;
+  color: color-mix(in oklab, var(--sand) 60%, transparent);
+  text-wrap: pretty;
+}
+
+@media (min-width: 640px) {
+  .fan-caption {
+    min-height: 12.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .fan-caption {
+    min-height: 11.5rem;
+  }
+  .fan-caption__title {
+    font-size: 2.1rem;
+  }
+}

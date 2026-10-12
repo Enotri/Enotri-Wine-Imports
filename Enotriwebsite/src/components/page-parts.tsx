@@ -1,5 +1,6 @@
-import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import CardFanCarousel from "@/components/ui/card-fan-carousel";
+import type { CardItem } from "@/components/ui/card-fan-carousel";
 
 export function PageHero({
   eyebrow,
@@ -45,26 +46,97 @@ export function Section({ children, className = "" }: { children: ReactNode; cla
   );
 }
 
+// Transparent bottle cut-outs for the fan carousel, alternating whites and
+// reds. These live in public/bottles, which Vite serves at the site root.
+// The carousel opens centred on index 3, Heras Cordón Reserva.
+const BOTTLES: CardItem[] = [
+  {
+    imgUrl: "/bottles/roncathe-soave.webp",
+    alt: "Roncathe Soave DOC 2024 bottle",
+    eyebrow: "Corte Moschina · Veneto, Italy",
+    title: "Roncathe Soave DOC 2024",
+    details: "Garganega · White",
+    note: "Organic, basalt-rich volcanic soils of the Roncà hills; crisp citrus, almond and a flinty savoury edge.",
+  },
+  {
+    imgUrl: "/bottles/nvie-langhe-nebbiolo.webp",
+    alt: "Nvie Langhe Nebbiolo bottle",
+    eyebrow: "Ferrero Federico · Piedmont, Italy",
+    title: "Nvie Langhe Nebbiolo",
+    details: "Nebbiolo · Red",
+    note: "The estate's approachable Nebbiolo: bright cherry, rose petal and fine, silky tannins.",
+  },
+  {
+    imgUrl: "/bottles/argonauta-verdicchio.webp",
+    alt: "Argonauta Verdicchio Classico Superiore 2021 bottle",
+    eyebrow: "Zaccagnini · Castelli di Jesi, Marche",
+    title: "Argonauta Verdicchio Classico Superiore 2021",
+    details: "Verdicchio · White",
+    note: "From the classic hills around Jesi; crisp green apple, almond and a subtle saline finish.",
+  },
+  {
+    imgUrl: "/bottles/heras-cordon-reserva.webp",
+    alt: "Heras Cordón Reserva bottle",
+    eyebrow: "Bodegas Heras Cordón · Rioja Alta, Spain",
+    title: "Heras Cordón Reserva",
+    details: "Tempranillo · Red",
+    note: "Classic Reserva from Rioja Alta; ripe black cherry, vanilla and sweet spice, with polished tannins and a long, savoury finish.",
+  },
+  {
+    imgUrl: "/bottles/collecivetta-pecorino.webp",
+    alt: "Collecivetta Pecorino bottle",
+    eyebrow: "Pasetti · Abruzzo, Italy",
+    title: "Collecivetta",
+    details: "Pecorino · White",
+    note: "Pecorino, the once-forgotten Abruzzo white the Pasetti family helped revive, grown at 450–600 metres on the slopes of the Gran Sasso.",
+  },
+  {
+    imgUrl: "/bottles/madonnella-montepulciano.webp",
+    alt: "Madonnella Montepulciano d'Abruzzo bottle",
+    eyebrow: "Pasetti · Abruzzo, Italy",
+    title: "Madonnella",
+    details: "Montepulciano d'Abruzzo · Red",
+    note: "The heart of the estate: Montepulciano from some of Abruzzo's highest vineyards, where cool nights keep the fruit bright.",
+  },
+  {
+    imgUrl: "/bottles/granetto-pinot-grigio.webp",
+    alt: "Granetto Pinot Grigio 2025 bottle",
+    eyebrow: "Corte Moschina · Colli Berici, Veneto",
+    title: "Granetto Pinot Grigio 2025",
+    details: "Pinot Grigio · White",
+    note: "Limestone slopes with a stony substrate; bright, elegant fruit with real mineral lift and character.",
+  },
+  {
+    imgUrl: "/bottles/el-proposito.webp",
+    alt: "El Propósito 2023 bottle",
+    eyebrow: "Viticultores de Lapuebla · Rioja Alavesa, Spain",
+    title: "El Propósito 2023",
+    details: "95% Tempranillo, 5% Viura · Red",
+    note: "From 1940s–60s vines, fermented whole-bunch in French oak vats; strawberry, raspberry and rose, delicate and fine.",
+  },
+  {
+    imgUrl: "/bottles/galactico.webp",
+    alt: "Galáctico bottle",
+    eyebrow: "Viticultores de Lapuebla · Rioja Alavesa, Spain",
+    title: "Galáctico",
+    details: "Tempranillo · Red",
+    note: "A single-parcel bottling from old vines in Lapuebla de Labarca; dark cherry, liquorice and fine mountain tannins.",
+  },
+  {
+    imgUrl: "/bottles/heras-cordon-vendimia-seleccionada.webp",
+    alt: "Heras Cordón Vendimia Seleccionada bottle",
+    eyebrow: "Bodegas Heras Cordón · Rioja Alta, Spain",
+    title: "Heras Cordón Vendimia Seleccionada",
+    details: "Tempranillo · Red",
+    note: "A selected-harvest Rioja; bright red berry, plum and gentle oak, framed by supple tannins and fresh acidity.",
+  },
+];
+
 export function CtaBand() {
   return (
     <section className="relative overflow-hidden border-y border-primary bg-primary">
-      <div className="mx-auto flex max-w-[1280px] flex-col items-start gap-8 px-6 py-16 sm:px-10 md:flex-row md:items-center md:justify-between md:px-14 md:py-20 lg:px-20">
-        <div>
-          <h2 className="max-w-xl text-4xl leading-[1.05] text-sand md:text-5xl">
-            Try six bottles against your list
-          </h2>
-          <p className="mt-5 max-w-lg text-sm leading-relaxed text-white/85 md:text-base">
-            Send your venue, the styles you need and your price bands. Rawlings replies within two
-            business days with a proposed line-up and dates — no account, no minimum order, and no
-            obligation to buy anything you taste.
-          </p>
-        </div>
-        <Link
-          to="/contact"
-          className="inline-flex min-h-12 shrink-0 items-center border border-white/80 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white hover:text-primary"
-        >
-          Request a tasting
-        </Link>
+      <div className="mx-auto flex max-w-[1280px] flex-col items-center px-6 py-16 sm:px-10 md:px-14 md:py-24 lg:px-20">
+        <CardFanCarousel cards={BOTTLES} />
       </div>
     </section>
   );
@@ -105,10 +177,13 @@ export const eventPhotos = [
   g("event-winedinner", "Enotri wine dinner"),
   g("event-floorpour", "Pouring wine on the trade floor"),
   g("event-culturewine", "Culture Wine event"),
-  g("event-sommelier", "Sommelier in uniform"),
+  g("event-sommelier", "A sommelier in a white service jacket, seated in a restaurant booth"),
   g("event-springfontein", "Springfontein winery visit"),
   g("event-winemaking", "Winemaking in the cellar"),
-  g("event-durbanville", "Durbanville vineyards"),
+  g(
+    "event-durbanville",
+    "Two visitors outside the Klein Roosboom tasting room, in front of its wall of vintage plates",
+  ),
   g("event-cwg", "Cape Winemakers Guild event"),
 ];
 

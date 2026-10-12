@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-const sustainabilityAsset = { url: "/images/site/vineyard_photo_2.webp" };
-const soilHandsAsset = { url: "/images/site/sustainabilty.webp" };
+const sheepGrazingAsset = { url: "/images/site/sustainabilty.webp" };
 const certAbAsset = { url: "/images/site/cert-ab.webp" };
 const certHveAsset = { url: "/images/site/cert-hve.webp" };
 const certWietaAsset = { url: "/images/site/cert-wieta.webp" };
@@ -155,11 +154,14 @@ function Sustainability() {
     <>
       <section className="film-hero h-[78vh] min-h-[480px] border-b border-border">
         <img
-          src={sustainabilityAsset.url}
-          alt="Vineyard bordered by native vegetation"
-          width={1600}
-          height={900}
+          src={sheepGrazingAsset.url}
+          alt="Sheep grazing on a green hillside below terraced vines and trees"
+          width={1800}
+          height={1350}
           className="hero-media"
+          // The flock sits in the lower third of this 4:3 shot; keep it in frame
+          // when the wide hero crops the top and bottom.
+          style={{ objectPosition: "center 68%" }}
         />
         <div className="hero-scrim" />
         <div className="hero-inner">
@@ -234,16 +236,7 @@ function Sustainability() {
           </div>
         </div>
 
-        <figure className="relative mt-20 aspect-[21/9] w-full overflow-hidden">
-          <img
-            src={soilHandsAsset.url}
-            alt="Hands holding rich vineyard soil with earthworms and young roots"
-            className="absolute inset-0 h-full w-full object-cover object-center"
-          />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/60 to-transparent" />
-        </figure>
-
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
+        <div className="mt-20 grid gap-4 md:grid-cols-2">
           <img
             src="/images/site/vineyard-rioja.webp"
             alt="Young vines under a mountain ridge in Rioja"
