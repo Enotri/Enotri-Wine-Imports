@@ -14,7 +14,7 @@ export const Route = createFileRoute("/sustainability")({
       {
         name: "description",
         content:
-          "How Enotri Wine Imports selects producers who farm responsibly: WIETA, IPW, Fairtrade, SIZA, BWI, organic and biodynamic viticulture.",
+          "How Enotri Wine Imports selects producers who farm responsibly: organic and biodynamic estates, independently certified for fair labour and environmental care.",
       },
       { property: "og:title", content: "Sustainability at Enotri Wine Imports" },
       {
@@ -39,80 +39,6 @@ const pillars = [
   {
     title: "Economic Viability",
     body: "Supporting family businesses that can continue investing in their vineyards, communities, and quality over the long term.",
-  },
-];
-
-const programs = [
-  {
-    name: "WIETA",
-    full: "Wine and Agricultural Ethical Trade Association",
-    body: "Promotes ethical labour practices throughout the wine supply chain.",
-    points: [
-      "No child or forced labour",
-      "Fair wages and benefits",
-      "Safe working conditions",
-      "Reasonable working hours",
-      "Access to housing and sanitation",
-      "Freedom of association",
-    ],
-    footer:
-      "Independent audits verify compliance, and certified producers may display the WIETA Fair Labour seal.",
-  },
-  {
-    name: "IPW",
-    full: "Integrated Production of Wine",
-    body: "South Africa's industry-wide environmental certification system.",
-    points: [
-      "Responsible pesticide use",
-      "Soil conservation",
-      "Water efficiency",
-      "Waste management",
-      "Energy reduction",
-      "Worker health and safety",
-    ],
-    footer: "More than 95% of South African wine producers follow IPW guidelines.",
-  },
-  {
-    name: "Integrity & Sustainability Seal",
-    full: "Traceable from vineyard to bottle",
-    body: "This seal guarantees both certified origin and sustainable production.",
-    points: [
-      "Certified origin under the Wine of Origin system",
-      "Compliance with sustainability standards throughout the production chain",
-    ],
-    footer: "Each seal is fully traceable from vineyard to bottle.",
-  },
-  {
-    name: "Fairtrade",
-    full: "The world's largest producer of Fairtrade wine",
-    body: "Fairtrade certification delivers measurable social benefits to farming communities.",
-    points: [
-      "Minimum prices for growers",
-      "Additional community premiums",
-      "Investments in schools, healthcare, housing, and training",
-    ],
-    footer: "South Africa leads the world in Fairtrade wine production.",
-  },
-  {
-    name: "SIZA",
-    full: "Sustainability Initiative of South Africa",
-    body: "Combines environmental and social audits, helping producers meet globally recognised standards for ethical and sustainable farming.",
-    points: [],
-    footer: "",
-  },
-  {
-    name: "WITU",
-    full: "Wine Industry Transformation Unit",
-    body: "Supports transformation and inclusive growth by promoting black ownership, leadership development, and access to finance.",
-    points: [],
-    footer: "",
-  },
-  {
-    name: "BWI",
-    full: "Biodiversity & Wine Initiative",
-    body: "The Cape Floral Kingdom is one of the world's richest biodiversity hotspots. BWI encourages wineries to conserve native vegetation such as fynbos and renosterveld while maintaining ecological corridors and minimising habitat loss.",
-    points: [],
-    footer: "",
   },
 ];
 
@@ -249,33 +175,6 @@ function Sustainability() {
             loading="lazy"
             className="aspect-[16/10] w-full object-cover"
           />
-        </div>
-
-        <div className="mt-20 grid gap-px overflow-hidden border border-border bg-border md:grid-cols-2">
-          {programs.map((p) => (
-            <article key={p.name} className="cell-hover bg-background p-8">
-              <h3 className="text-2xl">{p.name}</h3>
-              <p className="mt-1 text-xs uppercase tracking-[0.16em] text-primary">{p.full}</p>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
-              {p.points.length > 0 && (
-                <ul className="mt-4 space-y-1.5">
-                  {p.points.map((pt) => (
-                    <li
-                      key={pt}
-                      className="relative pl-4 text-sm leading-relaxed text-muted-foreground before:absolute before:left-0 before:top-[0.8em] before:h-px before:w-2 before:bg-primary"
-                    >
-                      {pt}
-                    </li>
-                  ))}
-                </ul>
-              )}
-              {p.footer && (
-                <p className="mt-5 border-t border-border pt-4 text-xs leading-relaxed text-foreground/70">
-                  {p.footer}
-                </p>
-              )}
-            </article>
-          ))}
         </div>
       </Section>
 
