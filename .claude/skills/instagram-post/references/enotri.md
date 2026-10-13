@@ -94,6 +94,6 @@ Use 3–5, and pick the specific ones over the popular ones:
 
 ## Founder story
 
-- Rawlings Munemo is the founder, based in Edmonton. He brings growers' wines to Alberta one relationship at a time.
+- Rawlings Munemo is the founder, based in Edmonton, who brings growers' wines to Alberta one relationship at a time.
 - Enotri is Black-owned. This is central to the founder story (see `scrollcraft/builds/enotri/BRIEF.md`). Don't claim "first" or "only" unless Rawlings confirms the exact wording, because liquor advertising must be verifiable.
 - Founder photo: `assets/rawlings-munemo.jpg`.

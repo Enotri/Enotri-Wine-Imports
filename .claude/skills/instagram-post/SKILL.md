@@ -1,6 +1,6 @@
 ---
 name: instagram-post
-description: Write ready-to-post Instagram content for Rawlings Munemo's two businesses: Enotri Wine Imports (a boutique, terroir-driven wine agency in Alberta) and 1er Cru Elite Services (Edmonton post-construction and possession cleaning). Produces the caption, carousel slide text, image picks from the repo, alt text, hashtags, and an AGLC liquor-advertising compliance check. Use this whenever Rawlings asks for an Instagram post, caption, carousel, Reel idea, story, content calendar, or "something for socials" about a wine, a grower, a region, a wine dinner or tasting, the founder story, or a 1er Cru cleaning job, even if he does not say "Instagram" and only names a wine, producer, event, or job site.
+description: Write ready-to-post Instagram content for Rawlings Munemo's two businesses: Enotri Wine Imports (a boutique, terroir-driven wine agency in Alberta) and 1er Cru Elite Services (Edmonton post-construction and possession cleaning). Produces the caption, carousel slide text, image picks from the repo, alt text, hashtags, and an AGLC liquor-advertising compliance check. Use this whenever Rawlings asks for an Instagram post, caption, carousel, Reel idea, story, content calendar, or "something for socials" about a wine, a grower, a region, a wine dinner or tasting, the founder story, or a 1er Cru cleaning job, even if the request does not say "Instagram" and only names a wine, producer, event, or job site.
 ---
 
 # Instagram Post
@@ -34,7 +34,7 @@ A post is always for one account. If the request doesn't make the brand obvious,
 6. **Run the check.** For Enotri, go through every line of `references/compliance.md`. For 1er Cru, use the privacy and claims checklist in `references/1er-cru.md`. Fix anything you can. Flag anything that needs Rawlings's judgment.
 7. **Save and show.** Write the draft to `projects/instagram/drafts/YYYY-MM-DD-<brand>-<slug>.md` (`<brand>` is `enotri` or `1ercru`) and show the full draft in chat.
 
-Nothing here can publish to Instagram. Rawlings posts from the Instagram app or Meta Business Suite. If he asks you to "post it," say so and hand over the final copy.
+Nothing here can publish to Instagram. Rawlings posts from the Instagram app or Meta Business Suite. If Rawlings asks you to "post it," say so and hand over the final copy.
 
 ## Instagram specs (2026)
 
@@ -97,10 +97,10 @@ Use this layout so each field can be copied straight into Instagram:
 ## Content plans
 
 When Rawlings asks for a week or a month of posts:
-- Start with a plan table (date, pillar, subject, format, one-line idea) and get his OK before writing every post in full. It's much cheaper to reorder a table than to rewrite ten captions.
+- Start with a plan table (date, pillar, subject, format, one-line idea) and get Rawlings's OK before writing every post in full. It's much cheaper to reorder a table than to rewrite ten captions.
 - Rotate the pillars in the brand reference. Don't repeat a producer within two weeks. Mix formats.
-- Default cadence is 3 posts a week for Enotri and 2 for 1er Cru, unless he sets another.
-- Suggested times are in Mountain Time. Weekday late morning (11–1) and early evening (6–8) are reasonable defaults for both audiences. Once he has Instagram Insights data, use his account's own best times.
+- Default cadence is 3 posts a week for Enotri and 2 for 1er Cru, unless Rawlings sets another.
+- Suggested times are in Mountain Time. Weekday late morning (11–1) and early evening (6–8) are reasonable defaults for both audiences. Once the account has Instagram Insights data, use its own best times.
 - Tie Enotri posts to the season where it fits: Northern Hemisphere harvest runs Sept–Oct, Southern Hemisphere (South Africa) Feb–Apr. Holiday entertaining and gift season is Nov–Dec.
 
 ## Before you hand it over

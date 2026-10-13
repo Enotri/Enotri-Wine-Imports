@@ -9,7 +9,7 @@
 **Suggested time:** Tue, 11:30 AM MT
 
 ## Visuals
-1. `assets/federico-ferrero.jpg` (1920×1280): Federico beside a carved sideboard lined with the estate's wines, a glass of red in hand. Crop 4:5 on the left third so he fills the frame and the bottle row runs out of shot.
+1. `assets/federico-ferrero.jpg` (1920×1280): Federico beside a carved sideboard lined with the estate's wines, a glass of red in hand. Crop 4:5 on the left third so Federico fills the frame and the bottle row runs out of shot.
    Slide text: "Mango, Piedmont." (Fraunces, Warm Paper, lower-left on a soft dark scrim)
 2. `Enotriwebsite/public/images/producers/ferrero-federico/1.webp` (570×380, ⚠️ too small): grassy track between vine rows up to a small chapel. Swap in the hi-res original when it arrives. If it doesn't, make this a text slide.
    Slide text: "Marl and limestone, at altitude."
@@ -36,7 +36,7 @@ Trade buyers: request the price list. Link in bio.
 #langhe #nebbiolo #piedmontwine #yegwine #albertawine
 
 ## Alt text
-1. Federico Ferrero smiling beside a carved wooden sideboard lined with his estate's wines, holding a glass of red.
+1. Federico Ferrero smiling beside a carved wooden sideboard lined with the estate's wines, holding a glass of red.
 2. A grassy track between green vine rows leads up to a small brick chapel with a bell tower.
 3. Text on a dark background: The Ferrero family has farmed these hills since 1905.
 4. Text on a dark background: Worked by hand. Cover crops between the rows. Low yields.

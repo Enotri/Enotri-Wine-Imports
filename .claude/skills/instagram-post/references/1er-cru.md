@@ -31,7 +31,7 @@ Write like a reliable trade partner reporting a finished job. Give the scope and
 | **Builder partnerships** | Spec-home routine, reliability, turnaround times | Single image | ~15% |
 | **Behind the work** | Tools, process, the founder on the job | Reel or single image | ~15% |
 
-**Call to action:** *"Booking post-construction and possession cleans across Edmonton. DM us or tap the link in bio for a quote."* Use `[CONFIRM: service area beyond Edmonton]` until Rawlings confirms which surrounding areas he covers.
+**Call to action:** *"Booking post-construction and possession cleans across Edmonton. DM us or tap the link in bio for a quote."* Use `[CONFIRM: service area beyond Edmonton]` until Rawlings confirms which surrounding areas 1er Cru covers.
 
 ## Privacy and permission checklist (every photo, every caption)
 
