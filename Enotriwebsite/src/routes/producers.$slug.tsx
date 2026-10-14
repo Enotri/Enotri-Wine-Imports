@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { producerSlug, producers, wines } from "@/lib/portfolio";
 import { CtaBand, Section } from "@/components/page-parts";
+import { ProducerFilm } from "@/components/producer-film";
 
 export const Route = createFileRoute("/producers/$slug")({
   loader: ({ params }) => {
@@ -95,33 +96,36 @@ function ProducerDetail() {
               <p key={i}>{paragraph}</p>
             ))}
           </div>
-          <aside className="h-fit border border-border bg-secondary/40 p-6">
-            <p className="text-[0.65rem] uppercase tracking-[0.2em] text-primary">At a glance</p>
-            <dl className="mt-5 space-y-4 text-sm">
-              <div>
-                <dt className="text-[0.65rem] uppercase tracking-[0.16em] text-muted-foreground">
-                  Region
-                </dt>
-                <dd className="mt-1">
-                  {producer.region}, {producer.country}
-                </dd>
-              </div>
-              <div>
-                <dt className="text-[0.65rem] uppercase tracking-[0.16em] text-muted-foreground">
-                  Farming
-                </dt>
-                <dd className="mt-1">{producer.farming}</dd>
-              </div>
-              {theirWines.length > 0 && (
+          <div className="space-y-8">
+            <aside className="h-fit border border-border bg-secondary/40 p-6">
+              <p className="text-[0.65rem] uppercase tracking-[0.2em] text-primary">At a glance</p>
+              <dl className="mt-5 space-y-4 text-sm">
                 <div>
                   <dt className="text-[0.65rem] uppercase tracking-[0.16em] text-muted-foreground">
-                    Wines in portfolio
+                    Region
                   </dt>
-                  <dd className="mt-1">{theirWines.length}</dd>
+                  <dd className="mt-1">
+                    {producer.region}, {producer.country}
+                  </dd>
                 </div>
-              )}
-            </dl>
-          </aside>
+                <div>
+                  <dt className="text-[0.65rem] uppercase tracking-[0.16em] text-muted-foreground">
+                    Farming
+                  </dt>
+                  <dd className="mt-1">{producer.farming}</dd>
+                </div>
+                {theirWines.length > 0 && (
+                  <div>
+                    <dt className="text-[0.65rem] uppercase tracking-[0.16em] text-muted-foreground">
+                      Wines in portfolio
+                    </dt>
+                    <dd className="mt-1">{theirWines.length}</dd>
+                  </div>
+                )}
+              </dl>
+            </aside>
+            {producer.film && <ProducerFilm film={producer.film} />}
+          </div>
         </div>
       </Section>
 

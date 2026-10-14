@@ -57,6 +57,8 @@ export type Producer = {
   tileFullBleed?: boolean;
   heroImage?: { src: string; alt: string; caption?: string };
   gallery?: { src: string; alt: string; caption: string; group?: string }[];
+  /** Short portrait film shown beside the story (9:16, muted, looping). */
+  film?: { src: string; poster: string; label: string; caption: string };
   region: string;
   country: string;
   farming: string;
@@ -526,6 +528,13 @@ export const producers: Producer[] = [
       src: "/images/grave/people-famille-bassereau.webp",
       alt: "The Château de la Grave family in their vineyard",
       caption: "The Bassereau family, Château de la Grave — farming the Côtes de Bourg since 1906",
+    },
+    film: {
+      src: "/videos/chateau-de-la-grave-harvest.mp4",
+      poster: "/videos/chateau-de-la-grave-harvest-poster.webp",
+      label:
+        "Château de la Grave, Bordeaux: a short film of the estate, its vineyards and the hand harvest",
+      caption: "A short film from the estate. Harvest photos © Pierre-Marc.",
     },
     gallery: [
       {
