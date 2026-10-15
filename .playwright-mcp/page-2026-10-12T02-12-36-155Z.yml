@@ -1,0 +1,395 @@
+- generic [ref=f1e2]:
+  - banner [ref=f1e3]:
+    - generic [ref=f1e4]:
+      - link "Enotri Wine Imports, Roots Matter — home" [ref=f1e5] [cursor=pointer]:
+        - /url: /
+        - img "Enotri Wine Imports — Roots Matter" [ref=f1e6]
+      - navigation "Main navigation" [ref=f1e7]:
+        - link "About" [ref=f1e8] [cursor=pointer]:
+          - /url: /about
+        - link "Wines" [ref=f1e9] [cursor=pointer]:
+          - /url: /wines
+        - link "Producers" [ref=f1e10] [cursor=pointer]:
+          - /url: /producers
+        - link "Sustainability" [ref=f1e11] [cursor=pointer]:
+          - /url: /sustainability
+        - link "Trade enquiries" [ref=f1e12] [cursor=pointer]:
+          - /url: /contact
+  - main [ref=f1e13]:
+    - generic [ref=f1e14]:
+      - img "Vineyard landscape with rolling hills and a village in the distance" [ref=f1e15]
+      - generic [ref=f1e16]:
+        - paragraph [ref=f1e17]: Our Wines
+        - heading "The portfolio, bottle by bottle" [level=1] [ref=f1e18]
+        - generic [ref=f1e19]:
+          - paragraph [ref=f1e20]: Every wine below comes from an estate that farms its own fruit, and every one has been tasted with the grower before it was listed. Filter by colour or country, open a tech sheet for the technical detail, or click a producer name to read who made it.
+          - paragraph [ref=f1e21]: Available to Alberta restaurants, bars and retailers by the case through Connect Logistics. Ask us for wholesale pricing and current stock — there is no account or minimum order needed to enquire.
+    - generic [ref=f1e23]:
+      - paragraph [ref=f1e24]: From the portfolio
+      - generic [ref=f1e25]:
+        - figure [ref=f1e26]:
+          - img "Pasetti Collecivetta Pecorino bottle" [ref=f1e27]
+          - generic [ref=f1e28]:
+            - paragraph [ref=f1e29]: Pasetti
+            - paragraph [ref=f1e30]: Collecivetta Pecorino
+        - figure [ref=f1e31]:
+          - img "Pasetti Madonnella Montepulciano d'Abruzzo bottle" [ref=f1e32]
+          - generic [ref=f1e33]:
+            - paragraph [ref=f1e34]: Pasetti
+            - paragraph [ref=f1e35]: Madonnella Montepulciano d'Abruzzo
+        - figure [ref=f1e36]:
+          - img "Pasetti Testarossa Montepulciano d'Abruzzo Riserva 2019 bottle" [ref=f1e37]
+          - generic [ref=f1e38]:
+            - paragraph [ref=f1e39]: Pasetti
+            - paragraph [ref=f1e40]: Testarossa Montepulciano d'Abruzzo Riserva 2019
+    - generic [ref=f1e41]:
+      - generic [ref=f1e42]:
+        - generic [ref=f1e43]:
+          - button "All" [ref=f1e44]
+          - button "White" [ref=f1e45]
+          - button "Red" [ref=f1e46]
+          - button "Rosé" [ref=f1e47]
+          - button "Sparkling" [ref=f1e48]
+          - button "Sweet" [ref=f1e49]
+        - generic [ref=f1e50]:
+          - button "All" [ref=f1e51]
+          - button "France" [ref=f1e52]
+          - button "Germany" [ref=f1e53]
+          - button "Italy" [ref=f1e54]
+          - button "Portugal" [ref=f1e55]
+          - button "South Africa" [ref=f1e56]
+          - button "Spain" [ref=f1e57]
+      - generic [ref=f1e58]:
+        - article [ref=f1e59]:
+          - img "Corte Moschina Roncathe Soave DOC 2024 bottle" [ref=f1e61]
+          - paragraph [ref=f1e62]: Roncà, Italy
+          - heading "Roncathe Soave DOC 2024" [level=2] [ref=f1e63]
+          - paragraph [ref=f1e64]:
+            - link "Corte Moschina" [ref=f1e65] [cursor=pointer]:
+              - /url: https://www.cortemoschina.it
+          - paragraph [ref=f1e66]: Soave DOC — 100% Garganega
+          - paragraph [ref=f1e67]: Organic, basalt-rich volcanic soils of the Roncà hills; crisp citrus, almond and a flinty savoury edge.
+          - link "Tech sheet (PDF)" [ref=f1e68] [cursor=pointer]:
+            - /url: /docs/roncathe-soave-tech-sheet.pdf
+        - article [ref=f1e69]:
+          - img "Corte Moschina Granetto Pinot Grigio 2025 bottle" [ref=f1e71]
+          - paragraph [ref=f1e72]: Colli Berici, Veneto, Italy
+          - heading "Granetto Pinot Grigio 2025" [level=2] [ref=f1e73]
+          - paragraph [ref=f1e74]:
+            - link "Corte Moschina" [ref=f1e75] [cursor=pointer]:
+              - /url: https://www.cortemoschina.it
+          - paragraph [ref=f1e76]: Colli Berici — 100% Pinot Grigio
+          - paragraph [ref=f1e77]: Limestone slopes with a stony substrate; bright, elegant fruit with real mineral lift and character.
+          - link "Tech sheet (PDF)" [ref=f1e78] [cursor=pointer]:
+            - /url: /docs/granetto.pdf
+        - article [ref=f1e79]:
+          - img "Corte Moschina Calcàreo Carménère 2021 bottle" [ref=f1e81]
+          - paragraph [ref=f1e82]: Colli Berici, Veneto, Italy
+          - heading "Calcàreo Carménère 2021" [level=2] [ref=f1e83]
+          - paragraph [ref=f1e84]:
+            - link "Corte Moschina" [ref=f1e85] [cursor=pointer]:
+              - /url: https://www.cortemoschina.it
+          - paragraph [ref=f1e86]: Colli Berici DOC — 100% Carménère
+          - paragraph [ref=f1e87]: Organic viticulture on limestone; structured and elegant, with ripe fruit and subtle spice.
+          - link "Tech sheet (PDF)" [ref=f1e88] [cursor=pointer]:
+            - /url: /docs/calcareo-3.pdf
+        - article [ref=f1e89]:
+          - img "I Tarai — White wine" [ref=f1e91]
+          - paragraph [ref=f1e95]: Roncà, Italy
+          - heading "I Tarai" [level=2] [ref=f1e96]
+          - paragraph [ref=f1e97]:
+            - link "Corte Moschina" [ref=f1e98] [cursor=pointer]:
+              - /url: https://www.cortemoschina.it
+          - paragraph [ref=f1e99]: Soave Superiore — Garganega
+          - paragraph [ref=f1e100]: Volcanic soils at the foot of the Monti Lessini; ripe stone fruit, almond and a mineral edge.
+        - article [ref=f1e101]:
+          - img "Barolo — Red wine" [ref=f1e103]
+          - paragraph [ref=f1e107]: Mango, Italy
+          - heading "Barolo" [level=2] [ref=f1e108]
+          - paragraph [ref=f1e109]:
+            - link "Ferrero Federico" [ref=f1e110] [cursor=pointer]:
+              - /url: https://www.ferrerofederico.it/en/
+          - paragraph [ref=f1e111]: Barolo D.O.C.G. — Nebbiolo
+          - paragraph [ref=f1e112]: Fourth-generation family estate in Mango since 1905; tar and rose petal with firm, structured tannins.
+        - article [ref=f1e113]:
+          - generic [ref=f1e114]:
+            - img "Ferrero Federico Nvie Langhe Nebbiolo bottle"
+          - paragraph [ref=f1e115]: Mango, Italy
+          - heading "Nvie Langhe Nebbiolo" [level=2] [ref=f1e116]
+          - paragraph [ref=f1e117]:
+            - link "Ferrero Federico" [ref=f1e118] [cursor=pointer]:
+              - /url: https://www.ferrerofederico.it/en/
+          - paragraph [ref=f1e119]: Langhe D.O.C. — Nebbiolo
+          - paragraph [ref=f1e120]: "The estate's approachable Nebbiolo: bright cherry, rose petal and fine, silky tannins."
+        - article [ref=f1e121]:
+          - generic [ref=f1e122]:
+            - img "Zaccagnini Passerina IGT bottle"
+          - paragraph [ref=f1e123]: Bolognano, Italy
+          - heading "Passerina IGT" [level=2] [ref=f1e124]
+          - paragraph [ref=f1e125]:
+            - link "Zaccagnini" [ref=f1e126] [cursor=pointer]:
+              - /url: /producers/zaccagnini
+          - paragraph [ref=f1e127]: Passerina IGT — Passerina
+          - paragraph [ref=f1e128]: Abruzzo's bright native white; white flowers, green pear and a crisp, salty finish.
+        - article [ref=f1e129]:
+          - generic [ref=f1e130]:
+            - img "Zaccagnini Argonauta Verdicchio Classico Superiore 2021 bottle"
+          - paragraph [ref=f1e131]: Castelli di Jesi, Marche, Italy
+          - heading "Argonauta Verdicchio Classico Superiore 2021" [level=2] [ref=f1e132]
+          - paragraph [ref=f1e133]:
+            - link "Zaccagnini" [ref=f1e134] [cursor=pointer]:
+              - /url: /producers/zaccagnini
+          - paragraph [ref=f1e135]: Verdicchio dei Castelli di Jesi Classico Superiore — Verdicchio
+          - paragraph [ref=f1e136]: From the classic hills around Jesi; crisp green apple, almond and a subtle saline finish.
+        - article [ref=f1e137]:
+          - generic [ref=f1e138]:
+            - img "Zaccagnini Verdicchio dei Castelli di Jesi Classico DOC bottle"
+          - paragraph [ref=f1e139]: Castelli di Jesi, Marche, Italy
+          - heading "Verdicchio dei Castelli di Jesi Classico DOC" [level=2] [ref=f1e140]
+          - paragraph [ref=f1e141]:
+            - link "Zaccagnini" [ref=f1e142] [cursor=pointer]:
+              - /url: /producers/zaccagnini
+          - paragraph [ref=f1e143]: Verdicchio dei Castelli di Jesi Classico DOC — Verdicchio
+          - paragraph [ref=f1e144]: Classic Jesi Verdicchio; lemon zest, white almond and a clean, mineral close.
+        - article [ref=f1e145]:
+          - img "Argile Rouge — Red wine" [ref=f1e147]
+          - paragraph [ref=f1e151]: Savoie, France
+          - heading "Argile Rouge" [level=2] [ref=f1e152]
+          - paragraph [ref=f1e153]:
+            - link "Domaine des Ardoisières" [ref=f1e154] [cursor=pointer]:
+              - /url: /producers/domaine-des-ardoisieres
+          - paragraph [ref=f1e155]: Gamay, Mondeuse, Persan
+          - paragraph [ref=f1e156]: Crunchy red fruit, iron and alpine herbs; a mountain red of real detail.
+        - article [ref=f1e157]:
+          - img "Paski Fiano — White wine" [ref=f1e159]
+          - paragraph [ref=f1e163]: Campania, Italy
+          - heading "Paski Fiano" [level=2] [ref=f1e164]
+          - paragraph [ref=f1e165]:
+            - link "Cantina Giardino" [ref=f1e166] [cursor=pointer]:
+              - /url: /producers/cantina-giardino
+          - paragraph [ref=f1e167]: Fiano
+          - paragraph [ref=f1e168]: Ungrafted vines, skin contact in amphora, chestnut ageing.
+        - article [ref=f1e169]:
+          - img "Le Fole Aglianico — Red wine" [ref=f1e171]
+          - paragraph [ref=f1e175]: Campania, Italy
+          - heading "Le Fole Aglianico" [level=2] [ref=f1e176]
+          - paragraph [ref=f1e177]:
+            - link "Cantina Giardino" [ref=f1e178] [cursor=pointer]:
+              - /url: /producers/cantina-giardino
+          - paragraph [ref=f1e179]: Aglianico
+          - paragraph [ref=f1e180]: Volcanic soils and centenarian vines; savoury, tannic, long-lived.
+        - article [ref=f1e181]:
+          - img "Cauzón Tinto — Red wine" [ref=f1e183]
+          - paragraph [ref=f1e187]: Granada, Spain
+          - heading "Cauzón Tinto" [level=2] [ref=f1e188]
+          - paragraph [ref=f1e189]:
+            - link "Bodegas Cauzón" [ref=f1e190] [cursor=pointer]:
+              - /url: /producers/bodegas-cauzon
+          - paragraph [ref=f1e191]: Tempranillo
+          - paragraph [ref=f1e192]: 1,200 metres in the Sierra Nevada; bright, aromatic, mountain-cool Tempranillo.
+        - article [ref=f1e193]:
+          - img "Rosado de la Sierra — Rosé wine" [ref=f1e195]
+          - paragraph [ref=f1e199]: Granada, Spain
+          - heading "Rosado de la Sierra" [level=2] [ref=f1e200]
+          - paragraph [ref=f1e201]:
+            - link "Bodegas Cauzón" [ref=f1e202] [cursor=pointer]:
+              - /url: /producers/bodegas-cauzon
+          - paragraph [ref=f1e203]: Garnacha
+          - paragraph [ref=f1e204]: Direct press, pale copper, wild strawberry and salt.
+        - article [ref=f1e205]:
+          - img "Marqués del Hueco Crianza 2020 — Red wine" [ref=f1e207]
+          - paragraph [ref=f1e211]: Rioja Alavesa, Spain
+          - heading "Marqués del Hueco Crianza 2020" [level=2] [ref=f1e212]
+          - paragraph [ref=f1e213]:
+            - link "Viticultores de Lapuebla" [ref=f1e214] [cursor=pointer]:
+              - /url: /producers/viticultores-de-lapuebla
+          - paragraph [ref=f1e215]: 80% Tempranillo, 10% Mazuelo, 10% Graciano
+          - paragraph [ref=f1e216]: 13 months in American oak Bordeaux barrels. Raspberry and black plum with pepper, clove and vanilla; silky tannins and a long finish.
+        - article [ref=f1e217]:
+          - img "Marqués del Hueco Reserva 2016 — Red wine" [ref=f1e219]
+          - paragraph [ref=f1e223]: Rioja Alavesa, Spain
+          - heading "Marqués del Hueco Reserva 2016" [level=2] [ref=f1e224]
+          - paragraph [ref=f1e225]:
+            - link "Viticultores de Lapuebla" [ref=f1e226] [cursor=pointer]:
+              - /url: /producers/viticultores-de-lapuebla
+          - paragraph [ref=f1e227]: 90% Tempranillo, 5% Mazuelo, 5% Graciano
+          - paragraph [ref=f1e228]: 18 months in French and American oak from 35–40 year-old vines. Red cherry, cassis and menthol, closing on toffee and coffee.
+        - article [ref=f1e229]:
+          - generic [ref=f1e230]:
+            - img "Viticultores de Lapuebla El Propósito 2023 bottle"
+          - paragraph [ref=f1e231]: Rioja Alavesa, Spain
+          - heading "El Propósito 2023" [level=2] [ref=f1e232]
+          - paragraph [ref=f1e233]:
+            - link "Viticultores de Lapuebla" [ref=f1e234] [cursor=pointer]:
+              - /url: /producers/viticultores-de-lapuebla
+          - paragraph [ref=f1e235]: 95% Tempranillo, 5% Viura
+          - paragraph [ref=f1e236]: 10,000 bottles from 1940s–60s vines; whole-bunch fermentation in French oak vats, 7 months in barrel. Strawberry, raspberry and rose, delicate and fine.
+        - article [ref=f1e237]:
+          - generic [ref=f1e238]:
+            - img "Viticultores de Lapuebla Galáctico bottle"
+          - paragraph [ref=f1e239]: Rioja Alavesa, Spain
+          - heading "Galáctico" [level=2] [ref=f1e240]
+          - paragraph [ref=f1e241]:
+            - link "Viticultores de Lapuebla" [ref=f1e242] [cursor=pointer]:
+              - /url: /producers/viticultores-de-lapuebla
+          - paragraph [ref=f1e243]: 100% Tempranillo
+          - paragraph [ref=f1e244]: A single-parcel bottling from old vines in Lapuebla de Labarca; dark cherry, liquorice and fine mountain tannins.
+        - article [ref=f1e245]:
+          - generic [ref=f1e246]:
+            - img "Bodegas Heras Cordón Heras Cordón Reserva bottle"
+          - paragraph [ref=f1e247]: Rioja Alta, Spain
+          - heading "Heras Cordón Reserva" [level=2] [ref=f1e248]
+          - paragraph [ref=f1e249]:
+            - link "Bodegas Heras Cordón" [ref=f1e250] [cursor=pointer]:
+              - /url: /producers/bodegas-heras-cordon
+          - paragraph [ref=f1e251]: Rioja DOCa — Tempranillo
+          - paragraph [ref=f1e252]: Classic Reserva from Rioja Alta; ripe black cherry, vanilla and sweet spice, with polished tannins and a long, savoury finish.
+        - article [ref=f1e253]:
+          - generic [ref=f1e254]:
+            - img "Bodegas Heras Cordón Heras Cordón Vendimia Seleccionada bottle"
+          - paragraph [ref=f1e255]: Rioja Alta, Spain
+          - heading "Heras Cordón Vendimia Seleccionada" [level=2] [ref=f1e256]
+          - paragraph [ref=f1e257]:
+            - link "Bodegas Heras Cordón" [ref=f1e258] [cursor=pointer]:
+              - /url: /producers/bodegas-heras-cordon
+          - paragraph [ref=f1e259]: Rioja DOCa — Tempranillo
+          - paragraph [ref=f1e260]: A selected-harvest Rioja; bright red berry, plum and gentle oak, framed by supple tannins and fresh acidity.
+        - article [ref=f1e261]:
+          - img "Loureiro — White wine" [ref=f1e263]
+          - paragraph [ref=f1e267]: Vinho Verde, Portugal
+          - heading "Loureiro" [level=2] [ref=f1e268]
+          - paragraph [ref=f1e269]:
+            - link "Quinta da Palmirinha" [ref=f1e270] [cursor=pointer]:
+              - /url: /producers/quinta-da-palmirinha
+          - paragraph [ref=f1e271]: Loureiro
+          - paragraph [ref=f1e272]: Organic granite-grown Loureiro with bay leaf, citrus blossom and grip.
+        - article [ref=f1e273]:
+          - img "Avesso — White wine" [ref=f1e275]
+          - paragraph [ref=f1e279]: Vinho Verde, Portugal
+          - heading "Avesso" [level=2] [ref=f1e280]
+          - paragraph [ref=f1e281]:
+            - link "Quinta da Palmirinha" [ref=f1e282] [cursor=pointer]:
+              - /url: /producers/quinta-da-palmirinha
+          - paragraph [ref=f1e283]: Avesso
+          - paragraph [ref=f1e284]: Fuller, orchard-fruited and textural; a serious northern Portuguese white.
+        - article [ref=f1e285]:
+          - img "Wilder Satz — White wine" [ref=f1e287]
+          - paragraph [ref=f1e291]: Pfalz, Germany
+          - heading "Wilder Satz" [level=2] [ref=f1e292]
+          - paragraph [ref=f1e293]:
+            - link "Weingut Brand" [ref=f1e294] [cursor=pointer]:
+              - /url: /producers/weingut-brand
+          - paragraph [ref=f1e295]: Field blend
+          - paragraph [ref=f1e296]: Co-planted, co-fermented field blend from sandstone; wild and gulpable.
+        - article [ref=f1e297]:
+          - img "Riesling Trocken — White wine" [ref=f1e299]
+          - paragraph [ref=f1e303]: Pfalz, Germany
+          - heading "Riesling Trocken" [level=2] [ref=f1e304]
+          - paragraph [ref=f1e305]:
+            - link "Weingut Brand" [ref=f1e306] [cursor=pointer]:
+              - /url: /producers/weingut-brand
+          - paragraph [ref=f1e307]: Riesling
+          - paragraph [ref=f1e308]: Dry, high-tension Riesling with lime leaf and crushed rock.
+        - article [ref=f1e309]:
+          - img "Meursault 'Les Durots' — White wine" [ref=f1e311]
+          - paragraph [ref=f1e315]: Bourgogne, France
+          - heading "Meursault 'Les Durots'" [level=2] [ref=f1e316]
+          - paragraph [ref=f1e317]:
+            - link "Domaine Rougeot" [ref=f1e318] [cursor=pointer]:
+              - /url: /producers/domaine-rougeot
+          - paragraph [ref=f1e319]: Chardonnay
+          - paragraph [ref=f1e320]: "Classical Meursault: hazelnut, white peach, quietly persistent."
+        - article [ref=f1e321]:
+          - img "Bourgogne Rouge — Red wine" [ref=f1e323]
+          - paragraph [ref=f1e327]: Bourgogne, France
+          - heading "Bourgogne Rouge" [level=2] [ref=f1e328]
+          - paragraph [ref=f1e329]:
+            - link "Domaine Rougeot" [ref=f1e330] [cursor=pointer]:
+              - /url: /producers/domaine-rougeot
+          - paragraph [ref=f1e331]: Pinot Noir
+          - paragraph [ref=f1e332]: Village-adjacent parcels, whole-bunch inflected, exceptional value.
+        - article [ref=f1e333]:
+          - img "Straw Wine — Sweet wine" [ref=f1e335]
+          - paragraph [ref=f1e339]: Stellenbosch, South Africa
+          - heading "Straw Wine" [level=2] [ref=f1e340]
+          - paragraph [ref=f1e341]:
+            - link "Stellenrust Family Vineyards" [ref=f1e342] [cursor=pointer]:
+              - /url: /producers/stellenrust-family-vineyards
+          - paragraph [ref=f1e343]: Chenin Blanc
+          - paragraph [ref=f1e344]: Air-dried bunches; apricot, honeycomb and a bright acid spine.
+      - navigation "Wines pages" [ref=f1e345]:
+        - button "Page 1" [ref=f1e346]
+        - button "Page 2" [ref=f1e347]
+    - generic [ref=f1e349]:
+      - heading "Bottles and landscapes" [level=2] [ref=f1e350]
+      - generic [ref=f1e351]:
+        - img "Winery building"
+        - img "Vineyard rows"
+        - img "Vineyard in the hills"
+        - img "Wine bottle 1"
+        - img "Wine bottle 2"
+        - img "Wine bottle 3"
+        - img "Wine bottle 4"
+        - img "Wine bottle 5"
+        - img "Wine bottle 6"
+        - img "Wine bottle 7"
+        - img "Vineyard landscape 1"
+        - img "Vineyard landscape 2"
+        - img "Vineyard landscape 3"
+        - img "Vineyard landscape 4"
+        - img "Vineyard landscape 5"
+        - img "Vineyard landscape 6"
+        - img "Vineyard landscape 7"
+        - img "Vineyard landscape 8"
+        - img "Vineyard landscape 9"
+        - img "Vineyard landscape 10"
+    - region "Wines from the Enotri portfolio" [ref=f1e354]:
+      - generic [ref=f1e356]:
+        - img "Roncathe Soave DOC 2024 bottle" [ref=f1e359]
+        - img "Nvie Langhe Nebbiolo bottle" [ref=f1e362]
+        - img "Argonauta Verdicchio Classico Superiore 2021 bottle" [ref=f1e365]
+        - img "Heras Cordón Reserva bottle" [ref=f1e368]
+        - img "Collecivetta Pecorino bottle" [ref=f1e371]
+        - img "Madonnella Montepulciano d'Abruzzo bottle" [ref=f1e374]
+        - img "Granetto Pinot Grigio 2025 bottle" [ref=f1e377]
+        - img "El Propósito 2023 bottle" [ref=f1e380]
+        - img "Galáctico bottle" [ref=f1e383]
+        - img "Heras Cordón Vendimia Seleccionada bottle" [ref=f1e386]
+      - generic [ref=f1e387]:
+        - paragraph [ref=f1e388]: Bodegas Heras Cordón · Rioja Alta, Spain
+        - heading "Heras Cordón Reserva" [level=3] [ref=f1e389]
+        - paragraph [ref=f1e390]: Tempranillo · Red
+        - paragraph [ref=f1e391]: Classic Reserva from Rioja Alta; ripe black cherry, vanilla and sweet spice, with polished tannins and a long, savoury finish.
+      - generic [ref=f1e392]:
+        - button "Previous wine" [ref=f1e393] [cursor=pointer]
+        - button "Next wine" [ref=f1e407] [cursor=pointer]
+  - contentinfo [ref=f1e410]:
+    - generic [ref=f1e411]:
+      - generic [ref=f1e412]:
+        - img "Enotri Wine Imports — Roots Matter" [ref=f1e413]
+        - paragraph [ref=f1e414]: A boutique wine agency in Edmonton, Alberta, representing grower-led estates from South Africa and Europe.
+      - generic [ref=f1e415]:
+        - paragraph [ref=f1e416]: Explore
+        - list [ref=f1e417]:
+          - listitem [ref=f1e418]:
+            - link "About" [ref=f1e419] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=f1e420]:
+            - link "Wines" [ref=f1e421] [cursor=pointer]:
+              - /url: /wines
+          - listitem [ref=f1e422]:
+            - link "Producers" [ref=f1e423] [cursor=pointer]:
+              - /url: /producers
+          - listitem [ref=f1e424]:
+            - link "Sustainability" [ref=f1e425] [cursor=pointer]:
+              - /url: /sustainability
+      - generic [ref=f1e426]:
+        - paragraph [ref=f1e427]: Contact
+        - paragraph [ref=f1e428]:
+          - text: Edmonton, Alberta, Canada
+          - link "rallings@enotri.ca" [ref=f1e429] [cursor=pointer]:
+            - /url: mailto:rallings@enotri.ca
+        - link "Get in touch" [ref=f1e430] [cursor=pointer]:
+          - /url: /contact
+        - paragraph [ref=f1e431]: Please enjoy responsibly. Trade enquiries welcome.
+    - generic [ref=f1e432]: © 2026 Enotri Wine Imports

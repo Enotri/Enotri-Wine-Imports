@@ -1,0 +1,29 @@
+[   17311ms] [LOG] JQMIGRATE: Migrate is installed, version 3.4.1 @ https://www.quintessentialwines.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1:1
+[   18382ms] TypeError: Cannot read properties of undefined (reading 'cloneNode')
+    at e.value (https://www.quintessentialwines.com/wp-content/themes/divi-child/assets/js/siema.min.js:1:4284)
+    at e.value (https://www.quintessentialwines.com/wp-content/themes/divi-child/assets/js/siema.min.js:1:3696)
+    at new e (https://www.quintessentialwines.com/wp-content/themes/divi-child/assets/js/siema.min.js:1:2169)
+    at https://www.quintessentialwines.com/wp-content/themes/divi-child/assets/js/scripts.js?v=1.33:7:26
+    at NodeList.forEach (<anonymous>)
+    at https://www.quintessentialwines.com/wp-content/themes/divi-child/assets/js/scripts.js?v=1.33:5:25
+    at window.CookieControl.Cookie.applyOverrideEventListeners (https://consent.cookiebot.com/uc.js:2:111214)
+    at https://consent.cookiebot.com/uc.js:2:22791
+[   18383ms] TypeError: Cannot read properties of undefined (reading 'cloneNode')
+    at e.value (https://www.quintessentialwines.com/wp-content/themes/divi-child/assets/js/siema.min.js:1:4284)
+    at e.value (https://www.quintessentialwines.com/wp-content/themes/divi-child/assets/js/siema.min.js:1:3696)
+    at new e (https://www.quintessentialwines.com/wp-content/themes/divi-child/assets/js/siema.min.js:1:2169)
+    at <anonymous>:5:33
+    at window.CookieControl.Cookie.applyOverrideEventListeners (https://consent.cookiebot.com/uc.js:2:111214)
+    at https://consent.cookiebot.com/uc.js:2:22791
+[   18384ms] TypeError: Cannot read properties of undefined (reading 'cloneNode')
+    at e.value (https://www.quintessentialwines.com/wp-content/themes/divi-child/assets/js/siema.min.js:1:4284)
+    at e.value (https://www.quintessentialwines.com/wp-content/themes/divi-child/assets/js/siema.min.js:1:8772)
+    at https://www.quintessentialwines.com/wp-content/themes/divi-child/assets/js/scripts.js?v=1.33:592:46
+    at window.CookieControl.Cookie.applyOverrideEventListeners (https://consent.cookiebot.com/uc.js:2:111214)
+    at https://consent.cookiebot.com/uc.js:2:22791
+[   18384ms] TypeError: Cannot read properties of undefined (reading 'cloneNode')
+    at e.value (https://www.quintessentialwines.com/wp-content/themes/divi-child/assets/js/siema.min.js:1:4284)
+    at e.value (https://www.quintessentialwines.com/wp-content/themes/divi-child/assets/js/siema.min.js:1:8772)
+    at https://www.quintessentialwines.com/wp-content/themes/divi-child/assets/js/scripts.js?v=1.33:592:46
+    at window.CookieControl.Cookie.applyOverrideEventListeners (https://consent.cookiebot.com/uc.js:2:111214)
+    at https://consent.cookiebot.com/uc.js:2:22791

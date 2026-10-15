@@ -1,0 +1,119 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Enotri Wine Imports, Roots Matter — home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "Enotri Wine Imports — Roots Matter" [ref=e6]
+      - navigation "Main navigation" [ref=e7]:
+        - link "About" [ref=e8] [cursor=pointer]:
+          - /url: /about
+        - link "Wines" [ref=e9] [cursor=pointer]:
+          - /url: /wines
+        - link "Producers" [ref=e10] [cursor=pointer]:
+          - /url: /producers
+        - link "Sustainability" [ref=e11] [cursor=pointer]:
+          - /url: /sustainability
+        - link "Trade enquiries" [ref=e12] [cursor=pointer]:
+          - /url: /contact
+  - main [ref=e13]:
+    - generic [ref=e14]:
+      - img "Stacked oak barrels in a winery cellar" [ref=e15]
+      - generic [ref=e16]:
+        - paragraph [ref=e17]: About
+        - heading "Our Story" [level=1] [ref=e18]
+        - paragraph [ref=e19]: Enotri Wine Imports is a boutique wine agency based in Edmonton, Alberta.
+    - generic [ref=e21]:
+      - generic [ref=e22]:
+        - paragraph [ref=e23]: Philosophy
+        - heading "Our Philosophy" [level=2] [ref=e24]
+        - img "Two hands cupping rich dark soil with earthworms, roots, and seedlings" [ref=e25]
+      - generic [ref=e26]:
+        - paragraph [ref=e27]: We believe the most important work happens in the vineyard, so we only take on estates that farm their own fruit. Before a wine is listed, someone here has walked those rows and tasted in that cellar with the person responsible for it.
+        - paragraph [ref=e28]: That keeps the portfolio short on purpose. It also means that when a buyer asks why a wine tastes the way it does, or how it was farmed, there is a real answer rather than a marketing line — and a price that an Alberta list can actually carry.
+    - generic [ref=e30]:
+      - img "Rawlings Munemo, founder of Enotri Wine Imports, holding a glass of red wine" [ref=e31]
+      - generic [ref=e32]:
+        - paragraph [ref=e33]: Founder
+        - heading "Rawlings Munemo" [level=2] [ref=e34]
+        - generic [ref=e35]:
+          - paragraph [ref=e36]: "Rawlings founded Enotri Wine Imports with a simple goal: to bring wines to Alberta that express their true provenance and the dedication of the vineyard stewards who grow them — bottles that carry the mark of the people and places behind them."
+          - paragraph [ref=e37]: He partners with independent producers from renowned and emerging regions, choosing wines that combine authenticity, quality, and harmony. Every estate brings something meaningful to the portfolio, whether through old vines, sustainable farming, indigenous varieties, family heritage, regional distinctiveness, or exceptional value.
+          - paragraph [ref=e38]: "Each relationship is direct: he tastes in the growers' cellars and walks their vineyards before a single wine is listed."
+    - generic [ref=e39]:
+      - heading "In the cellars and on the floor" [level=2] [ref=e40]
+      - paragraph [ref=e41]: Tasting at the estates, working the harvest and pouring for Alberta's sommeliers.
+      - generic [ref=e42]:
+        - img "Terracotta amphorae lined up in a winery cellar" [ref=e43]
+        - img "Large oak casks in the cellar at Château de la Grave" [ref=e44]
+        - img "A tasting group gathered among the barrels in a winery cellar" [ref=e45]
+    - generic [ref=e47]:
+      - heading "The people" [level=2] [ref=e48]
+      - generic [ref=e49]:
+        - img "Enotri wine director"
+        - img "Rallings of Enotri"
+        - img "Lee-anne of Enotri"
+        - img "The Enotri team"
+        - img "Enotri team with growers"
+    - generic [ref=e51]:
+      - heading "Trade tastings and events" [level=2] [ref=e52]
+      - generic [ref=e53]:
+        - img "Bon Vivant wine event"
+        - img "Bon Vivant tasting"
+        - img "Enotri wine dinner"
+        - img "Pouring wine on the trade floor"
+        - img "Culture Wine event"
+        - img "A sommelier in a white service jacket, seated in a restaurant booth"
+        - img "Springfontein winery visit"
+        - img "Winemaking in the cellar"
+        - img "Two visitors outside the Klein Roosboom tasting room, in front of its wall of vintage plates"
+        - img "Cape Winemakers Guild event"
+    - region "Wines from the Enotri portfolio" [ref=e56]:
+      - generic [ref=e58]:
+        - img "Roncathe Soave DOC 2024 bottle" [ref=e61]
+        - img "Nvie Langhe Nebbiolo bottle" [ref=e64]
+        - img "Argonauta Verdicchio Classico Superiore 2021 bottle" [ref=e67]
+        - img "Heras Cordón Reserva bottle" [ref=e70]
+        - img "Collecivetta Pecorino bottle" [ref=e73]
+        - img "Madonnella Montepulciano d'Abruzzo bottle" [ref=e76]
+        - img "Granetto Pinot Grigio 2025 bottle" [ref=e79]
+        - img "El Propósito 2023 bottle" [ref=e82]
+        - img "Galáctico bottle" [ref=e85]
+        - img "Heras Cordón Vendimia Seleccionada bottle" [ref=e88]
+      - generic [ref=e89]:
+        - paragraph [ref=e90]: Bodegas Heras Cordón · Rioja Alta, Spain
+        - heading "Heras Cordón Reserva" [level=3] [ref=e91]
+        - paragraph [ref=e92]: Tempranillo · Red
+        - paragraph [ref=e93]: Classic Reserva from Rioja Alta; ripe black cherry, vanilla and sweet spice, with polished tannins and a long, savoury finish.
+      - generic [ref=e94]:
+        - button "Previous wine" [ref=e95] [cursor=pointer]
+        - button "Next wine" [ref=e109] [cursor=pointer]
+  - contentinfo [ref=e112]:
+    - generic [ref=e113]:
+      - generic [ref=e114]:
+        - img "Enotri Wine Imports — Roots Matter" [ref=e115]
+        - paragraph [ref=e116]: A boutique wine agency in Edmonton, Alberta, representing grower-led estates from South Africa and Europe.
+      - generic [ref=e117]:
+        - paragraph [ref=e118]: Explore
+        - list [ref=e119]:
+          - listitem [ref=e120]:
+            - link "About" [ref=e121] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e122]:
+            - link "Wines" [ref=e123] [cursor=pointer]:
+              - /url: /wines
+          - listitem [ref=e124]:
+            - link "Producers" [ref=e125] [cursor=pointer]:
+              - /url: /producers
+          - listitem [ref=e126]:
+            - link "Sustainability" [ref=e127] [cursor=pointer]:
+              - /url: /sustainability
+      - generic [ref=e128]:
+        - paragraph [ref=e129]: Contact
+        - paragraph [ref=e130]:
+          - text: Edmonton, Alberta, Canada
+          - link "rallings@enotri.ca" [ref=e131] [cursor=pointer]:
+            - /url: mailto:rallings@enotri.ca
+        - link "Get in touch" [ref=e132] [cursor=pointer]:
+          - /url: /contact
+        - paragraph [ref=e133]: Please enjoy responsibly. Trade enquiries welcome.
+    - generic [ref=e134]: © 2026 Enotri Wine Imports

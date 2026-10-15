@@ -1,0 +1,172 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Enotri Wine Imports, Roots Matter — home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "Enotri Wine Imports — Roots Matter" [ref=e6]
+      - navigation "Main navigation" [ref=e7]:
+        - link "About" [ref=e8] [cursor=pointer]:
+          - /url: /about
+        - link "Wines" [ref=e9] [cursor=pointer]:
+          - /url: /wines
+        - link "Producers" [ref=e10] [cursor=pointer]:
+          - /url: /producers
+        - link "Sustainability" [ref=e11] [cursor=pointer]:
+          - /url: /sustainability
+        - link "Trade enquiries" [ref=e12] [cursor=pointer]:
+          - /url: /contact
+  - main [ref=e13]:
+    - generic [ref=e14]:
+      - generic [ref=e16]:
+        - img "Open iron gates onto a gravel drive leading into vineyard rows" [ref=e17]
+        - img "A grower's hands cradling freshly picked bunches of dark grapes" [ref=e20]
+        - heading "Good wine has a sense of place." [level=1]:
+          - generic: Good wine has
+          - generic: a sense of place.
+        - paragraph [aria-hidden]: Scroll to expand
+        - generic [ref=e22]:
+          - generic [ref=e23]:
+            - paragraph [ref=e24]: Independent wine imports · Edmonton, Alberta
+            - paragraph [ref=e25]: We bring the work of independent growers to Alberta—wines shaped by the land, and by the people who tend it.
+          - generic [ref=e26]:
+            - link "Explore the wines" [ref=e27] [cursor=pointer]:
+              - /url: /wines
+            - link "Meet the growers" [ref=e28] [cursor=pointer]:
+              - /url: /producers
+      - generic [ref=e29]:
+        - img "Vineyard rows at Château de la Grave" [ref=e32]
+        - generic [ref=e33]:
+          - paragraph [ref=e34]: The Enotri approach
+          - heading "Start with the grower. The wine follows." [level=2] [ref=e35]
+          - paragraph [ref=e36]: We build our portfolio one relationship at a time. Each estate is chosen for its sense of place, its care in the vineyard and the people willing to stand behind every bottle.
+          - paragraph [ref=e37]: That keeps our list considered and gives Alberta restaurants, retailers and private clients a real story to share at the table.
+          - link "Our story" [ref=e38] [cursor=pointer]:
+            - /url: /about
+      - generic [ref=e40]:
+        - generic [ref=e41]:
+          - paragraph [ref=e42]: Chosen for character
+          - heading "A thoughtful selection, rooted in real places." [level=2] [ref=e43]
+          - paragraph [ref=e44]: From volcanic hills in Veneto to high vineyards in Abruzzo, every bottle has a reason to be here. Discover expressive wines from family estates across Europe and South Africa.
+          - link "Browse the portfolio" [ref=e45] [cursor=pointer]:
+            - /url: /wines
+        - img "Barrels in the Pasetti wine cellar" [ref=e48]
+      - generic [ref=e49]:
+        - generic [ref=e50]:
+          - generic [ref=e51]:
+            - paragraph [ref=e52]: From the portfolio
+            - heading "Find your next favourite." [level=2] [ref=e53]
+          - link "All 44 wines" [ref=e54] [cursor=pointer]:
+            - /url: /wines
+        - generic [ref=e55]:
+          - article [ref=e56]:
+            - generic [ref=e57]:
+              - img "Corte Moschina Roncathe Soave DOC 2024"
+            - generic [ref=e58]:
+              - paragraph [ref=e59]: Corte Moschina · Roncà, Italy
+              - heading "Roncathe Soave DOC 2024" [level=3] [ref=e60]
+              - paragraph [ref=e61]: White
+          - article [ref=e62]:
+            - generic [ref=e63]:
+              - img "Corte Moschina Granetto Pinot Grigio 2025"
+            - generic [ref=e64]:
+              - paragraph [ref=e65]: Corte Moschina · Colli Berici, Veneto, Italy
+              - heading "Granetto Pinot Grigio 2025" [level=3] [ref=e66]
+              - paragraph [ref=e67]: White
+          - article [ref=e68]:
+            - generic [ref=e69]:
+              - img "Corte Moschina Calcàreo Carménère 2021"
+            - generic [ref=e70]:
+              - paragraph [ref=e71]: Corte Moschina · Colli Berici, Veneto, Italy
+              - heading "Calcàreo Carménère 2021" [level=3] [ref=e72]
+              - paragraph [ref=e73]: Red
+          - article [ref=e74]:
+            - generic [ref=e75]:
+              - img "Ferrero Federico Nvie Langhe Nebbiolo"
+            - generic [ref=e76]:
+              - paragraph [ref=e77]: Ferrero Federico · Mango, Italy
+              - heading "Nvie Langhe Nebbiolo" [level=3] [ref=e78]
+              - paragraph [ref=e79]: Red
+      - generic [ref=e81]:
+        - generic [ref=e82]:
+          - paragraph [ref=e83]: A belief we share
+          - heading "Better wine begins long before the cellar." [level=2] [ref=e84]
+          - paragraph [ref=e85]: In the soil, the seasons, and the patient choices of the people who grow the fruit. We look for wines that carry those details with them.
+          - link "How we think about the land" [ref=e86] [cursor=pointer]:
+            - /url: /sustainability
+        - img "Vineyard rows shaped by the contours of the land" [ref=e88]
+      - generic [ref=e91]:
+        - generic [ref=e92]:
+          - generic [ref=e93]:
+            - paragraph [ref=e94]: The people behind the bottle
+            - heading "Meet the growers." [level=2] [ref=e95]
+          - link "All producers" [ref=e96] [cursor=pointer]:
+            - /url: /producers
+        - generic [ref=e97]:
+          - article [ref=e98]:
+            - link "A grower and dog among the Pasetti vineyard rows Pescosansonesco, Abruzzo, Italy Pasetti A historic Abruzzo estate on the slopes of the Gran Sasso, where the Pasetti family has farmed Montepulciano and Pecorino at altitude for five generations. Discover the estate" [ref=e99] [cursor=pointer]:
+              - /url: /producers/pasetti
+              - img "A grower and dog among the Pasetti vineyard rows" [ref=e100]
+              - generic [ref=e101]:
+                - paragraph [ref=e102]: Pescosansonesco, Abruzzo, Italy
+                - heading "Pasetti" [level=3] [ref=e103]
+                - paragraph [ref=e104]: A historic Abruzzo estate on the slopes of the Gran Sasso, where the Pasetti family has farmed Montepulciano and Pecorino at altitude for five generations.
+                - generic [ref=e105]: Discover the estate
+          - article [ref=e106]:
+            - link "The Bassereau family standing among the vines at Château de la Grave Côtes de Bourg, France Château de la Grave The Bassereau family have farmed this Côtes de Bourg estate on the Bordeaux right bank since 1906, working Merlot, Cabernet Sauvignon, Malbec, Sémillon and Colombard in foudre, barrel, concrete and terracotta jars. Discover the estate" [ref=e107] [cursor=pointer]:
+              - /url: /producers/chateau-de-la-grave
+              - img "The Bassereau family standing among the vines at Château de la Grave" [ref=e108]
+              - generic [ref=e109]:
+                - paragraph [ref=e110]: Côtes de Bourg, France
+                - heading "Château de la Grave" [level=3] [ref=e111]
+                - paragraph [ref=e112]: The Bassereau family have farmed this Côtes de Bourg estate on the Bordeaux right bank since 1906, working Merlot, Cabernet Sauvignon, Malbec, Sémillon and Colombard in foudre, barrel, concrete and terracotta jars.
+                - generic [ref=e113]: Discover the estate
+      - region "Wines from the Enotri portfolio" [ref=e116]:
+        - generic [ref=e118]:
+          - img "Roncathe Soave DOC 2024 bottle" [ref=e121]
+          - img "Nvie Langhe Nebbiolo bottle" [ref=e124]
+          - img "Argonauta Verdicchio Classico Superiore 2021 bottle" [ref=e127]
+          - img "Heras Cordón Reserva bottle" [ref=e130]
+          - img "Collecivetta Pecorino bottle" [ref=e133]
+          - img "Madonnella Montepulciano d'Abruzzo bottle" [ref=e136]
+          - img "Granetto Pinot Grigio 2025 bottle" [ref=e139]
+          - img "El Propósito 2023 bottle" [ref=e142]
+          - img "Galáctico bottle" [ref=e145]
+          - img "Heras Cordón Vendimia Seleccionada bottle" [ref=e148]
+        - generic [ref=e149]:
+          - paragraph [ref=e150]: Bodegas Heras Cordón · Rioja Alta, Spain
+          - heading "Heras Cordón Reserva" [level=3] [ref=e151]
+          - paragraph [ref=e152]: Tempranillo · Red
+          - paragraph [ref=e153]: Classic Reserva from Rioja Alta; ripe black cherry, vanilla and sweet spice, with polished tannins and a long, savoury finish.
+        - generic [ref=e154]:
+          - button "Previous wine" [ref=e155] [cursor=pointer]
+          - button "Next wine" [ref=e169] [cursor=pointer]
+  - contentinfo [ref=e172]:
+    - generic [ref=e173]:
+      - generic [ref=e174]:
+        - img "Enotri Wine Imports — Roots Matter" [ref=e175]
+        - paragraph [ref=e176]: A boutique wine agency in Edmonton, Alberta, representing grower-led estates from South Africa and Europe.
+      - generic [ref=e177]:
+        - paragraph [ref=e178]: Explore
+        - list [ref=e179]:
+          - listitem [ref=e180]:
+            - link "About" [ref=e181] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e182]:
+            - link "Wines" [ref=e183] [cursor=pointer]:
+              - /url: /wines
+          - listitem [ref=e184]:
+            - link "Producers" [ref=e185] [cursor=pointer]:
+              - /url: /producers
+          - listitem [ref=e186]:
+            - link "Sustainability" [ref=e187] [cursor=pointer]:
+              - /url: /sustainability
+      - generic [ref=e188]:
+        - paragraph [ref=e189]: Contact
+        - paragraph [ref=e190]:
+          - text: Edmonton, Alberta, Canada
+          - link "rallings@enotri.ca" [ref=e191] [cursor=pointer]:
+            - /url: mailto:rallings@enotri.ca
+        - link "Get in touch" [ref=e192] [cursor=pointer]:
+          - /url: /contact
+        - paragraph [ref=e193]: Please enjoy responsibly. Trade enquiries welcome.
+    - generic [ref=e194]: © 2026 Enotri Wine Imports

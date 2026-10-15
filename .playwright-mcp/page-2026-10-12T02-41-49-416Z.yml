@@ -1,0 +1,227 @@
+- generic [ref=f5e2]:
+  - banner [ref=f5e3]:
+    - generic [ref=f5e4]:
+      - link "Enotri Wine Imports, Roots Matter — home" [ref=f5e5] [cursor=pointer]:
+        - /url: /
+        - img "Enotri Wine Imports — Roots Matter" [ref=f5e6]
+      - navigation "Main navigation" [ref=f5e7]:
+        - link "About" [ref=f5e8] [cursor=pointer]:
+          - /url: /about
+        - link "Wines" [ref=f5e9] [cursor=pointer]:
+          - /url: /wines
+        - link "Producers" [ref=f5e10] [cursor=pointer]:
+          - /url: /producers
+        - link "Sustainability" [ref=f5e11] [cursor=pointer]:
+          - /url: /sustainability
+        - link "Trade enquiries" [ref=f5e12] [cursor=pointer]:
+          - /url: /contact
+  - main [ref=f5e13]:
+    - generic [ref=f5e14]:
+      - img "Sheep grazing on a green hillside below terraced vines and trees" [ref=f5e15]
+      - generic [ref=f5e16]:
+        - paragraph [ref=f5e17]: Sustainability
+        - heading "Crafted by Growers. Guided by Responsibility." [level=1] [ref=f5e18]
+    - generic [ref=f5e20]:
+      - paragraph [ref=f5e21]: At Enotri Wine Imports, sustainability is not a marketing trend. It is a core principle that shapes the wines we choose and the producers we represent.
+      - paragraph [ref=f5e22]: We work with family-owned estates and independent growers who understand that great wine begins with healthy vineyards, thriving communities, and long-term stewardship of the land. Our role is to connect Alberta restaurants, retailers, and wine lovers with producers whose practices respect both people and place.
+      - paragraph [ref=f5e23]: Many of the producers in our portfolio farm organically, biodynamically, or according to rigorous sustainability standards. They reduce chemical inputs, conserve water, protect biodiversity, and invest in the wellbeing of the people who make their wines possible.
+    - generic [ref=f5e25]:
+      - paragraph [ref=f5e26]: Three pillars
+      - heading "Sustainability means more than farming" [level=2] [ref=f5e27]
+      - generic [ref=f5e28]:
+        - generic [ref=f5e29]:
+          - generic [ref=f5e30]: "01"
+          - heading "Environmental Stewardship" [level=3] [ref=f5e31]
+          - paragraph [ref=f5e32]: Protecting soils, water resources, and ecosystems for future generations.
+        - generic [ref=f5e33]:
+          - generic [ref=f5e34]: "02"
+          - heading "Social Responsibility" [level=3] [ref=f5e35]
+          - paragraph [ref=f5e36]: Ensuring fair wages, safe working conditions, housing, education, and opportunities for workers and their families.
+        - generic [ref=f5e37]:
+          - generic [ref=f5e38]: "03"
+          - heading "Economic Viability" [level=3] [ref=f5e39]
+          - paragraph [ref=f5e40]: Supporting family businesses that can continue investing in their vineyards, communities, and quality over the long term.
+      - paragraph [ref=f5e41]: When these three pillars are in balance, vineyards become healthier, communities become stronger, and wines more faithfully express their provenance.
+    - generic [ref=f5e42]:
+      - generic [ref=f5e43]:
+        - generic [ref=f5e44]:
+          - paragraph [ref=f5e45]: South Africa
+          - heading "A global leader in sustainable wine" [level=2] [ref=f5e46]
+        - generic [ref=f5e47]:
+          - paragraph [ref=f5e48]: South Africa is one of the most progressive wine-producing countries in the world when it comes to sustainability, ethical trade, and social transformation.
+          - paragraph [ref=f5e49]: Having worked in South African vineyards and cellars, our founder has seen firsthand how many producers combine exceptional winemaking with a deep commitment to environmental stewardship and worker empowerment.
+          - paragraph [ref=f5e50]: The country has developed some of the wine industry's most comprehensive certification systems, providing consumers with confidence that the wines they enjoy are produced responsibly.
+      - generic [ref=f5e51]:
+        - img "Young vines under a mountain ridge in Rioja" [ref=f5e52]
+        - img "Aerial view of a winery surrounded by its own vineyards" [ref=f5e53]
+      - generic [ref=f5e54]:
+        - article [ref=f5e55]:
+          - heading "WIETA" [level=3] [ref=f5e56]
+          - paragraph [ref=f5e57]: Wine and Agricultural Ethical Trade Association
+          - paragraph [ref=f5e58]: Promotes ethical labour practices throughout the wine supply chain.
+          - list [ref=f5e59]:
+            - listitem [ref=f5e60]: No child or forced labour
+            - listitem [ref=f5e61]: Fair wages and benefits
+            - listitem [ref=f5e62]: Safe working conditions
+            - listitem [ref=f5e63]: Reasonable working hours
+            - listitem [ref=f5e64]: Access to housing and sanitation
+            - listitem [ref=f5e65]: Freedom of association
+          - paragraph [ref=f5e66]: Independent audits verify compliance, and certified producers may display the WIETA Fair Labour seal.
+        - article [ref=f5e67]:
+          - heading "IPW" [level=3] [ref=f5e68]
+          - paragraph [ref=f5e69]: Integrated Production of Wine
+          - paragraph [ref=f5e70]: South Africa's industry-wide environmental certification system.
+          - list [ref=f5e71]:
+            - listitem [ref=f5e72]: Responsible pesticide use
+            - listitem [ref=f5e73]: Soil conservation
+            - listitem [ref=f5e74]: Water efficiency
+            - listitem [ref=f5e75]: Waste management
+            - listitem [ref=f5e76]: Energy reduction
+            - listitem [ref=f5e77]: Worker health and safety
+          - paragraph [ref=f5e78]: More than 95% of South African wine producers follow IPW guidelines.
+        - article [ref=f5e79]:
+          - heading "Integrity & Sustainability Seal" [level=3] [ref=f5e80]
+          - paragraph [ref=f5e81]: Traceable from vineyard to bottle
+          - paragraph [ref=f5e82]: This seal guarantees both certified origin and sustainable production.
+          - list [ref=f5e83]:
+            - listitem [ref=f5e84]: Certified origin under the Wine of Origin system
+            - listitem [ref=f5e85]: Compliance with sustainability standards throughout the production chain
+          - paragraph [ref=f5e86]: Each seal is fully traceable from vineyard to bottle.
+        - article [ref=f5e87]:
+          - heading "Fairtrade" [level=3] [ref=f5e88]
+          - paragraph [ref=f5e89]: The world's largest producer of Fairtrade wine
+          - paragraph [ref=f5e90]: Fairtrade certification delivers measurable social benefits to farming communities.
+          - list [ref=f5e91]:
+            - listitem [ref=f5e92]: Minimum prices for growers
+            - listitem [ref=f5e93]: Additional community premiums
+            - listitem [ref=f5e94]: Investments in schools, healthcare, housing, and training
+          - paragraph [ref=f5e95]: South Africa leads the world in Fairtrade wine production.
+        - article [ref=f5e96]:
+          - heading "SIZA" [level=3] [ref=f5e97]
+          - paragraph [ref=f5e98]: Sustainability Initiative of South Africa
+          - paragraph [ref=f5e99]: Combines environmental and social audits, helping producers meet globally recognised standards for ethical and sustainable farming.
+        - article [ref=f5e100]:
+          - heading "WITU" [level=3] [ref=f5e101]
+          - paragraph [ref=f5e102]: Wine Industry Transformation Unit
+          - paragraph [ref=f5e103]: Supports transformation and inclusive growth by promoting black ownership, leadership development, and access to finance.
+        - article [ref=f5e104]:
+          - heading "BWI" [level=3] [ref=f5e105]
+          - paragraph [ref=f5e106]: Biodiversity & Wine Initiative
+          - paragraph [ref=f5e107]: The Cape Floral Kingdom is one of the world's richest biodiversity hotspots. BWI encourages wineries to conserve native vegetation such as fynbos and renosterveld while maintaining ecological corridors and minimising habitat loss.
+    - generic [ref=f5e109]:
+      - paragraph [ref=f5e110]: Certifications
+      - heading "Verified, not merely claimed" [level=2] [ref=f5e111]
+      - paragraph [ref=f5e112]: Enotri partners with producers who hold internationally recognised certifications for environmental and social responsibility — independent proof behind the promises on the label.
+      - generic [ref=f5e113]:
+        - article [ref=f5e114]:
+          - img "Organic Winemaking certification logo"
+          - heading "Organic Winemaking" [level=3] [ref=f5e115]
+          - paragraph [ref=f5e116]: Organic certification verifies that grapes are grown without synthetic herbicides, pesticides, or fertilisers, and that winemaking follows strict limits on additives and sulphites. Certified estates build soil fertility through composting, cover crops, and natural pest control. For buyers, it is a clear, audited guarantee that the wine in the glass comes from a vineyard farmed in balance with its ecosystem.
+        - article [ref=f5e117]:
+          - img "HVE — Haute Valeur Environnementale certification logo"
+          - heading "HVE — Haute Valeur Environnementale" [level=3] [ref=f5e118]
+          - paragraph [ref=f5e119]: HVE is France's highest level of environmental certification for farms, established by the Ministry of Agriculture. Level 3 certification is based on measured performance across biodiversity, plant protection, fertilisation, and water management — not just intentions. It signals a French estate that can demonstrate, through independent audit, that its environmental results rank among the best in the country.
+        - article [ref=f5e120]:
+          - img "WIETA — Wine and Agricultural Ethical Trade Association certification logo"
+          - heading "WIETA — Wine and Agricultural Ethical Trade Association" [level=3] [ref=f5e121]
+          - paragraph [ref=f5e122]: The WIETA Code of Conduct promotes fair labour practices and social responsibility within South Africa's wine and agricultural sectors. It addresses fair wages, working conditions, health and safety, workers' rights, and environmental sustainability. Certification requires regular independent audits, so a WIETA seal on a wine means the people behind it were treated fairly — verified, not merely claimed.
+        - article [ref=f5e123]:
+          - img "Integrity & Sustainability Certified — Wine and Spirit Board certification logo"
+          - heading "Integrity & Sustainability Certified — Wine and Spirit Board" [level=3] [ref=f5e124]
+          - paragraph [ref=f5e125]: Administered by South Africa's Wine and Spirit Board, this seal guarantees both certified origin under the Wine of Origin scheme and compliance with sustainability standards throughout the production chain. Each numbered seal is fully traceable from vineyard to bottle. It is one of the wine world's most rigorous proofs that what is on the label is genuinely what is in the bottle.
+        - article [ref=f5e126]:
+          - img "EU Organic Certification certification logo"
+          - heading "EU Organic Certification" [level=3] [ref=f5e127]
+          - paragraph [ref=f5e128]: The green leaf of stars is the European Union's mandatory logo for certified organic products. It confirms that at least 95% of agricultural ingredients were produced under EU organic rules — no synthetic chemicals, no GMOs, and strict controls at every stage of production and bottling. For European wines in our portfolio, it is the baseline mark of verified organic farming.
+        - article [ref=f5e129]:
+          - img "PT-BIO-03 (European Regulation) certification logo"
+          - heading "PT-BIO-03 (European Regulation)" [level=3] [ref=f5e130]
+          - paragraph [ref=f5e131]: PT-BIO-03 is a certification standard under EU Regulation (EC) No 834/2007 for organic food and agricultural production. It ensures products are grown without synthetic chemicals, GMOs, or artificial additives, with a focus on biodiversity, soil fertility, and environmental health through methods like crop rotation and organic fertilisers. Certified products meet EU organic standards and are traceable from farm to table.
+    - generic [ref=f5e133]:
+      - generic [ref=f5e134]:
+        - paragraph [ref=f5e135]: In the vineyard
+        - heading "Organic and biodynamic farming" [level=2] [ref=f5e136]
+        - paragraph [ref=f5e137]: Many of our producers practice organic or biodynamic viticulture. Both approaches encourage healthier vineyards and wines that more transparently reflect their terroir.
+      - generic [ref=f5e138]:
+        - generic [ref=f5e139]:
+          - heading "Organic Farming" [level=3] [ref=f5e140]
+          - paragraph [ref=f5e141]: Avoids synthetic herbicides, pesticides, and fertilizers while promoting soil health through composting, cover crops, and natural pest control.
+        - generic [ref=f5e142]:
+          - heading "Biodynamic Farming" [level=3] [ref=f5e143]
+          - paragraph [ref=f5e144]: Builds on organic principles and views the vineyard as a self-sustaining ecosystem, integrating biodiversity, compost preparations, and natural rhythms.
+    - generic [ref=f5e146]:
+      - generic [ref=f5e147]:
+        - paragraph [ref=f5e148]: Why it matters
+        - heading "Better grapes produce more distinctive wines" [level=2] [ref=f5e149]
+        - paragraph [ref=f5e150]: "Sustainable farming produces better grapes. For our customers, this means wines with:"
+        - list [ref=f5e151]:
+          - listitem [ref=f5e152]: Greater authenticity
+          - listitem [ref=f5e153]: Stronger sense of place
+          - listitem [ref=f5e154]: Long-term quality consistency
+          - listitem [ref=f5e155]: Transparent provenance
+          - listitem [ref=f5e156]: Positive social and environmental impact
+      - generic [ref=f5e157]:
+        - paragraph [ref=f5e158]: Our commitment
+        - heading "Growers who think beyond the next harvest" [level=2] [ref=f5e159]
+        - paragraph [ref=f5e160]: "At Enotri Wine Imports, we actively seek producers who:"
+        - list [ref=f5e161]:
+          - listitem [ref=f5e162]: Farm responsibly
+          - listitem [ref=f5e163]: Protect biodiversity
+          - listitem [ref=f5e164]: Support workers and local communities
+          - listitem [ref=f5e165]: Preserve family ownership
+          - listitem [ref=f5e166]: Produce wines of integrity and character
+        - paragraph [ref=f5e167]: We believe the finest wines are created by growers who work to leave their land in better condition for future generations.
+    - generic [ref=f5e169]:
+      - paragraph [ref=f5e170]: Drink With Purpose
+      - heading "Every bottle tells a story" [level=2] [ref=f5e171]
+      - paragraph [ref=f5e172]: When you choose wines from Enotri Wine Imports, you support growers and families who are committed to protecting the vineyards, landscapes, and communities that make great wine possible.
+    - region "Wines from the Enotri portfolio" [ref=f5e175]:
+      - generic [ref=f5e177]:
+        - img "Roncathe Soave DOC 2024 bottle" [ref=f5e180]
+        - img "Nvie Langhe Nebbiolo bottle" [ref=f5e183]
+        - img "Argonauta Verdicchio Classico Superiore 2021 bottle" [ref=f5e186]
+        - img "Heras Cordón Reserva bottle" [ref=f5e189]
+        - img "Collecivetta Pecorino bottle" [ref=f5e192]
+        - img "Madonnella Montepulciano d'Abruzzo bottle" [ref=f5e195]
+        - img "Granetto Pinot Grigio 2025 bottle" [ref=f5e198]
+        - img "El Propósito 2023 bottle" [ref=f5e201]
+        - img "Galáctico bottle" [ref=f5e204]
+        - img "Heras Cordón Vendimia Seleccionada bottle" [ref=f5e207]
+      - generic [ref=f5e208]:
+        - paragraph [ref=f5e209]: Bodegas Heras Cordón · Rioja Alta, Spain
+        - heading "Heras Cordón Reserva" [level=3] [ref=f5e210]
+        - paragraph [ref=f5e211]: Tempranillo · Red
+        - paragraph [ref=f5e212]: Classic Reserva from Rioja Alta; ripe black cherry, vanilla and sweet spice, with polished tannins and a long, savoury finish.
+      - generic [ref=f5e213]:
+        - button "Previous wine" [ref=f5e214] [cursor=pointer]
+        - button "Next wine" [ref=f5e228] [cursor=pointer]
+  - contentinfo [ref=f5e231]:
+    - generic [ref=f5e232]:
+      - generic [ref=f5e233]:
+        - img "Enotri Wine Imports — Roots Matter" [ref=f5e234]
+        - paragraph [ref=f5e235]: A boutique wine agency in Edmonton, Alberta, representing grower-led estates from South Africa and Europe.
+      - generic [ref=f5e236]:
+        - paragraph [ref=f5e237]: Explore
+        - list [ref=f5e238]:
+          - listitem [ref=f5e239]:
+            - link "About" [ref=f5e240] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=f5e241]:
+            - link "Wines" [ref=f5e242] [cursor=pointer]:
+              - /url: /wines
+          - listitem [ref=f5e243]:
+            - link "Producers" [ref=f5e244] [cursor=pointer]:
+              - /url: /producers
+          - listitem [ref=f5e245]:
+            - link "Sustainability" [ref=f5e246] [cursor=pointer]:
+              - /url: /sustainability
+      - generic [ref=f5e247]:
+        - paragraph [ref=f5e248]: Contact
+        - paragraph [ref=f5e249]:
+          - text: Edmonton, Alberta, Canada
+          - link "rallings@enotri.ca" [ref=f5e250] [cursor=pointer]:
+            - /url: mailto:rallings@enotri.ca
+        - link "Get in touch" [ref=f5e251] [cursor=pointer]:
+          - /url: /contact
+        - paragraph [ref=f5e252]: Please enjoy responsibly. Trade enquiries welcome.
+    - generic [ref=f5e253]: © 2026 Enotri Wine Imports
