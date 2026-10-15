@@ -14,7 +14,7 @@ export const Route = createFileRoute("/sustainability")({
       {
         name: "description",
         content:
-          "How Enotri Wine Imports selects producers who farm responsibly: organic and biodynamic estates, independently certified for fair labour and environmental care.",
+          "How Enotri Wine Imports chooses producers who farm responsibly, and what the organic, biodynamic, labour and environmental certifications in the portfolio actually check.",
       },
       { property: "og:title", content: "Sustainability at Enotri Wine Imports" },
       {
@@ -46,32 +46,32 @@ const certifications = [
   {
     logo: certAbAsset.url,
     name: "Organic Winemaking",
-    body: "Organic certification verifies that grapes are grown without synthetic herbicides, pesticides, or fertilisers, and that winemaking follows strict limits on additives and sulphites. Certified estates build soil fertility through composting, cover crops, and natural pest control. For buyers, it is a clear, audited guarantee that the wine in the glass comes from a vineyard farmed in balance with its ecosystem.",
+    body: "Certified organic vineyards may use only fertilisers and plant treatments from an authorised list, such as compost, copper and sulphur. In the cellar, organic rules restrict additives and cap sulphites below conventional limits: 100 mg/L for a dry red, against 150 mg/L. Each estate is inspected by an independent, approved certifier.",
   },
   {
     logo: certHveAsset.url,
     name: "HVE — Haute Valeur Environnementale",
-    body: "HVE is France's highest level of environmental certification for farms, established by the Ministry of Agriculture. Level 3 certification is based on measured performance across biodiversity, plant protection, fertilisation, and water management — not just intentions. It signals a French estate that can demonstrate, through independent audit, that its environmental results rank among the best in the country.",
+    body: "Haute Valeur Environnementale is the top tier of France's state environmental certification for farms. Accredited, independent auditors assess Level 3 on measured results in four areas: biodiversity, plant protection, fertiliser use and water management. HVE is separate from organic certification.",
   },
   {
     logo: certWietaAsset.url,
     name: "WIETA — Wine and Agricultural Ethical Trade Association",
-    body: "The WIETA Code of Conduct promotes fair labour practices and social responsibility within South Africa's wine and agricultural sectors. It addresses fair wages, working conditions, health and safety, workers' rights, and environmental sustainability. Certification requires regular independent audits, so a WIETA seal on a wine means the people behind it were treated fairly — verified, not merely claimed.",
+    body: "WIETA is a non-profit body founded in 2002 to promote ethical trade in South African wine. Independent third-party auditors check members on labour and human rights, working conditions, health and safety, and worker housing, through site inspections and worker interviews. A wine carries WIETA's Fair Labour Practice seal only when every grower, cellar and bottler in its chain has passed.",
   },
   {
     logo: certSwsaAsset.url,
-    name: "Integrity & Sustainability Certified — Wine and Spirit Board",
-    body: "Administered by South Africa's Wine and Spirit Board, this seal guarantees both certified origin under the Wine of Origin scheme and compliance with sustainability standards throughout the production chain. Each numbered seal is fully traceable from vineyard to bottle. It is one of the wine world's most rigorous proofs that what is on the label is genuinely what is in the bottle.",
+    name: "Integrity & Sustainability Certified — Wine Certification Authority",
+    body: "Issued by South Africa's Wine Certification Authority (formerly the Wine and Spirit Board), this seal certifies a wine's origin, vintage and grape variety. It also confirms that every vineyard, cellar and bottling facility involved meets the Integrated Production of Wine (IPW) environmental guidelines. Each seal carries a unique number, and since 2025 a QR code, linking the bottle to its certified source. Labour standards are certified separately, by WIETA or Fairtrade.",
   },
   {
     logo: certEuOrganicAsset.url,
     name: "EU Organic Certification",
-    body: "The green leaf of stars is the European Union's mandatory logo for certified organic products. It confirms that at least 95% of agricultural ingredients were produced under EU organic rules — no synthetic chemicals, no GMOs, and strict controls at every stage of production and bottling. For European wines in our portfolio, it is the baseline mark of verified organic farming.",
+    body: "The EU organic logo, twelve white stars forming a leaf on a green background, may appear only on certified organic products in which at least 95% of the agricultural ingredients are organic. It is compulsory on pre-packaged organic food made in the EU and optional on imports, and is always shown with the certifier's code and where the ingredients were farmed. EU organic rules exclude GMOs and limit farming inputs to an authorised list.",
   },
   {
     logo: certEuOrganicAsset.url,
-    name: "PT-BIO-03 (European Regulation)",
-    body: "PT-BIO-03 is a certification standard under EU Regulation (EC) No 834/2007 for organic food and agricultural production. It ensures products are grown without synthetic chemicals, GMOs, or artificial additives, with a focus on biodiversity, soil fertility, and environmental health through methods like crop rotation and organic fertilisers. Certified products meet EU organic standards and are traceable from farm to table.",
+    name: "PT-BIO-03 — Kiwa Sativa, Portugal",
+    body: "PT-BIO-03 is the EU code of Kiwa Sativa, an independent Portuguese body that inspects and certifies organic producers under EU Regulation (EU) 2018/848. Printed beside the EU organic logo, the code tells you who checked the estate; the EU organic rules set what they checked.",
   },
 ];
 
@@ -142,12 +142,14 @@ function Sustainability() {
         <div className="grid gap-12 md:grid-cols-[0.4fr_0.6fr]">
           <div>
             <p className="eyebrow">South Africa</p>
-            <h2 className="mt-4 text-3xl md:text-4xl">A global leader in sustainable wine</h2>
+            <h2 className="mt-4 text-3xl md:text-4xl">Checked from vineyard to bottle</h2>
           </div>
           <div className="prose-enotri max-w-2xl">
             <p>
-              South Africa is one of the most progressive wine-producing countries in the world when
-              it comes to sustainability, ethical trade, and social transformation.
+              South Africa built industry-wide checks early: an environmental scheme, Integrated
+              Production of Wine (IPW), since 1998; a national ethical-trade body, WIETA, since
+              2002; and, since the 2010 harvest, a bottle seal that certifies both origin and
+              sustainable production.
             </p>
             <p>
               Having worked in South African vineyards and cellars, our founder has seen firsthand
@@ -155,9 +157,8 @@ function Sustainability() {
               environmental stewardship and worker empowerment.
             </p>
             <p>
-              The country has developed some of the wine industry's most comprehensive certification
-              systems, providing consumers with confidence that the wines they enjoy are produced
-              responsibly.
+              On a certified bottle, the seal's number can be checked with the certifying authority
+              and traced back to the vineyard the wine came from.
             </p>
           </div>
         </div>
@@ -183,9 +184,8 @@ function Sustainability() {
           <p className="eyebrow">Certifications</p>
           <h2 className="mt-4 max-w-2xl text-3xl md:text-4xl">Verified, not merely claimed</h2>
           <p className="mt-5 max-w-3xl leading-relaxed text-muted-foreground">
-            Enotri partners with producers who hold internationally recognised certifications for
-            environmental and social responsibility — independent proof behind the promises on the
-            label.
+            Several of our producers hold independent certifications for how they farm and how they
+            treat the people who work for them. Here is what each one checks, and who checks it.
           </p>
           <div className="mt-14 grid gap-x-10 gap-y-16 md:grid-cols-2 lg:grid-cols-3">
             {certifications.map((c) => (
@@ -222,15 +222,16 @@ function Sustainability() {
             <div className="border-t border-border pt-5">
               <h3 className="text-2xl">Organic Farming</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Avoids synthetic herbicides, pesticides, and fertilizers while promoting soil health
-                through composting, cover crops, and natural pest control.
+                Builds soil health with compost, cover crops and natural pest control, and limits
+                vine treatments to an authorised list, such as copper and sulphur.
               </p>
             </div>
             <div className="border-t border-border pt-5">
               <h3 className="text-2xl">Biodynamic Farming</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 Builds on organic principles and views the vineyard as a self-sustaining ecosystem,
-                integrating biodiversity, compost preparations, and natural rhythms.
+                integrating biodiversity, compost preparations, and natural rhythms. Certification
+                is private, awarded by bodies such as Demeter and Biodyvin.
               </p>
             </div>
           </div>
@@ -241,18 +242,15 @@ function Sustainability() {
         <div className="grid gap-12 md:grid-cols-2">
           <div>
             <p className="eyebrow">Why it matters</p>
-            <h2 className="mt-4 text-3xl md:text-4xl">
-              Better grapes produce more distinctive wines
-            </h2>
+            <h2 className="mt-4 text-3xl md:text-4xl">Know how every wine is farmed</h2>
             <p className="mt-5 leading-relaxed text-muted-foreground">
-              Sustainable farming produces better grapes. For our customers, this means wines with:
+              We tell you how each estate farms, and whether that farming is certified. For your
+              list, that means wines with:
             </p>
             <ul className="prose-enotri mt-4">
-              <li>Greater authenticity</li>
-              <li>Stronger sense of place</li>
-              <li>Long-term quality consistency</li>
-              <li>Transparent provenance</li>
-              <li>Positive social and environmental impact</li>
+              <li>A clear sense of place</li>
+              <li>Origin you can trace on certified bottles</li>
+              <li>Farming described plainly, estate by estate</li>
             </ul>
           </div>
           <div>
