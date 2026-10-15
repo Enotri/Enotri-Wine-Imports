@@ -273,3 +273,65 @@ Enotri's contact form is governed by Alberta's **PIPA** (not PIPEDA) for collect
 - Did not open the PIPA statute (SA 2003, c P-6.5) or OIPC Alberta guidance directly; quotes are from the Government of Alberta summary.
 - Did not confirm the exact CASL identification-information wording in the Electronic Commerce Protection Regulations (mailing address plus phone/email/web); secondary sources only.
 - Did not check whether a cookie banner is legally required in Alberta (no Alberta-specific cookie law found in this research).
+
+---
+
+## 6. How Canadian agencies word trade, ordering, sample, private-order, FAQ and footer copy
+
+### Takeaway
+Ontario agencies (Lifford, Nicholas Pearce, The Living Vine, Le Sommelier) run consumer e-commerce through the LCBO consignment channel, so their sites are shops with age gates, "fine print" role disclosures and separate licensee/retail price lists. The Alberta agency checked (Crush Imports) cannot sell to consumers, so it sends shoppers to Liquor Connect, gives trade buyers an "Industry Login" and named regional reps. Enotri should copy the Alberta pattern and the Ontario disclosure habits, not Ontario's "shop / order a case" language.
+
+### Cited Findings
+
+**Alberta / Western Canada**
+- Crush Imports (Calgary): "Find where you can purchase your favourite WINE using the Search Tool at Liquor Connect" (links to liquorconnect.com); header links "Industry Login" / "Wholesale Members"; rep contacts by territory ("southern alberta", "northern alberta") with mobile and email; contact form asks "Which Rep?"; self-description "passionate about wine & spirits and serious about sales." Footer: "© 2026 All Rights Reserved | Crush Imports"; no age gate or responsible-drinking line seen. — [Crush Imports home](https://www.crushimports.com/); [Crush Imports contact](https://www.crushimports.com/contact)
+- Trialto (Vancouver and Calgary offices): province-by-province online catalogue (BC, Alberta, Saskatchewan, Manitoba) and "Customer Login"; "Our team of specialists are dedicated to understanding the regulatory systems in Canada's provincial markets." Liquid Art Selections now appears as a Trialto portfolio. — [Trialto](https://trialto.com/)
+
+**Ontario (consignment model — consumers can order via the LCBO)**
+- Lifford FAQ: "'Consignment' is an LCBO channel through which Ontario agencies can import wines (and spirits) by the case." "Why do I have to purchase by the case? Because those are the rules!" "The fine print. Lifford is not permitted to sell beverage alcohol but may arrange for purchases from the LCBO on the customer's behalf." "You must be 19 years of age or older to place or receive a wine order." Navigation offers separate "Consumer Price List" and "Licensee Price List". Newsletter opt-in: "Yes, I would like to receive emails from Lifford Cellars. I understand that I can unsubscribe at any time." Footer: About, Get in touch, phone, Shipping & Delivery, Terms & Conditions, Privacy Policy. — [Lifford FAQ](https://lifford.com/pages/faq)
+- Nicholas Pearce Wines: age gate "Please verify that you are 19 years of age or older to enter."; footer "Must be 19 years of age or older to purchase."; "Licensee Price List" and "Retail Price List"; address, hours "Monday to Friday, 9am - 5pm" and "Please note our office is purely administrative."; tagline "Boutique, hand-crafted and high-value wines delivered to your door." — [Nicholas Pearce Wines](https://www.npwines.com/)
+- The Living Vine: age gate "You must be of legal drinking age in Canada to view this website." / "Are you of legal drinking age in Canada?" / "By entering this site you are agreeing to the Terms of Use and Privacy Policy." Footer: "General inquiries: orders@thelivingvine.ca", phone, "Mailing Address", Privacy Policy, Terms & Conditions, plus a price-list page and a separate BC page. — [The Living Vine](https://www.thelivingvine.ca/)
+- Le Sommelier: age gate "Are you of legal drinking age?"; contact page headline "Cheers" and "Please reach us using the contact form below, and we'll get back to you shortly. If you are looking for our customer sales forms, please use the download links"; form includes a "Subscribe to our newsletter" option. Footer: "Le Sommelier Inc.", phone, street address, email, Terms & Conditions, Return Policy, "We respect your privacy and take your information security seriously." "© Le Sommelier Inc. All rights reserved." — [Le Sommelier home](https://www.lesommelier.com/); [Le Sommelier contact](https://www.lesommelier.com/contact-le-sommelier-toronto-ontario)
+- Context: Ontario consignment "sales require you buy by the case, which is typically 12 bottles, but could come in three- or six-packs" (Globe and Mail, via search summary). — [The Globe and Mail, How to navigate the world of consignment](https://theglobeandmail.com/life/food-and-wine/article-how-to-navigate-the-world-of-consignment-for-wine-and-spirits-shopping)
+
+### Inferences
+- Common footer elements across Canadian agencies: legal entity name; street or mailing address (Enotri could use "Edmonton, Alberta" if no public office address); phone and/or email; Privacy Policy link; Terms link (only if selling online); copyright line; and, on consumer-facing sites, an age statement (Ontario sites say 19; Alberta's age is 18). "Please drink/enjoy responsibly" is less common than an age statement on the sites checked.
+- Common trade vocabulary: "licensee", "trade", "industry/wholesale login", "licensee price list", "sales forms", "your rep" / regional rep, "portfolio", "where to buy" via Liquor Connect.
+- Role disclosure modelled on Lifford, adapted for Alberta: "Enotri Wine Imports is an AGLC-registered liquor agency. We don't sell wine directly; in Alberta, wine is sold through AGLC to licensed venues and liquor stores."
+- Avoid importing Ontario terms that don't apply in Alberta: "consignment" (in Alberta "consignment" refers to AGLC paying the agency as consignee, not a consumer channel), "private order" as a direct-to-you purchase, "delivered to your door", "pre-order with deposit" (Alberta agencies may not take deposits from non-licensees, LA 3.21.2).
+- For Enotri's tasting form, the Crush "Which Rep?" and Liberty "existing customer?" patterns suggest useful fields: venue type, AGLC licence number (optional), existing customer yes/no.
+
+### Gaps
+- Could not read Vinexx, Renaissance Wine Merchants (renwine.com), Philippe Dandurand or another Edmonton-based agency site within budget; only one Alberta-based agency (Crush) was checked in full.
+- No Canadian agency page found with an explicit "request samples" policy; sample-request wording is mostly implied via "contact your rep".
+
+---
+
+## 7. How international importers word trade-contact and tasting copy
+
+### Takeaway
+The strongest international pages say in one sentence who they sell to, say plainly that they don't sell to the public and offer to find a stockist, and route trade buyers to a named person or a wholesale email "to set up an account". Tastings are framed as invitations or appointments, and at least one leading importer caps sales-rep tastings at about six wines.
+
+### Cited Findings
+- Liberty Wines (UK): "Please note that we are an importer and distributor to the licensed restaurant, hotel and retail trade." and "We are not licensed to sell directly to members of the public, but… we will assist with finding your nearest retail stockist." Contact form asks "I am an existing Liberty Wines customer" (Yes/No), "Customer Account No (if known)", "Company Name", "Nature of Enquiry", "How should we contact you?". Headline: "Get in touch… We look forward to hearing from you." — [Liberty Wines, Contact](https://www.libertywines.co.uk/contact)
+- Liberty's site description: "unrivalled service to trade customers in the UK and Ireland." — [Liberty Wines](https://www.libertywines.co.uk/)
+- Kermit Lynch (US), California wholesale: "If you are a retailer or restaurateur within California and would like to purchase our wines, please send our wholesale office an email… to set up an account and be connected with the best sales representative for your area." — [Kermit Lynch, California Wholesale](https://kermitlynch.com/department/california-wholesale)
+- Kermit Lynch national: "please contact our National Sales Office to be connected with a regional manager about purchasing our wines"; lists named regional managers with direct email/phone and a distributor finder ("Show me distributors in STATE"). — [Kermit Lynch, National Distribution](https://kermitlynch.com/department/national-distribution)
+- Polaner Selections (US) internal sales-staff guidelines (2021 PDF, search excerpt): "Polaner Selections will support a maximum of 6 wines per tasting with the exception of tastings where a supplier is present." — [Polaner Selections, Sales staff guidelines (PDF)](https://www.polanerselections.com/wp-content/uploads/2021/04/13-COMPANY-PROCEDURES-Sales-staff-guidelines.pdf) (excerpt only)
+- Polaner trade tastings are listed for buyers on SevenFifty. — [SevenFifty, Polaner Selections tasting](https://buyer.sevenfifty.com/polanerselections/tastings/180)
+- Skurnik Wines & Spirits (US) trade-tasting invitation: "Please join us for one (or two!) of a series of intimate tastings" (search excerpt). — [Skurnik, Introducing Our Petite Portfolio Tastings](https://www.skurnik.com/introducing-our-petite-portfolio-tastings/)
+- Berry Bros. & Rudd: "Fill in the contact form below and a member of our Customer Service team will respond shortly" (search excerpt); international offices page gives direct "How to order… get in touch directly" contacts per market. — [BBR, Contact us](https://www.bbr.com/contactus); [BBR, International offices](https://www.bbr.com/about/international-offices)
+
+### Inferences
+- Reusable structure for Enotri's trade/contact page:
+  1. Who we serve: "We work with Alberta's licensed restaurants, bars, hotels and liquor stores."
+  2. What we can't do, plus the alternative: "We can't sell wine to the public, but we'll gladly tell you where to find it."
+  3. A named person: "Write to Rawlings directly: rallings@enotri.ca."
+  4. The tasting as an appointment, not an event: "Tastings are by appointment for licensed buyers."
+  5. Response time: "We reply within one working day" (only if true).
+- Benchmark for claim 5: Polaner's guideline of up to six wines per rep tasting suggests "six to eight" is at the generous end of normal; "a short flight of six or so wines" reads more natural and stays well within AGLC's 4-bottle-per-wine sampling cap.
+- Vocabulary seen: "trade customers", "licensed trade", "stockist", "set up an account", "sales representative for your area", "regional manager", "existing customer", "nature of enquiry", "intimate tastings", "portfolio tasting".
+
+### Gaps
+- Skurnik, Polaner and BBR quotes come from search excerpts, not full page reads; verify before quoting publicly.
+- Did not find a Kermit Lynch, Polaner or Skurnik page specifically about requesting samples or booking a tasting appointment.
