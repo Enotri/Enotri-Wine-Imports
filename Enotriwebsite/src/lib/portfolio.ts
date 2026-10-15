@@ -46,6 +46,7 @@ export type Wine = {
   grapes: string;
   note: string;
   image?: string;
+  cutout?: string;
   techSheet?: string;
 };
 
@@ -55,6 +56,7 @@ export type Producer = {
   logoClassName?: string;
   logoContainsName?: boolean;
   tileFullBleed?: boolean;
+  tileImage?: string;
   heroImage?: { src: string; alt: string; caption?: string };
   gallery?: { src: string; alt: string; caption: string; group?: string }[];
   /** Short portrait film shown beside the story (9:16, muted, looping). */
@@ -271,109 +273,6 @@ export const producers: Producer[] = [
     ],
   },
   {
-    name: "Bosman Family",
-    logo: "/images/producers/bosman-family/2.webp",
-    tileFullBleed: true,
-    heroImage: {
-      src: "/images/producers/bosman-family/2.webp",
-      alt: "Curving rows of young vines on a hillside at sunset, with mountains in the distance",
-    },
-    gallery: [
-      {
-        src: "/images/producers/bosman-family/1.webp",
-        alt: "A grower in leather boots checking bunches of black grapes on a bush vine",
-        caption: "Checking the grapes on bush vines",
-      },
-      {
-        src: "/images/producers/bosman-family/3.webp",
-        alt: "A person standing on a fynbos-covered hillside as the sun sets behind the mountains",
-        caption: "Fynbos and mountains at sunset",
-      },
-    ],
-    region: "Wellington",
-    country: "South Africa",
-    farming: "Fairtrade, employee-owned",
-    summary:
-      "Eight generations of vine growers and South Africa's largest vine nursery, with a landmark worker equity scheme at the heart of the estate.",
-    story: [
-      "The Bosman family have been growing vines in Wellington since before South Africa had a wine industry worth the name. Eight generations on, their farm Lelienfontein is also home to the country's largest vine nursery, supplying plant material to estates across the Cape — a quiet reminder that the Bosmans understand the vine from the root up.",
-      "In 2007 the family completed a landmark transaction: a 26% share of the business was transferred to the Adama Workers Trust, giving the people who farm the land a real stake in its future. It remains one of the most significant worker equity schemes in South African wine, and it shapes every decision the estate makes.",
-      "The wines follow the same philosophy of patience and fairness. From high, dry-farmed slopes come Chenin Blanc and reds that favour freshness and honesty over extraction — wines made to be drunk generously and shared widely.",
-    ],
-  },
-  {
-    name: "Reyneke",
-    gallery: [
-      {
-        src: "/images/producers/reyneke/1.webp",
-        alt: "Hands sorting freshly picked black grapes on a sorting table",
-        caption: "Sorting the harvest by hand",
-      },
-    ],
-    region: "Polkadraai Hills",
-    country: "South Africa",
-    farming: "Biodynamic (Demeter)",
-    summary:
-      "Pioneers of biodynamic viticulture in the Cape, making Syrah and Cabernet of unusual clarity from decomposed granite slopes.",
-    story: [
-      "Johan Reyneke took over his family's farm in the Polkadraai Hills in the late 1990s and almost immediately began asking uncomfortable questions about how the Cape's vineyards were being farmed. His answer was biodynamics, and Reyneke became one of the first estates in South Africa to be certified by Demeter — long before it was fashionable.",
-      "The farm's vineyards sit on decomposed granite slopes overlooking False Bay, farmed with cover crops, compost and preparations, with native yeasts doing the work of fermentation. Nothing is added to disguise the site; the goal is a wine that could come from nowhere else.",
-      "Syrah and Cabernet Sauvignon are the signatures, and they show an unusual clarity and restraint for the Cape. Reyneke's wines are proof that biodynamic farming, practised seriously, belongs in the conversation about South Africa's finest estates.",
-    ],
-  },
-  {
-    name: "Domaine des Ardoisières",
-    region: "Savoie",
-    country: "France",
-    farming: "Organic, hand-terraced",
-    summary:
-      "Terraced schist vineyards reclaimed from the alpine hillside, planted to Jacquère, Mondeuse and Persan on impossible gradients.",
-    story: [
-      "Domaine des Ardoisières began with a bet that few would have taken: to reclaim the abandoned schist terraces above the village of Fréterive in Savoie, slopes so steep they had been left to the forest for decades. Brice Omont and his partners cleared, rebuilt and replanted them by hand.",
-      "The vineyards are farmed organically on gradients that make machinery impossible and even walking difficult. Jacquère, Mondeuse and the near-lost Persan grow here on pure alpine schist, at altitudes where ripening is a season-long negotiation with the mountains.",
-      "The wines are some of the most distinctive in France: electric, stony whites and perfumed, light-footed reds that taste unmistakably of altitude. Ardoisières has become the benchmark for what Savoie can achieve.",
-    ],
-  },
-  {
-    name: "Château Lestignac",
-    region: "Bergerac",
-    country: "France",
-    farming: "Organic, low intervention",
-    summary:
-      "A young family estate reviving old Sémillon and Merlot plots with native yeasts and minimal sulphur.",
-    story: [
-      "Château Lestignac is the story of Mathias Marquet and Camille Rivière, who took over a family property in the hills south of Bergerac and chose the harder road. Where the region's old vineyards were being pulled up or farmed conventionally, they converted to organics and began nursing old Sémillon and Merlot plots back to health.",
-      "The cellar work is as gentle as the farming: native yeasts, long, slow fermentations, and sulphur used sparingly or not at all. Nothing is rushed, and wines are released only when they are ready rather than when the market asks.",
-      "The result is a range that has quietly become a reference for the southwest — whites of waxy depth and reds of unusual poise, made in tiny quantities by a family who answered the question of what Bergerac could be.",
-    ],
-  },
-  {
-    name: "Cantina Giardino",
-    region: "Campania",
-    country: "Italy",
-    farming: "Old vines, no additions",
-    summary:
-      "Guardians of ungrafted Fiano, Greco and Aglianico vines from the hills of Irpinia, vinified in amphora and old chestnut.",
-    story: [
-      "Cantina Giardino was founded in the hills of Irpinia, inland from Naples, by a group of friends determined to save the region's oldest vines from abandonment. Many of the parcels they work hold ungrafted Fiano, Greco and Aglianico — living archives of Campanian viticulture, some well over a century old.",
-      "Each parcel is vinified separately in a cellar of amphorae, old chestnut casks and weathered oak, with no additions and no corrections. The wines are held back, sometimes for years, until they have settled into themselves.",
-      "These are not polished wines, and they are not meant to be. They are fierce, savoury and deeply rooted in volcanic Irpinian soil — bottles that carry the character of the hills and the stubbornness of the people who refused to let the old vines go.",
-    ],
-  },
-  {
-    name: "Bodegas Cauzón",
-    region: "Granada",
-    country: "Spain",
-    farming: "Organic, high altitude",
-    summary:
-      "Vineyards at 1,200 metres in the Sierra Nevada foothills, producing bright Tempranillo and Garnacha with mountain freshness.",
-    story: [
-      "Bodegas Cauzón is the work of Ramón Saavedra, who farms small parcels in the Sierra Nevada foothills near Granada at around 1,200 metres — among the highest vineyards in Europe. At this altitude the growing season is short, the nights are cold, and every vintage is earned.",
-      "The vineyards are worked organically, by hand, on poor mountain soils of slate and clay. Tempranillo, Garnacha and a scattering of white varieties are vinified with native yeasts and a minimum of intervention.",
-      "Altitude is the signature in the glass: bright, lifted wines with mountain freshness and moderate alcohol, a style almost impossible to find elsewhere in southern Spain. Cauzón proves that Granada's high country deserves a place on any serious wine list.",
-    ],
-  },
-  {
     name: "Viticultores de Lapuebla",
     logo: viticultoresBarrelsImg.url,
     tileFullBleed: true,
@@ -455,74 +354,10 @@ export const producers: Producer[] = [
       "In the cellar the approach is classic Rioja: long macerations, ageing in American and French oak, and the patience to release Reservas only when the wine has settled into itself. The result is a range of structured, food-friendly reds — polished, honest and unmistakably Rioja.",
     ],
   },
-
-  {
-    name: "Quinta da Palmirinha",
-    region: "Vinho Verde",
-    country: "Portugal",
-    farming: "Certified organic",
-    summary:
-      "A one-man estate on granite in the Lima valley, making textural Loureiro and Avesso far removed from commercial Vinho Verde.",
-    story: [
-      "Quinta da Palmirinha is effectively a one-man estate: Fernando Paiva farms a few hectares of granite soils in the Lima valley, in the heart of Vinho Verde country, and does nearly everything himself. He was among the first growers in the region to be certified organic, and among the first anywhere in Portugal to work without added sulphur.",
-      "The varieties are the local classics — Loureiro, Arinto, Avesso, Vinhão — but the wines have nothing in common with the light, fizzy commercial style the region is known for. Fernando's are textural, dry and deeply flavoured, made with chestnut-flower protection in place of sulphur and bottled without filtration.",
-      "Palmirinha has become a quiet reference for natural wine in Portugal: proof that Vinho Verde's granite and Atlantic climate can produce whites of real seriousness and reds of startling character.",
-    ],
-  },
-  {
-    name: "Weingut Brand",
-    gallery: [
-      {
-        src: "/images/producers/weingut-brand/1.webp",
-        alt: "Two cupped hands holding dark, crumbly soil with a small root trailing below",
-        caption: "A handful of vineyard soil",
-      },
-      {
-        src: "/images/producers/weingut-brand/2.webp",
-        alt: "Two men spraying sparkling wine in front of a wall painted with the words Pet Nat Party Wagon",
-        caption: "Daniel and Jonas Brand. Photo: Peter Bender",
-      },
-    ],
-    region: "Pfalz",
-    country: "Germany",
-    farming: "Organic, native yeasts",
-    summary:
-      "Two brothers farming sandstone and limestone parcels for chiselled Riesling and Weissburgunder.",
-    story: [
-      "Weingut Brand is run by brothers Daniel and Jonas Brand, the fifth generation of their family to farm in Bockenheim, in the northern Pfalz. When they took over from their father they pushed the estate fully into organic farming — certified, not just claimed — and simplified everything in the cellar.",
-      "The vineyards range across the varied geology of the northern Pfalz: coloured sandstone, limestone, loess and marl. Each soil is vinified separately, with native yeasts and no fining, so that the differences arrive intact in the glass.",
-      "Riesling is the heart of the estate, joined by Weissburgunder, Silvaner and a handful of old Pfalz varieties. The wines are chiselled and dry, with a clarity that has made Brand a reference point for the new generation of German organic growers.",
-    ],
-  },
-  {
-    name: "Domaine Rougeot",
-    logo: "/images/producers/domaine-rougeot/1.webp",
-    tileFullBleed: true,
-    heroImage: {
-      src: "/images/producers/domaine-rougeot/1.webp",
-      alt: "A grassy farm track running between dry-stone walls through Burgundy vineyards",
-    },
-    gallery: [
-      {
-        src: "/images/producers/domaine-rougeot/2.webp",
-        alt: "Rows of staked vines on stony soil under a heavy, clouded sky",
-        caption: "Vines under a heavy sky",
-      },
-    ],
-    region: "Bourgogne",
-    country: "France",
-    farming: "Organic conversion",
-    summary:
-      "Meursault-based family domaine working village and lieu-dit parcels with restraint and remarkable value.",
-    story: [
-      "Domaine Rougeot is a Meursault family estate with roots going back generations, brought to wider attention by Pierre-Henri Rougeot, who returned to the family domaine after working in the wine trade and set about rethinking how it farmed and vinified.",
-      "The vineyards — village and lieu-dit parcels across Meursault, Pommard, Volnay and Monthélie — are in organic conversion, worked by hand with a focus on soil life. In the cellar Pierre-Henri favours native yeasts, long élevage and a deliberately light hand with sulphur, bottling many cuvées with none at all.",
-      "The wines have become some of the most sought-after honest bottles in the Côte de Beaune: pure, unforced expressions of their villages, at prices that remain remarkable for Burgundy of this quality.",
-    ],
-  },
   {
     name: "Château de la Grave",
     logo: chateauVineyardImg.url,
+    tileImage: "/images/producers/chateau-de-la-grave.jpg",
     tileFullBleed: true,
     heroImage: {
       src: "/images/grave/people-famille-bassereau.webp",
@@ -778,6 +613,7 @@ export const wines: Wine[] = [
     grapes: "Soave DOC — 100% Garganega",
     note: "Organic, basalt-rich volcanic soils of the Roncà hills; crisp citrus, almond and a flinty savoury edge.",
     image: roncatheImg.url,
+    cutout: "/bottles/roncathe-soave.webp",
     techSheet: roncatheSheet.url,
   },
   {
@@ -790,6 +626,7 @@ export const wines: Wine[] = [
     grapes: "Colli Berici — 100% Pinot Grigio",
     note: "Limestone slopes with a stony substrate; bright, elegant fruit with real mineral lift and character.",
     image: granettoImg.url,
+    cutout: "/bottles/granetto-pinot-grigio.webp",
     techSheet: granettoSheet.url,
   },
   {
@@ -835,6 +672,7 @@ export const wines: Wine[] = [
     grapes: "Langhe D.O.C. — Nebbiolo",
     note: "The estate's approachable Nebbiolo: bright cherry, rose petal and fine, silky tannins.",
     image: ferreroBottleImg.url,
+    cutout: "/bottles/nvie-langhe-nebbiolo.webp",
   },
   {
     name: "Passerina IGT",
@@ -856,6 +694,7 @@ export const wines: Wine[] = [
     grapes: "Verdicchio dei Castelli di Jesi Classico Superiore — Verdicchio",
     note: "From the classic hills around Jesi; crisp green apple, almond and a subtle saline finish.",
     image: argonautaImg.url,
+    cutout: "/bottles/argonauta-verdicchio.webp",
   },
   {
     name: "Verdicchio dei Castelli di Jesi Classico DOC",
@@ -868,51 +707,6 @@ export const wines: Wine[] = [
     image: verdicchioClassicoImg.url,
   },
 
-  {
-    name: "Argile Rouge",
-    producer: "Domaine des Ardoisières",
-    region: "Savoie",
-    country: "France",
-    colour: "Red",
-    grapes: "Gamay, Mondeuse, Persan",
-    note: "Crunchy red fruit, iron and alpine herbs; a mountain red of real detail.",
-  },
-  {
-    name: "Paski Fiano",
-    producer: "Cantina Giardino",
-    region: "Campania",
-    country: "Italy",
-    colour: "White",
-    grapes: "Fiano",
-    note: "Ungrafted vines, skin contact in amphora, chestnut ageing.",
-  },
-  {
-    name: "Le Fole Aglianico",
-    producer: "Cantina Giardino",
-    region: "Campania",
-    country: "Italy",
-    colour: "Red",
-    grapes: "Aglianico",
-    note: "Volcanic soils and centenarian vines; savoury, tannic, long-lived.",
-  },
-  {
-    name: "Cauzón Tinto",
-    producer: "Bodegas Cauzón",
-    region: "Granada",
-    country: "Spain",
-    colour: "Red",
-    grapes: "Tempranillo",
-    note: "1,200 metres in the Sierra Nevada; bright, aromatic, mountain-cool Tempranillo.",
-  },
-  {
-    name: "Rosado de la Sierra",
-    producer: "Bodegas Cauzón",
-    region: "Granada",
-    country: "Spain",
-    colour: "Rosé",
-    grapes: "Garnacha",
-    note: "Direct press, pale copper, wild strawberry and salt.",
-  },
   {
     name: "Marqués del Hueco Crianza 2020",
     producer: "Viticultores de Lapuebla",
@@ -940,6 +734,7 @@ export const wines: Wine[] = [
     grapes: "95% Tempranillo, 5% Viura",
     note: "10,000 bottles from 1940s–60s vines; whole-bunch fermentation in French oak vats, 7 months in barrel. Strawberry, raspberry and rose, delicate and fine.",
     image: elPropositoImg.url,
+    cutout: "/bottles/el-proposito.webp",
   },
   {
     name: "Galáctico",
@@ -950,6 +745,7 @@ export const wines: Wine[] = [
     grapes: "100% Tempranillo",
     note: "A single-parcel bottling from old vines in Lapuebla de Labarca; dark cherry, liquorice and fine mountain tannins.",
     image: lapueblaGalacticoImg.url,
+    cutout: "/bottles/galactico.webp",
   },
   {
     name: "Heras Cordón Reserva",
@@ -960,6 +756,7 @@ export const wines: Wine[] = [
     grapes: "Rioja DOCa — Tempranillo",
     note: "Classic Reserva from Rioja Alta; ripe black cherry, vanilla and sweet spice, with polished tannins and a long, savoury finish.",
     image: herasCordonReservaImg.url,
+    cutout: "/bottles/heras-cordon-reserva.webp",
   },
   {
     name: "Heras Cordón Vendimia Seleccionada",
@@ -970,61 +767,7 @@ export const wines: Wine[] = [
     grapes: "Rioja DOCa — Tempranillo",
     note: "A selected-harvest Rioja; bright red berry, plum and gentle oak, framed by supple tannins and fresh acidity.",
     image: herasCordonVendimiaImg.url,
-  },
-
-  {
-    name: "Loureiro",
-    producer: "Quinta da Palmirinha",
-    region: "Vinho Verde",
-    country: "Portugal",
-    colour: "White",
-    grapes: "Loureiro",
-    note: "Organic granite-grown Loureiro with bay leaf, citrus blossom and grip.",
-  },
-  {
-    name: "Avesso",
-    producer: "Quinta da Palmirinha",
-    region: "Vinho Verde",
-    country: "Portugal",
-    colour: "White",
-    grapes: "Avesso",
-    note: "Fuller, orchard-fruited and textural; a serious northern Portuguese white.",
-  },
-  {
-    name: "Wilder Satz",
-    producer: "Weingut Brand",
-    region: "Pfalz",
-    country: "Germany",
-    colour: "White",
-    grapes: "Field blend",
-    note: "Co-planted, co-fermented field blend from sandstone; wild and gulpable.",
-  },
-  {
-    name: "Riesling Trocken",
-    producer: "Weingut Brand",
-    region: "Pfalz",
-    country: "Germany",
-    colour: "White",
-    grapes: "Riesling",
-    note: "Dry, high-tension Riesling with lime leaf and crushed rock.",
-  },
-  {
-    name: "Meursault 'Les Durots'",
-    producer: "Domaine Rougeot",
-    region: "Bourgogne",
-    country: "France",
-    colour: "White",
-    grapes: "Chardonnay",
-    note: "Classical Meursault: hazelnut, white peach, quietly persistent.",
-  },
-  {
-    name: "Bourgogne Rouge",
-    producer: "Domaine Rougeot",
-    region: "Bourgogne",
-    country: "France",
-    colour: "Red",
-    grapes: "Pinot Noir",
-    note: "Village-adjacent parcels, whole-bunch inflected, exceptional value.",
+    cutout: "/bottles/heras-cordon-vendimia-seleccionada.webp",
   },
   {
     name: "Straw Wine",
@@ -1199,6 +942,4 @@ export const wines: Wine[] = [
   },
 ];
 
-export const legendary = wines.filter((w) =>
-  ["I Tarai", "Le Fole Aglianico", "Meursault 'Les Durots'"].includes(w.name),
-);
+export const legendary = wines.filter((w) => ["I Tarai", "Barolo", "Galáctico"].includes(w.name));

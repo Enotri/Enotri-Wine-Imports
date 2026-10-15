@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-const cellarAsset = { url: "/images/site/cellar_photo.webp" };
+import { ProducerFilm } from "@/components/producer-film";
 const founderAsset = { url: "/images/site/rawlings-munemo.webp" };
 const soilHandsAsset = { url: "/images/site/sustainability-soil-hands.webp" };
 import {
@@ -10,6 +10,18 @@ import {
   peoplePhotos,
   landPhotos,
 } from "@/components/page-parts";
+
+// The vineyard-harvest film, shown in the Our Story hero.
+// "Our Story" is set in the film itself (opening and closing), so the hero has no text overlay.
+const harvestFilm = {
+  src: "/videos/about-our-story-wide.mp4",
+  poster: "/videos/about-our-story-wide-poster.webp",
+  srcSmall: "/videos/about-our-story-tall.mp4",
+  posterSmall: "/videos/about-our-story-tall-poster.webp",
+  label:
+    "Our Story. Enotri Wine Imports is a boutique wine agency based in Edmonton, Alberta. A short film of Château de la Grave, Bordeaux: the estate, its vineyards and the hand harvest",
+  caption: "Château de la Grave, Bordeaux. Harvest photos © Pierre-Marc.",
+};
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -34,59 +46,32 @@ export const Route = createFileRoute("/about")({
 function About() {
   return (
     <>
-      <section className="film-hero h-[82vh] min-h-[520px]">
-        <img
-          src={cellarAsset.url}
-          alt="Stacked oak barrels in a winery cellar"
-          loading="eager"
-          className="hero-media"
+      <section className="film-hero bg-ink">
+        {/* The film shows these words on screen; keep them in the page for search and screen readers */}
+        <h1 className="sr-only">Our Story</h1>
+        <p className="sr-only">
+          Enotri Wine Imports is a boutique wine agency based in Edmonton, Alberta.
+        </p>
+        <ProducerFilm
+          film={harvestFilm}
+          variant="fill"
+          className="w-full md:aspect-[2/1] md:max-h-[86vh]"
         />
-        <div className="hero-scrim" />
-        <div className="hero-inner">
-          <p className="hero-kicker">About</p>
-          <h1 className="hero-title">Our Story</h1>
-          <p className="hero-lede">
-            Enotri Wine Imports is a boutique wine agency based in Edmonton, Alberta.
-          </p>
-        </div>
       </section>
 
-      <Section>
-        <div className="grid gap-10 md:grid-cols-2 md:gap-12">
-          <div className="flex flex-col gap-8">
-            <h2 className="text-3xl md:text-4xl">A simple goal</h2>
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg">
-              <img
-                src={soilHandsAsset.url}
-                alt="Two hands cupping rich dark soil with earthworms, roots, and seedlings"
-                loading="lazy"
-                className="h-full w-full object-cover object-center"
-              />
-            </div>
-          </div>
-          <div className="prose-enotri max-w-2xl self-center text-base">
-            <p>
-              The company was founded with a simple goal: to represent wines that express their true
-              provenance and the dedication of the vineyard stewards who grow them.
-            </p>
-            <p>
-              We collaborate with independent producers from renowned and emerging regions,
-              selecting wines that combine authenticity, quality, and harmony. All our producers
-              bring something meaningful to the portfolio, whether through old vines, sustainable
-              farming, indigenous varieties, family heritage, regional distinctiveness, or
-              exceptional value.
-            </p>
-          </div>
-        </div>
-      </Section>
-
       <section className="border-y border-border bg-secondary/50">
-        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:grid-cols-[0.35fr_0.65fr] md:py-24">
+        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:grid-cols-[0.45fr_0.55fr] md:py-24">
           <div>
             <p className="eyebrow">Philosophy</p>
             <h2 className="mt-4 text-3xl md:text-4xl">Our Philosophy</h2>
+            <img
+              src={soilHandsAsset.url}
+              alt="Two hands cupping rich dark soil with earthworms, roots, and seedlings"
+              loading="lazy"
+              className="mt-8 aspect-[4/3] w-full overflow-hidden rounded-lg object-cover"
+            />
           </div>
-          <div className="prose-enotri max-w-2xl text-base">
+          <div className="prose-enotri max-w-2xl self-center text-base">
             <p>
               We believe the most important work happens in the vineyard, so we only take on estates
               that farm their own fruit. Before a wine is listed, someone here has walked those rows
@@ -114,12 +99,20 @@ function About() {
             <h2 className="mt-4 text-3xl md:text-4xl">Rawlings Munemo</h2>
             <div className="prose-enotri mt-6 max-w-xl text-base">
               <p>
-                Rawlings founded Enotri Wine Imports to bring wines of genuine provenance to Alberta
-                — bottles that carry the mark of the people and places behind them.
+                Rawlings founded Enotri Wine Imports with a simple goal: to bring wines to Alberta
+                that express their true provenance and the dedication of the vineyard stewards who
+                grow them — bottles that carry the mark of the people and places behind them.
               </p>
               <p>
-                He works directly with the growers in the portfolio, tasting in their cellars and
-                walking their vineyards before a single wine is listed.
+                He partners with independent producers from renowned and emerging regions, choosing
+                wines that combine authenticity, quality, and harmony. Every estate brings something
+                meaningful to the portfolio, whether through old vines, sustainable farming,
+                indigenous varieties, family heritage, regional distinctiveness, or exceptional
+                value.
+              </p>
+              <p>
+                Each relationship is direct: he tastes in the growers' cellars and walks their
+                vineyards before a single wine is listed.
               </p>
             </div>
           </div>
@@ -134,19 +127,19 @@ function About() {
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {[
             {
-              src: "/images/site/tasting-nitida.webp",
-              alt: "Tasting wines in a barrel hall at a South African estate",
-              pos: "object-[center_30%]",
+              src: "/images/site/amphora-cellar.webp",
+              alt: "Terracotta amphorae lined up in a winery cellar",
+              pos: "object-[center_75%]",
             },
             {
-              src: "/images/site/harvest-crush.webp",
-              alt: "A cellar hand punching down red grape must in a fermentation vat during harvest",
-              pos: "object-[center_60%]",
-            },
-            {
-              src: "/images/site/trade-tasting-team.webp",
-              alt: "A wine service team standing at a bar in front of a wall of bottles",
+              src: "/images/about/chateau-de-la-grave-cellar.jpg",
+              alt: "Large oak casks in the cellar at Château de la Grave",
               pos: "object-center",
+            },
+            {
+              src: "/images/about/cellar-tasting-group.jpg",
+              alt: "A tasting group gathered among the barrels in a winery cellar",
+              pos: "object-[37%_center]",
             },
           ].map((p) => (
             <img

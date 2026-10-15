@@ -17,11 +17,12 @@ export function PageHero({
     return (
       <section className="film-hero h-[78vh] min-h-[520px]">
         <img src={image} alt="" loading="eager" className="hero-media" />
-        <div className="hero-scrim" />
         <div className="hero-inner">
-          <p className="hero-kicker">{eyebrow}</p>
-          <h1 className="hero-title">{title}</h1>
-          {intro && <p className="hero-lede">{intro}</p>}
+          <div className="text-backdrop">
+            <p className="hero-kicker">{eyebrow}</p>
+            <h1 className="hero-title">{title}</h1>
+            {intro && <p className="hero-lede">{intro}</p>}
+          </div>
         </div>
       </section>
     );
@@ -134,7 +135,14 @@ const BOTTLES: CardItem[] = [
 
 export function CtaBand() {
   return (
-    <section className="relative overflow-hidden border-y border-primary bg-primary">
+    <section
+      className="relative overflow-hidden border-y border-primary"
+      style={{
+        backgroundColor: "#0a0a0a",
+        backgroundImage:
+          "radial-gradient(60% 55% at 50% 42%, #2b2826 0%, #141312 45%, #0a0a0a 75%)",
+      }}
+    >
       <div className="mx-auto flex max-w-[1280px] flex-col items-center px-6 py-16 sm:px-10 md:px-14 md:py-24 lg:px-20">
         <CardFanCarousel cards={BOTTLES} />
       </div>
@@ -161,6 +169,36 @@ export function PhotoGallery({
               alt={p.alt}
               loading="lazy"
               className="mb-4 w-full break-inside-avoid object-cover"
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Wine label wall: flush masonry columns, each label at full column width and natural height.
+export function LabelGallery({
+  title,
+  labels,
+}: {
+  title: string;
+  labels: { src: string; alt: string; width: number; height: number }[];
+}) {
+  return (
+    <section className="border-b border-border">
+      <div className="mx-auto max-w-[1280px] px-6 py-16 sm:px-10 md:px-14 md:py-24 lg:px-20">
+        <h2 className="mb-10 text-3xl md:text-5xl">{title}</h2>
+        <div className="columns-1 gap-0 sm:columns-2 lg:columns-3">
+          {labels.map((l) => (
+            <img
+              key={l.src}
+              src={l.src}
+              alt={l.alt}
+              width={l.width}
+              height={l.height}
+              loading="lazy"
+              className="card-lift block h-auto w-full break-inside-avoid duration-300 hover:shadow-none"
             />
           ))}
         </div>
@@ -202,4 +240,26 @@ export const landPhotos = [
   ...[1, 2, 3, 4, 5, 6, 7].map((n) => g(`bottle-bottle-0${n}`, `Wine bottle ${n}`)),
   ...[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => g(`hero-hero-0${n}`, `Vineyard landscape ${n}`)),
   g("hero-hero-10", "Vineyard landscape 10"),
+];
+
+const label = (name: string, alt: string, width: number, height: number) => ({
+  src: `/labels/${name}.webp`,
+  alt,
+  width,
+  height,
+});
+
+// Wines page label wall; width/height are the files' pixel sizes (reserves space while loading).
+export const wineLabels = [
+  label("corte-moschina-calcareo", "Corte Moschina Calcàreo label", 1070, 1400),
+  label("pasetti-montepulciano", "Pasetti Montepulciano d'Abruzzo label", 1400, 1400),
+  label("corte-moschina-granetto", "Corte Moschina Granetto label", 1070, 1400),
+  label("pasetti-pecorino", "Pasetti Pecorino d'Abruzzo label", 1400, 1400),
+  label("corte-moschina-roncathe", "Corte Moschina Roncathe label", 1070, 1400),
+  label(
+    "pasetti-montepulciano-riserva",
+    "Pasetti Montepulciano d'Abruzzo Riserva label",
+    839,
+    1400,
+  ),
 ];

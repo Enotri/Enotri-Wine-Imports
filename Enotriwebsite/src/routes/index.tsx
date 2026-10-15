@@ -1,6 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CtaBand } from "@/components/page-parts";
-import { producerSlug, producers, wines } from "@/lib/portfolio";
+import { GrowersMap } from "@/components/growers-map";
+import { ScrollExpandHero } from "@/components/scroll-expand-hero";
+import { legendary, producerSlug, producers, wines } from "@/lib/portfolio";
+
+const countryCount = new Set(producers.map((p) => p.country)).size;
 
 const featuredProducers = [
   {
@@ -51,45 +55,42 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="landing">
-      <section className="relative min-h-[620px] overflow-hidden bg-ink sm:min-h-[700px] lg:min-h-[calc(100svh-100px)]">
-        <img
-          src="/enotri-vineyard-hero.jpg"
-          alt="A glass of wine overlooking green vineyard rows"
-          width={2000}
-          height={1100}
-          fetchPriority="high"
-          className="absolute inset-0 h-full w-full object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent" />
-        <div className="relative mx-auto flex min-h-[620px] max-w-[1440px] items-end px-6 pb-12 pt-32 sm:min-h-[700px] sm:px-10 sm:pb-16 md:px-14 lg:min-h-[calc(100svh-100px)] lg:px-20 lg:pb-20">
-          <div className="max-w-3xl bg-primary px-7 py-8 text-white sm:px-10 sm:py-10 lg:px-14 lg:py-12">
-            <p className="text-xs font-medium tracking-[0.12em] text-white/80 sm:text-sm">
+      <ScrollExpandHero
+        mediaSrc="/videos/home-hero-harvest-poster.webp"
+        mediaAlt="Welcome to the wines of Bordeaux"
+        videoSrc="/videos/home-hero-harvest.mp4"
+        bgSrc="/images/home/scroll-hero-bg.webp"
+        bgAlt="Open iron gates onto a gravel drive leading into vineyard rows"
+        titleLead="Good wine has"
+        titleTrail="a sense of place."
+        scrollCue="Scroll to expand"
+      >
+        <div className="mx-auto flex max-w-[1440px] flex-wrap items-end justify-between gap-6">
+          <div className="text-backdrop max-w-xl">
+            <p className="text-xs font-medium tracking-[0.12em] text-foreground sm:text-sm">
               Independent wine imports · Edmonton, Alberta
             </p>
-            <h1 className="mt-4 max-w-[13ch] text-5xl leading-[0.98] text-white sm:text-6xl lg:text-7xl">
-              Good wine has a sense of place.
-            </h1>
-            <p className="mt-5 max-w-xl text-sm leading-6 text-white/85 sm:text-base sm:leading-7">
+            <p className="mt-4 text-sm leading-6 text-foreground sm:text-base sm:leading-7">
               We bring the work of independent growers to Alberta—wines shaped by the land, and by
               the people who tend it.
             </p>
-            <div className="mt-7 flex flex-wrap items-center gap-x-7 gap-y-3">
-              <Link
-                to="/wines"
-                className="inline-flex min-h-12 items-center border border-white px-5 text-sm font-medium text-white hover:bg-white hover:text-primary"
-              >
-                Explore the wines
-              </Link>
-              <Link
-                to="/producers"
-                className="inline-flex min-h-11 items-center text-sm font-medium text-white underline decoration-white/60 underline-offset-4 hover:decoration-white"
-              >
-                Meet the growers
-              </Link>
-            </div>
+          </div>
+          <div className="text-backdrop flex flex-wrap items-center gap-x-7 gap-y-3">
+            <Link
+              to="/wines"
+              className="inline-flex min-h-12 items-center border border-foreground px-5 text-sm font-medium text-foreground hover:bg-foreground hover:text-background"
+            >
+              Explore the wines
+            </Link>
+            <Link
+              to="/producers"
+              className="inline-flex min-h-11 items-center text-sm font-medium text-foreground underline decoration-foreground/40 underline-offset-4 hover:decoration-foreground"
+            >
+              Meet the growers
+            </Link>
           </div>
         </div>
-      </section>
+      </ScrollExpandHero>
 
       <section className="mx-auto grid max-w-[1440px] items-center gap-10 px-6 py-16 sm:px-10 md:grid-cols-2 md:gap-14 md:px-14 md:py-24 lg:gap-20 lg:px-20 lg:py-28">
         <div className="relative min-w-0">
@@ -116,14 +117,14 @@ function Index() {
           </p>
           <Link
             to="/about"
-            className="mt-7 inline-flex min-h-11 items-center border-b border-primary/50 text-sm font-medium text-primary hover:border-primary"
+            className="mt-7 inline-flex min-h-11 items-center border-b border-primary/50 text-sm font-medium text-foreground hover:border-primary"
           >
             Our story
           </Link>
         </div>
       </section>
 
-      <section className="bg-white">
+      <section className="bg-background">
         <div className="mx-auto grid max-w-[1440px] items-center gap-10 px-6 py-16 sm:px-10 md:grid-cols-[0.9fr_1.1fr] md:gap-14 md:px-14 md:py-24 lg:gap-20 lg:px-20 lg:py-28">
           <div className="max-w-xl">
             <p className="home-label">Chosen for character</p>
@@ -132,12 +133,12 @@ function Index() {
             </h2>
             <p className="mt-6 text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
               From volcanic hills in Veneto to high vineyards in Abruzzo, every bottle has a reason
-              to be here. Discover expressive wines from family estates across Europe and South
-              Africa.
+              to be here. Discover expressive wines from {producers.length} family estates in{" "}
+              {countryCount} countries.
             </p>
             <Link
               to="/wines"
-              className="mt-7 inline-flex min-h-11 items-center border-b border-primary/50 text-sm font-medium text-primary hover:border-primary"
+              className="mt-7 inline-flex min-h-11 items-center border-b border-primary/50 text-sm font-medium text-foreground hover:border-primary"
             >
               Browse the portfolio
             </Link>
@@ -162,7 +163,7 @@ function Index() {
           </div>
           <Link
             to="/wines"
-            className="inline-flex min-h-11 items-center text-sm font-medium text-primary hover:underline"
+            className="inline-flex min-h-11 items-center text-sm font-medium text-foreground hover:underline"
           >
             All {wines.length} wines
           </Link>
@@ -170,12 +171,12 @@ function Index() {
         <div className="mt-9 grid gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {featuredWines.map((wine) => (
             <article key={`${wine.producer}-${wine.name}`} className="group min-w-0">
-              <div className="flex aspect-[1.2/1] items-end justify-center overflow-hidden bg-[#f5f1ef] px-8 pt-5">
+              <div className="card-lift relative aspect-[3/4] w-full overflow-hidden rounded-lg bg-muted">
                 <img
-                  src={wine.image}
-                  alt={`${wine.producer} ${wine.name}`}
+                  src={wine.cutout ?? wine.image}
+                  alt={`${wine.name} bottle`}
                   loading="lazy"
-                  className="h-[92%] max-w-full object-contain transition-transform duration-500 group-hover:-translate-y-1"
+                  className="absolute bottom-[8%] left-1/2 h-[83%] w-auto max-w-[70%] -translate-x-1/2 object-contain [filter:drop-shadow(0_14px_14px_rgb(40_25_20/0.28))]"
                 />
               </div>
               <div className="pt-4">
@@ -190,14 +191,35 @@ function Index() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-[1440px] px-6 pb-16 sm:px-10 md:px-14 md:pb-24 lg:px-20 lg:pb-28">
+        <div className="border-b border-border pb-7">
+          <p className="home-label">Legendary &amp; Exceptional</p>
+          <h2 className="mt-3 max-w-2xl text-4xl leading-[1.05] sm:text-5xl">
+            Wines that stand apart for character and rarity.
+          </h2>
+        </div>
+        <div className="mt-9 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+          {legendary.map((wine) => (
+            <article key={`${wine.producer}-${wine.name}`} className="cell-hover bg-background p-7">
+              <p className="text-xs text-muted-foreground">
+                {wine.producer} · {wine.region}, {wine.country}
+              </p>
+              <h3 className="mt-2 font-display text-2xl leading-tight">{wine.name}</h3>
+              <p className="mt-1 text-sm text-foreground">{wine.colour}</p>
+              <p className="mt-4 text-sm leading-6 text-muted-foreground">{wine.note}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="relative overflow-hidden bg-primary text-white">
         <div className="mx-auto grid max-w-[1440px] md:grid-cols-[1fr_1fr]">
           <div className="flex flex-col justify-center px-6 py-16 sm:px-10 md:px-14 md:py-20 lg:px-20 lg:py-28">
-            <p className="text-xs font-medium tracking-[0.12em] text-white/75">A belief we share</p>
+            <p className="text-xs font-medium tracking-[0.12em] text-white">A belief we share</p>
             <h2 className="mt-5 max-w-xl text-4xl leading-[1.08] text-white sm:text-5xl lg:text-6xl">
               Better wine begins long before the cellar.
             </h2>
-            <p className="mt-5 max-w-lg text-sm leading-7 text-white/80 sm:text-base">
+            <p className="mt-5 max-w-lg text-sm leading-7 text-white sm:text-base">
               In the soil, the seasons, and the patient choices of the people who grow the fruit. We
               look for wines that carry those details with them.
             </p>
@@ -215,12 +237,11 @@ function Index() {
               loading="lazy"
               className="absolute inset-0 h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/35 to-transparent md:from-primary/10" />
           </div>
         </div>
       </section>
 
-      <section className="bg-[#f1ebed]">
+      <section className="bg-background">
         <div className="mx-auto max-w-6xl px-6 py-16 sm:px-10 md:px-14 md:py-24 lg:px-20 lg:py-28">
           <div className="flex flex-col justify-between gap-5 border-b border-primary/20 pb-7 sm:flex-row sm:items-end">
             <div>
@@ -229,7 +250,7 @@ function Index() {
             </div>
             <Link
               to="/producers"
-              className="inline-flex min-h-11 items-center text-sm font-medium text-primary hover:underline"
+              className="inline-flex min-h-11 items-center text-sm font-medium text-foreground hover:underline"
             >
               All producers
             </Link>
@@ -259,7 +280,7 @@ function Index() {
                       <p className="mt-3 line-clamp-3 text-sm leading-6 text-muted-foreground">
                         {producer.summary}
                       </p>
-                      <span className="mt-4 inline-flex min-h-10 items-center text-sm font-medium text-primary underline decoration-primary/40 underline-offset-4 group-hover:decoration-primary">
+                      <span className="mt-4 inline-flex min-h-10 items-center text-sm font-medium text-foreground underline decoration-foreground/40 underline-offset-4 group-hover:decoration-foreground">
                         Discover the estate
                       </span>
                     </div>
@@ -270,6 +291,8 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <GrowersMap />
 
       <CtaBand />
     </div>

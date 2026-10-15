@@ -54,12 +54,14 @@ function Producers() {
           className="hero-media"
           loading="eager"
         />
-        <div className="hero-scrim" />
-        <div className="hero-inner">
-          <p className="hero-kicker">Producers</p>
-          <h1 className="hero-title">Crafted by Growers</h1>
-        </div>
       </section>
+
+      <div className="mx-auto max-w-6xl px-6 pt-14 md:pt-20">
+        <p className="eyebrow">Producers</p>
+        <h1 className="mt-5 font-display text-[clamp(2.25rem,5.5vw,4.5rem)] leading-[1.05] font-normal tracking-[-0.02em] text-foreground">
+          Crafted by Growers
+        </h1>
+      </div>
 
       <section className="border-b border-border bg-secondary/40">
         <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
@@ -82,7 +84,7 @@ function Producers() {
 
       <Section>
         <div className="flex items-center justify-between gap-4 bg-primary px-6 py-5 text-primary-foreground md:px-8">
-          <span className="text-[0.75rem] font-medium uppercase tracking-[0.24em] md:text-sm">
+          <span className="text-caption font-medium uppercase tracking-[0.24em] md:text-sm">
             Explore our producers
           </span>
           <ChevronRight className="h-5 w-5 shrink-0" aria-hidden="true" />
@@ -97,10 +99,10 @@ function Producers() {
                 setCountry(c);
                 setExpanded(false);
               }}
-              className={`text-[0.7rem] uppercase tracking-[0.18em] transition-colors ${
+              className={`text-label uppercase tracking-[0.18em] transition-colors ${
                 country === c
-                  ? "text-primary underline underline-offset-8"
-                  : "text-muted-foreground hover:text-primary"
+                  ? "text-foreground underline underline-offset-8"
+                  : "text-muted-foreground hover:opacity-70"
               }`}
             >
               {c}
@@ -118,7 +120,7 @@ function Producers() {
                 className="group relative aspect-[4/3] overflow-hidden bg-card"
               >
                 <img
-                  src={p.logo}
+                  src={p.tileImage ?? p.logo}
                   alt={`${p.name}`}
                   loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
@@ -128,7 +130,7 @@ function Producers() {
                   <span className="font-display text-xl leading-snug tracking-wide text-white md:text-2xl">
                     {p.name}
                   </span>
-                  <span className="mt-2 text-[0.6rem] uppercase tracking-[0.22em] text-white/85">
+                  <span className="mt-2 text-label uppercase tracking-[0.22em] text-white">
                     {p.region} · {p.country}
                   </span>
                 </div>
@@ -157,7 +159,7 @@ function Producers() {
                     {p.name}
                   </span>
                 )}
-                <span className="mt-3 text-[0.6rem] uppercase tracking-[0.22em] text-muted-foreground transition-colors group-hover:text-primary">
+                <span className="mt-3 text-label uppercase tracking-[0.22em] text-muted-foreground transition-colors group-hover:opacity-70">
                   {p.region} · {p.country}
                 </span>
               </Link>
@@ -169,7 +171,7 @@ function Producers() {
           <button
             type="button"
             onClick={() => setExpanded(true)}
-            className="mt-px flex w-full items-center justify-center gap-3 bg-primary px-6 py-5 text-[0.7rem] font-medium uppercase tracking-[0.24em] text-primary-foreground transition-opacity hover:opacity-90"
+            className="mt-px flex w-full items-center justify-center gap-3 bg-primary px-6 py-5 text-label font-medium uppercase tracking-[0.24em] text-primary-foreground transition-opacity hover:opacity-90"
           >
             View all producers ({hiddenCount} more)
             <ChevronRight className="h-4 w-4" aria-hidden="true" />

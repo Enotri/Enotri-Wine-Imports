@@ -20,8 +20,13 @@
     0 2px 6px color-mix(in oklab, var(--ink) 22%, transparent),
     0 18px 40px -18px color-mix(in oklab, var(--ink) 40%, transparent),
     0 40px 90px -40px color-mix(in oklab, var(--gold) 22%, transparent);
-  --font-display: Baskerville, Georgia, serif;
-  --font-sans: "Avenir Next", Avenir, Arial, sans-serif;
+  /* Fonts and the base text size come from the globals in :root */
+  --font-display: var(--font-heading);
+  --font-sans: var(--font-body);
+  --text-base: var(--font-size-base);
+  --text-base--line-height: var(--line-height-base);
+  --text-label: var(--font-size-label);
+  --text-caption: var(--font-size-caption);
   --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -46,59 +51,79 @@
   --color-sand: var(--sand);
   --color-gold: var(--gold);
   --color-plum: var(--plum);
+  --color-navy: var(--navy);
 }
 
 :root {
+  /* Typography: defined once, used everywhere (Kettmeir-inspired). */
+  --font-heading: "Imbue", Baskerville, Georgia, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-size-base: clamp(1rem, 0.95rem + 0.2vw, 1.0625rem); /* 16px on phones, 17px on desktop */
+  --line-height-base: 1.7;
+  --font-weight-body: 300;
+  /* One text colour for every word on light backgrounds (Kettmeir-style deep navy).
+     Text on photos and dark bands stays white for legibility. */
+  --text-color: #00205b;
+  --heading-color: var(--text-color);
+  --font-size-label: 0.75rem; /* small uppercase labels */
+  --font-size-caption: 0.8125rem; /* captions, cues, filter buttons */
+  --font-size-small: 0.875rem; /* small print */
+  --font-size-display: clamp(2.75rem, 7vw, 5.75rem); /* hero titles */
+  --font-size-h1: clamp(3.4rem, 12.1vw, 10.9rem); /* page titles */
+  --font-size-h2: clamp(2.6rem, 7vw, 6.33rem); /* section titles */
+
   --radius: 0.25rem;
-  --background: #f5f1ef;
-  --foreground: #1a1919;
+  --background: #e0dad2;
+  --foreground: var(--text-color);
   --card: #ffffff;
-  --card-foreground: #1a1919;
+  --card-foreground: var(--text-color);
   --popover: #ffffff;
-  --popover-foreground: #1a1919;
-  --primary: #501d3c;
+  --popover-foreground: var(--text-color);
+  --primary: var(--text-color);
   --primary-foreground: #ffffff;
-  --secondary: #ffffff;
-  --secondary-foreground: #1a1919;
-  --muted: #f1ebed;
-  --muted-foreground: #635a5e;
-  --accent: #f1ebed;
-  --accent-foreground: #501d3c;
+  --secondary: #e0dad2;
+  --secondary-foreground: var(--text-color);
+  --muted: #d8d1c7;
+  --muted-foreground: var(--text-color);
+  --accent: #d8d1c7;
+  --accent-foreground: var(--text-color);
   --destructive: #a93838;
   --destructive-foreground: #ffffff;
-  --border: #d9cfd2;
-  --input: #cfc3c8;
-  --ring: #501d3c;
+  --border: #c9c0b4;
+  --input: #bfb6aa;
+  --ring: var(--text-color);
   --ink: #1a1919;
   --sand: #ffffff;
-  --gold: #501d3c;
-  --plum: #501d3c;
+  --gold: var(--text-color);
+  --plum: var(--text-color);
+  --navy: var(--heading-color);
 }
 
 .dark {
-  --background: #f5f1ef;
-  --foreground: #1a1919;
+  --background: #e0dad2;
+  --foreground: var(--text-color);
   --card: #ffffff;
-  --card-foreground: #1a1919;
+  --card-foreground: var(--text-color);
   --popover: #ffffff;
-  --popover-foreground: #1a1919;
-  --primary: #501d3c;
+  --popover-foreground: var(--text-color);
+  --primary: var(--text-color);
   --primary-foreground: #ffffff;
-  --secondary: #ffffff;
-  --secondary-foreground: #1a1919;
-  --muted: #f1ebed;
-  --muted-foreground: #635a5e;
-  --accent: #f1ebed;
-  --accent-foreground: #501d3c;
+  --secondary: #e0dad2;
+  --secondary-foreground: var(--text-color);
+  --muted: #d8d1c7;
+  --muted-foreground: var(--text-color);
+  --accent: #d8d1c7;
+  --accent-foreground: var(--text-color);
   --destructive: #a93838;
   --destructive-foreground: #ffffff;
-  --border: #d9cfd2;
-  --input: #cfc3c8;
-  --ring: #501d3c;
+  --border: #c9c0b4;
+  --input: #bfb6aa;
+  --ring: var(--text-color);
   --ink: #1a1919;
   --sand: #ffffff;
-  --gold: #501d3c;
-  --plum: #501d3c;
+  --gold: var(--text-color);
+  --plum: var(--text-color);
+  --navy: var(--heading-color);
 }
 
 @layer base {
@@ -112,22 +137,66 @@
 
   body {
     background-color: var(--color-background);
-    color: var(--color-foreground);
-    font-family: var(--font-sans);
-    font-weight: 400;
+    color: var(--text-color);
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    font-weight: var(--font-weight-body);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+  }
+
+  /* Form controls and other text elements take the global font, never the browser's. */
+  :where(
+    button,
+    input,
+    textarea,
+    select,
+    optgroup,
+    label,
+    a,
+    li,
+    span,
+    small,
+    figcaption,
+    nav,
+    footer
+  ) {
+    font-family: inherit;
+  }
+  /* Example text in form fields: solid navy, like all other text. */
+  ::placeholder {
+    color: var(--text-color);
+    opacity: 1;
+  }
+
+  :where(button, input, textarea, select, optgroup) {
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    color: inherit;
   }
 
   h1,
   h2,
   h3,
   h4 {
-    font-family: var(--font-display);
+    font-family: var(--font-heading);
     font-weight: 400;
     letter-spacing: -0.015em;
     line-height: 1.08;
     text-wrap: balance;
+  }
+
+  /* Headings are deep navy on light backgrounds; on photos and dark bands they keep
+     the light colour of their section. */
+  :where(h1, h2, h3, h4) {
+    color: var(--color-navy);
+  }
+  :where([class*="text-white"], [class*="text-sand"], .film-hero, .sh, [class*="bg-primary"])
+    :where(h1, h2, h3, h4) {
+    color: inherit;
   }
 
   h1 {
@@ -166,20 +235,20 @@
 }
 
 @utility home-label {
-  color: var(--color-primary);
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
+  color: var(--text-color);
+  font-family: var(--font-body);
+  font-size: var(--font-size-label);
   font-weight: 600;
   letter-spacing: 0.08em;
 }
 
 @utility eyebrow {
-  font-family: var(--font-sans);
-  font-size: 0.6875rem;
+  font-family: var(--font-body);
+  font-size: var(--font-size-label);
   font-weight: 500;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--color-primary);
+  color: var(--text-color);
 
   &::before {
     content: "";
@@ -203,8 +272,8 @@
 @utility prose-enotri {
   & p {
     margin-bottom: 1.3rem;
-    line-height: 1.9;
-    color: var(--color-muted-foreground);
+    line-height: var(--line-height-base);
+    color: var(--text-color);
   }
   & p:last-child {
     margin-bottom: 0;
@@ -222,8 +291,8 @@
   }
   & li {
     position: relative;
-    line-height: 1.85;
-    color: var(--color-muted-foreground);
+    line-height: var(--line-height-base);
+    color: var(--text-color);
     padding-left: 0.9rem;
     margin-bottom: 0.4rem;
   }
@@ -342,23 +411,17 @@
   object-position: center;
 }
 
-@utility hero-scrim {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(
-      64% 52% at 50% 4%,
-      color-mix(in oklab, var(--color-gold) 12%, transparent),
-      transparent 62%
-    ),
-    linear-gradient(
-      to top,
-      color-mix(in oklab, var(--color-ink) 94%, transparent) 0%,
-      color-mix(in oklab, var(--color-ink) 74%, transparent) 30%,
-      color-mix(in oklab, var(--color-ink) 42%, transparent) 60%,
-      color-mix(in oklab, var(--color-ink) 24%, transparent) 100%
-    );
+/* One frosted panel behind text that sits on a photo. The photo itself is never tinted:
+   the panel only covers the text block. White at 78% under navy text gives at least
+   9:1 contrast whatever the photo is behind it (WCAG AA needs 4.5:1). */
+@utility text-backdrop {
+  width: fit-content;
+  max-width: min(100%, 42rem);
+  padding: 1.1rem 1.4rem;
+  border-radius: calc(var(--radius) * 2);
+  background: rgb(255 255 255 / 0.78);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
 
 @utility hero-inner {
@@ -380,24 +443,23 @@
 }
 
 @utility hero-kicker {
-  font-family: var(--font-sans);
-  font-size: 0.7rem;
+  font-family: var(--font-body);
+  font-size: var(--font-size-label);
   font-weight: 500;
   letter-spacing: 0.34em;
   text-transform: uppercase;
-  color: color-mix(in oklab, var(--color-sand) 80%, transparent);
+  color: var(--text-color);
   margin-bottom: 1.6rem;
 }
 
 @utility hero-title {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-weight: 400;
   letter-spacing: -0.022em;
   line-height: 1.02;
-  color: var(--color-sand);
-  font-size: clamp(2.75rem, 7vw, 5.75rem);
+  color: var(--text-color);
+  font-size: var(--font-size-display);
   max-width: 22ch;
-  text-shadow: 0 2px 48px color-mix(in oklab, var(--color-ink) 55%, transparent);
 }
 
 @utility hero-lede {
@@ -405,7 +467,7 @@
   max-width: 48ch;
   font-size: clamp(1.02rem, 1.35vw, 1.28rem);
   line-height: 1.62;
-  color: color-mix(in oklab, var(--color-sand) 88%, transparent);
+  color: var(--text-color);
 }
 
 @keyframes enotri-fade-in {
@@ -439,6 +501,185 @@
 }
 
 /* ------------------------------------------------------------------ *
+ * Scroll-expanding hero (home page)
+ *
+ * One registered custom property, --sh-p, carries scroll progress 0 → 1.
+ * Browsers with scroll-driven animations (Chrome 115+) animate it natively
+ * from a view() timeline — no JavaScript, no main-thread work. Elsewhere,
+ * ScrollExpandHero writes the same property from a rAF-throttled listener.
+ * Every visual below is transform / opacity / filter only.
+ * ------------------------------------------------------------------ */
+
+@property --sh-p {
+  syntax: "<number>";
+  initial-value: 0;
+  inherits: true;
+}
+
+@property --sh-e {
+  syntax: "<number>";
+  initial-value: 0;
+  inherits: true;
+}
+
+@keyframes sh-progress {
+  from {
+    --sh-p: 0;
+  }
+  to {
+    --sh-p: 1;
+  }
+}
+
+.sh {
+  position: relative;
+  height: 300svh;
+  background-color: var(--ink);
+}
+
+@supports (animation-timeline: view()) {
+  .sh {
+    animation: sh-progress linear both;
+    animation-timeline: view();
+    animation-range: contain 0% contain 100%;
+  }
+}
+
+.sh-pin {
+  /* Expansion finishes a little before the pin releases, so the media is
+     genuinely full-bleed while the copy settles rather than at the last pixel. */
+  --sh-e: clamp(0, calc(var(--sh-p) / 0.88), 1);
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.sh-bg,
+.sh-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sh-bg {
+  transform: scale(calc(1 + 0.12 * var(--sh-p)));
+  /* No darkening: the text over it is navy now. */
+  filter: blur(calc(8px * var(--sh-p)));
+}
+
+/* The frame is full-bleed and revealed by clip-path, so the media never
+   relayouts — it opens from a centred card to the full viewport. */
+.sh-frame {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(
+    calc(27% - 27% * var(--sh-e)) calc(33% - 33% * var(--sh-e)) round
+      calc(18px - 18px * var(--sh-e))
+  );
+  box-shadow: 0 30px 80px rgb(0 0 0 / 0.45);
+}
+
+.sh-media {
+  transform: scale(calc(1.18 - 0.18 * var(--sh-e)));
+}
+
+/* A 33% side inset leaves a sliver on a phone, so open the card up there. */
+@media (max-width: 639px) {
+  .sh-frame {
+    clip-path: inset(
+      calc(22% - 22% * var(--sh-e)) calc(12% - 12% * var(--sh-e)) round
+        calc(14px - 14px * var(--sh-e))
+    );
+  }
+}
+
+.sh-title {
+  position: absolute;
+  inset-inline: 0;
+  top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1em;
+  padding-inline: 1.5rem;
+  color: var(--text-color);
+  text-align: center;
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  line-height: 0.98;
+  opacity: clamp(0, calc((0.78 - var(--sh-p)) / 0.3), 1);
+  pointer-events: none;
+}
+
+.sh-title-lead {
+  transform: translateX(calc(-16vw * var(--sh-p)));
+}
+
+.sh-title-trail {
+  transform: translateX(calc(16vw * var(--sh-p)));
+}
+
+.sh-cue {
+  position: absolute;
+  inset-inline: 0;
+  /* The site header sits above the hero and scrolls away, so at rest the pinned
+     box overhangs the fold by the header's height. Keep the cue clear of it. */
+  bottom: 7.5rem;
+  text-align: center;
+  font-size: var(--font-size-caption);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-color);
+  text-shadow:
+    0 0 14px var(--color-background),
+    0 0 4px var(--color-background);
+  opacity: clamp(0, calc(1 - var(--sh-p) / 0.18), 1);
+  pointer-events: none;
+}
+
+.sh-copy {
+  position: absolute;
+  isolation: isolate;
+  inset-inline: 0;
+  bottom: 0;
+  padding: 0 1.5rem 3rem;
+  opacity: clamp(0, calc((var(--sh-p) - 0.6) / 0.3), 1);
+  transform: translateY(calc(28px - 28px * clamp(0, calc((var(--sh-p) - 0.6) / 0.3), 1)));
+}
+
+/* Before it fades in, the copy must not swallow clicks on the media. */
+.sh-copy:not(:hover) {
+  pointer-events: auto;
+}
+
+@media (min-width: 640px) {
+  .sh-copy {
+    padding: 0 2.5rem 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sh-copy {
+    padding: 0 5rem 5rem;
+  }
+}
+
+/* Reduced motion: no travel, no expansion — show the finished state at once. */
+@media (prefers-reduced-motion: reduce) {
+  .sh {
+    height: 100svh;
+    animation: none;
+    --sh-p: 1;
+  }
+
+  .sh-title {
+    opacity: 0;
+  }
+}
+
+/* ------------------------------------------------------------------ *
  * Card fan carousel (bottle shots, plum band above the footer)
  *
  * Sizes come from the 21st.dev component; the fan maths in
@@ -462,7 +703,7 @@
 .fan-bottle {
   object-fit: contain;
   object-position: bottom center;
-  filter: drop-shadow(0 22px 22px rgb(0 0 0 / 0.5));
+  filter: drop-shadow(0 22px 22px rgb(0 0 0 / 0.6)) drop-shadow(0 0 1px rgb(255 255 255 / 0.18));
   transition:
     opacity 300ms var(--ease-out),
     filter 300ms var(--ease-out);
@@ -552,19 +793,16 @@
 }
 
 .fan-caption__eyebrow {
-  font-size: 11px;
+  font-size: var(--font-size-label);
   text-transform: uppercase;
   letter-spacing: 0.24em;
   line-height: 1.5;
-  /* The site's warm gold. Deliberately NOT var(--gold): that token currently
-     resolves to #501d3c, the same plum as this band's background, which would
-     render the eyebrow invisible. Swap this for var(--gold) once the token is
-     restored to a gold value. */
-  color: #c3ac83;
+  /* Text on dark bands is plain white, like all light-on-dark text. */
+  color: var(--sand);
 }
 
 .fan-caption__title {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 1.5rem;
   line-height: 1.15;
   color: var(--sand);
@@ -572,16 +810,16 @@
 }
 
 .fan-caption__details {
-  font-size: 14px;
+  font-size: var(--font-size-small);
   line-height: 1.5;
-  color: color-mix(in oklab, var(--sand) 75%, transparent);
+  color: var(--sand);
 }
 
 .fan-caption__note {
-  font-size: 14px;
+  font-size: var(--font-size-small);
   line-height: 1.7;
   max-width: 34rem;
-  color: color-mix(in oklab, var(--sand) 60%, transparent);
+  color: var(--sand);
   text-wrap: pretty;
 }
 
@@ -597,5 +835,161 @@
   }
   .fan-caption__title {
     font-size: 2.1rem;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Editorial titles (Kettmeir-inspired): tall condensed serif, uppercase,
+ * tight leading. Sizes match theirs at 1440px wide (174px / 101px) and scale
+ * with the window. Only page and section titles: small card titles keep
+ * their size, and hero titles keep their own styles.
+ * Unlayered on purpose so it overrides the Tailwind size utilities.
+ * ------------------------------------------------------------------ */
+main
+  h1:is([class*="text-4xl"], [class*="text-5xl"], [class*="text-7xl"], [class*="text-[clamp"]):not(
+    [data-slot]
+  ) {
+  font-size: var(--font-size-h1);
+  font-weight: 350;
+  line-height: 0.78;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+}
+
+main h2:is([class*="text-3xl"], [class*="text-4xl"], [class*="text-5xl"]):not([data-slot]) {
+  font-size: var(--font-size-h2);
+  font-weight: 350;
+  line-height: 0.8;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+}
+
+/* Fine film grain over the whole site, like printed paper. Pointer-transparent. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0.09;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Cursor dot (see components/cursor-dot.tsx). */
+.cursor-dot {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 90;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 999px;
+  background: var(--color-navy);
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.55);
+  pointer-events: none;
+  opacity: 0;
+  scale: 1;
+  transition:
+    opacity 0.2s ease,
+    scale 0.25s var(--ease-out);
+}
+.cursor-dot[data-visible="true"] {
+  opacity: 1;
+}
+.cursor-dot[data-active="true"] {
+  scale: 2.6;
+  opacity: 0.55;
+}
+
+/* ------------------------------------------------------------------ *
+ * "Explore our growers" map (components/growers-map.tsx)
+ * ------------------------------------------------------------------ */
+.growers-map__label {
+  font-family: var(--font-heading);
+  font-weight: 350;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  fill: var(--color-navy);
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.growers-map__route {
+  fill: none;
+  stroke: var(--color-navy);
+  stroke-width: 1.6px;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 2.4s var(--ease-out);
+}
+.growers-map__route[data-drawn="true"] {
+  stroke-dashoffset: 0;
+}
+
+.growers-map__pin {
+  fill: var(--color-navy);
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+.growers-map__pin[data-dim="true"] {
+  opacity: 0.22;
+}
+.growers-map__pin:focus-visible {
+  outline: none;
+}
+.growers-map__pin:focus-visible path {
+  stroke: var(--color-navy);
+  stroke-width: 3px;
+  paint-order: stroke;
+  fill: var(--color-plum);
+}
+.growers-map__pin-eye {
+  fill: var(--color-background);
+}
+.growers-map__tip {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  fill: var(--color-navy);
+  paint-order: stroke;
+  stroke: var(--color-background);
+  stroke-width: 6px;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.growers-map__pill {
+  min-height: 2.25rem;
+  border: 1px solid var(--color-navy);
+  border-radius: 999px;
+  padding: 0.45rem 1.1rem;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-caption);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  background: transparent;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+.growers-map__pill:hover {
+  background: color-mix(in oklab, var(--color-navy) 8%, transparent);
+}
+.growers-map__pill[aria-pressed="true"] {
+  background: var(--color-navy);
+  color: #fff;
+}
+.growers-map__pill:focus-visible {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .growers-map__route {
+    transition: none;
+    stroke-dashoffset: 0;
   }
 }

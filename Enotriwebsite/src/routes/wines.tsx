@@ -5,9 +5,10 @@ import {
   CtaBand,
   Section,
   PhotoGallery,
+  LabelGallery,
   eventPhotos,
   peoplePhotos,
-  landPhotos,
+  wineLabels,
 } from "@/components/page-parts";
 const testarossa = { url: "/images/site/testarossa_montepulciano_2019.webp" };
 const madonnella = { url: "/images/site/madonnella.webp" };
@@ -31,7 +32,7 @@ export const Route = createFileRoute("/wines")({
       {
         name: "description",
         content:
-          "Browse the Enotri portfolio: grower-made wines from South Africa, France, Italy, Spain, Portugal and Germany, filterable by colour and country.",
+          "Browse the Enotri portfolio: grower-made wines from South Africa, France, Italy and Spain, filterable by colour and country.",
       },
       { property: "og:title", content: "Our Wines — Enotri Wine Imports" },
       {
@@ -90,26 +91,28 @@ function Wines() {
           loading="eager"
           className="hero-media"
         />
-        <div className="hero-scrim" />
-        <div className="hero-inner">
-          <p className="hero-kicker">Our Wines</p>
-          <h1 className="hero-title">The portfolio, bottle by bottle</h1>
-          <div className="mt-7 max-w-2xl space-y-4 text-sand/85 [&_p]:leading-relaxed">
-            <p>
-              Every wine below comes from an estate that farms its own fruit, and every one has been
-              tasted with the grower before it was listed. Filter by colour or country, open a tech
-              sheet for the technical detail, or click a producer name to read who made it.
-            </p>
-            <p>
-              Available to Alberta restaurants, bars and retailers by the case through Connect
-              Logistics. Ask us for wholesale pricing and current stock — there is no account or
-              minimum order needed to enquire.
-            </p>
-          </div>
-        </div>
       </section>
 
-      <section className="border-b border-border bg-sand/60">
+      <div className="mx-auto max-w-6xl px-6 py-14 md:py-20">
+        <p className="eyebrow">Our Wines</p>
+        <h1 className="mt-5 font-display text-[clamp(2.25rem,5.5vw,4.5rem)] leading-[1.05] font-normal tracking-[-0.02em] text-foreground">
+          The portfolio, bottle by bottle
+        </h1>
+        <div className="mt-7 max-w-2xl space-y-4 text-foreground [&_p]:leading-relaxed">
+          <p>
+            Every wine below comes from an estate that farms its own fruit, and every one has been
+            tasted with the grower before it was listed. Filter by colour or country, open a tech
+            sheet for the technical detail, or click a producer name to read who made it.
+          </p>
+          <p>
+            Available to Alberta restaurants, bars and retailers by the case through Connect
+            Logistics. Ask us for wholesale pricing and current stock — there is no account or
+            minimum order needed to enquire.
+          </p>
+        </div>
+      </div>
+
+      <section className="border-b border-border bg-background">
         <div className="mx-auto max-w-6xl px-6 py-14 md:py-20">
           <p className="eyebrow">From the portfolio</p>
           <div className="mt-10 grid gap-10 sm:grid-cols-3">
@@ -122,7 +125,7 @@ function Wines() {
                   className="h-72 w-auto rounded-md object-contain shadow-soft transition-transform duration-500 hover:-translate-y-1 md:h-96"
                 />
                 <figcaption className="mt-6">
-                  <p className="text-[0.65rem] uppercase tracking-[0.2em] text-primary">
+                  <p className="text-label uppercase tracking-[0.2em] text-foreground">
                     {b.producer}
                   </p>
                   <p className="mt-2 text-lg leading-tight">{b.name}</p>
@@ -141,10 +144,10 @@ function Wines() {
                 key={c}
                 type="button"
                 onClick={() => pickColour(c)}
-                className={`text-[0.7rem] uppercase tracking-[0.18em] transition-colors ${
+                className={`text-label uppercase tracking-[0.18em] transition-colors ${
                   colour === c
-                    ? "text-primary underline underline-offset-8"
-                    : "text-muted-foreground hover:text-primary"
+                    ? "text-foreground underline underline-offset-8"
+                    : "text-muted-foreground hover:opacity-70"
                 }`}
               >
                 {c}
@@ -157,10 +160,10 @@ function Wines() {
                 key={c}
                 type="button"
                 onClick={() => pickCountry(c)}
-                className={`text-[0.7rem] uppercase tracking-[0.18em] transition-colors ${
+                className={`text-label uppercase tracking-[0.18em] transition-colors ${
                   country === c
-                    ? "text-primary underline underline-offset-8"
-                    : "text-muted-foreground hover:text-primary"
+                    ? "text-foreground underline underline-offset-8"
+                    : "text-muted-foreground hover:opacity-70"
                 }`}
               >
                 {c}
@@ -185,17 +188,17 @@ function Wines() {
                 )}
               </div>
 
-              <p className="mt-4 text-[0.65rem] uppercase tracking-[0.2em] text-primary">
+              <p className="mt-4 text-label uppercase tracking-[0.2em] text-foreground">
                 {w.region}, {w.country}
               </p>
               <h2 className="mt-2 text-xl leading-tight">{w.name}</h2>
-              <p className="mt-1 text-sm text-foreground/70">
+              <p className="mt-1 text-sm text-foreground">
                 {w.producerUrl ? (
                   <a
                     href={w.producerUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
+                    className="underline decoration-border underline-offset-4 transition-colors hover:opacity-70"
                   >
                     {w.producer}
                   </a>
@@ -203,7 +206,7 @@ function Wines() {
                   <Link
                     to="/producers/$slug"
                     params={{ slug: producerSlug(w.producer) }}
-                    className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
+                    className="underline decoration-border underline-offset-4 transition-colors hover:opacity-70"
                   >
                     {w.producer}
                   </Link>
@@ -220,7 +223,7 @@ function Wines() {
                   href={w.techSheet}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-3 inline-block text-[0.65rem] uppercase tracking-[0.2em] text-primary underline underline-offset-4"
+                  className="mt-3 inline-block text-label uppercase tracking-[0.2em] text-foreground underline underline-offset-4"
                 >
                   Tech sheet (PDF)
                 </a>
@@ -243,10 +246,10 @@ function Wines() {
                 type="button"
                 onClick={() => setPage(p)}
                 aria-current={page === p ? "page" : undefined}
-                className={`text-[0.7rem] uppercase tracking-[0.18em] transition-colors ${
+                className={`text-label uppercase tracking-[0.18em] transition-colors ${
                   page === p
-                    ? "text-primary underline underline-offset-8"
-                    : "text-muted-foreground hover:text-primary"
+                    ? "text-foreground underline underline-offset-8"
+                    : "text-muted-foreground hover:opacity-70"
                 }`}
               >
                 Page {p}
@@ -256,7 +259,7 @@ function Wines() {
         )}
       </Section>
 
-      <PhotoGallery title="Bottles and landscapes" photos={landPhotos} />
+      <LabelGallery title="Bottles and labels" labels={wineLabels} />
       <CtaBand />
     </>
   );

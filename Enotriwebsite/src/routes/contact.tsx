@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-const tastingTeamAsset = { url: "/images/site/trade-tasting-team.webp" };
 import { PageHero, Section } from "@/components/page-parts";
 
 const EMAIL = "rallings@enotri.ca";
@@ -88,7 +87,7 @@ function EnquiryForm() {
       </div>
       <button
         type="submit"
-        className="rounded-sm border border-primary px-7 py-3 text-[0.7rem] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+        className="rounded-sm border border-primary px-7 py-3 text-label uppercase tracking-[0.2em] text-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
       >
         Send enquiry
       </button>
@@ -128,7 +127,6 @@ function Contact() {
         eyebrow="Contact"
         title="Request a tasting"
         intro="Tell us what you pour and what you need. We reply within two business days with a proposed line-up and dates — no account or minimum order required to start."
-        image={tastingTeamAsset.url}
       />
 
       <Section>
@@ -138,26 +136,28 @@ function Contact() {
             <h2 className="mt-4 text-3xl md:text-4xl">Enotri Wine Imports</h2>
             <dl className="mt-8 space-y-6 text-sm">
               <div className="border-t border-border pt-4">
-                <dt className="text-xs uppercase tracking-[0.18em] text-primary">Email</dt>
+                <dt className="text-xs uppercase tracking-[0.18em] text-foreground">Email</dt>
                 <dd className="mt-2 text-muted-foreground">
-                  <a className="hover:text-primary" href={`mailto:${EMAIL}`}>
+                  <a className="hover:opacity-70" href={`mailto:${EMAIL}`}>
                     {EMAIL}
                   </a>
                 </dd>
               </div>
               <div className="border-t border-border pt-4">
-                <dt className="text-xs uppercase tracking-[0.18em] text-primary">Response time</dt>
+                <dt className="text-xs uppercase tracking-[0.18em] text-foreground">
+                  Response time
+                </dt>
                 <dd className="mt-2 text-muted-foreground">
                   Within two business days, from a person — Rawlings answers the trade enquiries
                   himself.
                 </dd>
               </div>
               <div className="border-t border-border pt-4">
-                <dt className="text-xs uppercase tracking-[0.18em] text-primary">Based in</dt>
+                <dt className="text-xs uppercase tracking-[0.18em] text-foreground">Based in</dt>
                 <dd className="mt-2 text-muted-foreground">Edmonton, Alberta, Canada</dd>
               </div>
               <div className="border-t border-border pt-4">
-                <dt className="text-xs uppercase tracking-[0.18em] text-primary">Ordering</dt>
+                <dt className="text-xs uppercase tracking-[0.18em] text-foreground">Ordering</dt>
                 <dd className="mt-2 text-muted-foreground">
                   Licensed trade orders are placed through Connect Logistics on standard Alberta
                   terms. Private clients can enquire about allocation and availability directly.

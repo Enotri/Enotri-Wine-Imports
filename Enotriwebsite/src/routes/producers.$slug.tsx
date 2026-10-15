@@ -39,34 +39,41 @@ function ProducerDetail() {
   return (
     <>
       {producer.heroImage && (
-        <section className="relative isolate flex min-h-[80vh] items-end overflow-hidden border-b border-border">
-          <img
-            src={producer.heroImage.src}
-            alt={producer.heroImage.alt}
-            loading="eager"
-            className="absolute inset-0 -z-10 h-full w-full object-cover object-[center_30%]"
-          />
-          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
-          <div className="mx-auto w-full max-w-6xl px-6 pb-12 text-white md:pb-16">
-            <p className="text-sm text-white/80">
-              <Link to="/producers" className="hover:underline">
-                Producers
-              </Link>
-              <span className="mx-3">/</span>
-              {producer.region}, {producer.country}
-            </p>
-            <h1 className="mt-3 max-w-3xl text-5xl leading-[1.05] md:text-7xl">{producer.name}</h1>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/90">
-              {producer.summary}
-            </p>
+        <>
+          <section className="relative isolate min-h-[80vh] overflow-hidden">
+            <img
+              src={producer.heroImage.src}
+              alt={producer.heroImage.alt}
+              loading="eager"
+              className="absolute inset-0 -z-10 h-full w-full object-cover object-[center_30%]"
+            />
+          </section>
+          <div className="border-b border-border">
+            <div className="mx-auto w-full max-w-6xl px-6 py-12 text-foreground md:py-16">
+              <div>
+                <p className="text-sm text-foreground">
+                  <Link to="/producers" className="hover:underline">
+                    Producers
+                  </Link>
+                  <span className="mx-3">/</span>
+                  {producer.region}, {producer.country}
+                </p>
+                <h1 className="mt-3 max-w-3xl text-5xl leading-[1.05] md:text-7xl">
+                  {producer.name}
+                </h1>
+                <p className="mt-5 max-w-2xl text-lg leading-relaxed text-foreground">
+                  {producer.summary}
+                </p>
+              </div>
+            </div>
           </div>
-        </section>
+        </>
       )}
       {!producer.heroImage && (
         <section className="border-b border-border bg-secondary/40">
           <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
             <p className="eyebrow">
-              <Link to="/producers" className="transition-colors hover:text-primary">
+              <Link to="/producers" className="transition-colors hover:opacity-70">
                 Producers
               </Link>
               <span className="mx-3 text-muted-foreground">/</span>
@@ -98,10 +105,10 @@ function ProducerDetail() {
           </div>
           <div className="space-y-8">
             <aside className="h-fit border border-border bg-secondary/40 p-6">
-              <p className="text-[0.65rem] uppercase tracking-[0.2em] text-primary">At a glance</p>
+              <p className="text-label uppercase tracking-[0.2em] text-foreground">At a glance</p>
               <dl className="mt-5 space-y-4 text-sm">
                 <div>
-                  <dt className="text-[0.65rem] uppercase tracking-[0.16em] text-muted-foreground">
+                  <dt className="text-label uppercase tracking-[0.16em] text-muted-foreground">
                     Region
                   </dt>
                   <dd className="mt-1">
@@ -109,14 +116,14 @@ function ProducerDetail() {
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-[0.65rem] uppercase tracking-[0.16em] text-muted-foreground">
+                  <dt className="text-label uppercase tracking-[0.16em] text-muted-foreground">
                     Farming
                   </dt>
                   <dd className="mt-1">{producer.farming}</dd>
                 </div>
                 {theirWines.length > 0 && (
                   <div>
-                    <dt className="text-[0.65rem] uppercase tracking-[0.16em] text-muted-foreground">
+                    <dt className="text-label uppercase tracking-[0.16em] text-muted-foreground">
                       Wines in portfolio
                     </dt>
                     <dd className="mt-1">{theirWines.length}</dd>
@@ -174,7 +181,7 @@ function ProducerDetail() {
           <div className="mt-10 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {theirWines.map((w) => (
               <article key={w.name} className="card-lift border-t border-border pt-6">
-                <p className="text-[0.65rem] uppercase tracking-[0.2em] text-primary">
+                <p className="text-label uppercase tracking-[0.2em] text-foreground">
                   {w.colour} · {w.region}
                 </p>
                 <h3 className="mt-2 text-xl leading-tight">{w.name}</h3>
@@ -188,7 +195,7 @@ function ProducerDetail() {
           <p className="mt-10">
             <Link
               to="/wines"
-              className="text-[0.7rem] uppercase tracking-[0.18em] text-primary underline underline-offset-8 transition-opacity hover:opacity-70"
+              className="text-label uppercase tracking-[0.18em] text-foreground underline underline-offset-8 transition-opacity hover:opacity-70"
             >
               Browse the full portfolio
             </Link>
@@ -212,7 +219,7 @@ function ProducerNotFound() {
       <p className="mt-10">
         <Link
           to="/producers"
-          className="text-[0.7rem] uppercase tracking-[0.18em] text-primary underline underline-offset-8"
+          className="text-label uppercase tracking-[0.18em] text-foreground underline underline-offset-8"
         >
           Meet our producers
         </Link>

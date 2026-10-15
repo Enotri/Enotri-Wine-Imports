@@ -14,7 +14,7 @@ export const Route = createFileRoute("/sustainability")({
       {
         name: "description",
         content:
-          "How Enotri Wine Imports selects producers who farm responsibly: organic and biodynamic estates, independently certified for fair labour and environmental care.",
+          "How Enotri Wine Imports selects producers who farm responsibly: organic and sustainably farmed estates, independently certified for fair labour and environmental care.",
       },
       { property: "og:title", content: "Sustainability at Enotri Wine Imports" },
       {
@@ -89,14 +89,19 @@ function Sustainability() {
           // when the wide hero crops the top and bottom.
           style={{ objectPosition: "center 68%" }}
         />
-        <div className="hero-scrim" />
-        <div className="hero-inner">
-          <p className="hero-kicker">Sustainability</p>
-          <h1 className="hero-title">Crafted by Growers. Guided by Responsibility.</h1>
-        </div>
       </section>
 
-      <Section>
+      <div className="mx-auto max-w-6xl px-6 py-14 md:py-20">
+        <p className="eyebrow">Sustainability</p>
+        <h1 className="mt-5 font-display text-[clamp(2.25rem,5.5vw,4.5rem)] leading-[1.05] font-normal tracking-[-0.02em] text-foreground">
+          Crafted by Growers.
+          <br />
+          Guided by Responsibility.
+        </h1>
+      </div>
+
+      {/* The headline block above supplies the gap, so drop this section's top padding. */}
+      <Section className="pt-0 md:pt-0">
         <div className="prose-enotri max-w-3xl">
           <p>
             At Enotri Wine Imports, sustainability is not a marketing trend. It is a core principle
@@ -109,8 +114,8 @@ function Sustainability() {
             producers whose practices respect both people and place.
           </p>
           <p>
-            Many of the producers in our portfolio farm organically, biodynamically, or according to
-            rigorous sustainability standards. They reduce chemical inputs, conserve water, protect
+            Many of the producers in our portfolio farm organically or according to rigorous
+            sustainability standards. They reduce chemical inputs, conserve water, protect
             biodiversity, and invest in the wellbeing of the people who make their wines possible.
           </p>
         </div>
@@ -125,7 +130,7 @@ function Sustainability() {
           <div className="mt-12 grid gap-10 md:grid-cols-3">
             {pillars.map((p, i) => (
               <div key={p.title} className="card-lift border-t border-border pt-5">
-                <span className="text-xs tracking-[0.2em] text-primary">0{i + 1}</span>
+                <span className="text-xs tracking-[0.2em] text-foreground">0{i + 1}</span>
                 <h3 className="mt-3 text-2xl">{p.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
               </div>
@@ -167,13 +172,13 @@ function Sustainability() {
             src="/images/sustainability/sustainability-1.jpg"
             alt="Sheep grazing below a turreted stone château"
             loading="lazy"
-            className="aspect-[16/10] w-full object-cover object-[center_45%]"
+            className="aspect-square w-full object-cover object-[center_75%]"
           />
           <img
             src="/images/sustainability/sustainability-2.jpg"
             alt="A horse in a sunlit meadow above vineyard rows"
             loading="lazy"
-            className="aspect-[16/10] w-full object-cover object-[center_80%]"
+            className="aspect-square w-full object-cover object-[78%_center]"
           />
         </div>
       </Section>
@@ -196,7 +201,7 @@ function Sustainability() {
                   className="mx-auto h-36 w-auto max-w-[180px] object-contain"
                   loading="lazy"
                 />
-                <h3 className="mt-6 text-lg font-semibold underline decoration-primary/40 underline-offset-4">
+                <h3 className="mt-6 text-lg font-semibold underline decoration-foreground/40 underline-offset-4">
                   {c.name}
                 </h3>
                 <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
@@ -214,8 +219,9 @@ function Sustainability() {
             <p className="eyebrow">In the vineyard</p>
             <h2 className="mt-4 text-3xl md:text-4xl">Organic and biodynamic farming</h2>
             <p className="mt-5 leading-relaxed text-muted-foreground">
-              Many of our producers practice organic or biodynamic viticulture. Both approaches
-              encourage healthier vineyards and wines that more transparently reflect their terroir.
+              Several of our producers farm organically, and others work to recognised
+              sustainability standards. Both approaches encourage healthier vineyards and wines that
+              more transparently reflect their terroir.
             </p>
           </div>
           <div className="grid gap-8">
@@ -278,9 +284,9 @@ function Sustainability() {
 
       <section className="bg-ink">
         <div className="mx-auto max-w-3xl px-6 py-20 text-center">
-          <p className="eyebrow text-gold">Drink With Purpose</p>
+          <p className="eyebrow text-sand">Drink With Purpose</p>
           <h2 className="mt-5 text-3xl text-sand md:text-5xl">Every bottle tells a story</h2>
-          <p className="mx-auto mt-6 max-w-xl leading-relaxed text-sand/85">
+          <p className="mx-auto mt-6 max-w-xl leading-relaxed text-sand">
             When you choose wines from Enotri Wine Imports, you support growers and families who are
             committed to protecting the vineyards, landscapes, and communities that make great wine
             possible.

@@ -32,8 +32,8 @@ export function SiteHeader() {
             <Link
               key={item.to}
               to={item.to}
-              className="py-2 text-sm text-foreground transition-colors hover:text-primary"
-              activeProps={{ className: "text-primary" }}
+              className="py-2 text-sm text-foreground transition-colors hover:opacity-70"
+              activeProps={{ className: "text-foreground" }}
             >
               {item.label}
             </Link>
@@ -70,8 +70,8 @@ export function SiteHeader() {
               key={item.to}
               to={item.to}
               onClick={() => setOpen(false)}
-              className="block border-b border-border py-3 text-sm text-foreground last:border-0 hover:text-primary"
-              activeProps={{ className: "text-primary" }}
+              className="block border-b border-border py-3 text-sm text-foreground last:border-0 hover:opacity-70"
+              activeProps={{ className: "text-foreground" }}
             >
               {item.label}
             </Link>
@@ -84,7 +84,7 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border bg-white">
+    <footer className="border-t border-border bg-background">
       <div className="mx-auto grid max-w-[1280px] gap-10 px-6 py-14 sm:px-10 md:grid-cols-[1.2fr_0.8fr_1fr] md:gap-14 md:px-14 md:py-20 lg:px-20">
         <div>
           <img
@@ -104,7 +104,7 @@ export function SiteFooter() {
               <li key={item.to}>
                 <Link
                   to={item.to}
-                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                  className="text-sm text-muted-foreground transition-colors hover:opacity-70"
                 >
                   {item.label}
                 </Link>
@@ -117,13 +117,13 @@ export function SiteFooter() {
           <p className="mt-4 text-sm leading-6 text-muted-foreground">
             Edmonton, Alberta, Canada
             <br />
-            <a className="hover:text-primary" href="mailto:rallings@enotri.ca">
+            <a className="hover:opacity-70" href="mailto:rallings@enotri.ca">
               rallings@enotri.ca
             </a>
           </p>
           <Link
             to="/contact"
-            className="mt-4 inline-flex min-h-10 items-center text-sm font-medium text-primary hover:underline"
+            className="mt-4 inline-flex min-h-10 items-center text-sm font-medium text-foreground hover:underline"
           >
             Get in touch
           </Link>
