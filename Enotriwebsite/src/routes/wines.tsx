@@ -31,7 +31,7 @@ export const Route = createFileRoute("/wines")({
       {
         name: "description",
         content:
-          "Browse the Enotri portfolio: grower-made wines from South Africa, France, Italy, Spain, Portugal and Germany, filterable by colour and country.",
+          "Browse the Enotri portfolio: grower-made wines from South Africa, France, Italy, Spain and Germany, filterable by colour and country.",
       },
       { property: "og:title", content: "Our Wines — Enotri Wine Imports" },
       {

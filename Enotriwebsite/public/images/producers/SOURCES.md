@@ -18,8 +18,6 @@
 | Bodegas Heras Cordón | `public/images/producers/bodegas-heras-cordon/2.webp` | https://herascordon.com/images/2026/10/07/barricasjlhc.jpg | https://herascordon.com/bodega/historia |
 | Bodegas Heras Cordón | `public/images/producers/bodegas-heras-cordon/3.webp` | https://herascordon.com/images/img/pag-historia/historia-bodega-heras-cordon1.webp | https://herascordon.com/bodega/historia |
 | Bodegas Heras Cordón | `public/images/producers/bodegas-heras-cordon/4.webp` | https://herascordon.com/images/img/encina-heras-cordon.webp | https://herascordon.com/ |
-| Domaine Rougeot | `public/images/producers/domaine-rougeot/1.webp` | https://static.wixstatic.com/media/6f86f5_fc56c681ad62467f9cb05dd2f422c7b2~mv2.jpg | https://www.domainerougeot.com/domaine |
-| Domaine Rougeot | `public/images/producers/domaine-rougeot/2.webp` | https://static.wixstatic.com/media/6f86f5_dbcd659e8dff435686c59aa894cc4beb~mv2_d_4368_2912_s_4_2.jpg | https://www.domainerougeot.com/ |
 | Stellenrust Family Vineyards | `public/images/producers/stellenrust-family-vineyards/1.webp` | https://static.wixstatic.com/media/cd909b_39b7daff09914a9d8f80b4184442fa76~mv2.jpg | https://www.stellenrust.co.za/ |
 | Stellenrust Family Vineyards | `public/images/producers/stellenrust-family-vineyards/2.webp` | https://static.wixstatic.com/media/cd909b_b2006884b6b84b2cb42922b7532827aa~mv2.jpg | https://www.stellenrust.co.za/ |
 | Stellenrust Family Vineyards | `public/images/producers/stellenrust-family-vineyards/3.webp` | https://static.wixstatic.com/media/cd909b_3cef51c74e924b9ba59addf1581252eb~mv2.jpg | https://www.stellenrust.co.za/ |

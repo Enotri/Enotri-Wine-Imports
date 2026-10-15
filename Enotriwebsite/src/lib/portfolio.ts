@@ -320,19 +320,6 @@ export const producers: Producer[] = [
     ],
   },
   {
-    name: "Domaine des Ardoisières",
-    region: "Savoie",
-    country: "France",
-    farming: "Organic, hand-terraced",
-    summary:
-      "Terraced schist vineyards reclaimed from the alpine hillside, planted to Jacquère, Mondeuse and Persan on impossible gradients.",
-    story: [
-      "Domaine des Ardoisières began with a bet that few would have taken: to reclaim the abandoned schist terraces above the village of Fréterive in Savoie, slopes so steep they had been left to the forest for decades. Brice Omont and his partners cleared, rebuilt and replanted them by hand.",
-      "The vineyards are farmed organically on gradients that make machinery impossible and even walking difficult. Jacquère, Mondeuse and the near-lost Persan grow here on pure alpine schist, at altitudes where ripening is a season-long negotiation with the mountains.",
-      "The wines are some of the most distinctive in France: electric, stony whites and perfumed, light-footed reds that taste unmistakably of altitude. Ardoisières has become the benchmark for what Savoie can achieve.",
-    ],
-  },
-  {
     name: "Château Lestignac",
     region: "Bergerac",
     country: "France",
@@ -455,19 +442,6 @@ export const producers: Producer[] = [
   },
 
   {
-    name: "Quinta da Palmirinha",
-    region: "Vinho Verde",
-    country: "Portugal",
-    farming: "Certified organic",
-    summary:
-      "A one-man estate on granite in the Lima valley, making textural Loureiro and Avesso far removed from commercial Vinho Verde.",
-    story: [
-      "Quinta da Palmirinha is effectively a one-man estate: Fernando Paiva farms a few hectares of granite soils in the Lima valley, in the heart of Vinho Verde country, and does nearly everything himself. He was among the first growers in the region to be certified organic, and among the first anywhere in Portugal to work without added sulphur.",
-      "The varieties are the local classics — Loureiro, Arinto, Avesso, Vinhão — but the wines have nothing in common with the light, fizzy commercial style the region is known for. Fernando's are textural, dry and deeply flavoured, made with chestnut-flower protection in place of sulphur and bottled without filtration.",
-      "Palmirinha has become a quiet reference for natural wine in Portugal: proof that Vinho Verde's granite and Atlantic climate can produce whites of real seriousness and reds of startling character.",
-    ],
-  },
-  {
     name: "Weingut Brand",
     gallery: [
       {
@@ -490,32 +464,6 @@ export const producers: Producer[] = [
       "Weingut Brand is run by brothers Daniel and Jonas Brand, the fifth generation of their family to farm in Bockenheim, in the northern Pfalz. When they took over from their father they pushed the estate fully into organic farming — certified, not just claimed — and simplified everything in the cellar.",
       "The vineyards range across the varied geology of the northern Pfalz: coloured sandstone, limestone, loess and marl. Each soil is vinified separately, with native yeasts and no fining, so that the differences arrive intact in the glass.",
       "Riesling is the heart of the estate, joined by Weissburgunder, Silvaner and a handful of old Pfalz varieties. The wines are chiselled and dry, with a clarity that has made Brand a reference point for the new generation of German organic growers.",
-    ],
-  },
-  {
-    name: "Domaine Rougeot",
-    logo: "/images/producers/domaine-rougeot/1.webp",
-    tileFullBleed: true,
-    heroImage: {
-      src: "/images/producers/domaine-rougeot/1.webp",
-      alt: "A grassy farm track running between dry-stone walls through Burgundy vineyards",
-    },
-    gallery: [
-      {
-        src: "/images/producers/domaine-rougeot/2.webp",
-        alt: "Rows of staked vines on stony soil under a heavy, clouded sky",
-        caption: "Vines under a heavy sky",
-      },
-    ],
-    region: "Bourgogne",
-    country: "France",
-    farming: "Organic conversion",
-    summary:
-      "Meursault-based family domaine working village and lieu-dit parcels with restraint and remarkable value.",
-    story: [
-      "Domaine Rougeot is a Meursault family estate with roots going back generations, brought to wider attention by Pierre-Henri Rougeot, who returned to the family domaine after working in the wine trade and set about rethinking how it farmed and vinified.",
-      "The vineyards — village and lieu-dit parcels across Meursault, Pommard, Volnay and Monthélie — are in organic conversion, worked by hand with a focus on soil life. In the cellar Pierre-Henri favours native yeasts, long élevage and a deliberately light hand with sulphur, bottling many cuvées with none at all.",
-      "The wines have become some of the most sought-after honest bottles in the Côte de Beaune: pure, unforced expressions of their villages, at prices that remain remarkable for Burgundy of this quality.",
     ],
   },
   {
@@ -860,15 +808,6 @@ export const wines: Wine[] = [
   },
 
   {
-    name: "Argile Rouge",
-    producer: "Domaine des Ardoisières",
-    region: "Savoie",
-    country: "France",
-    colour: "Red",
-    grapes: "Gamay, Mondeuse, Persan",
-    note: "Crunchy red fruit, iron and alpine herbs; a mountain red of real detail.",
-  },
-  {
     name: "Paski Fiano",
     producer: "Cantina Giardino",
     region: "Campania",
@@ -964,24 +903,6 @@ export const wines: Wine[] = [
   },
 
   {
-    name: "Loureiro",
-    producer: "Quinta da Palmirinha",
-    region: "Vinho Verde",
-    country: "Portugal",
-    colour: "White",
-    grapes: "Loureiro",
-    note: "Organic granite-grown Loureiro with bay leaf, citrus blossom and grip.",
-  },
-  {
-    name: "Avesso",
-    producer: "Quinta da Palmirinha",
-    region: "Vinho Verde",
-    country: "Portugal",
-    colour: "White",
-    grapes: "Avesso",
-    note: "Fuller, orchard-fruited and textural; a serious northern Portuguese white.",
-  },
-  {
     name: "Wilder Satz",
     producer: "Weingut Brand",
     region: "Pfalz",
@@ -998,24 +919,6 @@ export const wines: Wine[] = [
     colour: "White",
     grapes: "Riesling",
     note: "Dry, high-tension Riesling with lime leaf and crushed rock.",
-  },
-  {
-    name: "Meursault 'Les Durots'",
-    producer: "Domaine Rougeot",
-    region: "Bourgogne",
-    country: "France",
-    colour: "White",
-    grapes: "Chardonnay",
-    note: "Classical Meursault: hazelnut, white peach, quietly persistent.",
-  },
-  {
-    name: "Bourgogne Rouge",
-    producer: "Domaine Rougeot",
-    region: "Bourgogne",
-    country: "France",
-    colour: "Red",
-    grapes: "Pinot Noir",
-    note: "Village-adjacent parcels, whole-bunch inflected, exceptional value.",
   },
   {
     name: "Straw Wine",
@@ -1190,6 +1093,4 @@ export const wines: Wine[] = [
   },
 ];
 
-export const legendary = wines.filter((w) =>
-  ["I Tarai", "Le Fole Aglianico", "Meursault 'Les Durots'"].includes(w.name),
-);
+export const legendary = wines.filter((w) => ["I Tarai", "Le Fole Aglianico"].includes(w.name));

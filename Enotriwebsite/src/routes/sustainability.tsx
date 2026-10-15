@@ -68,11 +68,6 @@ const certifications = [
     name: "EU Organic Certification",
     body: "The EU organic logo, twelve white stars forming a leaf on a green background, may appear only on certified organic products in which at least 95% of the agricultural ingredients are organic. It is compulsory on pre-packaged organic food made in the EU and optional on imports, and is always shown with the certifier's code and where the ingredients were farmed. EU organic rules exclude GMOs and limit farming inputs to an authorised list.",
   },
-  {
-    logo: certEuOrganicAsset.url,
-    name: "PT-BIO-03 — Kiwa Sativa, Portugal",
-    body: "PT-BIO-03 is the EU code of Kiwa Sativa, an independent Portuguese body that inspects and certifies organic producers under EU Regulation (EU) 2018/848. Printed beside the EU organic logo, the code tells you who checked the estate; the EU organic rules set what they checked.",
-  },
 ];
 
 function Sustainability() {
