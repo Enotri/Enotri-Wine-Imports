@@ -1,0 +1,353 @@
+/* Scroll-driven harvest film page (/harvest). Brand: stone background, navy text,
+   white text on photos and navy bands. Plum only inside the logo. */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.hs {
+  --hs-h: 850vh;
+  --hs-stone: #e0dad2;
+  --hs-navy: #00205b;
+  --hs-white: #ffffff;
+  position: relative;
+  overflow-x: clip; /* sliding text starts off-canvas; keep phones from side-scrolling */
+  background: var(--hs-stone);
+  color: var(--hs-navy);
+}
+
+/* Loader */
+.hs-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.75rem;
+  background: var(--hs-stone);
+  transition:
+    opacity 0.7s var(--ease-out),
+    visibility 0.7s;
+}
+.hs-loader.is-done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.hs-loader-brand {
+  width: min(220px, 50vw);
+  height: auto;
+}
+.hs-loader-track {
+  width: min(260px, 60vw);
+  height: 1px;
+  background: rgba(0, 32, 91, 0.18);
+  overflow: hidden;
+}
+.hs-loader-bar {
+  height: 100%;
+  width: 0;
+  background: var(--hs-navy);
+  transition: width 0.2s linear;
+}
+.hs-loader-percent {
+  font-size: var(--font-size-label);
+  letter-spacing: 0.16em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Scroll container and sticky stage */
+.hs-scroll {
+  position: relative;
+  height: var(--hs-h);
+}
+.hs-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  z-index: 1;
+}
+.hs-canvas-wrap {
+  position: absolute;
+  inset: 0;
+  clip-path: circle(0% at 50% 50%);
+  background: var(--hs-stone);
+}
+.hs-canvas-wrap canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.hs-scrim {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s var(--ease-out);
+}
+.hs-scrim-left {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 32, 91, 0.82) 0%,
+    rgba(0, 32, 91, 0.55) 34%,
+    rgba(0, 32, 91, 0) 62%
+  );
+}
+.hs-scrim-right {
+  background: linear-gradient(
+    270deg,
+    rgba(0, 32, 91, 0.82) 0%,
+    rgba(0, 32, 91, 0.55) 34%,
+    rgba(0, 32, 91, 0) 62%
+  );
+}
+.hs-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--hs-navy);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Marquee */
+.hs-marquee {
+  position: absolute;
+  left: 0;
+  bottom: 6vh;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.hs-marquee-text {
+  font-family: var(--font-heading);
+  font-size: 11vw;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* Hero (inside the stage, covers the canvas until the circle wipe) */
+.hs-hero {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 5vw;
+  background: var(--hs-stone);
+}
+.hs-hero .hs-label {
+  margin-bottom: 1.5rem;
+}
+.hs-hero-heading {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h1);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  max-width: 14ch;
+}
+.hs-hero-heading .hs-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.08em;
+}
+.hs-hero-heading .hs-word > span {
+  display: inline-block;
+}
+.hs-hero-tagline {
+  margin-top: 2rem;
+  max-width: 34rem;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  font-weight: 300;
+}
+.hs-cue {
+  position: absolute;
+  left: 5vw;
+  bottom: 5vh;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: var(--font-size-label);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.hs-cue-arrow {
+  display: block;
+  width: 1px;
+  height: 2.5rem;
+  background: currentColor;
+  animation: hs-cue 2.2s var(--ease-out) infinite;
+  transform-origin: top;
+}
+@keyframes hs-cue {
+  0% {
+    transform: scaleY(0);
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  51% {
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+/* Content sections, positioned along the scroll container */
+.hs-section {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  transform: translateY(-50%);
+  color: var(--hs-white);
+  pointer-events: none;
+}
+.hs-section a {
+  pointer-events: auto;
+}
+.hs-section.align-left {
+  padding-left: 5vw;
+  padding-right: 55vw;
+}
+.hs-section.align-right {
+  padding-left: 55vw;
+  padding-right: 5vw;
+}
+.hs-section-inner {
+  max-width: 40vw;
+}
+.hs-label {
+  display: block;
+  font-size: var(--font-size-label);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.hs-heading {
+  margin-top: 1.25rem;
+  color: inherit;
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 4.8vw, 4.75rem);
+  font-weight: 400;
+  line-height: 1;
+}
+.hs-body {
+  margin-top: 1.5rem;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  font-weight: 300;
+}
+.hs-ctas {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.75rem;
+}
+.hs-button {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  border: 1px solid var(--hs-white);
+  padding: 0 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--hs-white);
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+.hs-button:hover {
+  background: var(--hs-white);
+  color: var(--hs-navy);
+}
+.hs-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.45);
+  text-underline-offset: 4px;
+}
+.hs-link:hover {
+  text-decoration-color: var(--hs-white);
+}
+
+/* Stats on the navy overlay: the one place text is centred */
+.hs-section.section-stats {
+  padding: 0 5vw;
+  text-align: center;
+}
+.hs-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 3rem 2rem;
+  max-width: 1200px;
+  margin: 2.5rem auto 0;
+}
+.hs-stat-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(3.2rem, 6.5vw, 6.5rem);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.hs-stat-label {
+  display: block;
+  margin-top: 1rem;
+  font-size: var(--font-size-caption);
+  letter-spacing: 0.08em;
+}
+
+/* Phones: centred text on a navy band */
+@media (max-width: 767px) {
+  .hs {
+    --hs-h: 600vh;
+  }
+  .hs-section.align-left,
+  .hs-section.align-right {
+    padding: 0 16px;
+  }
+  .hs-section.align-left .hs-section-inner,
+  .hs-section.align-right .hs-section-inner {
+    max-width: none;
+    padding: 1.75rem 1.5rem;
+    background: rgba(0, 32, 91, 0.86);
+  }
+  .hs-scrim {
+    display: none;
+  }
+  .hs-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.25rem 1rem;
+  }
+  .hs-marquee-text {
+    font-size: 16vw;
+  }
+}
+
+/* Reduced motion: no circle wipe, text simply visible */
+.hs.is-reduced .hs-canvas-wrap {
+  clip-path: none;
+}
+.hs.is-reduced .hs-cue-arrow {
+  animation: none;
+}

@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as HarvestRouteImport } from './routes/harvest'
 import { Route as ProducersRouteImport } from './routes/producers'
 import { Route as SustainabilityRouteImport } from './routes/sustainability'
 import { Route as WinesRouteImport } from './routes/wines'
@@ -31,6 +32,11 @@ const AboutRoute = AboutRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HarvestRoute = HarvestRouteImport.update({
+  id: '/harvest',
+  path: '/harvest',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProducersRoute = ProducersRouteImport.update({
@@ -63,6 +69,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/harvest': typeof HarvestRoute
   '/producers': typeof ProducersRouteWithChildren
   '/sustainability': typeof SustainabilityRoute
   '/wines': typeof WinesRoute
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/harvest': typeof HarvestRoute
   '/sustainability': typeof SustainabilityRoute
   '/wines': typeof WinesRoute
   '/producers/$slug': typeof ProducersSlugRoute
@@ -83,6 +91,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/harvest': typeof HarvestRoute
   '/producers': typeof ProducersRouteWithChildren
   '/sustainability': typeof SustainabilityRoute
   '/wines': typeof WinesRoute
@@ -95,6 +104,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/harvest'
     | '/producers'
     | '/sustainability'
     | '/wines'
@@ -105,6 +115,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/harvest'
     | '/sustainability'
     | '/wines'
     | '/producers/$slug'
@@ -114,6 +125,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/harvest'
     | '/producers'
     | '/sustainability'
     | '/wines'
@@ -125,6 +137,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  HarvestRoute: typeof HarvestRoute
   ProducersRoute: typeof ProducersRouteWithChildren
   SustainabilityRoute: typeof SustainabilityRoute
   WinesRoute: typeof WinesRoute
@@ -151,6 +164,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/harvest': {
+      id: '/harvest'
+      path: '/harvest'
+      fullPath: '/harvest'
+      preLoaderRoute: typeof HarvestRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/producers': {
@@ -209,6 +229,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  HarvestRoute: HarvestRoute,
   ProducersRoute: ProducersRouteWithChildren,
   SustainabilityRoute: SustainabilityRoute,
   WinesRoute: WinesRoute,
