@@ -3,7 +3,7 @@
   1er Cru Elite Services - invoice skeleton (house layout).
   Fill every {{...}} placeholder, repeat the marked blocks, then print with headless Chromium (see ../SKILL.md).
   Row types in tbody: one "sec" row per service, a main row per job, "addon" rows under it, one "subtotal" row per service.
-  Keep <td class="r"> on numeric cells and class="dt"/"po"/"item" where shown: they stop wrapping.
+  Keep <td class="r"> on numeric cells and class="job"/"po"/"desc" where shown: they stop wrapping.
 -->
 <html lang="en"><head><meta charset="utf-8">
 <title>Invoice {{invoice.number}} - {{invoice.builder}} - {{period.month}}</title>
@@ -47,25 +47,22 @@ h6 { margin: 0 0 5px; font-size: 7pt; font-weight: 700; letter-spacing: .14em; t
 .due strong { font-size: 19pt; font-weight: 750; margin-top: 4px; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
 .due em { font-style: normal; font-size: 7.5pt; color: #B7BECB; margin-top: 2px; }
 table.lines { width: 100%; border-collapse: collapse; }
-.lines td.r { font-variant-numeric: tabular-nums; white-space: nowrap; }
-.lines thead th { background: var(--ink); color: #fff; font-size: 7pt; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
-  padding: 6px 6px; text-align: left; }
+.lines thead th { background: var(--ink); color: #fff; font-size: 8pt; font-weight: 600; padding: 6px 6px; text-align: left; }
 .lines thead th.r, .lines td.r { text-align: right; }
-.lines td { padding: 4.5px 6px; border-bottom: 1px solid var(--rule); vertical-align: top; font-size: 8.3pt; }
+.lines td.r { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.lines td { padding: 4.5px 5px; border-bottom: 1px solid var(--rule); vertical-align: top; font-size: 8.3pt; }
 .lines tr { break-inside: avoid; }
-.lines td.ln { color: var(--soft); font-size: 7.5pt; width: 22px; }
-.lines td.po, .lines td.dt, .lines td.item { white-space: nowrap; }
+.lines td.job, .lines td.po, .lines td.desc { white-space: nowrap; }
+.lines td.job .dt { display: block; color: var(--muted); font-size: 7.5pt; }
 .lines td.po { font-size: 7.8pt; }
-.lines .addr { font-weight: 550; }
-.lines .sub { display: block; color: var(--muted); font-size: 7.3pt; }
+.lines .sub { display: block; color: var(--muted); font-size: 7.5pt; }
 .lines tr.addon td { color: var(--muted); border-bottom-style: dotted; }
-.lines tr.addon td.item { padding-left: 16px; }
+.lines tr.addon td.desc { padding-left: 14px; }
 .lines tr.sec td { background: var(--band); border-bottom: 1px solid var(--rule); padding: 7px 6px; font-weight: 700; font-size: 8.3pt; }
 .lines tr.sec .num { color: var(--brass); margin-right: 6px; }
 .lines tr.sec .note { font-weight: 400; color: var(--muted); margin-left: 8px; }
 .lines tr.subtotal td { border-bottom: none; padding-top: 6px; padding-bottom: 14px; font-weight: 700; }
 .lines tr.subtotal td.amt { border-top: 1.5px solid var(--ink); }
-.muted { color: var(--soft); }
 .totals { margin-left: auto; width: 290px; margin-top: 4px; break-inside: avoid; }
 .totals div { display: flex; justify-content: space-between; padding: 6px 10px; font-variant-numeric: tabular-nums; }
 .totals .grand { background: var(--ink); color: #fff; border-radius: 4px; font-weight: 750; font-size: 11pt; margin-top: 2px; }
@@ -102,33 +99,32 @@ table.lines { width: 100%; border-collapse: collapse; }
   <div class="due"><span>Total due</span><strong>${{invoice.total}}</strong><em>CAD · {{payment.method}} to {{payment.to}}</em></div>
 </section>
 <table class="lines">
-  <colgroup><col style="width:3.5%"><col style="width:6.5%"><col style="width:6.5%"><col style="width:13%"><col style="width:25.5%">
-  <col style="width:18%"><col style="width:6%"><col style="width:10.5%"><col style="width:10.5%"></colgroup>
-  <thead><tr><th>Ln</th><th>Date</th><th>Job #</th><th>PO #</th><th>Property</th><th>Item</th>
-  <th class="r">Sq ft</th><th class="r">Rate</th><th class="r">Amount</th></tr></thead>
+  <!-- Columns clone A-G of the client's invoice (A is blank). Keep these header names exactly. -->
+  <colgroup><col style="width:9.5%"><col style="width:14.5%"><col style="width:36%"><col style="width:20.5%">
+  <col style="width:9%"><col style="width:10.5%"></colgroup>
+  <thead><tr><th>Job#</th><th>PO Number</th><th>Description</th><th>Address</th><th class="r">Rate</th><th class="r">Amount</th></tr></thead>
   <tbody>
     <!-- repeat per service: sec row, then job rows, then subtotal row -->
-    <tr class="sec"><td colspan="9"><span class="num">{{section.index:02}}</span>{{section.title}}<span class="note">{{section.note}}</span></td></tr>
-    <!-- main row (per-sq-ft service). For a flat item: Sq ft = <span class="muted">—</span>, Rate = <span class="muted">flat</span>;
-         spec homes with no PO: PO cell = <span class="muted">Spec list</span> -->
-    <tr><td class="ln">{{ln}}</td><td class="dt">{{date:Mon D}}</td><td>{{job}}</td><td class="po">{{po}}</td>
-      <td><span class="addr">{{address}}</span><span class="sub">{{community}} · {{city}}</span></td>
-      <td class="item">{{service}}</td><td class="r">{{sqft:#,###}}</td><td class="r">${{rate:0.00}}/sq ft</td><td class="r">{{amount:#,###.00}}</td></tr>
-    <!-- add-on row: description spans Property + Item -->
-    <tr class="addon"><td class="ln">{{ln}}</td><td></td><td></td><td></td>
-      <td class="item" colspan="2">+ {{addon.description}}</td><td class="r"><span class="muted">—</span></td>
-      <td class="r"><span class="muted">flat</span></td><td class="r">{{amount:#,###.00}}</td></tr>
-    <tr class="subtotal"><td colspan="8" class="r">Subtotal — {{section.title}}</td><td class="r amt">${{section.subtotal}}</td></tr>
+    <tr class="sec"><td colspan="6"><span class="num">{{section.index:02}}</span>{{section.title}}<span class="note">{{section.note}}</span></td></tr>
+    <!-- main row. Impact: Job# = "Job {{job}}", Description = "Impact Spec Cleans" with Rate blank -->
+    <tr><td class="job">{{job}}<span class="dt">{{date:MM/DD/YYYY}}</span></td><td class="po">{{po}}</td>
+      <td class="desc">{{builder}} {{Construction Clean|Re-Clean|Possession Clean}}-{{sqft}}sq ft</td>
+      <td>{{address}}<br>{{city}}, AB</td><td class="r">{{rate}}/sq ft</td><td class="r">{{amount:#,###.00}}</td></tr>
+    <!-- add-on rows: "Undeveloped Basement Charge" | "Window Cleaning" (Address = "Under 2000sq ft" / "2000sq ft or more")
+         | "Interior {{service}} {{sqft}}sq ft" (Rate = {{rate}}/sq ft) -->
+    <tr class="addon"><td></td><td></td><td class="desc">{{addon.description}}</td><td>{{addon.address}}</td>
+      <td class="r">{{addon.rate}}</td><td class="r">{{amount:#,###.00}}</td></tr>
+    <tr class="subtotal"><td colspan="5" class="r">Subtotal — {{section.title}}</td><td class="r amt">${{section.subtotal}}</td></tr>
   </tbody>
 </table>
 <div class="totals">
-  <div><span>Subtotal</span><span>${{invoice.total}}</span></div>
-  <div class="grand"><span>Total due (CAD)</span><span>${{invoice.total}}</span></div>
+  <div><span>Net Total</span><span>${{invoice.total}}</span></div>
+  <div class="grand"><span>CAD $</span><span>${{invoice.total}}</span></div>
 </div>
 <section class="closing">
   <div><h6>Payment details</h6>
-    <p>Method: <strong>{{payment.method}}</strong> — {{payment.to}}</p>
-    <p>{{payment.note}}</p>
+    <p>Payment Method: <strong>{{payment.method}}</strong> — {{payment.to}}</p>
+    <p>Banking details Void Cheque Submitted</p>
     <p>Please quote invoice no. <strong>{{invoice.number}}</strong> with your remittance.</p></div>
   <div><h6>Questions</h6>
     <p>{{issuer.email}}</p><p>{{issuer.phone}}</p>

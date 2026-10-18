@@ -27,7 +27,8 @@ Event descriptions carry the type, job #, PO #, address, community, sq ft and ba
 
 - **PO emails** from the client (subject like `Community, Job - Address, Service [PO][PO]`). The `QTY` on the PO is the **square footage**. Use them to fill a missing PO # or sq ft. Search by address or job # without a date limit, because POs often arrive weeks early.
 - **"Impact spec list for week of …"** emails. Every list in the month is a spec round to bill. If a round is missing from the calendar, flag it with its dollar impact. Never bill a list you couldn't read.
-  - Lists arrive on a Tuesday. The round is billed on the Friday of that week, every two weeks.
+  - **Impact spec homes are billed twice a month, never three times.** Each invoice carries the two lists received since the last one (October 2026 = lists received Sep 29 and Oct 14). A third list in the month goes on next month's invoice.
+  - Lists arrive on a Tuesday. Date each round the Friday of that week.
   - Bill every home on the list. Flag any home whose Possession Date falls before the round.
   - **Reading the attachment:** the Gmail tools can't download attachments. The fastest route is a copy Rawlings saved to Drive ("Save to Drive" in Gmail), which `read_file_content` reads directly. Otherwise use `get_message` with `messageFormat: RAW` and decode it in the scratchpad. Accept the data only if `xl/sharedStrings.xml` and `xl/worksheets/sheet1.xml` pass their zip CRC checks.
 - **POs due in the month but missing from the calendar.** Add them to the review. POs due next month go in the review's "keep for next month" list.
@@ -63,18 +64,26 @@ Write the jobs to a JSON file in the scratchpad, then generate both formats from
 
 **XLSX**: use the `xlsx` skill (openpyxl + `recalc.py`, zero formula errors). Use one sheet, `Invoice`, in Arial with gridlines off.
 
-- Columns: `Ln, Date, Job #, PO #, Address, City, Community, Description, Sq Ft, Rate, Amount`
-- `Amount = IF(ISNUMBER(SqFt), ROUND(SqFt*Rate,2), Rate)`
-- Section subtotals are `SUM`s. The summary counts jobs with `COUNTA` on Job # (add-on rows leave Job # blank). The total sums the subtotals.
+- **The line table must clone columns A–G of the client's existing invoice. Keep these names exactly:** A (blank) · `Job#` · `PO Number` · `Description` · `Address` · `Rate` · `Amount`. Rawlings requires this; don't rename or add columns.
+- Row wording copies last month's invoice. Coventry example below; Impact uses "Job <number>" and "Impact Spec Cleans".
+
+  | Row type | Job# | Description | Address | Rate |
+  |---|---|---|---|---|
+  | Main row | job #, then `MM/DD/YYYY` on a second line | `Coventry Homes Construction Clean-<sqft>sq ft` (likewise `Re-Clean-…`, `Possession Clean-…`) | street, then `City, AB` | `<rate>/sq ft` |
+  | Basement add-on | blank | `Undeveloped Basement Charge` | blank | blank |
+  | Window add-on | blank | `Window Cleaning` | `Under 2000sq ft` or `2000sq ft or more` | blank |
+  | Interior add-on | blank | `Interior Construction Clean <sqft>sq ft` (likewise for re-clean and possession) | blank | `<rate>/sq ft` |
+
+- Amount = `=ROUND(sqft*rate,2)` for per-sq-ft rows and a plain number for flat rows. Section subtotals are `SUM`s. The summary counts jobs with `COUNTA` on Job# (add-on rows leave it blank).
+- Totals and payment rows keep the client's names: `Net Total`, `CAD $`, `PAYMENT DETAILS`, `Payment Method` | `EFT` | email, `Banking details Void Cheque Submitted`.
 - Print setup: landscape, fit to one page wide, header row repeated, footer "Page &P of &N".
 
 **Layout (both formats)**: masthead "1<sup>er</sup> Cru Elite Services" with the monogram and tagline, **INVOICE** and the number on the right, then the brass/ink rule. Below that:
 
 - **From / Bill to / Invoice details** blocks
 - **Summary** (jobs and amount per service) with a dark **Total due** panel
-- Lines grouped by service (Spec → Construction → Re-clean → Possession, skipping empty ones), each with a subtotal
-- Add-ons as indented "+" lines
-- Running **Ln** numbers, so the client can say "line 17" and mean the same line in the PDF and the spreadsheet
+- The cloned A–G line table, grouped by service (Spec → Construction → Re-clean → Possession, skipping empty ones), each group with a subtotal. The PDF shows the same six named columns.
+- Add-ons as muted, indented rows under their job
 - Payment block that asks the client to quote the invoice number
 - Footer with the invoice number and "Page X of Y"
 
