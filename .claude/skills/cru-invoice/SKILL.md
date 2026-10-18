@@ -7,7 +7,9 @@ description: Builds 1er Cru Elite Services' monthly builder invoices (one for Im
 
 Two invoices go out each month to the same client: **Impact** (Impact Homes jobs) and **Coventry** (Coventry Homes jobs). They are split because the client asked for it. Each one ships as an `.xlsx` with live formulas and a `.pdf`. Each month also gets an internal billing review that is never sent.
 
-> **This repo is public.** Never commit invoices, rates, job addresses, PO numbers, client contacts or calendar IDs. Build in the scratchpad, deliver to Rawlings, and offer to upload to his Google Drive.
+> **This repo is public.** Never commit invoices, rates, job addresses, PO numbers, client contacts or calendar IDs.
+>
+> **Invoices live in the Cru Elite Google Drive, never in the Enotri workspace.** Build in the scratchpad only, deliver to the month's Drive folder (step 8), then delete the local copies.
 
 ## 1. Pull the month's jobs (source of truth)
 
@@ -47,7 +49,7 @@ Open last month's two invoices in Google Drive (titles like `IMPACT INVOICE <MON
 - **Re-clean / possession** = sq ft × rate, plus the developed-basement interior sq ft × the same rate when the PO lists it.
 - **Spec home clean** = flat per home, per round.
 - **Window-only assignments at occupied homes** (booked by the client by text, no PO, e.g. a calendar event titled "… window …" at a homeowner's address) are **not invoiced**. Leave them off both builder invoices and list them in the review as "not invoiced".
-- If Rawlings ever asks for a stand-alone window job to be billed, price it with the **same two tiers as the window add-on**, set by the house's sq ft (under 2,000 / 2,000 or more). Ask him for the sq ft if it's missing. Don't guess the tier.
+- If Rawlings ever asks for a stand-alone window job to be billed, price it with the **same two tiers as the window add-on**, set by the house's sq ft (under 2,000 / 2,000 or more). Ask Rawlings for the sq ft if it's missing. Don't guess the tier.
 - Extra charges (e.g. a rescheduled-visit hour) only when the client confirmed them in writing.
 
 ## 5. Dedupe, then number
@@ -112,4 +114,13 @@ These come from past client corrections. Check every one:
 
 ## 8. Deliver
 
-Show Rawlings both PDFs, both XLSX files and the internal review: totals, decisions needed, corrections made, and next month's carry-overs. **Nothing goes to the client until he approves.** Then offer to upload to Drive and draft the Gmail to the client (cc the accountant).
+1. **Folder.** In the Cru Elite Google Drive, use the folder named exactly `Cru Elite Invoice <Month YYYY>` (e.g. `Cru Elite Invoice November 2026`). Search for it first and create it only if it's missing. Keep one folder per month and never put the files anywhere else.
+2. **Upload** into that folder:
+   - Both XLSX files: `create_file` with `base64Content` (from `base64 -w0`) and `disableConversionToGoogleType: true`.
+   - The internal review: `textContent` with `contentMimeType: text/markdown`, which becomes a Google Doc. Keep `**bold**` out of table cells, because the importer shows the asterisks literally.
+3. **Verify every upload** with `read_file_content`. The XLSX must read back with all rows and the right `Net Total`. An empty read means the base64 got corrupted in transit, so re-upload, verify the new copy, and trash the bad one.
+4. **PDFs** (about 340 KB each) are too large to upload reliably through the Drive tool. Send them to Rawlings in the app (`SendUserFile`) to save into the same folder.
+5. **Clean up.** Delete the invoice outputs, previews and decoded spec lists from the scratchpad. Nothing invoice-related stays in the Enotri workspace.
+6. **Report.** Give Rawlings the folder link with the totals, decisions needed, corrections made, and next month's carry-overs.
+
+**Nothing goes to the client until Rawlings approves.** Then offer to draft the Gmail to the client (cc the accountant), attaching the files from the month's folder.
