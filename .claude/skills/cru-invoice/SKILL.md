@@ -31,7 +31,7 @@ Event descriptions carry the type, job #, PO #, address, community, sq ft and ba
 - **"Impact spec list for week of …"** emails. Every list in the month is a spec round to bill. If a round is missing from the calendar, flag it with its dollar impact. Never bill a list you couldn't read.
   - **Impact spec homes are billed twice a month, never three times.** Each invoice carries the two lists received since the last one (October 2026 = lists received Sep 29 and Oct 14). A third list in the month goes on next month's invoice.
   - Lists arrive on a Tuesday. Date each round the Friday of that week.
-  - Bill every home on the list. Flag any home whose Possession Date falls before the round.
+  - Bill every home on the list **except homes whose Possession Date is on or before the round date**. Those have been handed to their buyers, so leave them off that round and list them in the review as removed. The homes stay on earlier rounds, and their possession cleans are billed as usual.
   - **Reading the attachment:** the Gmail tools can't download attachments. The fastest route is a copy Rawlings saved to Drive ("Save to Drive" in Gmail), which `read_file_content` reads directly. Otherwise use `get_message` with `messageFormat: RAW` and decode it in the scratchpad. Accept the data only if `xl/sharedStrings.xml` and `xl/worksheets/sheet1.xml` pass their zip CRC checks.
 - **POs due in the month but missing from the calendar.** Add them to the review. POs due next month go in the review's "keep for next month" list.
 - **Last month's correction emails** (subjects with "correction"). Don't repeat the same mistakes.
@@ -53,7 +53,8 @@ Open last month's two invoices in Google Drive (titles like `IMPACT INVOICE <MON
 ## 5. Dedupe, then number
 
 - **One line per PO.** The calendars often hold the same job 2–3 times. One spec line per home per round.
-- Invoice numbers continue the `YYYY-NNN` sequence from last month: Impact first, then Coventry. Never reuse a number, because the accountant flags it.
+- **Every invoice gets a new number every month.** Continue the `YYYY-NNN` sequence from last month's highest number: Impact first, then Coventry. Never reuse a number or copy last month's, because the accountant flags it.
+- **No GST.** Never add a GST or tax line. Totals are `Net Total` and `CAD $` only.
 - Invoice date = the last day of the month. Service period = the 1st to the last day.
 
 ## 6. Build
@@ -103,7 +104,8 @@ These come from past client corrections. Check every one:
 - [ ] Every completed job in the calendars and PO emails is billed once. No duplicates.
 - [ ] Every sq ft matches the PO quantity, and every PO # matches the service's cost code (6300 construction, 6310 re-clean, 6320 possession)
 - [ ] Window tier matches the sq ft. The basement fee applies only to undeveloped basements.
-- [ ] The number of spec rounds matches the spec-list emails for the month
+- [ ] Exactly two spec rounds, and no home is billed on a round dated on or after its possession date
+- [ ] Both invoice numbers are new (higher than last month's) and there's no GST line
 - [ ] Every job dated anywhere in the month is billed, including dates after today
 - [ ] The XLSX recalculates with zero errors, and its totals equal the PDF totals
 - [ ] Render the PDF pages to PNG and look at them: no wrapped dates, POs or rates, nothing overflowing
