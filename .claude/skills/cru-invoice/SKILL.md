@@ -117,6 +117,7 @@ These come from past client corrections. Check every one:
 - [ ] The XLSX recalculates with zero errors, and its totals equal the PDF totals
 - [ ] Render the PDF pages to PNG and look at them: no wrapped dates, POs, rates, descriptions or addresses, nothing overflowing
 - [ ] No section labels, no numbering, no subtotals, no summary block: one total, at the bottom
+- [ ] When reporting totals to Rawlings, use one service × builder grid (rows: construction / re-clean / possession; columns: Coventry / Impact / total) and list every job behind each count. Never give a per-builder count on one line and a per-service count on another, because the numbers look contradictory
 - [ ] No wording that isn't on the client's own invoices (or the factual header)
 - [ ] Every cell is bold dark text (check with openpyxl: no non-bold cells), and the basement and window rows read as clearly as job rows
 
