@@ -9,7 +9,7 @@ Two invoices go out each month to the same client: **Impact** (Impact Homes jobs
 
 > **This repo is public.** Never commit invoices, rates, job addresses, PO numbers, client contacts or calendar IDs.
 >
-> **Invoices live in the Cru Elite Google Drive, never in the Enotri workspace.** Build in the scratchpad only, deliver to the month's Drive folder (step 8), then delete the local copies.
+> **Invoices live in the Cru Elite Google Drive, never in the Enotri workspace.** Build in the scratchpad only. Rawlings previews and approves first; only then upload to the month's Drive folder (step 8) and delete the local copies. **Never upload invoices to Drive before that approval.**
 
 ## 1. Pull the month's jobs (source of truth)
 
@@ -114,13 +114,17 @@ These come from past client corrections. Check every one:
 
 ## 8. Deliver
 
-1. **Folder.** In the Cru Elite Google Drive, use the folder named exactly `Cru Elite Invoice <Month YYYY>` (e.g. `Cru Elite Invoice November 2026`). Search for it first and create it only if it's missing. Keep one folder per month and never put the files anywhere else.
-2. **Upload** into that folder:
+**Rawlings must preview and approve before anything is uploaded to Drive.** Steps 1–2 happen in the app only. Don't create the folder or upload a file until the approval arrives.
+
+1. **Preview.** Send Rawlings both PDFs and both XLSX files in the app (`SendUserFile`), with a summary of the review: totals, decisions needed, corrections made, and next month's carry-overs.
+2. **Wait for explicit approval** ("approved", "upload it", or similar). Questions, corrections or silence are not approval. After any correction, rebuild and preview again. One month's approval never covers another month.
+3. **Folder (after approval).** In the Cru Elite Google Drive, use the folder named exactly `Cru Elite Invoice <Month YYYY>` (e.g. `Cru Elite Invoice November 2026`). Search for it first and create it only if it's missing. Keep one folder per month and never put the files anywhere else.
+4. **Upload** the approved files into that folder:
    - Both XLSX files: `create_file` with `base64Content` (from `base64 -w0`) and `disableConversionToGoogleType: true`.
    - The internal review: `textContent` with `contentMimeType: text/markdown`, which becomes a Google Doc. Keep `**bold**` out of table cells, because the importer shows the asterisks literally.
-3. **Verify every upload** with `read_file_content`. The XLSX must read back with all rows and the right `Net Total`. An empty read means the base64 got corrupted in transit, so re-upload, verify the new copy, and trash the bad one.
-4. **PDFs** (about 340 KB each) are too large to upload reliably through the Drive tool. Send them to Rawlings in the app (`SendUserFile`) to save into the same folder.
-5. **Clean up.** Delete the invoice outputs, previews and decoded spec lists from the scratchpad. Nothing invoice-related stays in the Enotri workspace.
-6. **Report.** Give Rawlings the folder link with the totals, decisions needed, corrections made, and next month's carry-overs.
+5. **Verify every upload** with `read_file_content`. The XLSX must read back with all rows and the right `Net Total`. An empty read means the base64 got corrupted in transit, so re-upload, verify the new copy, and trash the bad one.
+6. **PDFs** (about 340 KB each) are too large to upload reliably through the Drive tool. Rawlings saves the approved PDFs from the preview into the same folder.
+7. **Clean up.** Delete the invoice outputs, previews and decoded spec lists from the scratchpad. Nothing invoice-related stays in the Enotri workspace.
+8. **Report.** Give Rawlings the folder link and confirm what's in it.
 
 **Nothing goes to the client until Rawlings approves.** Then offer to draft the Gmail to the client (cc the accountant), attaching the files from the month's folder.
