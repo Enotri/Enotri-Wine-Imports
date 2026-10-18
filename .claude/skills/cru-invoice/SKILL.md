@@ -27,6 +27,9 @@ Event descriptions carry the type, job #, PO #, address, community, sq ft and ba
 
 - **PO emails** from the client (subject like `Community, Job - Address, Service [PO][PO]`). The `QTY` on the PO is the **square footage**. Use them to fill a missing PO # or sq ft. Search by address or job # without a date limit, because POs often arrive weeks early.
 - **"Impact spec list for week of …"** emails. Every list in the month is a spec round to bill. If a round is missing from the calendar, flag it with its dollar impact. Never bill a list you couldn't read.
+  - Lists arrive on a Tuesday. The round is billed on the Friday of that week, every two weeks.
+  - Bill every home on the list. Flag any home whose Possession Date falls before the round.
+  - **Reading the attachment:** the Gmail tools can't download attachments. The fastest route is a copy Rawlings saved to Drive ("Save to Drive" in Gmail), which `read_file_content` reads directly. Otherwise use `get_message` with `messageFormat: RAW` and decode it in the scratchpad. Accept the data only if `xl/sharedStrings.xml` and `xl/worksheets/sheet1.xml` pass their zip CRC checks.
 - **POs due in the month but missing from the calendar.** Add them to the review. POs due next month go in the review's "keep for next month" list.
 - **Last month's correction emails** (subjects with "correction"). Don't repeat the same mistakes.
 
