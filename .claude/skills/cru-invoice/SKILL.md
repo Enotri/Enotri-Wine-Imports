@@ -23,6 +23,8 @@ Run `list_calendars`, then `list_events` on each of these calendars for the 1st 
 
 Event descriptions carry the type, job #, PO #, address, community, sq ft and basement. Older events are free-text, so parse them carefully.
 
+**Bill every job dated in the month, from the 1st to the last day, including jobs scheduled after today.** Rawlings has confirmed that all of a month's scheduled jobs get done. Never hold a job back or flag it as "not done yet". The calendar month decides it, whatever day you're building the invoice.
+
 ## 2. Cross-check Gmail. The calendar is never complete.
 
 - **PO emails** from the client (subject like `Community, Job - Address, Service [PO][PO]`). The `QTY` on the PO is the **square footage**. Use them to fill a missing PO # or sq ft. Search by address or job # without a date limit, because POs often arrive weeks early.
@@ -44,6 +46,7 @@ Open last month's two invoices in Google Drive (titles like `IMPACT INVOICE <MON
 - **Construction clean** = sq ft × rate, then **+ undeveloped basement** (flat) **or** the developed-basement interior sq ft × rate (never both), then **+ window cleaning** at the flat tier set by the main floor sq ft (under 2,000 / 2,000 or more).
 - **Re-clean / possession** = sq ft × rate, plus the developed-basement interior sq ft × the same rate when the PO lists it.
 - **Spec home clean** = flat per home, per round.
+- **Stand-alone window cleaning** (a window-only job, not part of a construction clean) uses the **same two tiers as the window add-on**, set by the house's sq ft (under 2,000 / 2,000 or more). If the house's sq ft isn't on the event or a PO, ask Rawlings for it. Don't guess the tier.
 - Extra charges (e.g. a rescheduled-visit hour) only when the client confirmed them in writing.
 
 ## 5. Dedupe, then number
@@ -100,7 +103,7 @@ These come from past client corrections. Check every one:
 - [ ] Every sq ft matches the PO quantity, and every PO # matches the service's cost code (6300 construction, 6310 re-clean, 6320 possession)
 - [ ] Window tier matches the sq ft. The basement fee applies only to undeveloped basements.
 - [ ] The number of spec rounds matches the spec-list emails for the month
-- [ ] Jobs dated after today are flagged "confirm completed"
+- [ ] Every job dated anywhere in the month is billed, including dates after today
 - [ ] The XLSX recalculates with zero errors, and its totals equal the PDF totals
 - [ ] Render the PDF pages to PNG and look at them: no wrapped dates, POs or rates, nothing overflowing
 
