@@ -81,20 +81,25 @@ Write the jobs to a JSON file in the scratchpad, then generate both formats from
   | Window add-on | blank | `Window Cleaning` | `Under 2000sq ft` or `2000sq ft or more` | blank |
   | Interior add-on | blank | `Interior Construction Clean <sqft>sq ft` (likewise for re-clean and possession) | blank | `<rate>/sq ft` |
 
-- Amount = `=ROUND(sqft*rate,2)` for per-sq-ft rows and a plain number for flat rows. Section subtotals are `SUM`s. The summary counts jobs with `COUNTA` on Job# (add-on rows leave it blank).
+- Amount = `=ROUND(sqft*rate,2)` for per-sq-ft rows and a plain number for flat rows. `Net Total` = one `SUM` over the whole Amount column.
 - Totals and payment rows keep the client's names: `Net Total`, `CAD $`, `PAYMENT DETAILS`, `Payment Method` | `EFT` | email, `Banking details Void Cheque Submitted`.
-- Print setup: landscape, fit to one page wide, header row repeated, footer "Page &P of &N".
+- Column widths A3 · B14 · C20 · D54 · E32 · F13 · G15, so bold text never wraps. Print setup: landscape, fit to one page wide, header row repeated, footer "Page &P of &N".
 
-**Layout (both formats)**: masthead "1<sup>er</sup> Cru Elite Services" with the monogram and tagline, **INVOICE** and the number on the right, then the brass/ink rule. Below that:
+**Rawlings' corrections (Oct 2026). Never break these:**
 
-- **From / Bill to / Invoice details** blocks
-- **Summary** (jobs and amount per service) with a dark **Total due** panel
-- The cloned A–G line table, grouped by service (Spec → Construction → Re-clean → Possession, skipping empty ones), each group with a subtotal. The PDF shows the same six named columns.
-- Add-ons as muted, indented rows under their job
-- Payment block that asks the client to quote the invoice number
+- **No section labels or numbering** ("1 · Construction Cleans …"). The lines run as one continuous list, as on the client's own invoices: Spec → Construction → Re-clean → Possession, each by date.
+- **No subtotals and no summary block.** The only total is `Net Total` / `CAD $` at the bottom.
+- **Don't invent wording.** Use only text from the client's own invoices plus the factual header (name, addresses, invoice no., invoice date, service period, builder). No tagline, "Attn:", notes, "please quote…", "thank you…" or "questions" lines.
+- **All text bold and dark ink**, nothing grey. Basement, window and interior add-on rows look exactly like job rows (same colour, weight and size, no indent) so they're clearly visible.
+
+**Layout (both formats)**: masthead "1<sup>er</sup> Cru Elite Services" with the monogram (PDF), **INVOICE** and the number on the right, then the brass/ink rule. Below that:
+
+- **From** (name, address) · **Bill to** (name, address) · **Invoice details** (no., date, service period, builder)
+- The cloned A–G line table (the PDF shows the same six named columns)
+- `Net Total` and `CAD $`, then the payment block in the client's wording
 - Footer with the invoice number and "Page X of Y"
 
-Palette: ink `#1C2433`, brass `#A8834A`, muted `#5B6475`, rules `#E3E6EB`, section band `#F4F5F7`. Font: Inter (PDF), Arial (XLSX).
+PDF is Letter landscape. Palette: ink `#1C2433`, brass `#A8834A` (rule and monogram only), rules `#C9CED6`. Font: Inter (PDF), Arial (XLSX).
 
 File names: `1er Cru Invoice <no> - <Impact|Coventry> - <Month YYYY>.{xlsx,pdf}`.
 
@@ -110,7 +115,10 @@ These come from past client corrections. Check every one:
 - [ ] Both invoice numbers are new (higher than last month's) and there's no GST line
 - [ ] Every job dated anywhere in the month is billed, including dates after today
 - [ ] The XLSX recalculates with zero errors, and its totals equal the PDF totals
-- [ ] Render the PDF pages to PNG and look at them: no wrapped dates, POs or rates, nothing overflowing
+- [ ] Render the PDF pages to PNG and look at them: no wrapped dates, POs, rates, descriptions or addresses, nothing overflowing
+- [ ] No section labels, no numbering, no subtotals, no summary block: one total, at the bottom
+- [ ] No wording that isn't on the client's own invoices (or the factual header)
+- [ ] Every cell is bold dark text (check with openpyxl: no non-bold cells), and the basement and window rows read as clearly as job rows
 
 ## 8. Deliver
 

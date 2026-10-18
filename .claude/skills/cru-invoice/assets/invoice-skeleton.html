@@ -1,133 +1,96 @@
 <!doctype html>
 <!--
   1er Cru Elite Services - invoice skeleton (house layout).
-  Fill every {{...}} placeholder, repeat the marked blocks, then print with headless Chromium (see ../SKILL.md).
-  Row types in tbody: one "sec" row per service, a main row per job, "addon" rows under it, one "subtotal" row per service.
-  Keep <td class="r"> on numeric cells and class="job"/"po"/"desc" where shown: they stop wrapping.
+  Fill every {{...}} placeholder, repeat the marked rows, then print with headless Chromium (see ../SKILL.md).
+  Rules Rawlings set: no section labels or numbering, no subtotals, no summary block, one total at the bottom.
+  All text bold and dark; add-on rows look exactly like job rows. Add no wording the client's own invoices don't carry.
+  Keep <td class="r"> on numeric cells and class="job"/"po"/"desc"/"addr" where shown: they stop wrapping.
 -->
 <html lang="en"><head><meta charset="utf-8">
 <title>Invoice {{invoice.number}} - {{invoice.builder}} - {{period.month}}</title>
 <style>
-@page { size: Letter; margin: 0.55in 0.55in 0.7in;
-  @bottom-left { content: "1er Cru Elite Services · Invoice {{invoice.number}}"; font: 7.5pt Inter, sans-serif; color: #8A92A3; }
-  @bottom-right { content: "Page " counter(page) " of " counter(pages); font: 7.5pt Inter, sans-serif; color: #8A92A3; } }
-:root { --ink:#1C2433; --brass:#A8834A; --muted:#5B6475; --soft:#8A92A3; --rule:#E3E6EB; --band:#F4F5F7; }
+@page { size: Letter landscape; margin: 0.5in 0.55in 0.65in;
+  @bottom-left { content: "1er Cru Elite Services · Invoice {{invoice.number}}"; font: 600 8pt Inter, sans-serif; color: #1C2433; }
+  @bottom-right { content: "Page " counter(page) " of " counter(pages); font: 600 8pt Inter, sans-serif; color: #1C2433; } }
+:root { --ink:#1C2433; --brass:#A8834A; --rule:#C9CED6; }
 * { box-sizing: border-box; }
 html, body { margin: 0; background: #fff; color: var(--ink); font-family: Inter, "Liberation Sans", Arial, sans-serif;
-  font-size: 9pt; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  font-size: 9.5pt; line-height: 1.4; font-weight: 600; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 sup { font-size: .55em; vertical-align: super; line-height: 0; letter-spacing: 0; }
 .masthead { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 14px; }
 .brand { display: flex; align-items: center; gap: 12px; }
 .mark { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--brass); color: var(--brass);
   display: flex; align-items: center; justify-content: center; font-family: "DejaVu Serif", Georgia, serif; font-size: 17pt; font-weight: 600; line-height: 1; }
 .mark .er { font-size: 7.5pt; position: relative; top: -7px; margin-left: 1px; }
-.name { font-size: 15pt; font-weight: 700; letter-spacing: -.01em; }
-.tag { font-size: 8.5pt; color: var(--muted); margin-top: 1px; }
+.name { font-size: 16pt; font-weight: 800; letter-spacing: -.01em; }
 .doc { text-align: right; }
 .doc-title { font-size: 24pt; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; line-height: 1; }
-.doc-no { margin-top: 6px; font-size: 10pt; font-weight: 600; color: var(--brass); font-variant-numeric: tabular-nums; }
+.doc-no { margin-top: 6px; font-size: 11pt; font-weight: 800; font-variant-numeric: tabular-nums; }
 .rule { height: 3px; background: linear-gradient(90deg, var(--brass), var(--brass) 30%, var(--ink) 30%); margin-bottom: 18px; }
-h6 { margin: 0 0 5px; font-size: 7pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--soft); }
-.parties { display: grid; grid-template-columns: 1fr 1fr 1.15fr; gap: 24px; margin-bottom: 18px; }
+h6 { margin: 0 0 5px; font-size: 8.5pt; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); }
+.parties { display: grid; grid-template-columns: 1fr 1fr 1.15fr; gap: 24px; margin-bottom: 20px; }
 .parties p { margin: 0; }
-.parties strong { font-weight: 650; }
+.parties strong { font-weight: 800; }
 .details { margin: 0; display: grid; grid-template-columns: auto 1fr; row-gap: 2px; column-gap: 14px; }
-.details dt { color: var(--muted); }
-.details dd { margin: 0; text-align: right; font-weight: 600; white-space: nowrap; }
-.summary { display: grid; grid-template-columns: 1fr 200px; gap: 16px; margin-bottom: 22px; align-items: stretch; }
-.sum { width: 100%; border-collapse: collapse; }
-.sum th { text-align: left; font-size: 7pt; letter-spacing: .14em; text-transform: uppercase; color: var(--soft); font-weight: 700;
-  padding: 0 0 5px; border-bottom: 1px solid var(--rule); }
-.sum td { padding: 6px 0; border-bottom: 1px solid var(--rule); }
-.sum td.n, .sum td.a { font-variant-numeric: tabular-nums; }
-.sum .n, .sum th.n { text-align: right; width: 70px; }
-.sum .a, .sum th.a { text-align: right; width: 110px; }
-.due { background: var(--ink); color: #fff; border-radius: 6px; padding: 14px 16px; display: flex; flex-direction: column; justify-content: center; }
-.due span { font-size: 7pt; letter-spacing: .14em; text-transform: uppercase; color: #C9B48E; font-weight: 700; }
-.due strong { font-size: 19pt; font-weight: 750; margin-top: 4px; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
-.due em { font-style: normal; font-size: 7.5pt; color: #B7BECB; margin-top: 2px; }
+.details dd { margin: 0; text-align: right; font-weight: 800; white-space: nowrap; }
 table.lines { width: 100%; border-collapse: collapse; }
-.lines thead th { background: var(--ink); color: #fff; font-size: 8pt; font-weight: 600; padding: 6px 6px; text-align: left; }
+.lines thead th { background: var(--ink); color: #fff; font-size: 9pt; font-weight: 800; padding: 7px 6px; text-align: left; }
 .lines thead th.r, .lines td.r { text-align: right; }
 .lines td.r { font-variant-numeric: tabular-nums; white-space: nowrap; }
-.lines td { padding: 4.5px 5px; border-bottom: 1px solid var(--rule); vertical-align: top; font-size: 8.3pt; }
+.lines td { padding: 5px 5px; border-bottom: 1px solid var(--rule); vertical-align: top; font-size: 9pt; font-weight: 700; color: var(--ink); }
 .lines tr { break-inside: avoid; }
-.lines td.job, .lines td.po, .lines td.desc { white-space: nowrap; }
-.lines td.job .dt { display: block; color: var(--muted); font-size: 7.5pt; }
-.lines td.po { font-size: 7.8pt; }
-.lines .sub { display: block; color: var(--muted); font-size: 7.5pt; }
-.lines tr.addon td { color: var(--muted); border-bottom-style: dotted; }
-.lines tr.addon td.desc { padding-left: 14px; }
-.lines tr.sec td { background: var(--band); border-bottom: 1px solid var(--rule); padding: 7px 6px; font-weight: 700; font-size: 8.3pt; }
-.lines tr.sec .num { color: var(--brass); margin-right: 6px; }
-.lines tr.sec .note { font-weight: 400; color: var(--muted); margin-left: 8px; }
-.lines tr.subtotal td { border-bottom: none; padding-top: 6px; padding-bottom: 14px; font-weight: 700; }
-.lines tr.subtotal td.amt { border-top: 1.5px solid var(--ink); }
-.totals { margin-left: auto; width: 290px; margin-top: 4px; break-inside: avoid; }
-.totals div { display: flex; justify-content: space-between; padding: 6px 10px; font-variant-numeric: tabular-nums; }
-.totals .grand { background: var(--ink); color: #fff; border-radius: 4px; font-weight: 750; font-size: 11pt; margin-top: 2px; }
-.closing { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; margin-top: 26px; padding-top: 14px; border-top: 1px solid var(--rule); break-inside: avoid; }
+.lines td.job, .lines td.po, .lines td.desc, .lines td.addr { white-space: nowrap; }
+.lines td.job .dt { display: block; }
+.totals { margin-left: auto; width: 290px; margin-top: 8px; break-inside: avoid; }
+.totals div { display: flex; justify-content: space-between; padding: 6px 10px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.totals .net { border-top: 1.5px solid var(--ink); }
+.totals .grand { background: var(--ink); color: #fff; border-radius: 4px; font-size: 11.5pt; margin-top: 2px; }
+.closing { margin-top: 26px; padding-top: 14px; border-top: 1px solid var(--rule); break-inside: avoid; }
 .closing p { margin: 0 0 2px; }
-.thanks { margin-top: 18px; font-size: 9.5pt; color: var(--brass); font-weight: 600; }
 </style></head>
 <body>
 <header class="masthead">
   <div class="brand"><div class="mark">1<span class="er">er</span></div>
-    <div><div class="name">1<sup>er</sup> Cru Elite Services</div><div class="tag">{{issuer.tagline}}</div></div></div>
+    <div class="name">1<sup>er</sup> Cru Elite Services</div></div>
   <div class="doc"><div class="doc-title">Invoice</div><div class="doc-no">No. {{invoice.number}}</div></div>
 </header>
 <div class="rule"></div>
 <section class="parties">
   <div><h6>From</h6><p><strong>1<sup>er</sup> Cru Elite Services</strong></p>
-    <p>{{issuer.address1}}</p><p>{{issuer.address2}}</p><p>{{issuer.phone}}</p><p>{{issuer.email}}</p></div>
-  <div><h6>Bill to</h6><p><strong>{{billTo.name}}</strong></p><p>{{billTo.attn}}</p>
+    <p>{{issuer.address1}}</p><p>{{issuer.address2}}</p></div>
+  <div><h6>Bill to</h6><p><strong>{{billTo.name}}</strong></p>
     <p>{{billTo.address1}}</p><p>{{billTo.address2}}</p></div>
   <div><h6>Invoice details</h6><dl class="details">
     <dt>Invoice no.</dt><dd>{{invoice.number}}</dd>
     <dt>Invoice date</dt><dd>{{invoice.date}}</dd>
     <dt>Service period</dt><dd>{{period.label}}</dd>
     <dt>Builder</dt><dd>{{invoice.builder}}</dd>
-    <dt>Jobs billed</dt><dd>{{invoice.jobCount}}</dd>
   </dl></div>
-</section>
-<section class="summary">
-  <table class="sum"><thead><tr><th>Summary</th><th class="n">Jobs</th><th class="a">Amount</th></tr></thead>
-  <tbody>
-    <!-- repeat per service -->
-    <tr><td>{{section.title}}</td><td class="n">{{section.jobCount}}</td><td class="a">${{section.subtotal}}</td></tr>
-  </tbody></table>
-  <div class="due"><span>Total due</span><strong>${{invoice.total}}</strong><em>CAD · {{payment.method}} to {{payment.to}}</em></div>
 </section>
 <table class="lines">
   <!-- Columns clone A-G of the client's invoice (A is blank). Keep these header names exactly. -->
-  <colgroup><col style="width:9.5%"><col style="width:14.5%"><col style="width:36%"><col style="width:20.5%">
-  <col style="width:9%"><col style="width:10.5%"></colgroup>
+  <colgroup><col style="width:9%"><col style="width:14%"><col style="width:34%"><col style="width:22%">
+  <col style="width:10%"><col style="width:11%"></colgroup>
   <thead><tr><th>Job#</th><th>PO Number</th><th>Description</th><th>Address</th><th class="r">Rate</th><th class="r">Amount</th></tr></thead>
   <tbody>
-    <!-- repeat per service: sec row, then job rows, then subtotal row -->
-    <tr class="sec"><td colspan="6"><span class="num">{{section.index:02}}</span>{{section.title}}<span class="note">{{section.note}}</span></td></tr>
-    <!-- main row. Impact: Job# = "Job {{job}}", Description = "Impact Spec Cleans" with Rate blank -->
+    <!-- One continuous list, ordered Spec -> Construction -> Re-clean -> Possession, by date. No label or subtotal rows. -->
+    <!-- job row. Impact: Job# = "Job {{job}}", Description = "Impact Spec Cleans" with PO and Rate blank -->
     <tr><td class="job">{{job}}<span class="dt">{{date:MM/DD/YYYY}}</span></td><td class="po">{{po}}</td>
       <td class="desc">{{builder}} {{Construction Clean|Re-Clean|Possession Clean}}-{{sqft}}sq ft</td>
-      <td>{{address}}<br>{{city}}, AB</td><td class="r">{{rate}}/sq ft</td><td class="r">{{amount:#,###.00}}</td></tr>
-    <!-- add-on rows: "Undeveloped Basement Charge" | "Window Cleaning" (Address = "Under 2000sq ft" / "2000sq ft or more")
-         | "Interior {{service}} {{sqft}}sq ft" (Rate = {{rate}}/sq ft) -->
-    <tr class="addon"><td></td><td></td><td class="desc">{{addon.description}}</td><td>{{addon.address}}</td>
+      <td class="addr">{{address}}<br>{{city}}, AB</td><td class="r">{{rate}}/sq ft</td><td class="r">{{amount:#,###.00}}</td></tr>
+    <!-- add-on rows, same style as job rows: "Undeveloped Basement Charge" | "Window Cleaning" (Address = "Under 2000sq ft" /
+         "2000sq ft or more") | "Interior {{service}} {{sqft}}sq ft" (Rate = {{rate}}/sq ft) -->
+    <tr><td></td><td></td><td class="desc">{{addon.description}}</td><td class="addr">{{addon.address}}</td>
       <td class="r">{{addon.rate}}</td><td class="r">{{amount:#,###.00}}</td></tr>
-    <tr class="subtotal"><td colspan="5" class="r">Subtotal — {{section.title}}</td><td class="r amt">${{section.subtotal}}</td></tr>
   </tbody>
 </table>
 <div class="totals">
-  <div><span>Net Total</span><span>${{invoice.total}}</span></div>
+  <div class="net"><span>Net Total</span><span>${{invoice.total}}</span></div>
   <div class="grand"><span>CAD $</span><span>${{invoice.total}}</span></div>
 </div>
 <section class="closing">
-  <div><h6>Payment details</h6>
-    <p>Payment Method: <strong>{{payment.method}}</strong> — {{payment.to}}</p>
-    <p>Banking details Void Cheque Submitted</p>
-    <p>Please quote invoice no. <strong>{{invoice.number}}</strong> with your remittance.</p></div>
-  <div><h6>Questions</h6>
-    <p>{{issuer.email}}</p><p>{{issuer.phone}}</p>
-    <p class="thanks">Thank you for your business.</p></div>
+  <h6>Payment details</h6>
+  <p>Payment Method: {{payment.method}} — {{payment.to}}</p>
+  <p>Banking details Void Cheque Submitted</p>
 </section>
 </body></html>
