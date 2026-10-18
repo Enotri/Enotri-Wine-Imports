@@ -46,7 +46,8 @@ Open last month's two invoices in Google Drive (titles like `IMPACT INVOICE <MON
 - **Construction clean** = sq ft × rate, then **+ undeveloped basement** (flat) **or** the developed-basement interior sq ft × rate (never both), then **+ window cleaning** at the flat tier set by the main floor sq ft (under 2,000 / 2,000 or more).
 - **Re-clean / possession** = sq ft × rate, plus the developed-basement interior sq ft × the same rate when the PO lists it.
 - **Spec home clean** = flat per home, per round.
-- **Stand-alone window cleaning** (a window-only job, not part of a construction clean) uses the **same two tiers as the window add-on**, set by the house's sq ft (under 2,000 / 2,000 or more). If the house's sq ft isn't on the event or a PO, ask Rawlings for it. Don't guess the tier.
+- **Window-only assignments at occupied homes** (booked by the client by text, no PO, e.g. a calendar event titled "… window …" at a homeowner's address) are **not invoiced**. Leave them off both builder invoices and list them in the review as "not invoiced".
+- If Rawlings ever asks for a stand-alone window job to be billed, price it with the **same two tiers as the window add-on**, set by the house's sq ft (under 2,000 / 2,000 or more). Ask him for the sq ft if it's missing. Don't guess the tier.
 - Extra charges (e.g. a rescheduled-visit hour) only when the client confirmed them in writing.
 
 ## 5. Dedupe, then number
