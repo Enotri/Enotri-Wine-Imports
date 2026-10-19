@@ -1,0 +1,19 @@
+{
+  "name": "enotri-automations",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "trigger.dev dev",
+    "deploy": "trigger.dev deploy",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@trigger.dev/sdk": "4.7.4",
+    "nodemailer": "10.1.7"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "trigger.dev": "4.7.4",
+    "typescript": "5.9.3"
+  }
+}
