@@ -937,6 +937,20 @@ body::after {
 .growers-map__pin[data-dim="true"] {
   opacity: 0.22;
 }
+/* Scroll-drawn route: driven inline from scroll, so no CSS transition. */
+.growers-map__route[data-scrubbed="true"] {
+  transition: none;
+}
+.growers-map__pin[data-reached="false"] {
+  opacity: 0.3;
+}
+.growers-map__now {
+  min-height: 1.5em;
+  margin-top: 1rem;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--color-navy);
+}
 .growers-map__pin:focus-visible {
   outline: none;
 }
@@ -991,5 +1005,690 @@ body::after {
   .growers-map__route {
     transition: none;
     stroke-dashoffset: 0;
+  }
+}
+
+/* Producers page map (Berkmann-style drill-down) */
+.pmap {
+  position: relative;
+  background: #a9bcd3;
+}
+.pmap__canvas {
+  height: clamp(460px, 72vh, 680px);
+  width: 100%;
+}
+.pmap__controls {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--color-background);
+}
+@media (min-width: 768px) {
+  .pmap__controls {
+    position: absolute;
+    z-index: 3;
+    top: 1.25rem;
+    left: 2rem;
+    display: flex;
+    gap: 0.9rem;
+    padding: 0;
+    background: transparent;
+  }
+}
+.pmap-select {
+  position: relative;
+  display: block;
+}
+.pmap-select select {
+  appearance: none;
+  width: 100%;
+  min-width: 15rem;
+  height: 2.6rem;
+  padding: 0 2.75rem 0 1rem;
+  border: 1px solid rgba(0, 32, 91, 0.18);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--color-navy);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  box-shadow: 0 3px 8px rgba(0, 32, 91, 0.18);
+  cursor: pointer;
+}
+.pmap-select select:focus-visible {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 2px;
+}
+.pmap-select__chevron {
+  position: absolute;
+  top: 50%;
+  right: 0.9rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  transform: translateY(-50%);
+  color: var(--color-navy);
+  stroke-width: 2.5;
+  pointer-events: none;
+}
+.pmap__globe {
+  position: absolute;
+  z-index: 3;
+  right: 2rem;
+  bottom: 7rem;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  background: var(--color-navy);
+  color: #fff;
+  box-shadow: 0 3px 8px rgba(0, 32, 91, 0.25);
+}
+@media (min-width: 768px) {
+  .pmap__globe {
+    top: 1.25rem;
+    bottom: auto;
+  }
+}
+.pmap__globe:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+.pmap__title {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 42%;
+  width: min(46rem, calc(100% - 2rem));
+  transform: translateX(-50%);
+  padding: 1.1rem 1.5rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.82);
+  text-align: center;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+.pmap__title[data-hidden="true"] {
+  opacity: 0;
+}
+.pmap__title h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3.6vw, 3rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+}
+.pmap .maplibregl-ctrl-group {
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: none;
+}
+.pmap .maplibregl-ctrl-group button {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin: 0.3rem 0;
+  border-radius: 999px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 32, 91, 0.3);
+}
+.pmap .maplibregl-ctrl-group button + button {
+  border-top: 0;
+}
+
+/* Teardrop pins carrying a country code or region name */
+.pmap-pin {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  filter: drop-shadow(0 3px 3px rgba(0, 20, 60, 0.35));
+  transition: transform 0.2s ease;
+  transform-origin: 50% 100%;
+}
+.pmap-pin:hover {
+  transform: scale(1.08);
+}
+.pmap-pin:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+  border-radius: 50%;
+}
+.pmap-pin__body {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 3.3rem;
+  height: 3.3rem;
+  margin-bottom: 0.9rem;
+  border-radius: 50%;
+  background: var(--color-navy);
+}
+.pmap-pin__body::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -0.85rem;
+  border-width: 1rem 0.55rem 0;
+  border-style: solid;
+  border-color: var(--color-navy) transparent transparent;
+  transform: translateX(-50%);
+}
+.pmap-pin__label {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #fff;
+}
+.pmap-pin--region .pmap-pin__body {
+  width: auto;
+  min-width: 3.3rem;
+  height: 2.6rem;
+  padding: 0 0.9rem;
+  border-radius: 999px;
+}
+.pmap-pin--region .pmap-pin__label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Grape-bunch markers for single estates */
+.pmap-estate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--color-navy);
+  text-decoration: none;
+}
+.pmap-estate__icon {
+  width: 2rem;
+  height: 2.5rem;
+  fill: currentColor;
+  transition: transform 0.2s ease;
+}
+.pmap-estate__leaf {
+  fill: #4f7a4a;
+}
+.pmap-estate__name {
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.pmap-estate:hover .pmap-estate__icon,
+.pmap-estate.is-focused .pmap-estate__icon {
+  transform: scale(1.15);
+}
+.pmap-estate:hover .pmap-estate__name,
+.pmap-estate.is-focused .pmap-estate__name {
+  background: var(--color-navy);
+  color: #fff;
+}
+.pmap-estate:focus-visible {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 4px;
+}
+
+/* Two-column statement under the map */
+.producers-intro {
+  display: grid;
+  gap: 2.5rem;
+}
+@media (min-width: 900px) {
+  .producers-intro {
+    grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1.2fr);
+    gap: 3.5rem;
+    align-items: stretch;
+  }
+}
+.producers-intro__statement {
+  align-self: center;
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  line-height: 1.5;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--color-navy);
+}
+.producers-intro__rule {
+  display: none;
+  background: var(--color-navy);
+}
+@media (min-width: 900px) {
+  .producers-intro__rule {
+    display: block;
+  }
+}
+
+/* "Our producers" carousel */
+.producer-reel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(13rem, 1fr);
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+.producer-reel::-webkit-scrollbar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .producer-reel {
+    grid-auto-columns: calc((100% - 3 * 2rem) / 4);
+  }
+}
+@media (min-width: 1100px) {
+  .producer-reel {
+    grid-auto-columns: calc((100% - 4 * 2rem) / 5);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .producer-reel {
+    scroll-behavior: auto;
+  }
+  .pmap__title,
+  .pmap-pin,
+  .pmap-estate__icon {
+    transition: none;
+  }
+}
+.producer-reel__item {
+  scroll-snap-align: start;
+  text-align: center;
+  color: var(--color-navy);
+}
+.producer-reel__arrow {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1.5px solid var(--color-navy);
+  border-radius: 999px;
+  color: var(--color-navy);
+  background: transparent;
+}
+.producer-reel__arrow:hover {
+  background: var(--color-navy);
+  color: #fff;
+}
+.producer-reel__arrow:focus-visible {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 3px;
+}
+.pmap--compact .pmap__canvas {
+  height: clamp(340px, 46vh, 460px);
+}
+
+/* Producer detail: photos and wines | rule | story */
+.producer-layout {
+  display: grid;
+  gap: 3rem;
+}
+@media (min-width: 1000px) {
+  .producer-layout {
+    grid-template-columns: minmax(0, 0.85fr) 1px minmax(0, 1fr);
+    gap: 3.5rem;
+  }
+}
+.producer-layout__rule {
+  display: none;
+  background: var(--color-navy);
+}
+@media (min-width: 1000px) {
+  .producer-layout__rule {
+    display: block;
+  }
+}
+.producer-heading {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+}
+.producer-dot {
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 1.5px solid #fff;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+.producer-dot[aria-current="true"] {
+  background: transparent;
+}
+.producer-dot:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+.enquire-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.7rem 1rem 0.7rem 1.4rem;
+  border-radius: 6px;
+  background: var(--color-navy);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease;
+}
+.enquire-button:hover {
+  opacity: 0.9;
+}
+.enquire-button:focus-visible {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 3px;
+}
+.enquire-button__icon {
+  width: 1.9rem;
+  height: 1.9rem;
+  padding: 0.25rem;
+  border: 2px solid #fff;
+  border-radius: 999px;
+}
+
+/* Contact: form | rule | details */
+.contact-layout {
+  display: grid;
+  gap: 3rem;
+}
+@media (min-width: 1000px) {
+  .contact-layout {
+    grid-template-columns: minmax(0, 1.55fr) 1px minmax(0, 1fr);
+    gap: 3.5rem;
+  }
+}
+.contact-layout__rule {
+  display: none;
+  background: var(--color-navy);
+}
+@media (min-width: 1000px) {
+  .contact-layout__rule {
+    display: block;
+  }
+}
+.contact-label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+}
+.contact-input {
+  display: block;
+  width: 100%;
+  height: 3rem;
+  padding: 0 0.9rem;
+  border: 1px solid var(--color-navy);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--color-navy);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+}
+textarea.contact-input {
+  height: auto;
+}
+.contact-input::placeholder {
+  color: rgba(0, 32, 91, 0.5);
+}
+.contact-input:focus-visible {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 1px;
+}
+.contact-line {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  line-height: 1.6;
+  color: var(--color-navy);
+}
+.contact-line svg {
+  flex: none;
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-top: 0.1rem;
+}
+/* Official brand logos keep their own colours and proportions. */
+.contact-line__brand {
+  flex: none;
+  width: 1.4rem;
+  height: auto;
+  margin-top: 0.2rem;
+}
+
+@media (min-width: 1000px) {
+  .producer-layout {
+    grid-template-areas:
+      "media rule text"
+      "wines rule text";
+    grid-template-rows: auto 1fr;
+  }
+  .producer-layout__media {
+    grid-area: media;
+  }
+  .producer-layout__rule {
+    grid-area: rule;
+  }
+  .producer-layout__text {
+    grid-area: text;
+  }
+  .producer-layout__wines {
+    grid-area: wines;
+    align-self: start;
+  }
+}
+.producer-slide-arrow {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  background: rgba(0, 32, 91, 0.75);
+  color: #fff;
+}
+.producer-slide-arrow:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+.producer-slide-count {
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(0, 32, 91, 0.75);
+}
+
+/* Producer search (magnifier on the producers map, as on Berkmann's) */
+.pmap-search__toggle {
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  flex: none;
+  border: 1px solid rgba(0, 32, 91, 0.18);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--color-navy);
+  box-shadow: 0 3px 8px rgba(0, 32, 91, 0.18);
+}
+.pmap-search__toggle svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  stroke-width: 2.5;
+}
+.pmap-search__toggle:focus-visible,
+.pmap-search__close:focus-visible {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 2px;
+}
+.pmap-search {
+  position: relative;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .pmap-search {
+    width: 22rem;
+  }
+}
+.pmap-search__icon {
+  position: absolute;
+  top: 1.3rem;
+  left: 0.85rem;
+  width: 1.15rem;
+  height: 1.15rem;
+  transform: translateY(-50%);
+  color: var(--color-navy);
+  stroke-width: 2.5;
+  pointer-events: none;
+}
+.pmap-search__input {
+  width: 100%;
+  height: 2.6rem;
+  padding: 0 2.6rem 0 2.6rem;
+  border: 1px solid var(--color-navy);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--color-navy);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  box-shadow: 0 3px 8px rgba(0, 32, 91, 0.18);
+}
+.pmap-search__input::placeholder {
+  color: rgba(0, 32, 91, 0.55);
+}
+.pmap-search__input::-webkit-search-cancel-button {
+  display: none;
+}
+.pmap-search__input:focus {
+  outline: none;
+}
+.pmap-search__close {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-navy);
+}
+.pmap-search__close svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+.pmap-search__list {
+  position: absolute;
+  z-index: 5;
+  top: calc(100% + 0.35rem);
+  left: 0;
+  right: 0;
+  max-height: 20rem;
+  overflow-y: auto;
+  padding: 0.35rem 0;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0, 32, 91, 0.2);
+}
+.pmap-search__option {
+  display: flex;
+  flex-direction: column;
+  padding: 0.55rem 1rem;
+  color: var(--color-navy);
+  cursor: pointer;
+}
+.pmap-search__option[aria-selected="true"] {
+  background: rgba(0, 32, 91, 0.08);
+}
+.pmap-search__where {
+  font-size: 0.85rem;
+  color: rgba(0, 32, 91, 0.65);
+}
+.pmap-search__empty {
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  color: rgba(0, 32, 91, 0.75);
+}
+
+/* Legendary & Exceptional banner: modelled on enotria.com's "Founded in 1972" band —
+   an italic statement on sage, beside a large "e" (from the Enotri wordmark) cut from a vineyard photo. */
+.legend-banner {
+  --legend-sage: #86a38c;
+  overflow: hidden;
+  background: var(--legend-sage);
+  color: var(--color-navy);
+}
+.legend-banner__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.legend-banner__text {
+  width: 100%;
+  padding: 3.5rem 0 1.5rem;
+}
+.legend-banner__quote {
+  margin-top: 1rem;
+  font-family: "Newsreader", Georgia, serif;
+  font-size: clamp(1.4rem, 2.3vw, 1.85rem);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.5;
+  text-wrap: balance;
+}
+.legend-banner__e {
+  width: min(80%, 20rem);
+  aspect-ratio: 66 / 76;
+  margin-bottom: 2.5rem;
+  background: url("/images/site/vineyard_photo.webp") center / cover no-repeat;
+  -webkit-mask: url("/images/home/enotri-e.svg") center / contain no-repeat;
+  mask: url("/images/home/enotri-e.svg") center / contain no-repeat;
+}
+@media (min-width: 768px) {
+  .legend-banner__inner {
+    flex-direction: row;
+    justify-content: space-between;
+    height: 26rem;
+    padding: 0 3.5rem;
+  }
+  .legend-banner__text {
+    flex: 0 0 45%;
+    max-width: 32rem;
+    padding: 0;
+  }
+  /* The letter sits to the right, fully inside the band. */
+  .legend-banner__e {
+    width: auto;
+    height: 84%;
+    margin: 0;
+  }
+}
+@media (min-width: 1024px) {
+  .legend-banner__inner {
+    height: 27.5rem;
+    padding: 0 5rem;
   }
 }

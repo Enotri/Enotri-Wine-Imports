@@ -1,10 +1,7 @@
 const roncatheImg = { url: "/images/site/roncathe_soave.webp" };
 const granettoImg = { url: "/images/site/granetto-pinot-grigio.webp" };
 const carmenereImg = { url: "/images/site/carmenere.webp" };
-const roncatheSheet = { url: "/docs/roncathe-soave-tech-sheet.pdf" };
 const granettoSheet = { url: "/docs/granetto.pdf" };
-const calcareoSheet = { url: "/docs/calcareo.pdf" };
-const calcareo3Sheet = { url: "/docs/calcareo-3.pdf" };
 const corteMoschinaLogo = { url: "/images/site/image002.webp" };
 const ferreroImg = { url: "/images/site/federico-ferrero.webp" };
 const ferreroPortraitImg = { url: "/images/site/federico-ferrero-2.webp" };
@@ -19,7 +16,6 @@ const argonautaImg = { url: "/images/site/argonauta-verdicchio.webp" };
 const passerinaImg = { url: "/images/site/zaccagnini-passerina.webp" };
 const verdicchioClassicoImg = { url: "/images/site/zaccagnini-verdicchio-classico.webp" };
 const herasCordonReservaImg = { url: "/images/site/heras-cordon-reserva.webp" };
-const herasCordonVendimiaImg = { url: "/images/site/heras-cordon-vendimia-seleccionada.webp" };
 const herasCordonTrioImg = { url: "/images/site/heras-cordon-trio.webp" };
 const elPropositoImg = { url: "/images/site/el-proposito.webp" };
 const lapueblaGalacticoImg = { url: "/images/site/lapuebla-galactico.webp" };
@@ -32,9 +28,6 @@ const chateauLesChosesEnRoseImg = { url: "/images/site/chateau-les-choses-en-ros
 const chateauLesChosesQuOnAimeImg = { url: "/images/site/chateau-les-choses-quon-aime.webp" };
 const chateauNectarImg = { url: "/images/site/chateau-nectar.webp" };
 const chateauVineyardImg = { url: "/images/site/chateau-de-la-grave-vineyard.webp" };
-const chateauCaractereSheet = { url: "/docs/chateau-caractere.pdf" };
-const chateauGrainsFinsSheet = { url: "/docs/chateau-grains-fins.pdf" };
-const chateauLesChosesALEnversSheet = { url: "/docs/chateau-les-choses-a-lenvers.pdf" };
 
 export type Wine = {
   name: string;
@@ -301,10 +294,10 @@ export const producers: Producer[] = [
     country: "Spain",
     farming: "Old-vine parcels, manual harvest",
     summary:
-      "Growers in Lapuebla de Labarca working clay-limestone and alluvial parcels at 550 metres, with vines planted between 1940 and 1960. Classic Rioja coupages alongside single-parcel bottlings.",
+      "A small growers' project in Lapuebla de Labarca, Rioja Alavesa, rescuing ancestral vineyards, some planted in 1920, and bottling them parcel by parcel.",
     story: [
       "Viticultores de Lapuebla is a growers' project based in Lapuebla de Labarca, in the heart of Rioja Alavesa, working old family parcels that sit at around 550 metres on clay-limestone and alluvial soils. Many of the vines were planted between 1940 and 1960 and have been farmed by the same families for generations.",
-      "The cellar works two registers in parallel: classic Rioja coupages — Crianza and Reserva aged in American and French oak in the traditional style — and single-parcel bottlings that isolate the character of individual old-vine sites, such as El Propósito, built almost entirely on Tempranillo with a seasoning of Viura.",
+      "The project is the work of José Luis Heras and Noelia Rodríguez, from the family behind Bodegas Heras Cordón. Each wine is a single-parcel or old-vine bottling that isolates the character of its site: El Propósito, built almost entirely on Tempranillo with a seasoning of Viura, and Galáctico, just 700 bottles of Garnacha planted in 1920 at 700 metres in Alesón.",
       "Harvest is manual, fermentations are patient, and oak is used as seasoning rather than flavouring. The wines carry the tension typical of Alavesa: ripe red fruit held in check by altitude and limestone, with the polish that only genuine old vines bring.",
     ],
   },
@@ -321,11 +314,6 @@ export const producers: Producer[] = [
         src: "/images/producers/bodegas-heras-cordon/4.webp",
         alt: "A lone holm oak above rows of vines, with a mountain ridge behind",
         caption: "The holm oak among the Heras Cordón vines",
-      },
-      {
-        src: "/images/producers/bodegas-heras-cordon/1.webp",
-        alt: "A bottle of Heras Cordón Vendimia Seleccionada Rioja standing on a barrel in the cellar",
-        caption: "Vendimia Seleccionada in the cellar",
       },
       {
         src: "/images/producers/bodegas-heras-cordon/3.webp",
@@ -345,13 +333,13 @@ export const producers: Producer[] = [
     ],
     region: "Fuenmayor, Rioja Alta",
     country: "Spain",
-    farming: "Traditional, family-owned",
+    farming: "Hand-picked, native-yeast fermentation",
     summary:
-      "A family-owned Rioja Alta estate in Fuenmayor, crafting classic Reserva and Vendimia Seleccionada from Tempranillo and traditional Rioja varieties.",
+      "A Rioja family that has been digging cellars since the 19th century. Today their Reserva is made ten metres beneath the vines in Fuenmayor, Rioja Alta.",
     story: [
-      "Bodegas Heras Cordón is rooted in Fuenmayor, in the heart of Rioja Alta, where the Cordón family has been linked to wine for generations. The estate takes its name from the family itself — a statement that what goes into each bottle is personal, and that the label is a promise rather than a brand.",
-      "The vineyards sit on the characteristic clay-limestone and alluvial soils of the upper Ebro valley, where Atlantic influence tempers the warmth and Tempranillo reaches its fullest expression. The family farms traditionally, with careful canopy work, low yields and hand-harvesting to preserve the freshness that defines the best Rioja Alta wines.",
-      "In the cellar the approach is classic Rioja: long macerations, ageing in American and French oak, and the patience to release Reservas only when the wine has settled into itself. The result is a range of structured, food-friendly reds — polished, honest and unmistakably Rioja.",
+      "The Heras Cordón story starts underground. In the 19th century the family dug its first cellars into the earth and rock of Lapuebla de Labarca, in Rioja Alavesa. By the 1970s their crianzas and reservas were selling across Spain, and in the 1990s they bought a vineyard in Fuenmayor, Rioja Alta, where the winery stands today.",
+      "When it came to building it, they went underground again. The cellar sits ten metres below the vineyard, built from the stone of abandoned 19th-century railway stations, and you walk in through a door rescued from a ruined convent in Segovia.",
+      "The family owns 50 hectares and advises the growers of another 60, across Rioja Alta (Fuenmayor, Cenicero, Navarrete) and Rioja Alavesa (Laguardia, Elciego, Lapuebla de Labarca). The vines grow at around 550 metres on stony clay-limestone. The team thins the crop twice each summer, picks by hand into 20-kilo boxes and ferments with native yeasts. The Reserva then spends 18 months in French and American oak.",
     ],
   },
   {
@@ -591,13 +579,60 @@ export const producers: Producer[] = [
     ],
     region: "Côtes de Bourg",
     country: "France",
-    farming: "Certified organic (Ecocert) & in conversion",
+    farming: "In conversion to organic",
     summary:
       "The Bassereau family have farmed this Côtes de Bourg estate on the Bordeaux right bank since 1906, working Merlot, Cabernet Sauvignon, Malbec, Sémillon and Colombard in foudre, barrel, concrete and terracotta jars.",
     story: [
       "Château de la Grave has been in the Bassereau family since 1906, when the estate on the right bank of the Gironde, in the Côtes de Bourg, was first purchased. Five generations have farmed these gravel and clay-limestone slopes, and today the château is both a working vineyard and a family home.",
-      "The estate is certified organic by Ecocert, with further parcels in conversion. Merlot, Cabernet Sauvignon and Malbec drive the reds; Sémillon and Colombard the whites. The cellar is unusually diverse for Bordeaux: foudres, barrels, concrete vats and terracotta jars are all used, chosen per cuvée rather than by habit.",
+      "The estate is in conversion to organic farming. Merlot, Cabernet Sauvignon and Malbec drive the reds; Sémillon and Colombard the whites. The cellar is unusually diverse for Bordeaux: foudres, barrels, concrete vats and terracotta jars are all used, chosen per cuvée rather than by habit.",
       "The range runs from the classic Château de la Grave Rouge and the deep, malbec-driven Caractère to the barrel-fermented Grains Fins blanc, the amphora-aged Dolia, the experimental Les Choses series and the estate's méthode traditionnelle sparklers. It is one of the most complete and characterful estates on Bordeaux's right bank.",
+    ],
+  },
+  {
+    name: "Domaine Gadais",
+    logo: "/images/producers/gadais/1.jpg",
+    tileFullBleed: true,
+    heroImage: {
+      src: "/images/producers/gadais/1.jpg",
+      alt: "Two generations of the Gadais family in the garden at the estate",
+      caption: "Domaine Gadais Père et Fils, Saint-Fiacre-sur-Maine",
+    },
+    gallery: [
+      {
+        src: "/images/producers/gadais/2.jpg",
+        alt: "A bottle of Domaine de la Tourmaline Muscadet lying on a stone surface",
+        caption: "Domaine de la Tourmaline, the estate's Muscadet Sèvre et Maine sur Lie",
+      },
+      {
+        src: "/images/producers/gadais/3.jpg",
+        alt: "Weathered hands holding pieces of dark metamorphic rock beside vine leaves",
+        caption: "The old metamorphic rock beneath the vines",
+      },
+      {
+        src: "/images/producers/gadais/4.jpg",
+        alt: "A hoe turning the soil between young vines in sunlight",
+        caption: "Working the soil between the rows",
+      },
+      {
+        src: "/images/producers/gadais/5.jpg",
+        alt: "Green vine canopy and wildflowers in the grass between rows",
+        caption: "Vines in summer",
+      },
+      {
+        src: "/images/producers/gadais/6.jpg",
+        alt: "Black-and-white archive photo of people planting a vineyard by hand",
+        caption: "Planting by hand, from the Gadais family archive",
+      },
+    ],
+    region: "Saint-Fiacre-sur-Maine, Loire",
+    country: "France",
+    farming: "Sustainable, minimal treatments",
+    summary:
+      "A five-generation family estate in Saint-Fiacre-sur-Maine, at the heart of Muscadet Sèvre et Maine, growing nothing but Melon de Bourgogne.",
+    story: [
+      "The Gadais family has farmed in Saint-Fiacre-sur-Maine, where the Sèvre and Maine rivers meet south-east of Nantes, for five generations. In 1947 Louis Gadais decided to concentrate on wine, and he became one of the first growers around Nantes to bottle his own rather than sell it in bulk to the cooperative. In 1958 the American importer Frank Schoonmaker came to buy, and the following year Gadais Muscadet was on tables in New York.",
+      "Louis's sons Michel and Marcel developed the estate, adding the prized La Faubretière vineyard in 1973 and keeping yields low when the trend ran the other way. Christophe Gadais took over in 1994 after working in Sancerre and abroad, and built a range of single-terroir cuvées, among them Les Perrières Monopole, first made in 2009. His son Pierre-Henri returned in 2016 after studying in Burgundy and Bordeaux and working in California, Australia, England, New Zealand and Switzerland, and has moved the wines towards fewer interventions and less added sulphur.",
+      "The estate grows only Melon de Bourgogne, on more than 50 hectares split into around a hundred plots. The soils are old metamorphic rock (orthogneiss, mica schist and amphibolite) with a sandy structure that drains naturally and sends the roots deep. A semi-underground cellar works by gravity, and every wine is aged on its lees, from six months for the classic cuvées to far longer for Les Perrières.",
     ],
   },
 ];
@@ -614,7 +649,7 @@ export const wines: Wine[] = [
     note: "Organic, basalt-rich volcanic soils of the Roncà hills; crisp citrus, almond and a flinty savoury edge.",
     image: roncatheImg.url,
     cutout: "/bottles/roncathe-soave.webp",
-    techSheet: roncatheSheet.url,
+    techSheet: "/docs/corte-moschina-roncathe.pdf",
   },
   {
     name: "Granetto Pinot Grigio 2025",
@@ -639,7 +674,7 @@ export const wines: Wine[] = [
     grapes: "Colli Berici DOC — 100% Carménère",
     note: "Organic viticulture on limestone; structured and elegant, with ripe fruit and subtle spice.",
     image: carmenereImg.url,
-    techSheet: calcareo3Sheet.url,
+    techSheet: "/docs/corte-moschina-calcareo.pdf",
   },
 
   {
@@ -651,6 +686,8 @@ export const wines: Wine[] = [
     colour: "White",
     grapes: "Soave Superiore — Garganega",
     note: "Volcanic soils at the foot of the Monti Lessini; ripe stone fruit, almond and a mineral edge.",
+    image: "/bottles/moschina-i-tarai.webp",
+    cutout: "/bottles/moschina-i-tarai.webp",
   },
   {
     name: "Barolo",
@@ -661,6 +698,8 @@ export const wines: Wine[] = [
     colour: "Red",
     grapes: "Barolo D.O.C.G. — Nebbiolo",
     note: "Fourth-generation family estate in Mango since 1905; tar and rose petal with firm, structured tannins.",
+    image: "/bottles/ferrero-barolo.webp",
+    cutout: "/bottles/ferrero-barolo.webp",
   },
   {
     name: "Nvie Langhe Nebbiolo",
@@ -673,6 +712,42 @@ export const wines: Wine[] = [
     note: "The estate's approachable Nebbiolo: bright cherry, rose petal and fine, silky tannins.",
     image: ferreroBottleImg.url,
     cutout: "/bottles/nvie-langhe-nebbiolo.webp",
+  },
+  {
+    name: "Madonnella Montepulciano d'Abruzzo",
+    producer: "Pasetti",
+    region: "Abruzzo",
+    country: "Italy",
+    colour: "Red",
+    grapes: "Montepulciano d'Abruzzo DOP — 100% Montepulciano",
+    note: "Grown at 550 m in the Gran Sasso National Park; morello cherry, blackberry, liquorice and black pepper with smooth, ripe tannins.",
+    image: "/images/site/madonnella.webp",
+    cutout: "/bottles/madonnella-montepulciano.webp",
+    techSheet: "/docs/pasetti-madonnella.pdf",
+  },
+  {
+    name: "Testarossa Montepulciano d'Abruzzo Riserva 2019",
+    producer: "Pasetti",
+    region: "Abruzzo",
+    country: "Italy",
+    colour: "Red",
+    grapes: "Montepulciano d'Abruzzo Riserva DOP — 100% Montepulciano",
+    note: "Hand-picked riserva aged 24 months in French barriques; plum, sour cherry, liquorice, chocolate and tobacco with elegant tannins.",
+    image: "/images/site/testarossa_montepulciano_2019.webp",
+    cutout: "/bottles/testarossa-montepulciano.png",
+    techSheet: "/docs/pasetti-testarossa.pdf",
+  },
+  {
+    name: "Collecivetta Pecorino",
+    producer: "Pasetti",
+    region: "Abruzzo",
+    country: "Italy",
+    colour: "White",
+    grapes: "Pecorino d'Abruzzo DOP — 100% Pecorino",
+    note: "Mountain Pecorino matured on fine lees in steel; dried yellow flowers, citrus and bread crust with lively acidity and minerality.",
+    image: "/images/site/collecivetta.webp",
+    cutout: "/bottles/collecivetta-pecorino.webp",
+    techSheet: "/docs/pasetti-collecivetta.pdf",
   },
   {
     name: "Passerina IGT",
@@ -709,21 +784,27 @@ export const wines: Wine[] = [
 
   {
     name: "Marqués del Hueco Crianza 2020",
-    producer: "Viticultores de Lapuebla",
+    producer: "Bodegas Heras Cordón",
     region: "Rioja Alavesa",
     country: "Spain",
     colour: "Red",
     grapes: "80% Tempranillo, 10% Mazuelo, 10% Graciano",
     note: "13 months in American oak Bordeaux barrels. Raspberry and black plum with pepper, clove and vanilla; silky tannins and a long finish.",
+    image: "/bottles/marques-del-hueco-crianza.png",
+    cutout: "/bottles/marques-del-hueco-crianza.png",
+    techSheet: "/docs/marques-del-hueco-crianza.pdf",
   },
   {
     name: "Marqués del Hueco Reserva 2016",
-    producer: "Viticultores de Lapuebla",
+    producer: "Bodegas Heras Cordón",
     region: "Rioja Alavesa",
     country: "Spain",
     colour: "Red",
     grapes: "90% Tempranillo, 5% Mazuelo, 5% Graciano",
     note: "18 months in French and American oak from 35–40 year-old vines. Red cherry, cassis and menthol, closing on toffee and coffee.",
+    image: "/bottles/marques-del-hueco-reserva.png",
+    cutout: "/bottles/marques-del-hueco-reserva.png",
+    techSheet: "/docs/marques-del-hueco-reserva.pdf",
   },
   {
     name: "El Propósito 2023",
@@ -735,17 +816,19 @@ export const wines: Wine[] = [
     note: "10,000 bottles from 1940s–60s vines; whole-bunch fermentation in French oak vats, 7 months in barrel. Strawberry, raspberry and rose, delicate and fine.",
     image: elPropositoImg.url,
     cutout: "/bottles/el-proposito.webp",
+    techSheet: "/docs/lapuebla-el-proposito.pdf",
   },
   {
-    name: "Galáctico",
+    name: "Galáctico 2022",
     producer: "Viticultores de Lapuebla",
-    region: "Rioja Alavesa",
+    region: "Alesón, Rioja",
     country: "Spain",
     colour: "Red",
-    grapes: "100% Tempranillo",
-    note: "A single-parcel bottling from old vines in Lapuebla de Labarca; dark cherry, liquorice and fine mountain tannins.",
+    grapes: "Rioja DOCa — 100% Garnacha Tinta",
+    note: "Just 700 bottles from a single Garnacha vineyard planted in 1920 at 700 m in Alesón; orange blossom, strawberry, cherry and soft spice, powerful yet fresh.",
     image: lapueblaGalacticoImg.url,
     cutout: "/bottles/galactico.webp",
+    techSheet: "/docs/lapuebla-galactico.pdf",
   },
   {
     name: "Heras Cordón Reserva",
@@ -757,17 +840,7 @@ export const wines: Wine[] = [
     note: "Classic Reserva from Rioja Alta; ripe black cherry, vanilla and sweet spice, with polished tannins and a long, savoury finish.",
     image: herasCordonReservaImg.url,
     cutout: "/bottles/heras-cordon-reserva.webp",
-  },
-  {
-    name: "Heras Cordón Vendimia Seleccionada",
-    producer: "Bodegas Heras Cordón",
-    region: "Rioja Alta",
-    country: "Spain",
-    colour: "Red",
-    grapes: "Rioja DOCa — Tempranillo",
-    note: "A selected-harvest Rioja; bright red berry, plum and gentle oak, framed by supple tannins and fresh acidity.",
-    image: herasCordonVendimiaImg.url,
-    cutout: "/bottles/heras-cordon-vendimia-seleccionada.webp",
+    techSheet: "/docs/heras-cordon-reserva.pdf",
   },
   {
     name: "Straw Wine",
@@ -779,6 +852,32 @@ export const wines: Wine[] = [
     note: "Air-dried bunches; apricot, honeycomb and a bright acid spine.",
   },
   {
+    name: "Domaine de la Tourmaline 2024",
+    producer: "Domaine Gadais",
+    producerUrl: "https://www.domainegadais.com/",
+    region: "Saint-Fiacre-sur-Maine, Loire",
+    country: "France",
+    colour: "White",
+    grapes: "Muscadet Sèvre et Maine sur Lie — 100% Melon de Bourgogne",
+    note: "A blend of about 50 steep orthogneiss plots in Saint-Fiacre, aged on its lees until July; citrus on the nose, fresh, ample and well balanced.",
+    image: "/bottles/gadais-tourmaline.png",
+    cutout: "/bottles/gadais-tourmaline.png",
+    techSheet: "/docs/gadais-tourmaline.pdf",
+  },
+  {
+    name: "Les Perrières Monopole 2023",
+    producer: "Domaine Gadais",
+    producerUrl: "https://www.domainegadais.com/",
+    region: "Saint-Fiacre-sur-Maine, Loire",
+    country: "France",
+    colour: "White",
+    grapes: "Muscadet AOP — 100% Melon de Bourgogne",
+    note: "1.1 ha of 40-year-old vines on a south-facing gneiss slope, fermented with natural yeast in 300-litre barrels; brioche, roast and vanilla notes, rich and long.",
+    image: "/bottles/gadais-perrieres.png",
+    cutout: "/bottles/gadais-perrieres.png",
+    techSheet: "/docs/gadais-perrieres-monopole.pdf",
+  },
+  {
     name: "Nectar",
     producer: "Château de la Grave",
     region: "Bordeaux",
@@ -787,6 +886,8 @@ export const wines: Wine[] = [
     grapes: "100% Merlot, old vines",
     note: "Aged 18–24 months in foudre. Candied black fruit and balanced spicy oak over a velvet, warm and round structure.",
     image: chateauNectarImg.url,
+    techSheet: "/docs/grave-nectar.pdf",
+    cutout: "/bottles/grave-nectar.webp",
   },
   {
     name: "Caractère",
@@ -797,7 +898,8 @@ export const wines: Wine[] = [
     grapes: "80% Merlot, 20% Cabernet Sauvignon",
     note: "Twelve months in oak barrel. Blueberry and blackcurrant with a fine woody note; rich, velvety and harmonious. 91 pts James Suckling.",
     image: chateauCaractereImg.url,
-    techSheet: chateauCaractereSheet.url,
+    techSheet: "/docs/grave-caractere.pdf",
+    cutout: "/bottles/grave-caractere.webp",
   },
   {
     name: "Classic",
@@ -807,6 +909,8 @@ export const wines: Wine[] = [
     colour: "Red",
     grapes: "80% Merlot, 10% Cabernet Sauvignon, 10% Malbec",
     note: "Traditional ageing in concrete vat. Ripe red and black fruit, fleshy and fresh — a claret to drink young.",
+    image: "/bottles/grave-classic.webp",
+    cutout: "/bottles/grave-classic.webp",
   },
   {
     name: "Rouge Terre",
@@ -815,7 +919,9 @@ export const wines: Wine[] = [
     country: "France",
     colour: "Red",
     grapes: "90% Merlot, 10% Cabernet Sauvignon",
-    note: "Organic and concrete-aged. Bright red fruit and fresh mint, lively acidity and a liquorice note on a crisp finish.",
+    note: "Concrete-aged, from vines in conversion to organic. Bright red fruit and fresh mint, lively acidity and a liquorice note on a crisp finish.",
+    image: "/bottles/grave-rouge-terre.webp",
+    cutout: "/bottles/grave-rouge-terre.webp",
   },
   {
     name: "Grains Fins",
@@ -826,7 +932,8 @@ export const wines: Wine[] = [
     grapes: "60% Sémillon, 40% Colombard",
     note: "Fermented and aged in oak barrel. Citrus, exotic fruit and white acacia; full and round with fine freshness.",
     image: chateauGrainsFinsImg.url,
-    techSheet: chateauGrainsFinsSheet.url,
+    techSheet: "/docs/grave-grains-fins.pdf",
+    cutout: "/bottles/grave-grains-fins.webp",
   },
   {
     name: "Dolia",
@@ -836,6 +943,8 @@ export const wines: Wine[] = [
     colour: "White",
     grapes: "50% Sémillon, 50% Colombard",
     note: "Fermented and aged in terracotta jars. Pure nose of white flowers, citrus and pepper; mineral, balanced and long.",
+    image: "/bottles/grave-dolia.webp",
+    cutout: "/bottles/grave-dolia.webp",
   },
   {
     name: "Les Choses qu'on Aime",
@@ -844,8 +953,10 @@ export const wines: Wine[] = [
     country: "France",
     colour: "Red",
     grapes: "90% Malbec, 10% Merlot",
-    note: "Barrel-aged organic Malbec. Blackcurrant, blueberry and blackberry; round and velvety with a fresh, slightly acid close.",
+    note: "Barrel-aged Malbec, in conversion to organic. Blackcurrant, blueberry and blackberry; round and velvety with a fresh, slightly acid close.",
     image: chateauLesChosesQuOnAimeImg.url,
+    techSheet: "/docs/grave-les-choses-quon-aime.pdf",
+    cutout: "/bottles/grave-les-choses-quon-aime.webp",
   },
   {
     name: "Les Choses à l'Envers",
@@ -856,7 +967,8 @@ export const wines: Wine[] = [
     grapes: "80% Cabernet Sauvignon, 20% Merlot",
     note: "Right-bank Cabernet aged in oak. Ripe fruit, violet and pepper on a silky tannic frame. One star, Guide Hachette 2026.",
     image: chateauLesChosesALEnversImg.url,
-    techSheet: chateauLesChosesALEnversSheet.url,
+    techSheet: "/docs/grave-les-choses-a-lenvers.pdf",
+    cutout: "/bottles/grave-les-choses-a-lenvers.webp",
   },
   {
     name: "Les Choses Autrement",
@@ -866,6 +978,8 @@ export const wines: Wine[] = [
     colour: "Red",
     grapes: "100% Merlot",
     note: "A different approach in the cellar: airy, fruity and tense with very fine tannins. Bordeaux to drink now.",
+    image: "/bottles/grave-les-choses-autrement.webp",
+    cutout: "/bottles/grave-les-choses-autrement.webp",
   },
   {
     name: "Les Choses sans S",
@@ -875,6 +989,8 @@ export const wines: Wine[] = [
     colour: "Red",
     grapes: "50% Malbec, 50% Merlot",
     note: "No added sulphites, native yeast, no oak. Black cherry, fresh blackcurrant and mint; silky and immediate. 91 pts James Suckling.",
+    image: "/bottles/grave-les-choses-sans-s.webp",
+    cutout: "/bottles/grave-les-choses-sans-s.webp",
   },
   {
     name: "Les Choses en Rose",
@@ -885,6 +1001,8 @@ export const wines: Wine[] = [
     grapes: "100% Cabernet Sauvignon",
     note: "Barrel-fermented rosé of salmon hue; red fruit and subtle spice, fleshy and gastronomic with a long finish.",
     image: chateauLesChosesEnRoseImg.url,
+    techSheet: "/docs/grave-les-choses-en-rose.pdf",
+    cutout: "/bottles/grave-les-choses-en-rose.webp",
   },
   {
     name: "Les Choses qui Pétillent Rosé",
@@ -894,6 +1012,8 @@ export const wines: Wine[] = [
     colour: "Sparkling",
     grapes: "Pétillant naturel, rosé",
     note: "Ancestral-method pét-nat with no additions or sulphites. Fine bubbles, intense fruit and a thoroughly refreshing palate.",
+    image: "/bottles/grave-les-choses-qui-petillent.webp",
+    cutout: "/bottles/grave-les-choses-qui-petillent.webp",
   },
   {
     name: "Villa Ida Rouge",
@@ -903,6 +1023,8 @@ export const wines: Wine[] = [
     colour: "Red",
     grapes: "100% Merlot",
     note: "Aged in jar. Complex fruit aromas and a delicate palate carried by fine minerality — far from a classic Bordeaux.",
+    image: "/bottles/grave-villa-ida-rouge.webp",
+    cutout: "/bottles/grave-villa-ida-rouge.webp",
   },
   {
     name: "Villa Ida Blanc",
@@ -912,6 +1034,8 @@ export const wines: Wine[] = [
     colour: "White",
     grapes: "70% Chenin, 30% Colombard",
     note: "Fermented and aged in jar. Exotic fruit and citrus young, floral with age; subtle acidity and beautiful minerality.",
+    image: "/bottles/grave-villa-ida-blanc.webp",
+    cutout: "/bottles/grave-villa-ida-blanc.webp",
   },
   {
     name: "Villa Ida Rosé",
@@ -921,6 +1045,8 @@ export const wines: Wine[] = [
     colour: "Rosé",
     grapes: "100% Cabernet Sauvignon",
     note: "Jar-fermented, pale rose-petal colour. Crunchy tangy red fruit, soft attack and a vivacity that holds to the finish.",
+    image: "/bottles/grave-villa-ida-rose.webp",
+    cutout: "/bottles/grave-villa-ida-rose.webp",
   },
   {
     name: "Villa Ida Orange",
@@ -930,6 +1056,8 @@ export const wines: Wine[] = [
     colour: "White",
     grapes: "100% Colombard, skin macerated",
     note: "Whole-berry skin fermentation in jar. Straw-orange hue, citrus and passion fruit, rich and fleshy with delicious astringency.",
+    image: "/bottles/grave-villa-ida-orange.webp",
+    cutout: "/bottles/grave-villa-ida-orange.webp",
   },
   {
     name: "Bulles de Campagne Brut Nature",
@@ -942,4 +1070,6 @@ export const wines: Wine[] = [
   },
 ];
 
-export const legendary = wines.filter((w) => ["I Tarai", "Barolo", "Galáctico"].includes(w.name));
+export const legendary = wines.filter((w) =>
+  ["I Tarai", "Barolo", "Galáctico 2022"].includes(w.name),
+);

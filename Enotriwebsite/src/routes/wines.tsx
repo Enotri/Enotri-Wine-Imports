@@ -221,11 +221,10 @@ function Wines() {
               {w.techSheet && (
                 <a
                   href={w.techSheet}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  download
                   className="mt-3 inline-block text-label uppercase tracking-[0.2em] text-foreground underline underline-offset-4"
                 >
-                  Tech sheet (PDF)
+                  Download info sheet (PDF)
                 </a>
               )}
             </article>

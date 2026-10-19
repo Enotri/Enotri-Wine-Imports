@@ -18,8 +18,6 @@
 | Bodegas Heras Cordón | `public/images/producers/bodegas-heras-cordon/2.webp` | https://herascordon.com/images/2026/10/07/barricasjlhc.jpg | https://herascordon.com/bodega/historia |
 | Bodegas Heras Cordón | `public/images/producers/bodegas-heras-cordon/3.webp` | https://herascordon.com/images/img/pag-historia/historia-bodega-heras-cordon1.webp | https://herascordon.com/bodega/historia |
 | Bodegas Heras Cordón | `public/images/producers/bodegas-heras-cordon/4.webp` | https://herascordon.com/images/img/encina-heras-cordon.webp | https://herascordon.com/ |
-| Domaine Rougeot | `public/images/producers/domaine-rougeot/1.webp` | https://static.wixstatic.com/media/6f86f5_fc56c681ad62467f9cb05dd2f422c7b2~mv2.jpg | https://www.domainerougeot.com/domaine |
-| Domaine Rougeot | `public/images/producers/domaine-rougeot/2.webp` | https://static.wixstatic.com/media/6f86f5_dbcd659e8dff435686c59aa894cc4beb~mv2_d_4368_2912_s_4_2.jpg | https://www.domainerougeot.com/ |
 | Stellenrust Family Vineyards | `public/images/producers/stellenrust-family-vineyards/1.webp` | https://static.wixstatic.com/media/cd909b_39b7daff09914a9d8f80b4184442fa76~mv2.jpg | https://www.stellenrust.co.za/ |
 | Stellenrust Family Vineyards | `public/images/producers/stellenrust-family-vineyards/2.webp` | https://static.wixstatic.com/media/cd909b_b2006884b6b84b2cb42922b7532827aa~mv2.jpg | https://www.stellenrust.co.za/ |
 | Stellenrust Family Vineyards | `public/images/producers/stellenrust-family-vineyards/3.webp` | https://static.wixstatic.com/media/cd909b_3cef51c74e924b9ba59addf1581252eb~mv2.jpg | https://www.stellenrust.co.za/ |
@@ -30,3 +28,10 @@
 | Ferrero Federico | `public/images/producers/ferrero-federico/2.webp` | https://www.ferrerofederico.it/sites/default/files/styles/slider/public/slide-3.jpg?itok=upn6mVzK | https://www.ferrerofederico.it/en/ |
 | Weingut Brand | `public/images/producers/weingut-brand/1.webp` | https://brandbros.de/wp-content/uploads/2020/03/Soil.jpg | https://brandbros.de/ |
 | Weingut Brand | `public/images/producers/weingut-brand/2.webp` | https://brandbros.de/wp-content/uploads/2020/03/BrandBros_%C2%A9peterbender_jan20_51_web.jpg (photo credit: Peter Bender) | https://brandbros.de/ |
+| Domaine Gadais | `public/images/producers/gadais/1.jpg` | https://www.domainegadais.com/wp-content/uploads/2021/12/Domaine-Gadais-pere-fils-02.jpg | https://www.domainegadais.com/ |
+| Domaine Gadais | `public/images/producers/gadais/2.jpg` | https://www.domainegadais.com/wp-content/uploads/2022/01/DomTourmaline_WEB-1536x1025.jpg | https://www.domainegadais.com/muscadet-sevre-maine-lie/ |
+| Domaine Gadais | `public/images/producers/gadais/3.jpg` | https://www.domainegadais.com/wp-content/uploads/2022/01/accueil-terroir-01.jpg | https://www.domainegadais.com/ |
+| Domaine Gadais | `public/images/producers/gadais/4.jpg` | https://www.domainegadais.com/wp-content/uploads/2022/01/Gadais-terroir-sols-04.jpg | https://www.domainegadais.com/terroir/ |
+| Domaine Gadais | `public/images/producers/gadais/5.jpg` | https://www.domainegadais.com/wp-content/uploads/2022/01/accueil-cepage-01.jpg | https://www.domainegadais.com/ |
+| Domaine Gadais | `public/images/producers/gadais/6.jpg` | https://www.domainegadais.com/wp-content/uploads/2022/02/Plantation.jpeg | https://www.domainegadais.com/history/ |
+| Domaine Gadais | `public/bottles/gadais-tourmaline.png`, `public/bottles/gadais-perrieres.png` | Bottle shots cut from the producer's technical sheets (media-library/producers/gadais/technical-sheets) | https://www.domainegadais.com/muscadet-sevre-maine-lie/ |

@@ -6,6 +6,8 @@ const certWietaAsset = { url: "/images/site/cert-wieta.webp" };
 const certSwsaAsset = { url: "/images/site/cert-swsa.webp" };
 const certEuOrganicAsset = { url: "/images/site/cert-eu-organic.webp" };
 import { CtaBand, Section } from "@/components/page-parts";
+import { ScrollSteps } from "@/components/scroll-steps";
+import scrollStepsCss from "../styles/scroll-steps.css?url";
 
 export const Route = createFileRoute("/sustainability")({
   head: () => ({
@@ -23,6 +25,7 @@ export const Route = createFileRoute("/sustainability")({
           "Crafted by growers. Guided by responsibility. Environmental, social and economic stewardship.",
       },
     ],
+    links: [{ rel: "stylesheet", href: scrollStepsCss }],
   }),
   component: Sustainability,
 });
@@ -67,11 +70,6 @@ const certifications = [
     logo: certEuOrganicAsset.url,
     name: "EU Organic Certification",
     body: "The green leaf of stars is the European Union's mandatory logo for certified organic products. It confirms that at least 95% of agricultural ingredients were produced under EU organic rules — no synthetic chemicals, no GMOs, and strict controls at every stage of production and bottling. For European wines in our portfolio, it is the baseline mark of verified organic farming.",
-  },
-  {
-    logo: certEuOrganicAsset.url,
-    name: "PT-BIO-03 (European Regulation)",
-    body: "PT-BIO-03 is a certification standard under EU Regulation (EC) No 834/2007 for organic food and agricultural production. It ensures products are grown without synthetic chemicals, GMOs, or artificial additives, with a focus on biodiversity, soil fertility, and environmental health through methods like crop rotation and organic fertilisers. Certified products meet EU organic standards and are traceable from farm to table.",
   },
 ];
 
@@ -121,27 +119,13 @@ function Sustainability() {
         </div>
       </Section>
 
-      <section className="border-y border-border bg-secondary/50">
-        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-          <p className="eyebrow">Three pillars</p>
-          <h2 className="mt-4 max-w-2xl text-3xl md:text-4xl">
-            Sustainability means more than farming
-          </h2>
-          <div className="mt-12 grid gap-10 md:grid-cols-3">
-            {pillars.map((p, i) => (
-              <div key={p.title} className="card-lift border-t border-border pt-5">
-                <span className="text-xs tracking-[0.2em] text-foreground">0{i + 1}</span>
-                <h3 className="mt-3 text-2xl">{p.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
-              </div>
-            ))}
-          </div>
-          <p className="mt-12 max-w-2xl leading-relaxed text-muted-foreground">
-            When these three pillars are in balance, vineyards become healthier, communities become
-            stronger, and wines more faithfully express their provenance.
-          </p>
-        </div>
-      </section>
+      <ScrollSteps
+        tone="navy"
+        eyebrow="Three pillars"
+        heading="Sustainability means more than farming"
+        steps={pillars.map((p, i) => ({ kicker: `0${i + 1}`, title: p.title, body: p.body }))}
+        footer="When these three pillars are in balance, vineyards become healthier, communities become stronger, and wines more faithfully express their provenance."
+      />
 
       <Section>
         <div className="grid gap-12 md:grid-cols-[0.4fr_0.6fr]">
@@ -183,35 +167,17 @@ function Sustainability() {
         </div>
       </Section>
 
-      <section className="border-y border-border bg-background">
-        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-          <p className="eyebrow">Certifications</p>
-          <h2 className="mt-4 max-w-2xl text-3xl md:text-4xl">Verified, not merely claimed</h2>
-          <p className="mt-5 max-w-3xl leading-relaxed text-muted-foreground">
-            Enotri partners with producers who hold internationally recognised certifications for
-            environmental and social responsibility — independent proof behind the promises on the
-            label.
-          </p>
-          <div className="mt-14 grid gap-x-10 gap-y-16 md:grid-cols-2 lg:grid-cols-3">
-            {certifications.map((c) => (
-              <article key={c.name} className="text-center">
-                <img
-                  src={c.logo}
-                  alt={`${c.name} certification logo`}
-                  className="mx-auto h-36 w-auto max-w-[180px] object-contain"
-                  loading="lazy"
-                />
-                <h3 className="mt-6 text-lg font-semibold underline decoration-foreground/40 underline-offset-4">
-                  {c.name}
-                </h3>
-                <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
-                  {c.body}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ScrollSteps
+        eyebrow="Certifications"
+        heading="Verified, not merely claimed"
+        intro="Enotri partners with producers who hold internationally recognised certifications for environmental and social responsibility — independent proof behind the promises on the label."
+        steps={certifications.map((c, i) => ({
+          kicker: `Certification ${i + 1}`,
+          title: c.name,
+          body: c.body,
+          media: { src: c.logo, alt: `${c.name} certification logo` },
+        }))}
+      />
 
       <section className="border-b border-border bg-secondary/50">
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:grid-cols-2 md:py-24">

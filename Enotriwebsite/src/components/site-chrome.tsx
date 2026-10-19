@@ -22,7 +22,7 @@ export function SiteHeader() {
           aria-label="Enotri Wine Imports, Roots Matter — home"
         >
           <img
-            src="/enotri-logo-master.svg"
+            src="/enotri-logo-lockup.png"
             alt="Enotri Wine Imports — Roots Matter"
             className="h-14 w-auto md:h-[66px]"
           />
@@ -89,7 +89,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-[1280px] gap-10 px-6 py-14 sm:px-10 md:grid-cols-[1.2fr_0.8fr_1fr] md:gap-14 md:px-14 md:py-20 lg:px-20">
         <div>
           <img
-            src="/enotri-logo-master.svg"
+            src="/enotri-logo-lockup.png"
             alt="Enotri Wine Imports — Roots Matter"
             className="h-12 w-auto"
           />
@@ -122,9 +122,29 @@ export function SiteFooter() {
               rallings@enotri.ca
             </a>
           </p>
+          <a
+            href="https://www.instagram.com/enotriwines/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex min-h-10 items-center gap-2 text-sm text-muted-foreground hover:opacity-70"
+          >
+            <img src="/images/social/instagram-glyph-gradient.png" alt="" className="h-4 w-4" />
+            @enotriwines
+          </a>
+          <br />
+          <a
+            href="https://www.linkedin.com/in/enotri-wines-1800b8443/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-10 items-center gap-2 text-sm text-muted-foreground hover:opacity-70"
+          >
+            <img src="/images/social/linkedin-in-bug.png" alt="" className="h-4 w-auto" />
+            Enotri Wines on LinkedIn
+          </a>
+          <br />
           <Link
             to="/contact"
-            className="mt-4 inline-flex min-h-10 items-center text-sm font-medium text-foreground hover:underline"
+            className="mt-1 inline-flex min-h-10 items-center text-sm font-medium text-foreground hover:underline"
           >
             Get in touch
           </Link>

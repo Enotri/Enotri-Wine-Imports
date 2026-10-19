@@ -1,0 +1,39 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,400&family=DM+Sans:wght@500&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  .b { position: relative; width: 320px; height: 80px; overflow: hidden; border-radius: 4px;
+       background: linear-gradient(110deg, #1a1614 0%, #0d0d0c 70%); }
+  .logo { position: absolute; left: 16px; top: 14px; width: 104px; z-index: 2; }
+  .tag { position: absolute; left: 17px; top: 52px; z-index: 2; font-family: "Fraunces", Georgia, serif; font-style: italic;
+         font-size: 12px; line-height: 14px; color: #D2A16D; letter-spacing: .2px; }
+  svg { position: absolute; right: -26px; bottom: 0; z-index: 1; }
+</style></head>
+<body>
+<div class="b">
+  <img class="logo" src="enotri-wordmark.png" alt="">
+  <div class="tag">Drink Local From Europe</div>
+  <!-- rolling vineyard hills: charcoal tones, thin gold crest lines, contour rows (same motif as the approved social covers) -->
+  <svg width="190" height="80" viewBox="0 0 190 80" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="h1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2420"/><stop offset="1" stop-color="#171310"/></linearGradient>
+      <linearGradient id="h2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#211d1a"/><stop offset="1" stop-color="#121211"/></linearGradient>
+      <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0d0d0c" stop-opacity="1"/><stop offset=".35" stop-color="#0d0d0c" stop-opacity="0"/></linearGradient>
+    </defs>
+    <path d="M0 52 C40 38 70 30 110 36 C140 40 165 30 190 26 L190 80 L0 80 Z" fill="url(#h1)"/>
+    <path d="M0 52 C40 38 70 30 110 36 C140 40 165 30 190 26" fill="none" stroke="#D2A16D" stroke-width=".9" opacity=".85"/>
+    <path d="M20 80 C60 56 100 50 140 56 C160 59 176 54 190 50 L190 80 Z" fill="url(#h2)"/>
+    <path d="M20 80 C60 56 100 50 140 56 C160 59 176 54 190 50" fill="none" stroke="#D2A16D" stroke-width=".8" opacity=".7"/>
+    <g fill="none" stroke="#A49B8F" stroke-width=".5" opacity=".35">
+      <path d="M30 56 C60 46 90 41 120 45 C145 48 168 41 190 38"/>
+      <path d="M45 62 C70 53 95 49 125 52 C150 55 170 48 190 45"/>
+      <path d="M70 71 C95 62 120 60 150 64 C165 66 178 62 190 59"/>
+      <path d="M95 77 C120 70 140 69 165 71 C175 72 183 70 190 68"/>
+    </g>
+    <circle cx="140" cy="17" r="7" fill="#D2A16D" opacity=".18"/>
+    <circle cx="140" cy="17" r="3.2" fill="#D2A16D" opacity=".75"/>
+    <rect x="0" y="0" width="190" height="80" fill="url(#fade)"/>
+  </svg>
+</div>
+</body></html>

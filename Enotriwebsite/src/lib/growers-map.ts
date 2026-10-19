@@ -15,6 +15,8 @@ export const EUROPE_MAP: MapPanel = {
   height: 990,
   pins: {
     "Château de la Grave": [355.2, 356.4],
+    // Saint-Fiacre-sur-Maine, placed from the lon/lat scale of the pins around it.
+    "Domaine Gadais": [299.1, 164],
     "Viticultores de Lapuebla": [223.7, 585.5],
     "Bodegas Heras Cordón": [224.3, 588],
     "Ferrero Federico": [923.9, 388],

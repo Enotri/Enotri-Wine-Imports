@@ -154,7 +154,10 @@ function About() {
       </Section>
 
       <PhotoGallery title="The people" photos={peoplePhotos} />
-      <PhotoGallery title="Trade tastings and events" photos={eventPhotos} />
+      <PhotoGallery
+        title="Trade tastings and events"
+        photos={eventPhotos.filter((p) => !p.src.includes("event-springfontein"))}
+      />
       <CtaBand />
     </>
   );

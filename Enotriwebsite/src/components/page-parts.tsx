@@ -117,19 +117,11 @@ const BOTTLES: CardItem[] = [
   },
   {
     imgUrl: "/bottles/galactico.webp",
-    alt: "Galáctico bottle",
-    eyebrow: "Viticultores de Lapuebla · Rioja Alavesa, Spain",
-    title: "Galáctico",
-    details: "Tempranillo · Red",
-    note: "A single-parcel bottling from old vines in Lapuebla de Labarca; dark cherry, liquorice and fine mountain tannins.",
-  },
-  {
-    imgUrl: "/bottles/heras-cordon-vendimia-seleccionada.webp",
-    alt: "Heras Cordón Vendimia Seleccionada bottle",
-    eyebrow: "Bodegas Heras Cordón · Rioja Alta, Spain",
-    title: "Heras Cordón Vendimia Seleccionada",
-    details: "Tempranillo · Red",
-    note: "A selected-harvest Rioja; bright red berry, plum and gentle oak, framed by supple tannins and fresh acidity.",
+    alt: "Galáctico 2022 bottle",
+    eyebrow: "Viticultores de Lapuebla · Rioja, Spain",
+    title: "Galáctico 2022",
+    details: "Garnacha · Red",
+    note: "700 bottles from Garnacha planted in 1920 at 700 m in Alesón; orange blossom, strawberry and cherry with soft spice.",
   },
 ];
 

@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useRef } from "react";
 import { CtaBand } from "@/components/page-parts";
 import { GrowersMap } from "@/components/growers-map";
 import { ScrollExpandHero } from "@/components/scroll-expand-hero";
@@ -56,9 +57,9 @@ function Index() {
   return (
     <div className="landing">
       <ScrollExpandHero
-        mediaSrc="/videos/home-hero-harvest-poster.webp"
-        mediaAlt="Welcome to the wines of Bordeaux"
-        videoSrc="/videos/home-hero-harvest.mp4"
+        mediaSrc="/videos/home-hero-vineyard-poster.webp"
+        mediaAlt="Vineyard rows seen from above, rising to the hills"
+        videoSrc="/videos/home-hero-vineyard.mp4"
         bgSrc="/images/home/scroll-hero-bg.webp"
         bgAlt="Open iron gates onto a gravel drive leading into vineyard rows"
         titleLead="Good wine has"
@@ -191,24 +192,29 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1440px] px-6 pb-16 sm:px-10 md:px-14 md:pb-24 lg:px-20 lg:pb-28">
-        <div className="border-b border-border pb-7">
-          <p className="home-label">Legendary &amp; Exceptional</p>
-          <h2 className="mt-3 max-w-2xl text-4xl leading-[1.05] sm:text-5xl">
-            Wines that stand apart for character and rarity.
-          </h2>
-        </div>
-        <div className="mt-9 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-          {legendary.map((wine) => (
-            <article key={`${wine.producer}-${wine.name}`} className="cell-hover bg-background p-7">
-              <p className="text-xs text-muted-foreground">
-                {wine.producer} · {wine.region}, {wine.country}
-              </p>
-              <h3 className="mt-2 font-display text-2xl leading-tight">{wine.name}</h3>
-              <p className="mt-1 text-sm text-foreground">{wine.colour}</p>
-              <p className="mt-4 text-sm leading-6 text-muted-foreground">{wine.note}</p>
-            </article>
-          ))}
+      <section className="legend-banner" aria-labelledby="legendary-heading">
+        <div className="legend-banner__inner">
+          <div className="legend-banner__text">
+            <h2 id="legendary-heading" className="home-label">
+              Legendary &amp; Exceptional
+            </h2>
+            <p className="legend-banner__quote">
+              Wines that stand apart for character and rarity:{" "}
+              {legendary
+                .map(
+                  (w) =>
+                    `${w.name.replace(/ \d{4}$/, "").replace(" ", "\u00a0")} from ${w.producer}`,
+                )
+                .join(", ")
+                .replace(/, ([^,]*)$/, " and $1")}
+              .
+            </p>
+          </div>
+          <div
+            className="legend-banner__e"
+            role="img"
+            aria-label="An Enotri “e” framing vineyard rows beneath a mountain village"
+          />
         </div>
       </section>
 
@@ -231,11 +237,10 @@ function Index() {
             </Link>
           </div>
           <div className="relative min-h-[320px] md:min-h-full">
-            <img
-              src="/enotri-vineyard-hero.jpg"
-              alt="Vineyard rows shaped by the contours of the land"
-              loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover"
+            <AmbientVideo
+              src="/videos/home-grapes-vine.mp4"
+              poster="/videos/home-grapes-vine-poster.webp"
+              label="Ripe dark grapes hanging on the vine in late afternoon light"
             />
           </div>
         </div>
@@ -296,5 +301,41 @@ function Index() {
 
       <CtaBand />
     </div>
+  );
+}
+
+// Silent looping clip that plays only while on screen and only when the visitor allows motion;
+// otherwise the poster stays as a still.
+function AmbientVideo({ src, poster, label }: { src: string; poster: string; label: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = ref.current;
+    if (!video) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    video.muted = true;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) video.play().catch(() => {});
+        else video.pause();
+      },
+      { threshold: 0.25 },
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <video
+      ref={ref}
+      className="absolute inset-0 h-full w-full object-cover"
+      src={src}
+      poster={poster}
+      muted
+      loop
+      playsInline
+      preload="none"
+      aria-label={label}
+    />
   );
 }

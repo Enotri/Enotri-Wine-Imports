@@ -1,0 +1,168 @@
+/* Pinned step-through sections (ScrollSteps). Brand: stone + navy, or navy + white. */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+/* The site's page-enter fade leaves a transform (fill-mode: both) that breaks pinning. */
+main:has(.sst) {
+  animation-fill-mode: backwards;
+}
+
+.sst {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.sst--stone {
+  background: #e0dad2;
+  color: #00205b;
+}
+.sst--navy {
+  background: #00205b;
+  color: #ffffff;
+}
+.sst--navy .sst-eyebrow,
+.sst--navy .sst-heading,
+.sst--navy .sst-title {
+  color: #ffffff;
+}
+.sst-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 6vw;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10vh 5vw;
+}
+.sst-heading {
+  margin-top: 1rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 5vw, 5rem);
+  font-weight: 400;
+  line-height: 1;
+}
+.sst-intro {
+  margin-top: 1.5rem;
+  max-width: 34rem;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  font-weight: 300;
+}
+.sst-progress {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+.sst-count {
+  font-size: var(--font-size-label);
+  letter-spacing: 0.16em;
+  font-variant-numeric: tabular-nums;
+}
+.sst-rail {
+  position: relative;
+  display: block;
+  width: 1px;
+  height: 6rem;
+  background: color-mix(in srgb, currentColor 25%, transparent);
+}
+.sst-bar {
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+.sst-footer {
+  margin-top: 2.5rem;
+  max-width: 34rem;
+  font-weight: 300;
+  line-height: var(--line-height-base);
+}
+.sst-steps {
+  position: relative;
+  min-height: 60vh;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sst-step {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.sst-media {
+  width: auto;
+  height: 9rem;
+  max-width: 14rem;
+  margin-bottom: 2rem;
+  object-fit: contain;
+  object-position: left center;
+}
+.sst-kicker {
+  font-size: var(--font-size-label);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.sst-title {
+  margin-top: 1rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.4vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+.sst-body {
+  margin-top: 1.25rem;
+  max-width: 38rem;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  font-weight: 300;
+}
+
+@media (max-width: 767px) {
+  .sst-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 8vh 16px;
+  }
+  .sst-progress {
+    margin-top: 1.5rem;
+  }
+  .sst-rail {
+    width: 6rem;
+    height: 1px;
+  }
+  .sst-bar {
+    transform-origin: left;
+  }
+  .sst-steps {
+    min-height: 58vh;
+  }
+  .sst-media {
+    height: 6rem;
+  }
+}
+
+/* Reduced motion: a plain stacked list */
+.sst.is-reduced .sst-steps {
+  min-height: 0;
+}
+.sst.is-reduced .sst-step {
+  position: static;
+  margin-bottom: 4rem;
+}
+.sst.is-reduced .sst-progress {
+  display: none;
+}

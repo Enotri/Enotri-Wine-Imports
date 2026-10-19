@@ -13,7 +13,7 @@ html.lenis body {
 }
 
 .hs {
-  --hs-h: 850vh;
+  --hs-h: 700vh;
   --hs-stone: #e0dad2;
   --hs-navy: #00205b;
   --hs-white: #ffffff;
@@ -320,7 +320,7 @@ html.lenis body {
 /* Phones: centred text on a navy band */
 @media (max-width: 767px) {
   .hs {
-    --hs-h: 600vh;
+    --hs-h: 520vh;
   }
   .hs-section.align-left,
   .hs-section.align-right {
@@ -350,4 +350,299 @@ html.lenis body {
 }
 .hs.is-reduced .hs-cue-arrow {
   animation: none;
+}
+
+/* ---------- Custom cursor (mouse only) ---------- */
+.hs.has-cursor,
+.hs.has-cursor a,
+.hs.has-cursor button {
+  cursor: none;
+}
+.hs-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 80;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.hs-cursor.is-visible {
+  opacity: 1;
+}
+.hs-cursor::before {
+  content: attr(data-label);
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #ffffff;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  font-size: 0;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #000000;
+  transition:
+    width 0.35s var(--ease-out),
+    height 0.35s var(--ease-out),
+    font-size 0.2s;
+}
+.hs-cursor.is-hot::before {
+  width: 72px;
+  height: 72px;
+  font-size: 10px;
+}
+
+/* ---------- Pinned statements ---------- */
+.hs-statements {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  background: var(--hs-navy);
+  color: var(--hs-white);
+  overflow: hidden;
+}
+.hs-statements-inner {
+  position: relative;
+  height: 100%;
+  padding: 0 5vw;
+}
+.hs-statement {
+  position: absolute;
+  left: 5vw;
+  right: 5vw;
+  top: 50%;
+  margin-top: -0.6em;
+  max-width: 18ch;
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 6.4vw, 6.25rem);
+  line-height: 1.02;
+  visibility: hidden;
+  opacity: 0;
+}
+.hs-final {
+  max-width: 16ch;
+}
+.hs-fill {
+  color: rgba(255, 255, 255, 0.16);
+}
+
+/* ---------- Inset photo that grows ---------- */
+.hs-grow {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--hs-stone);
+}
+.hs-grow-copy {
+  position: absolute;
+  left: 5vw;
+  top: 50%;
+  z-index: 2;
+  max-width: 38vw;
+  transform: translateY(-50%);
+}
+.hs-grow-heading {
+  margin-top: 1.25rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 4.8vw, 4.75rem);
+  font-weight: 400;
+  line-height: 1;
+  color: inherit;
+}
+.hs-grow-media {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(16% 6% 16% 52%);
+}
+.hs-grow-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hs-grow-caption {
+  position: absolute;
+  left: 5vw;
+  bottom: 6vh;
+  z-index: 2;
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3.4vw, 3.25rem);
+  line-height: 1.05;
+  color: var(--hs-white);
+  text-shadow: 0 2px 24px rgba(0, 32, 91, 0.6);
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* ---------- Horizontal gallery ---------- */
+.hs-year {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--hs-stone);
+}
+.hs-year-track {
+  display: flex;
+  align-items: center;
+  gap: 2.5vw;
+  height: 100%;
+  width: max-content;
+  padding: 0 5vw;
+  will-change: transform;
+}
+.hs-year-intro {
+  flex: 0 0 auto;
+  width: min(30rem, 34vw);
+  margin-right: 4vw;
+}
+.hs-year-heading {
+  margin-top: 1.25rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 4.8vw, 4.75rem);
+  font-weight: 400;
+  line-height: 1;
+  color: inherit;
+}
+.hs-card {
+  flex: 0 0 auto;
+  width: clamp(240px, 24vw, 380px);
+  margin: 0;
+}
+.hs-card-img {
+  height: min(62vh, 520px);
+  overflow: hidden;
+  background: var(--hs-navy);
+}
+.hs-card-img img {
+  width: 120%;
+  max-width: none;
+  height: 100%;
+  margin-left: -10%;
+  object-fit: cover;
+}
+.hs-card figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 1rem;
+}
+.hs-card-tag {
+  font-size: var(--font-size-label);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.hs-card-caption {
+  font-size: var(--font-size-caption);
+  font-weight: 300;
+}
+
+/* ---------- Call to action ---------- */
+.hs-cta {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: var(--hs-white);
+  background: var(--hs-navy);
+}
+.hs-cta-media {
+  position: absolute;
+  inset: 0;
+}
+.hs-cta-media img {
+  width: 100%;
+  height: 124%;
+  margin-top: -12%;
+  object-fit: cover;
+}
+.hs-cta-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 32, 91, 0.88) 0%,
+    rgba(0, 32, 91, 0.6) 45%,
+    rgba(0, 32, 91, 0.2) 100%
+  );
+}
+.hs-cta-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 40rem;
+  padding: 0 5vw;
+}
+.hs-cta-heading {
+  margin-top: 1.25rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 6vw, 6rem);
+  font-weight: 400;
+  line-height: 1;
+  color: inherit;
+}
+
+@media (max-width: 767px) {
+  .hs-grow-copy {
+    top: 12vh;
+    max-width: none;
+    right: 16px;
+    left: 16px;
+    transform: none;
+  }
+  .hs-year-intro {
+    width: 78vw;
+  }
+  .hs-card {
+    width: 72vw;
+  }
+  .hs-cta-media::after {
+    background: rgba(0, 32, 91, 0.72);
+  }
+}
+
+/* ---------- Reduced motion: everything visible, nothing pinned ---------- */
+.hs.is-reduced .hs-statements {
+  height: auto;
+  padding: 18vh 0;
+}
+.hs.is-reduced .hs-statement {
+  position: static;
+  margin: 0 0 2.5rem;
+  visibility: visible;
+  opacity: 1;
+}
+.hs.is-reduced .hs-fill {
+  color: inherit;
+}
+.hs.is-reduced .hs-grow-media {
+  clip-path: none;
+}
+.hs.is-reduced .hs-grow-copy {
+  display: none;
+}
+.hs.is-reduced .hs-grow-caption {
+  opacity: 1;
+  visibility: visible;
+}
+.hs.is-reduced .hs-year {
+  overflow-x: auto;
+}
+
+/* The site's page-enter fade keeps a transform after it ends (fill-mode: both), which
+   turns pinned (position: fixed) sections into page-relative ones. Drop it on this page. */
+main:has(.hs) {
+  animation-fill-mode: backwards;
 }

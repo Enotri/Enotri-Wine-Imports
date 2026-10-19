@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { producerSlug, producers } from "@/lib/portfolio";
 import { EUROPE_MAP, SOUTH_AFRICA_MAP, type MapPanel } from "@/lib/growers-map";
+import { loadScrollKit, prefersReducedMotion } from "@/lib/scroll-kit";
 
 // Estates whose towns sit almost on top of each other are nudged apart slightly.
 const NUDGE: Record<string, [number, number]> = {
@@ -14,6 +15,7 @@ const NUDGE: Record<string, [number, number]> = {
 // West to east through the European estates: the path on the map. Neighbouring estates
 // (the two in Rioja, the two in Abruzzo) share one point so the line flows.
 const ROUTE: string[][] = [
+  ["Domaine Gadais"],
   ["Château de la Grave"],
   ["Viticultores de Lapuebla", "Bodegas Heras Cordón"],
   ["Ferrero Federico"],
@@ -53,6 +55,7 @@ function Panel({
   className = "",
   route,
   uiScale = 1,
+  reached,
 }: {
   panel: MapPanel;
   country: string | null;
@@ -61,6 +64,8 @@ function Panel({
   route?: string;
   /** Size of pins and text relative to the main map, for smaller panels. */
   uiScale?: number;
+  /** Estates the scroll-drawn route has reached; the rest stay faint. */
+  reached?: Set<string>;
 }) {
   const [active, setActive] = useState<string | null>(null);
   const scale = uiScale;
@@ -96,6 +101,7 @@ function Panel({
             pathLength={1}
             className="growers-map__route"
             data-drawn={drawn ? "true" : "false"}
+            data-scrubbed="true"
           />
         )}
         {producers.map((p) => {
@@ -111,6 +117,7 @@ function Panel({
               aria-label={`${p.name}, ${p.region}, ${p.country}`}
               className="growers-map__pin"
               data-dim={dim ? "true" : "false"}
+              data-reached={!reached || reached.has(p.name) ? "true" : "false"}
               onMouseEnter={() => setActive(p.name)}
               onMouseLeave={() => setActive(null)}
               onFocus={() => setActive(p.name)}
@@ -156,22 +163,62 @@ export function GrowersMap() {
     }),
   );
 
-  // Draw the path once, when the map comes into view.
+  // The route draws as the visitor scrolls past the map; each estate lights up as the line
+  // reaches it. Without motion the whole route shows at once.
+  const [progress, setProgress] = useState(0);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(
-      ([e]) => {
-        if (e?.isIntersecting) {
-          setDrawn(true);
-          io.disconnect();
-        }
-      },
-      { threshold: 0.35 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
+    if (prefersReducedMotion()) {
+      setDrawn(true);
+      setProgress(1);
+      return;
+    }
+    let cancelled = false;
+    let cleanup: (() => void) | undefined;
+    void loadScrollKit().then(({ ScrollTrigger, release }) => {
+      if (cancelled) {
+        release();
+        return;
+      }
+      const path = el.querySelector<SVGPathElement>(".growers-map__route");
+      const st = ScrollTrigger.create({
+        trigger: el,
+        start: "top 80%",
+        end: "bottom 45%",
+        scrub: true,
+        onUpdate: (self) => {
+          if (path) path.style.strokeDashoffset = String(1 - self.progress);
+          setProgress(Math.round(self.progress * 100) / 100);
+        },
+      });
+      cleanup = () => {
+        st.kill();
+        release();
+      };
+    });
+    return () => {
+      cancelled = true;
+      cleanup?.();
+    };
   }, []);
+
+  // Stops along the route, plus South Africa once the line is complete.
+  const stops = ROUTE.length;
+  const reachedCount = Math.min(stops, Math.floor(progress * stops + 0.15));
+  const reached = new Set<string>(ROUTE.slice(0, reachedCount).flat());
+  if (progress >= 0.98)
+    producers.filter((p) => !EUROPE_MAP.pins[p.name]).forEach((p) => reached.add(p.name));
+  const current = ROUTE[Math.max(0, reachedCount - 1)];
+  const currentLabel =
+    reachedCount === 0 || !current
+      ? ""
+      : current
+          .map((n) => {
+            const p = producers.find((q) => q.name === n);
+            return p ? `${p.name}, ${p.region}` : n;
+          })
+          .join(" · ");
 
   const pill = (value: string | null, label: string) => (
     <button
@@ -204,14 +251,24 @@ export function GrowersMap() {
           </div>
         </div>
         <div ref={ref} className="relative">
-          <Panel panel={EUROPE_MAP} country={country} drawn={drawn} route={route} />
+          <Panel
+            panel={EUROPE_MAP}
+            country={country}
+            drawn={drawn}
+            route={route}
+            reached={reached}
+          />
           <Panel
             panel={SOUTH_AFRICA_MAP}
             country={country}
             drawn={drawn}
             uiScale={2.2}
+            reached={reached}
             className="mt-6 w-1/2 border border-navy/15 bg-background/80 sm:absolute sm:right-0 sm:bottom-0 sm:mt-0 sm:w-[24%]"
           />
+          <p className="growers-map__now" aria-hidden="true">
+            {currentLabel}
+          </p>
         </div>
       </div>
     </section>

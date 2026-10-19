@@ -24,9 +24,7 @@ export const Route = createFileRoute("/harvest")({
 
 // Frames extracted from /videos/home-hero-harvest.mp4 at 10 fps, 1280px wide.
 const FRAME_COUNT = 150;
-const FRAME_SPEED = 2.0; // film finishes by 50% of the scroll
-const IMAGE_SCALE = 1; // full bleed: the film is a photo montage, not a product on a plain background
-const STONE = "#e0dad2";
+const FRAME_SPEED = 1.35; // film finishes around 74% of the film scroll, before the numbers
 const frameUrl = (i: number) => `/frames/harvest/frame_${String(i + 1).padStart(4, "0")}.webp`;
 
 type Animation =
@@ -49,7 +47,7 @@ const stories: Story[] = [
     heading: "Since 1906",
     body: "Château de la Grave has been in the Bassereau family since 1906, on the right bank of the Gironde in the Côtes de Bourg. Five generations on, it is still a working vineyard and a family home.",
     enter: 13,
-    leave: 26,
+    leave: 30,
     side: "left",
     animation: "slide-left",
   },
@@ -57,8 +55,8 @@ const stories: Story[] = [
     label: "002 / The vineyard",
     heading: "Gravel and clay-limestone",
     body: "Merlot, Cabernet Sauvignon and Malbec drive the reds; Sémillon and Colombard the whites. The estate is in conversion to organic farming.",
-    enter: 28,
-    leave: 41,
+    enter: 33,
+    leave: 50,
     side: "right",
     animation: "slide-right",
   },
@@ -66,19 +64,10 @@ const stories: Story[] = [
     label: "003 / The harvest",
     heading: "From vine to crate",
     body: "At harvest the pickers work the rows with secateurs and red crates, and each crate is tipped into the bin bound for the cellar.",
-    enter: 43,
-    leave: 55,
+    enter: 54,
+    leave: 72,
     side: "left",
     animation: "clip-reveal",
-  },
-  {
-    label: "004 / The cellar",
-    heading: "Chosen per cuvée",
-    body: "Foudres, barrels, concrete vats and terracotta jars are all in use, chosen for each wine rather than by habit: from the classic Rouge and the Malbec-driven Caractère to the amphora-aged Dolia and the estate's méthode traditionnelle sparklers.",
-    enter: 74,
-    leave: 86,
-    side: "right",
-    animation: "scale-up",
   },
 ];
 
@@ -89,10 +78,57 @@ const stats = [
   { value: 4, label: "Types of vessel in the cellar" },
 ];
 
-const STATS_ENTER = 58;
-const STATS_LEAVE = 72;
+const STATS_ENTER = 78;
 
-// Centre a section in the viewport when scroll progress reaches `at` (0–1).
+// Pinned statements; the last one lights up word by word.
+const statements = [
+  "Five generations on the same slopes.",
+  "Merlot, Cabernet Sauvignon and Malbec on gravel and clay-limestone.",
+  "Foudre, barrel, concrete or clay, chosen for each wine.",
+];
+const finalStatement = "We bring the work of independent growers to Alberta.";
+
+// Horizontal gallery: photos and captions from the producer page.
+const year = [
+  {
+    tag: "Prune",
+    src: "/images/grave/people-lou-bassereau-4.webp",
+    caption: "Pruning in winter",
+    alt: "Pruning the vines in winter at Château de la Grave",
+  },
+  {
+    tag: "Ripen",
+    src: "/images/grave/vineyard-img-20260718-wa0000.webp",
+    caption: "Véraison in July",
+    alt: "Grapes colouring at véraison",
+  },
+  {
+    tag: "Pick",
+    src: "/images/grave/harvest-2025harvest.webp",
+    caption: "Picking by hand",
+    alt: "Two pickers carrying a red crate through the vines",
+  },
+  {
+    tag: "Tip",
+    src: "/images/grave/harvest-image00025.webp",
+    caption: "Tipping into the bin",
+    alt: "A crate of grapes tipped into the harvest bin",
+  },
+  {
+    tag: "Age",
+    src: "/images/grave/cellar-20260907160119.webp",
+    caption: "The barrel hall",
+    alt: "Rows of barrels in the cellar",
+  },
+  {
+    tag: "Clay",
+    src: "/images/grave/cellar-2.webp",
+    caption: "Terracotta jars for Dolia",
+    alt: "Terracotta jars in the cellar",
+  },
+];
+
+// Centre a film section in the viewport when film progress reaches `at` (0–1).
 const topAt = (at: number) => `calc(${at} * (var(--hs-h) - 100vh) + 50vh)`;
 
 function Harvest() {
@@ -114,12 +150,48 @@ function Harvest() {
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const mobile = window.matchMedia("(max-width: 767px)").matches;
+    const finePointer = window.matchMedia("(pointer: fine)").matches;
     const step = mobile ? 2 : 1; // phones load every second frame
     const wanted: number[] = [];
     for (let i = 0; i < FRAME_COUNT; i += step) wanted.push(i);
     if (reduced) root.classList.add("is-reduced");
 
-    // Canvas: padded cover on stone, crisp on high-DPI screens
+    // Custom cursor: a dot that trails the mouse and opens into a ring over links and photos
+    const cursor = q<HTMLDivElement>(".hs-cursor");
+    if (cursor && finePointer && !reduced) {
+      root.classList.add("has-cursor");
+      let mx = window.innerWidth / 2;
+      let my = window.innerHeight / 2;
+      let cx = mx;
+      let cy = my;
+      let raf = 0;
+      const move = (e: PointerEvent) => {
+        mx = e.clientX;
+        my = e.clientY;
+        cursor.classList.add("is-visible");
+        const target = e.target instanceof Element ? e.target : null;
+        const hot = target?.closest("a, button, [data-cursor]");
+        cursor.classList.toggle("is-hot", Boolean(hot));
+        cursor.dataset["label"] = hot?.getAttribute("data-cursor") ?? "";
+      };
+      const leave = () => cursor.classList.remove("is-visible");
+      const loop = () => {
+        cx += (mx - cx) * 0.18;
+        cy += (my - cy) * 0.18;
+        cursor.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
+        raf = requestAnimationFrame(loop);
+      };
+      loop();
+      window.addEventListener("pointermove", move);
+      document.addEventListener("pointerleave", leave);
+      cleanups.push(() => {
+        cancelAnimationFrame(raf);
+        window.removeEventListener("pointermove", move);
+        document.removeEventListener("pointerleave", leave);
+      });
+    }
+
+    // Canvas: full-bleed cover, crisp on high-DPI screens
     const frames: Array<HTMLImageElement | undefined> = [];
     let current = reduced ? Math.floor(FRAME_COUNT / 4) : 0;
     const nearestLoaded = (i: number) => {
@@ -133,11 +205,9 @@ function Harvest() {
       if (!img) return;
       const cw = canvas.width;
       const ch = canvas.height;
-      const scale = Math.max(cw / img.naturalWidth, ch / img.naturalHeight) * IMAGE_SCALE;
+      const scale = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
       const dw = img.naturalWidth * scale;
       const dh = img.naturalHeight * scale;
-      ctx2d.fillStyle = STONE;
-      ctx2d.fillRect(0, 0, cw, ch);
       ctx2d.drawImage(img, (cw - dw) / 2, (ch - dh) / 2, dw, dh);
     };
     const resize = () => {
@@ -226,8 +296,8 @@ function Harvest() {
           });
         }
 
+        /* ---------- 1. Film: frames, wipe, side text, numbers ---------- */
         type Entry = {
-          el: HTMLElement;
           enter: number;
           leave: number;
           persist: boolean;
@@ -237,7 +307,7 @@ function Harvest() {
           stats: boolean;
         };
         const entries: Entry[] = qa<HTMLElement>("[data-hs-section]").map((el) => {
-          const kids = el.querySelectorAll(".hs-label, .hs-heading, .hs-body, .hs-ctas, .hs-stat");
+          const kids = el.querySelectorAll(".hs-label, .hs-heading, .hs-body, .hs-stat");
           let tl: gsap.core.Timeline | undefined;
           if (!reduced) {
             tl = gsap.timeline({ paused: true });
@@ -299,7 +369,6 @@ function Harvest() {
             }
           }
           return {
-            el,
             enter: Number(el.dataset["enter"]) / 100,
             leave: Number(el.dataset["leave"]) / 100,
             persist: el.dataset["persist"] === "true",
@@ -340,7 +409,6 @@ function Harvest() {
         const clamp = (v: number) => Math.min(1, Math.max(0, v));
 
         const update = (p: number) => {
-          // Film
           if (!reduced) {
             const accelerated = Math.min(p * FRAME_SPEED, 1);
             const index = Math.min(Math.floor(accelerated * FRAME_COUNT), FRAME_COUNT - 1);
@@ -349,29 +417,22 @@ function Harvest() {
               requestAnimationFrame(() => draw(current));
             }
           }
-          // Hero fades, canvas opens in a circle
-          if (hero) hero.style.opacity = String(clamp(1 - p * 11));
-          if (hero) hero.style.visibility = p > 0.1 ? "hidden" : "visible";
+          if (hero) {
+            hero.style.opacity = String(clamp(1 - p * 11));
+            hero.style.visibility = p > 0.1 ? "hidden" : "visible";
+          }
           if (wipe && !reduced) {
             wipe.style.clipPath = `circle(${clamp((p - 0.01) / 0.08) * 75}% at 50% 50%)`;
           }
-          // Navy overlay for the stats
+          // Navy fades in for the numbers and stays, handing over to the navy section below
           const e = STATS_ENTER / 100;
-          const l = STATS_LEAVE / 100;
-          const f = 0.04;
-          let o = 0;
-          if (p >= e - f && p <= e) o = (p - (e - f)) / f;
-          else if (p > e && p < l) o = 1;
-          else if (p >= l && p <= l + f) o = 1 - (p - l) / f;
-          if (overlay) overlay.style.opacity = String(o * 0.9);
-          // Marquee drifts left, visible through the first half
+          if (overlay) overlay.style.opacity = String(clamp((p - (e - 0.04)) / 0.04) * 0.92);
           if (marquee) {
             const mIn = clamp((p - 0.11) / 0.04);
-            const mOut = clamp((0.57 - p) / 0.04);
+            const mOut = clamp((0.76 - p) / 0.04);
             marquee.style.opacity = String(Math.min(mIn, mOut));
             marquee.style.transform = `translateX(${-p * 60}%)`;
           }
-          // Sections, scrims, counters
           let side: string | undefined;
           for (const s of entries) {
             const on = p >= s.enter && (s.persist || p <= s.leave);
@@ -395,6 +456,135 @@ function Harvest() {
           onRefresh: (self) => update(self.progress),
         });
         update(0);
+
+        if (reduced) return;
+
+        /* ---------- 2. Pinned statements: lines swap, the last fills word by word ---------- */
+        const lines = qa<HTMLElement>(".hs-statement:not(.hs-final)");
+        const words = qa<HTMLElement>(".hs-final .hs-fill");
+        const st = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".hs-statements",
+            start: "top top",
+            end: () => `+=${window.innerHeight * 3.2}`,
+            pin: true,
+            scrub: 0.6,
+          },
+        });
+        lines.forEach((line, i) => {
+          st.fromTo(
+            line,
+            { autoAlpha: 0, yPercent: 40, filter: "blur(6px)" },
+            { autoAlpha: 1, yPercent: 0, filter: "blur(0px)", duration: 1, ease: "power2.out" },
+            i === 0 ? 0 : ">-0.1",
+          );
+          st.to(
+            line,
+            { autoAlpha: 0, yPercent: -40, filter: "blur(6px)", duration: 1, ease: "power2.in" },
+            "+=0.6",
+          );
+        });
+        st.fromTo(
+          ".hs-final",
+          { autoAlpha: 0, yPercent: 40 },
+          { autoAlpha: 1, yPercent: 0, duration: 0.8, ease: "power2.out" },
+          ">-0.1",
+        );
+        st.to(words, { color: "#ffffff", stagger: 0.25, duration: 0.6, ease: "none" });
+        st.to({}, { duration: 0.8 });
+
+        /* ---------- 3. Family photo grows from an inset to full screen ---------- */
+        const grow = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".hs-grow",
+            start: "top top",
+            end: () => `+=${window.innerHeight * 1.6}`,
+            pin: true,
+            scrub: 0.6,
+          },
+        });
+        grow
+          .fromTo(
+            ".hs-grow-media",
+            { clipPath: mobile ? "inset(48% 6% 6% 6%)" : "inset(16% 6% 16% 52%)" },
+            { clipPath: "inset(0% 0% 0% 0%)", ease: "power2.inOut", duration: 1 },
+          )
+          .fromTo(
+            ".hs-grow-media img",
+            { scale: 1.25 },
+            { scale: 1, ease: "power2.inOut", duration: 1 },
+            0,
+          )
+          .to(".hs-grow-copy", { autoAlpha: 0, x: -40, duration: 0.45 }, 0)
+          .fromTo(
+            ".hs-grow-caption",
+            { autoAlpha: 0, y: 30 },
+            { autoAlpha: 1, y: 0, duration: 0.4 },
+            0.6,
+          );
+
+        /* ---------- 4. Horizontal gallery driven by vertical scroll ---------- */
+        const track = q<HTMLElement>(".hs-year-track");
+        if (track) {
+          const distance = () => Math.max(0, track.scrollWidth - window.innerWidth);
+          gsap.to(track, {
+            x: () => -distance(),
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".hs-year",
+              start: "top top",
+              end: () => `+=${distance()}`,
+              pin: true,
+              scrub: 0.6,
+              invalidateOnRefresh: true,
+            },
+          });
+          qa<HTMLElement>(".hs-card-img img").forEach((img) => {
+            gsap.fromTo(
+              img,
+              { xPercent: -8 },
+              {
+                xPercent: 8,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: ".hs-year",
+                  start: "top top",
+                  end: () => `+=${distance()}`,
+                  scrub: true,
+                  invalidateOnRefresh: true,
+                },
+              },
+            );
+          });
+        }
+
+        /* ---------- 5. Closing photo drifts behind the call to action ---------- */
+        gsap.fromTo(
+          ".hs-cta-media img",
+          { yPercent: -12 },
+          {
+            yPercent: 12,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".hs-cta",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          },
+        );
+        gsap.from(".hs-cta-inner > *", {
+          y: 40,
+          opacity: 0,
+          stagger: 0.12,
+          duration: 0.9,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".hs-cta",
+            start: "top 60%",
+            toggleActions: "play none none reverse",
+          },
+        });
       }, root);
       revertGsap = () => ctx.revert();
       ScrollTrigger.refresh();
@@ -412,6 +602,8 @@ function Harvest() {
 
   return (
     <div className="hs" ref={rootRef}>
+      <div className="hs-cursor" aria-hidden="true" />
+
       <div className="hs-loader" role="status" aria-live="polite">
         <img className="hs-loader-brand" src="/enotri-logo-master.svg" alt="Enotri Wine Imports" />
         <div className="hs-loader-track">
@@ -420,6 +612,7 @@ function Harvest() {
         <span className="hs-loader-percent">0%</span>
       </div>
 
+      {/* 1. Film */}
       <div className="hs-scroll" ref={scrollRef}>
         <div className="hs-stage">
           <div className="hs-canvas-wrap">
@@ -480,10 +673,11 @@ function Harvest() {
 
         <section
           className="hs-section section-stats"
-          style={{ top: topAt((STATS_ENTER + STATS_LEAVE) / 200) }}
+          style={{ top: topAt(0.95) }}
           data-hs-section
           data-enter={STATS_ENTER}
-          data-leave={STATS_LEAVE}
+          data-leave={100}
+          data-persist="true"
           data-animation="stagger-up"
         >
           <span className="hs-label">The estate in numbers</span>
@@ -498,39 +692,102 @@ function Harvest() {
             ))}
           </div>
         </section>
-
-        <section
-          className="hs-section align-left"
-          style={{ top: topAt(0.97) }}
-          data-hs-section
-          data-enter={88}
-          data-leave={100}
-          data-side="left"
-          data-persist="true"
-          data-animation="fade-up"
-        >
-          <div className="hs-section-inner">
-            <span className="hs-label">005 / Taste it</span>
-            <h2 className="hs-heading">Château de la Grave in Alberta</h2>
-            <p className="hs-body">
-              Meet the family, explore the full range and ask us about trade pricing for your
-              restaurant, shop or hotel.
-            </p>
-            <div className="hs-ctas">
-              <Link
-                to="/producers/$slug"
-                params={{ slug: "chateau-de-la-grave" }}
-                className="hs-button"
-              >
-                Meet the producer
-              </Link>
-              <Link to="/contact" className="hs-link">
-                Request trade pricing
-              </Link>
-            </div>
-          </div>
-        </section>
       </div>
+
+      {/* 2. Pinned statements */}
+      <section className="hs-statements" aria-label="What makes Château de la Grave">
+        <div className="hs-statements-inner">
+          {statements.map((s) => (
+            <p className="hs-statement" key={s}>
+              {s}
+            </p>
+          ))}
+          <p className="hs-statement hs-final">
+            {finalStatement.split(" ").map((w, i) => (
+              <Fragment key={i}>
+                <span className="hs-fill">{w}</span>{" "}
+              </Fragment>
+            ))}
+          </p>
+        </div>
+      </section>
+
+      {/* 3. Inset photo grows to full screen */}
+      <section className="hs-grow">
+        <div className="hs-grow-copy">
+          <span className="hs-label">004 / The family</span>
+          <h2 className="hs-grow-heading">A working vineyard and a family home</h2>
+          <p className="hs-body">
+            Five generations of the Bassereau family have farmed these slopes since the estate was
+            bought in 1906.
+          </p>
+        </div>
+        <div className="hs-grow-media" data-cursor="">
+          <img
+            src="/images/grave/people-famille-bassereau.webp"
+            alt="The Bassereau family in their vineyard"
+            loading="lazy"
+          />
+        </div>
+        <p className="hs-grow-caption">The Bassereau family, Château de la Grave</p>
+      </section>
+
+      {/* 4. Horizontal gallery */}
+      <section className="hs-year" aria-label="From vine to cellar">
+        <div className="hs-year-track">
+          <div className="hs-year-intro">
+            <span className="hs-label">005 / Vine to cellar</span>
+            <h2 className="hs-year-heading">One estate, start to finish.</h2>
+            <p className="hs-body">
+              The same family prunes the vines, picks the fruit and chooses the vessel for each
+              wine. Keep scrolling.
+            </p>
+          </div>
+          {year.map((c) => (
+            <figure className="hs-card" key={c.tag} data-cursor="">
+              <div className="hs-card-img">
+                <img src={c.src} alt={c.alt} loading="lazy" />
+              </div>
+              <figcaption>
+                <span className="hs-card-tag">{c.tag}</span>
+                <span className="hs-card-caption">{c.caption}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      {/* 5. Call to action */}
+      <section className="hs-cta">
+        <div className="hs-cta-media">
+          <img
+            src="/images/grave/estate-017.webp"
+            alt="The turreted façade of Château de la Grave"
+            loading="lazy"
+          />
+        </div>
+        <div className="hs-cta-inner">
+          <span className="hs-label">006 / Taste it</span>
+          <h2 className="hs-cta-heading">Château de la Grave in Alberta</h2>
+          <p className="hs-body">
+            Meet the family, explore the full range and ask us about trade pricing for your
+            restaurant, shop or hotel.
+          </p>
+          <div className="hs-ctas">
+            <Link
+              to="/producers/$slug"
+              params={{ slug: "chateau-de-la-grave" }}
+              className="hs-button"
+              data-cursor="Open"
+            >
+              Meet the producer
+            </Link>
+            <Link to="/contact" className="hs-link" data-cursor="Ask">
+              Request trade pricing
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

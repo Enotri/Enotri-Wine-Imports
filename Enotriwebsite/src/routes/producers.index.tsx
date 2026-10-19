@@ -1,16 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ChevronRight } from "lucide-react";
-import { useMemo, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useRef } from "react";
 import { producerSlug, producers } from "@/lib/portfolio";
-import {
-  CtaBand,
-  Section,
-  PhotoGallery,
-  eventPhotos,
-  peoplePhotos,
-  landPhotos,
-} from "@/components/page-parts";
-const producerHeroAsset = { url: "/images/site/producer-first-page.webp" };
+import { CtaBand } from "@/components/page-parts";
+import { ProducersMap } from "@/components/producers-map";
 
 export const Route = createFileRoute("/producers/")({
   head: () => ({
@@ -32,154 +25,106 @@ export const Route = createFileRoute("/producers/")({
   component: Producers,
 });
 
-const INITIAL_COUNT = 8;
-
 function Producers() {
-  const [country, setCountry] = useState("All");
-  const [expanded, setExpanded] = useState(false);
-  const countries = useMemo(
-    () => ["All", ...Array.from(new Set(producers.map((p) => p.country))).sort()],
-    [],
-  );
-  const filtered = producers.filter((p) => country === "All" || p.country === country);
-  const shown = expanded ? filtered : filtered.slice(0, INITIAL_COUNT);
-  const hiddenCount = filtered.length - shown.length;
+  const reel = useRef<HTMLDivElement>(null);
+  const scroll = (dir: 1 | -1) => {
+    const el = reel.current;
+    if (el) el.scrollBy({ left: dir * el.clientWidth * 0.8 });
+  };
 
   return (
     <>
-      <section className="film-hero h-[82vh] min-h-[520px]">
-        <img
-          src={producerHeroAsset.url}
-          alt="Lush green vineyard rows climbing a hillside"
-          className="hero-media"
-          loading="eager"
-        />
-      </section>
+      <ProducersMap />
 
-      <div className="mx-auto max-w-6xl px-6 pt-14 md:pt-20">
-        <p className="eyebrow">Producers</p>
-        <h1 className="mt-5 font-display text-[clamp(2.25rem,5.5vw,4.5rem)] leading-[1.05] font-normal tracking-[-0.02em] text-foreground">
-          Crafted by Growers
-        </h1>
-      </div>
-
-      <section className="border-b border-border bg-secondary/40">
-        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-          <div className="prose-enotri max-w-2xl">
-            <p>At Enotri Wine Imports, our portfolio begins in the vineyard.</p>
+      <section className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+        <div className="producers-intro">
+          <p className="producers-intro__statement">
+            We work with producers who see themselves not only as winemakers, but as growers,
+            farmers, and stewards of place.
+          </p>
+          <span className="producers-intro__rule" aria-hidden="true" />
+          <div className="space-y-5 text-base leading-7 text-foreground/80 md:text-lg md:leading-8">
             <p>
-              We work with producers who see themselves not only as winemakers, but as growers,
-              farmers, and stewards of place. Their wines are shaped by provenance: the soil,
-              climate, altitude, farming choices, and cultural history behind each bottle.
+              At Enotri Wine Imports, our portfolio begins in the vineyard. Our growers&rsquo; wines
+              are shaped by provenance: the soil, climate, altitude, farming choices, and cultural
+              history behind each bottle.
             </p>
-            <p>Our role is to bring these wines to Alberta with clarity, respect, and purpose.</p>
             <p>
               We focus on authentic, grower-led estates from South Africa and Europe, with a
               particular emphasis on wines that offer strong character, regional identity, and
               excellent price-quality ratio.
             </p>
+            <p className="font-semibold text-foreground">
+              Our role is to bring these wines to Alberta with clarity, respect, and purpose.
+            </p>
           </div>
         </div>
       </section>
 
-      <Section>
-        <div className="flex items-center justify-between gap-4 bg-primary px-6 py-5 text-primary-foreground md:px-8">
-          <span className="text-caption font-medium uppercase tracking-[0.24em] md:text-sm">
-            Explore our producers
-          </span>
-          <ChevronRight className="h-5 w-5 shrink-0" aria-hidden="true" />
-        </div>
-
-        <div className="mt-10 flex flex-wrap gap-x-6 gap-y-2 border-b border-border pb-6">
-          {countries.map((c) => (
+      <section className="mx-auto max-w-[1360px] px-6 pb-24 md:pb-32">
+        <div className="border-t border-navy pt-14 md:pt-20">
+          <h2 className="text-center font-display text-[clamp(2rem,4vw,3rem)] font-normal uppercase tracking-[0.06em] text-navy">
+            Our producers
+          </h2>
+          <div className="mt-12 flex items-center gap-4 md:gap-6">
             <button
-              key={c}
               type="button"
-              onClick={() => {
-                setCountry(c);
-                setExpanded(false);
-              }}
-              className={`text-label uppercase tracking-[0.18em] transition-colors ${
-                country === c
-                  ? "text-foreground underline underline-offset-8"
-                  : "text-muted-foreground hover:opacity-70"
-              }`}
+              className="producer-reel__arrow"
+              onClick={() => scroll(-1)}
+              aria-label="Previous producers"
             >
-              {c}
+              <ChevronLeft className="h-5 w-5" aria-hidden="true" />
             </button>
-          ))}
-        </div>
-
-        <div className="mt-12 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
-          {shown.map((p) =>
-            p.tileFullBleed && p.logo ? (
-              <Link
-                key={p.name}
-                to="/producers/$slug"
-                params={{ slug: producerSlug(p.name) }}
-                className="group relative aspect-[4/3] overflow-hidden bg-card"
-              >
-                <img
-                  src={p.tileImage ?? p.logo}
-                  alt={`${p.name}`}
-                  loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 flex flex-col items-center px-6 pb-5 text-center">
-                  <span className="font-display text-xl leading-snug tracking-wide text-white md:text-2xl">
+            <div ref={reel} className="producer-reel min-w-0 flex-1">
+              {producers.map((p) => (
+                <Link
+                  key={p.name}
+                  to="/producers/$slug"
+                  params={{ slug: producerSlug(p.name) }}
+                  className="producer-reel__item group"
+                >
+                  <div className="aspect-[4/3] overflow-hidden bg-card">
+                    {p.tileFullBleed ? (
+                      <img
+                        src={p.tileImage ?? p.logo}
+                        alt=""
+                        loading="lazy"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    ) : (
+                      p.logo && (
+                        <div className="flex h-full items-center justify-center p-6">
+                          <img
+                            src={p.logo}
+                            alt=""
+                            loading="lazy"
+                            className={p.logoClassName ?? "max-h-16 w-auto object-contain"}
+                          />
+                        </div>
+                      )
+                    )}
+                  </div>
+                  <span className="mt-4 block font-display text-lg leading-snug md:text-xl">
                     {p.name}
                   </span>
-                  <span className="mt-2 text-label uppercase tracking-[0.22em] text-white">
-                    {p.region} · {p.country}
+                  <span className="mt-1 block text-sm text-foreground/70">
+                    {p.region}, {p.country}
                   </span>
-                </div>
-              </Link>
-            ) : (
-              <Link
-                key={p.name}
-                to="/producers/$slug"
-                params={{ slug: producerSlug(p.name) }}
-                className="group flex aspect-[4/3] flex-col items-center justify-center bg-card px-6 text-center transition-colors duration-300 hover:bg-secondary/50"
-              >
-                {p.logo && (
-                  <img
-                    src={p.logo}
-                    alt={`${p.name}`}
-                    loading="lazy"
-                    className={p.logoClassName ?? "max-h-16 w-auto object-contain"}
-                  />
-                )}
-                {!p.logoContainsName && (
-                  <span
-                    className={`font-display text-xl leading-snug tracking-wide text-foreground md:text-2xl ${
-                      p.logo ? "mt-3" : ""
-                    }`}
-                  >
-                    {p.name}
-                  </span>
-                )}
-                <span className="mt-3 text-label uppercase tracking-[0.22em] text-muted-foreground transition-colors group-hover:opacity-70">
-                  {p.region} · {p.country}
-                </span>
-              </Link>
-            ),
-          )}
+                </Link>
+              ))}
+            </div>
+            <button
+              type="button"
+              className="producer-reel__arrow"
+              onClick={() => scroll(1)}
+              aria-label="Next producers"
+            >
+              <ChevronRight className="h-5 w-5" aria-hidden="true" />
+            </button>
+          </div>
         </div>
+      </section>
 
-        {hiddenCount > 0 && (
-          <button
-            type="button"
-            onClick={() => setExpanded(true)}
-            className="mt-px flex w-full items-center justify-center gap-3 bg-primary px-6 py-5 text-label font-medium uppercase tracking-[0.24em] text-primary-foreground transition-opacity hover:opacity-90"
-          >
-            View all producers ({hiddenCount} more)
-            <ChevronRight className="h-4 w-4" aria-hidden="true" />
-          </button>
-        )}
-      </Section>
-
-      <PhotoGallery title="Trade tastings and events" photos={eventPhotos} />
       <CtaBand />
     </>
   );
