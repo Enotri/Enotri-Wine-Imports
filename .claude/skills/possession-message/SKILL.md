@@ -1,102 +1,122 @@
 ---
 name: possession-message
-description: Acknowledge a new 1er Cru Elite Services possession clean job. Finds the builder's Possession Clean PO email in Gmail, saves a short "noted with thanks" reply as a Gmail draft in Rawlings' voice, and checks the job is on the Possession Clean calendar. Use when Rawlings says "possession message", "cru elite possession message", "reply to the new possession", "acknowledge the possession job", or forwards a Possession Clean / App Set Up PO email.
+description: 1er Cru Elite Services possession clean messages. Main job — the day before a possession clean, draft a confirmation email to each site supervisor for the homes being cleaned tomorrow. Also drafts the "noted with thanks" reply when a new Possession Clean PO email arrives. Use when Rawlings says "possession message", "cru elite possession message", "message the site supervisor", "possession cleans tomorrow", "reply to the new possession", or forwards a Possession Clean / App Set Up PO email.
 ---
 
 # Possession Message — 1er Cru Elite Services
 
 **Never send.** Save Gmail drafts only. Rawlings sends them himself.
 
-**This repo is public.** Do not write client names, email addresses or phone numbers into this file or into any commit. Read them from the email each time.
+**This repo is public.** Do not write client or supervisor names, email addresses or phone numbers into this file or into any commit. Read them from Gmail and Calendar each time.
 
-## 1. Find the job email
+**Default:** "possession message" with nothing else means **Part A for tomorrow** (America/Edmonton). If Rawlings names a date, use that date. Use Part B only when he asks to reply to a new job email.
 
-- If Rawlings names a job number or address, search for that.
-- Otherwise search Gmail: `subject:"Possession Clean" "BuildPro Order" newer_than:14d`
-- Read each thread in full with `get_thread` (`PLAIN_TEXT`). Search results only preview the thread.
-- Skip a thread that already has a sent reply from Rawlings.
-- Check `list_drafts` for the subject. If a reply draft already exists, say so. Do not make a second one.
+---
 
-## 2. Pull the job details
+## Part A — Site supervisor message (day before)
 
-| Field | Where to find it |
-|---|---|
-| Job number, street address, community | Subject: `Community, JOB# - ADDRESS, Possession Clean …` |
-| PO number | First bracket in the subject, shaped like `00000-00000-6320` |
-| Date needed | Body → JOB INFORMATION → DATE NEEDED |
-| Possession time | The coordinator's note ("Possession at 1 PM") or SUPPLIER INSTRUCTIONS |
-| Site supervisor | The coordinator's note first, else "Please direct questions … to:" |
-| Square footage | QTY next to the Possession Clean line |
-| Coordinator's first name | Her sign-off |
-| Special asks | Anything else in her note: extra attention, photo team, early deadline |
+### A1. List the jobs
 
-Do not guess. If a field is missing, leave it out of the reply and list it in the report.
+- Read the **Possession Clean** calendar (the account's primary calendar) for the target day.
+- Each event title reads `Possession Clean – {Community} – {street address}`. The description has the job number and PO.
+- Also run Part B's Gmail search for that date. A job with a PO email but no calendar event still counts. Flag it.
 
-## 3. Check before drafting
+### A2. Find each site supervisor
 
-- **Addressed to someone else** (the email greets a different cleaner by name): don't acknowledge the job. Draft this instead:
-  > Hi {first name},
-  >
-  > Just wanted to check in, this job came through to me, but it opens with "Hi {other name}." Wanted to make sure it was intended for me.
-  >
-  > Many thanks,
-- **Date needed already passed**: flag it to Rawlings and don't draft.
+- Find the job's Possession Clean PO email: search Gmail for the job number or street address.
+- Supervisor = the PO's "Please direct questions regarding the following tasks to:" name and email.
+- Possession time = the coordinator's note ("Possession at 1 PM") or SUPPLIER INSTRUCTIONS. If neither has it, the time is unknown. Do not take it from the calendar block.
+- Search recent emails for the job number (re-cleans, defects, urgent notices). If the coordinator calls someone else the site supervisor there, flag the mismatch. Still address the draft to the PO contact unless Rawlings says otherwise. Only use an email address that appears in Gmail.
 
-## 4. Draft the reply
+### A3. Check for an existing message
 
-Use `create_draft`:
+Search `in:sent` and `list_drafts` for `"Possession Clean Tomorrow"` plus the street address. If one exists for this date, report it. Don't make a second one.
+
+### A4. Draft one email per supervisor
+
+If one supervisor has several homes that day, put them all in one email.
+
+- `to`: supervisor's email from the PO
+- `subject`, one home: `Possession Clean Tomorrow – {street address} (Job {job#})`
+- `subject`, several homes: `Possession Cleans Tomorrow – {address} & {address} (Jobs {#} & {#})`
+- `includeSignature: true`. Don't type a signature in the body.
+- Plain text, no Markdown. No CC unless Rawlings asks.
+
+Body:
+
+```
+Hi {supervisor first name},
+
+Just confirming that 1er Cru Elite Services will be completing the possession clean tomorrow, {Weekday, Month D}, at:
+
+{street address} – Job {job#}
+
+We'll have the home finished ahead of the {time} possession. Please let me know if there's anything specific you'd like us to address before the walkthrough, or any access details we should be aware of.
+
+Thank you,
+```
+
+- Several homes: write "possession cleans", put one `{address} – Job {#}` line per home, and use "We'll have both homes finished ahead of the {time} possessions." For three or more homes, write "all homes".
+- Possession time unknown: write "ahead of the possession" and add "Could you please confirm the possession time?" before the last sentence. Change "Please let me know" to "Please also let me know".
+- If the message is for a day other than tomorrow, replace "tomorrow" with the day and date, and put that date in the subject.
+
+### A5. Report
+
+| Job | Address | Possession | Supervisor | Draft |
+|---|---|---|---|---|
+
+- Link each draft as a markdown link using its `viewUrl`.
+- Then give one short bullet for each flag: supervisor mismatch, unknown time, no calendar event, existing message, or anything missing.
+
+---
+
+## Part B — Acknowledge a new possession job
+
+### B1. Find the job email
+
+- If Rawlings names a job number or address, search for it. Otherwise search: `subject:"Possession Clean" "BuildPro Order" newer_than:14d`
+- Read each thread in full with `get_thread` (`PLAIN_TEXT`).
+- Skip a thread that already has a sent reply or a reply draft. Say so instead.
+
+### B2. Check before drafting
+
+- **Addressed to another cleaner** (the email greets someone else by name): don't acknowledge the job. Draft: "Just wanted to check in, this job came through to me, but it opens with "Hi {other name}." Wanted to make sure it was intended for me."
+- **Date needed already passed:** flag it and don't draft.
+
+### B3. Draft the reply
+
+Reply in the thread:
 - `replyToMessageId`: the coordinator's message id
 - `to`: her address, taken from the email
 - `subject`: `Re: {original subject}`
-- `includeSignature: true`. Do not type a signature in the body. If the draft comes back without one, tell Rawlings.
-- Plain text only, no Markdown.
-
-Standard reply:
+- `includeSignature: true`
 
 ```
-Hi {first name},
+Hi {coordinator first name},
 
 New possession with {supervisor first name} for Job {job#} – {street address} on {Weekday, Month D} at {time} noted with thanks.
 
 Thank you,
 ```
 
-Adjust only as needed:
-- No supervisor named: drop "with {supervisor first name}".
-- No possession time: drop "at {time}".
+- Drop "with {supervisor}" or "at {time}" if the email doesn't give them.
 - Extra attention asked for: add "We'll make sure to go in early, allow extra time, and give ourselves adequate time to thoroughly clean."
-- Hard deadline (photo team, early handover): add "We'll have it completed before {time}."
+- Hard deadline: add "We'll have it completed before {time}."
 
-Voice: short, warm and cooperative, one or two sentences. Match Rawlings' sent replies ("noted with thanks", "Thank you,"). No filler.
+### B4. Calendar
 
-## 5. Check the calendar
+Check the Possession Clean calendar for the job on the date needed. If it's missing, offer to add it. Don't create it without a yes.
+- Title: `Possession Clean – {Community} – {street address}`
+- Location: full address
+- Time: 8:00–11:00 AM
+- colorId: `9`
+- Description: these lines
+  - `Type of cleaning:`
+  - `Job number:`
+  - `PO number:`
+  - `Address:`
+  - `Community:`
+  - `Square footage:`
+  - `Basement:`
 
-Possession jobs go on the **Possession Clean** calendar, which is the account's primary calendar. Use time zone America/Edmonton.
-
-- Search that calendar on the date needed for the street address.
-- **Found:** note it in the report. If more than one event exists for the same address, flag the duplicates. Don't delete them.
-- **Missing:** offer to add it. Don't create it without a yes. Match the existing format:
-  - Title: `Possession Clean – {Community} – {street address}`
-  - Location: full job address
-  - Time: 8:00–11:00 AM on the date needed, so it's done well before a 1 PM possession. Use a different time if Rawlings asks.
-  - colorId: `9`
-  - Description:
-    ```
-    Type of cleaning: Possession Clean
-    Job number: {job#}
-    PO number: {PO}
-    Address: {full address}
-    Community: {community}
-    Square footage: {sq ft} sq ft
-    Basement: {Developed / Undeveloped / Not stated in job email}
-    ```
-
-## 6. Report back
-
-Give one table row per job:
-
-| Job | Address | Possession | Supervisor | Draft | Calendar |
-|---|---|---|---|---|---|
-
-- Link each draft as a markdown link using its `viewUrl`.
-- Then list any missing fields, duplicates or flags in one short bullet each.
+Flag any duplicate events for the same address. Don't delete them.
