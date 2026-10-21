@@ -7,6 +7,8 @@ Rawlings uses short trigger phrases for business-critical work. Match them befor
 | When Rawlings says… | Do this |
 |---|---|
 | "possession message", "cru elite possession message", "message the site supervisor" | Run the `possession-message` skill: the day-before **text message** to each site supervisor for tomorrow's possession cleans. Never email site supervisors. |
+| "do the invoices", "monthly invoice", "Impact invoice", "Coventry invoice" | Run the `cru-invoice` skill: 1er Cru's monthly builder invoices from the job calendars, checked against the PO emails. |
+| "Instagram post", "caption", "something for socials" | Run the `instagram-post` skill for Enotri or 1er Cru, including the AGLC compliance check for wine posts. |
 
 - If a request sounds like a workflow he has set up before, look before saying it doesn't exist. Check `.claude/skills/`, every remote branch (`git ls-remote --heads origin`), and this table.
 - If two readings are possible, ask one short question. Don't guess. Possession cleans are critical to 1er Cru.
