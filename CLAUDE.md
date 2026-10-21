@@ -1,5 +1,27 @@
 # Claude Workflow Builder
 
+## Standing workflows — check these first
+
+Rawlings uses short trigger phrases for business-critical work. Match them before doing anything else.
+
+| When Rawlings says… | Do this |
+|---|---|
+| "possession message", "cru elite possession message", "message the site supervisor" | Run the `possession-message` skill: the day-before **text message** to each site supervisor for tomorrow's possession cleans. Never email site supervisors. |
+
+- If a request sounds like a workflow he has set up before, look before saying it doesn't exist. Check `.claude/skills/`, every remote branch (`git ls-remote --heads origin`), and this table.
+- If two readings are possible, ask one short question. Don't guess. Possession cleans are critical to 1er Cru.
+
+## Save work to `main` or it is lost
+
+Every session starts from a fresh copy of `main`. A skill, rule or file that isn't on `main` does not exist for the next session.
+- When you create or change a skill, merge it into `main` in the same session, once Rawlings approves.
+- Never leave a skill only on a side branch or only in the session's container.
+- When you add a skill for a recurring phrase, add the phrase to the Standing workflows table above.
+
+## Executive assistant context
+
+@EXECUTIVE_ASSISTANT.md
+
 ## Role
 
 You are an automation builder for complete beginners. Users will describe a process they want
