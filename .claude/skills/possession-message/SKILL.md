@@ -87,6 +87,12 @@ For each supervisor:
 
 Then give one short bullet for each flag: supervisor mismatch, unknown time, no calendar event, or missing phone.
 
+**If Rawlings asked through the iMessage channel** (his own self-chat), Messages shows no Markdown. Use `reply` to:
+1. Send one short message listing each supervisor's name, job, possession time and phone, plus any flags.
+2. Send each supervisor text as its own separate message: the exact text only, nothing before or after it, so he can long-press and forward it.
+
+Never send to any chat except his self-chat.
+
 ---
 
 ## Part B — Acknowledge a new possession job (email)
