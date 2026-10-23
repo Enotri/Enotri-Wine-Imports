@@ -39,6 +39,12 @@ export const Route = createFileRoute("/about")({
           "Our story and philosophy: independent producers, responsible farming, and wines with a sense of place.",
       },
     ],
+    links: [
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&display=swap",
+      },
+    ],
   }),
   component: About,
 });
@@ -63,7 +69,9 @@ function About() {
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:grid-cols-[0.45fr_0.55fr] md:py-24">
           <div>
             <p className="eyebrow">Philosophy</p>
-            <h2 className="mt-4 text-3xl md:text-4xl">Our Philosophy</h2>
+            <h2 className="mt-4 text-3xl md:text-4xl font-['Dancing_Script',cursive] normal-case!">
+              Our Philosophy
+            </h2>
             <img
               src={soilHandsAsset.url}
               alt="Two hands cupping rich dark soil with earthworms, roots, and seedlings"
@@ -71,7 +79,7 @@ function About() {
               className="mt-8 aspect-[4/3] w-full overflow-hidden rounded-lg object-cover"
             />
           </div>
-          <div className="prose-enotri max-w-2xl self-center text-base">
+          <div className="prose-enotri max-w-2xl self-center text-base font-['Dancing_Script',cursive]">
             <p>
               We believe the most important work happens in the vineyard, so we only take on estates
               that farm their own fruit. Before a wine is listed, someone here has walked those rows
